@@ -1,0 +1,257 @@
+.header {
+    display: flex;
+    background-color: var(--main);
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0 135px;
+}
+
+.left {
+    display: flex;
+}
+
+.right {
+    display: flex;
+}
+
+.lang {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s ease;
+    position: relative;
+}
+
+.lang:hover {
+    opacity: .6;
+}
+
+.popuplang {
+    font-size: 11px;
+    color: white;
+    margin: 0 0 0 5px;
+    padding: 3px;
+    text-align: left;
+    z-index: 3;
+}
+
+.popupWall {
+    font-size: 11px;
+    color: white;
+    margin: 0 0 0 5px;
+    padding: 3px;
+    text-align: left;
+}
+
+.popupItem {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-color: var(--main);
+    border-bottom: 1px solid gray;
+    padding: 7px;
+    cursor: pointer;
+    transition: .3s ease;
+    z-index: 3;
+}
+
+.popupItem:hover {
+    opacity: .6;
+}
+
+.walletPopup {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding-top: 35px;
+    margin-left: 110px;
+}
+
+.popupItemWallet {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-color: var(--main);
+    border-bottom: 1px solid gray;
+    padding: 7px;
+    cursor: pointer;
+    transition: .3s ease;
+    z-index: 3;
+}
+
+.popupItemWallet:hover {
+    opacity: .6;
+}
+
+.language {
+    font-size: 11px;
+    color: white;
+    margin: 0 10px;
+    padding: 0;
+}
+
+.langPopup {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding-top: 35px;
+}
+
+.drop {
+    width: 11px;
+    height: 7px;
+    margin-right: 9px;
+}
+
+.dropLeft {
+    transform: rotate(180deg);
+}
+
+.currency {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s ease;
+    position: relative;
+}
+
+.currency:hover {
+    opacity: .6;
+}
+
+.text {
+    font-size: 11px;
+    color: white;
+    margin: 0 5px 0 0;
+}
+
+.wallet {
+    font-size: 11px;
+    color: var(--primary);
+    margin: 0 5px 0 0;
+}
+
+.account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.account:hover {
+    opacity: .6;
+}
+
+.avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-image: url("../../assets/images/user.jpg");
+    margin: 0 10px 0 0;
+}
+
+.username {
+    font-size: 11px;
+    color: white;
+    margin: 0 5px 0 0;
+}
+
+.wish {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.wish:hover {
+    opacity: .6;
+}
+
+.wishsvg {
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    margin-left: 14px;
+}
+
+.wishText {
+    font-size: 11px;
+    color: white;
+    margin: 0 22px 0 0;
+}
+
+.compare {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.compare:hover {
+    opacity: .6;
+}
+
+.comparesvg {
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+}
+
+.compareText {
+    font-size: 11px;
+    color: white;
+    margin: 0 22px 0 0;
+}
+
+.logout {
+    background-color: #f30a5c;
+    border-radius: 200px;
+    border: none;
+    width: 81px;
+    display: flex;
+    align-items: center;
+    height: 27px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.logout:hover {
+    opacity: .6;
+}
+
+.logout:hover .dropButton {
+    transform: rotate(90deg);
+}
+
+.buttonText {
+    font-size: 10px;
+    font-family: 'Exo', sans-serif;
+    line-height: 27px;
+    color: white;
+    margin: 0 7px 0 0;
+    text-transform: uppercase;
+}
+
+.dropButton {
+    width: 11px;
+    height: 7px;
+    transform: rotate(270deg);
+    transition: .3s ease;
+}
+
+.dropCont {
+    width: 21px;
+    height: 21px;
+    background-color: #bd0244;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s ease;
+}

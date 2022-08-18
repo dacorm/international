@@ -1,0 +1,45 @@
+@keyframes text {
+    0%{
+        transform: translate(0, 0);
+    }
+
+    100%{
+        transform: translate(-220%, 0);
+    }
+}
+
+.string {
+    height: 40px;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    overflow: hidden;
+    background-color: var(--main);
+}
+
+.left {
+    border-top: 40px solid #f30a5c;
+    border-right: 40px solid transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.text {
+    font-size: 12px;
+    color: white;
+    white-space: nowrap;
+    padding-left: 50%;
+    animation: text 7s infinite linear;
+    cursor: pointer;
+}
+
+.text:hover {
+    animation-play-state: paused
+}
+
+
+.right {
+    border-bottom: 50px solid var(--primary);
+    border-left: 50px solid transparent;
+    position: relative;
+    z-index: 1;
+}
