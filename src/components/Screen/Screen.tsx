@@ -4,6 +4,7 @@ import drop from '../../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg
 import cs from '../../assets/images/099a6cd51d99d94856577c535e858cc0.jpg';
 import dota from '../../assets/images/ae306fadfec0cb591697545dbb30a456.jpg';
 import lol from '../../assets/images/57167e56a68d8.jpg';
+import WhiteHeading from "../WhiteHeading/WhiteHeading";
 
 const data = [{
     image: dota,
@@ -37,6 +38,7 @@ const Screen = () => {
 
     return (
         <div className={styles.screen}>
+            <WhiteHeading className={styles.whiteHeading} />
             {
                 data.map((item, index) => (
                     <div className={`${styles.back} ${activeIndex === index + 1 ? styles.active : ''}`} style={{

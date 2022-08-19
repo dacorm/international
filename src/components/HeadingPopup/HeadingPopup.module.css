@@ -1,0 +1,365 @@
+.popup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    width: 1440px;
+    padding: 20px 50px;
+    margin: 0 auto;
+    height: 550px;
+}
+
+.lists {
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+}
+
+.up {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainPages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+}
+
+.listHeading {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: 'Exo', sans-serif;
+    margin: 0 0 10px 0;
+}
+
+.separator {
+    border-bottom: 3px solid #7442ce;
+    width: 50px;
+    margin: 0 0 20px 0;
+}
+
+.listItem {
+    font-size: 14px;
+    line-height: 32px;
+    color: #777;
+    height: fit-content;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.matchOverviews {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+}
+
+.teams {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+}
+
+.widgets {
+    padding: 15px 0 0 0;
+}
+
+.widget {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.streamers {
+    padding-top: 15px;
+}
+
+.streamersUl {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.streamer {
+    margin-top: 20px;
+    margin-right: 10px;
+    width: 90px;
+    height: 50px;
+    background: var(--main);
+    background-image: url("../../assets/images/streamer-hex-01.png");
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: .3s ease;
+}
+
+.streamer::before {
+    content: '';
+    position: absolute;
+    top: -25px;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-bottom: 25px solid var(--main);
+}
+
+.streamer::after {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-top: 25px solid var(--main);
+}
+
+.streamer2 {
+    margin-top: 20px;
+    margin-right: 10px;
+    width: 90px;
+    height: 50px;
+    background: var(--main);
+    background-image: url("../../assets/images/streamer-hex-02.png");
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: .3s ease;
+}
+
+.streamer2::before {
+    content: '';
+    position: absolute;
+    top: -25px;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-bottom: 25px solid var(--main);
+}
+.streamer2::after {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-top: 25px solid var(--main);
+}
+
+.streamer3 {
+    margin-top: 20px;
+    margin-right: 10px;
+    width: 90px;
+    height: 50px;
+    background: var(--main);
+    background-image: url("../../assets/images/streamer-hex-03.png");
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: .3s ease;
+}
+
+.streamer3::before {
+    content: '';
+    position: absolute;
+    top: -25px;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-bottom: 25px solid var(--main);
+}
+.streamer3::after {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-top: 25px solid var(--main);
+}
+
+.streamer4 {
+    margin-top: 20px;
+    margin-right: 10px;
+    width: 90px;
+    height: 50px;
+    background: var(--main);
+    background-image: url("../../assets/images/streamer-hex-04.png");
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: .3s ease;
+}
+
+.streamer4::before {
+    content: '';
+    position: absolute;
+    top: -25px;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-bottom: 25px solid var(--main);
+}
+.streamer4::after {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-top: 25px solid var(--main);
+}
+
+.streamer:hover {
+    opacity: .6;
+    cursor: pointer;
+}
+
+.streamer2:hover {
+    opacity: .6;
+    cursor: pointer;
+}
+
+.streamer3:hover {
+    opacity: .6;
+    cursor: pointer;
+}
+
+.streamer4:hover {
+    opacity: .6;
+    cursor: pointer;
+}
+
+.featuredMatch {
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+}
+
+.matchinfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid gray;
+    width: 300px;
+}
+
+.league {
+    line-height: 40px;
+    font-size: 9px;
+    text-transform: uppercase;
+    font-family: 'Exo', sans-serif;
+    margin: 0;
+}
+
+.date {
+    line-height: 40px;
+    font-size: 9px;
+    font-family: 'Exo', sans-serif;
+    color: #777;
+    margin: 0;
+}
+
+.match {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teamLogo {
+    width: 56px;
+    height: 56px;
+    margin-right: 5px;
+}
+
+.teamName {
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Exo', sans-serif;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.teamCountry {
+    font-size: 11px;
+    color: #777;
+    margin: 0;
+}
+
+.vs {
+    text-align: center;
+    font-family: 'Exo', sans-serif;
+    font-size: 12px;
+}
+
+.articles {
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+}
+
+.articlesUl {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.articleImg {
+    width: 70px;
+    height: 70px;
+    margin-right: 5px;
+}
+
+.article {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 15px;
+    cursor: pointer;
+}
+
+.textWrap {
+    display: flex;
+    align-items: center;
+}
+
+.articleTitle {
+    width: 195px;
+    margin: 0;
+    font-family: 'Exo', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.articleAuthor {
+    font-size: 11px;
+    color: #777;
+    margin-right: 5px;
+}
+
+.articleDate {
+    font-size: 11px;
+    color: #777;
+    margin-right: 5px;
+}
+
+.articleSep {
+    height: 9px;
+    margin: 0 5px;
+    border-right: 1px solid gray;
+    justify-self: center;
+}
+
+.span {
+    color: #7442ce;
+}

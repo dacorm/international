@@ -5,6 +5,7 @@
     justify-content: space-between;
     height: 50px;
     padding: 0 135px;
+    overflow: hidden;
 }
 
 .left {
@@ -57,7 +58,7 @@
     z-index: 3;
 }
 
-.popupItem:hover {
+.popupItem:hover .popuplang {
     opacity: .6;
 }
 
@@ -81,7 +82,7 @@
     z-index: 3;
 }
 
-.popupItemWallet:hover {
+.popupItemWallet:hover .popupWall {
     opacity: .6;
 }
 

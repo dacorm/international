@@ -1,0 +1,109 @@
+.whiteNav {
+    width: calc(100% - 200px);
+    margin: 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 95px;
+}
+
+.before {
+    width: 60px;
+    border-right: 1px solid gray;
+    height: 92px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15%;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 7px;
+}
+
+.logoText {
+    margin: 0;
+    text-transform: uppercase;
+    color: var(--main);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+span {
+    font-family: 'Exo', sans-serif;
+    color: var(--primary);
+}
+
+.logoSub {
+    margin: 0;
+    color: #777;
+    font-size: 11px;
+}
+
+.mainMenu {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.popup {
+    position: absolute;
+    bottom: -595%;
+    left: -84%;
+}
+
+.menuText {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 92px;
+    color: var(--main);
+    font-family: 'Exo', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.menuItem {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0 32px;
+}
+
+.menuItem:hover {
+    border-top: 3px solid var(--primary);
+}
+
+.drop {
+    width: 10px;
+    height: 10px;
+    margin-left: 3px;
+}
+
+.after {
+    width: 70px;
+    height: 92px;
+    border-left: 1px solid gray;
+    justify-self: flex-end;
+}
+
+.iconSearch {
+    width: 24px;
+    height: 24px;
+    margin-right: 25px;
+    justify-self: flex-end;
+}
+
+.iconInv {
+    width: 24px;
+    height: 24px;
+    justify-self: flex-end;
+}

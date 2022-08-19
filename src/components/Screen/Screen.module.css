@@ -16,7 +16,19 @@
 }
 
 .screen {
+    width: 100%;
     background-color: var(--main);
+    position: relative;
+    overflow: hidden;
+}
+
+.whiteHeading {
+    width: 100%;
+    background-color: white;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .back {
@@ -115,6 +127,11 @@
     transform: rotate(90deg);
 }
 
+.title {
+    display: inline-block;
+    max-width: 620px;
+}
+
 .active {
     display: flex;
     animation: fadeInFromNone .6s ease-in-out;
@@ -124,7 +141,7 @@
     display: flex;
     position: absolute;
     right: 50%;
-    bottom: 25%;
+    bottom: 3%;
 }
 
 .slide {
