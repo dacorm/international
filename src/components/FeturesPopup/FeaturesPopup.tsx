@@ -194,13 +194,14 @@ const FeaturesPopup: React.FC<FeaturesPopupProps> = ({ className }) => {
             </div>
             <div className={styles.down}>
                 {
-                    postsData.map((post) => ( <BigPost
+                    postsData.map((post, index) => ( <BigPost
                         title={post.title}
                         author={post.author}
                         date={post.date}
                         textPreview={post.textPreview}
                         labelText={post.labelText}
                         color={post.color}
+                        key={index}
                     />))
                 }
             </div>
