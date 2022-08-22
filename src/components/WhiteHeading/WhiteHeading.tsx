@@ -6,6 +6,7 @@ import search from '../../assets/images/search_FILL0_wght400_GRAD0_opsz48.svg';
 import inv from '../../assets/images/inventory_2_FILL0_wght400_GRAD0_opsz48.svg';
 import cn from 'classnames';
 import HeadingPopup from "../HeadingPopup/HeadingPopup";
+import FeaturesPopup from "../FeturesPopup/FeaturesPopup";
 
 type HeadingProps = {
     className: string
@@ -13,6 +14,7 @@ type HeadingProps = {
 
 const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
     const [open, setOpen] = useState(false);
+    const [visible, setVisible] = useState(false);
 
     return (
         <>
@@ -40,10 +42,11 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
                     <li className={styles.menuItem}>
                         <p className={styles.menuText}>Reviews</p>
                     </li>
-                    <li className={styles.menuItem}>
+                    <li className={styles.menuItem} onClick={() => setVisible(!visible)}>
                         <p className={styles.menuText}>Features</p>
                         <img src={drop} alt="dropDownIcon" className={styles.drop}/>
                     </li>
+                    {visible && <FeaturesPopup className={styles.popupFeatures} />}
                     <li className={styles.menuItem}>
                         <p className={styles.menuText}>Shop</p>
                     </li>

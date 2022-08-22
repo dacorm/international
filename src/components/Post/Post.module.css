@@ -1,0 +1,49 @@
+.articleImg {
+    width: 70px;
+    height: 70px;
+    margin-right: 5px;
+}
+
+.article {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 15px;
+    cursor: pointer;
+}
+
+.textWrap {
+    display: flex;
+    align-items: center;
+}
+
+.articleTitle {
+    width: 195px;
+    margin: 0;
+    font-family: 'Exo', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.articleAuthor {
+    font-size: 11px;
+    color: #777;
+    margin-right: 5px;
+}
+
+.articleDate {
+    font-size: 11px;
+    color: #777;
+    margin-right: 5px;
+}
+
+.articleSep {
+    height: 9px;
+    margin: 0 5px;
+    border-right: 1px solid gray;
+    justify-self: center;
+}
+
+.span {
+    color: #7442ce;
+}

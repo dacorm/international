@@ -4,10 +4,33 @@ import team1 from '../../assets/images/01.png';
 import team2 from '../../assets/images/02.png';
 import post from '../../assets/images/36.jpg';
 import cn from 'classnames';
+import Post from "../Post/Post";
 
 type popupProps = {
     className: string
 }
+
+const postsData = [{
+    title: 'gwen parker is leading her team to the semifinals',
+    author: 'Dexter',
+    date: 'Dec, 15th'
+},{
+    title: 'Pro Soccer League Kicked Off Today!!',
+    author: 'Faye V.',
+    date: 'Dec, 15th'
+},{
+    title: 'Last night the wolves beat the rhinos 12-10',
+    author: 'Dexter',
+    date: 'Dec, 15th'
+},{
+    title: 'gwen parker is leading her team to the semifinals',
+    author: 'Dexter',
+    date: 'Dec, 15th'
+},{
+    title: 'gwen parker is leading her team to the semifinals',
+    author: 'Dexter',
+    date: 'Dec, 15th'
+},]
 
 const HeadingPopup: React.FC<popupProps> = ({ className }) => {
     return (
@@ -118,61 +141,9 @@ const HeadingPopup: React.FC<popupProps> = ({ className }) => {
                 <h2 className={styles.listHeading}>Featured Articles</h2>
                 <div className={styles.separator}/>
                 <ul className={styles.articlesUl}>
-                    <li className={styles.article}>
-                        <img src={post} alt="Article Image" className={styles.articleImg} />
-                        <div className={styles.articleTextWrap}>
-                            <p className={styles.articleTitle}>gwen parker is leading her team to the semifinals</p>
-                            <div className={styles.textWrap}>
-                                <p className={styles.articleAuthor}>By <span className={styles.span}>Dexter</span></p>
-                                <div className={styles.articleSep}/>
-                                <p className={styles.articleDate}>Dec, 15th</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li className={styles.article}>
-                        <img src={post} alt="Article Image" className={styles.articleImg}/>
-                        <div className={styles.articleTextWrap}>
-                            <p className={styles.articleTitle}>Pro Soccer League Kicked Off Today!!</p>
-                            <div className={styles.textWrap}>
-                                <p className={styles.articleAuthor}>By <span className={styles.span}>Faye V.</span></p>
-                                <div className={styles.articleSep}/>
-                                <p className={styles.articleDate}>Dec, 15th</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li className={styles.article}>
-                        <img src={post} alt="Article Image" className={styles.articleImg}/>
-                        <div className={styles.articleTextWrap}>
-                            <p className={styles.articleTitle}>Last night the wolves beat the rhinos 12-10</p>
-                            <div className={styles.textWrap}>
-                                <p className={styles.articleAuthor}>By <span className={styles.span}>Dexter</span></p>
-                                <div className={styles.articleSep}/>
-                                <p className={styles.articleDate}>Dec, 15th</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li className={styles.article}>
-                        <img src={post} alt="Article Image" className={styles.articleImg}/>
-                        <div className={styles.articleTextWrap}>
-                            <p className={styles.articleTitle}>gwen parker is leading her team to the semifinals</p>
-                            <div className={styles.textWrap}>
-                                <p className={styles.articleAuthor}>By <span className={styles.span}>Dexter</span></p>
-                                <div className={styles.articleSep}/>
-                                <p className={styles.articleDate}>Dec, 15th</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li className={styles.article}>
-                        <img src={post} alt="Article Image" className={styles.articleImg}/>
-                        <div className={styles.articleTextWrap}>
-                            <p className={styles.articleTitle}>gwen parker is leading her team to the semifinals</p>
-                            <div className={styles.textWrap}>
-                                <p className={styles.articleAuthor}>By <span className={styles.span}>Dexter</span></p>
-                                <div className={styles.articleSep}/>
-                                <p className={styles.articleDate}>Dec, 15th</p>
-                            </div>
-                        </div>
-                    </li>
+                    {
+                        postsData.map((post, index) => ( <Post title={post.title} author={post.author} date={post.date} key={index} />))
+                    }
                 </ul>
             </div>
         </div>
