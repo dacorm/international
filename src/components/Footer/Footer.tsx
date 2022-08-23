@@ -4,7 +4,7 @@ import logo from "../../assets/images/logo.png";
 import sponsor from '../../assets/images/sponsor03.png';
 import drop from "../../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg";
 import youtube from '../../assets/images/socials/youtube-svgrepo-com.svg';
-import facebook from '../../assets/images/socials/facebook-svgrepo-com.svg';
+import facebook from '../../assets/images/socials/facebook-svgrepo-com2.svg';
 import twitter from '../../assets/images/socials/twitter-svgrepo-com (1).svg';
 import twitch from '../../assets/images/socials/twitch-svgrepo-com.svg';
 import Post from "../Post/Post";

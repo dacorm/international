@@ -1,0 +1,48 @@
+.label {
+    min-width: 90px;
+    width: fit-content;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: white;
+    font-family: 'Exo', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.labelPurple {
+    background-color: #7442ce;
+}
+
+.labelYellow {
+    background-color: #ffb400;
+}
+
+.labelBlue {
+    background-color: var(--primary);
+}
+
+.labelRed {
+    background-color: #f30a5c;
+}
+
+.article {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url("../../assets/images/16.jpg");
+    box-shadow: inset 0px -100px 190px -60px rgb(0 0 0 / 85%);
+}
+
+.title {
+    font-size: 16px;
+    font-family: 'Exo', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    margin: 10px 0 0 0;
+    padding: 7px;
+}
