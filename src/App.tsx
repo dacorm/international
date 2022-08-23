@@ -3,15 +3,17 @@ import Header from "./components/Header/Header";
 import Screen from "./components/Screen/Screen";
 import TextSlide from "./components/TextSlide/TextSlide";
 import Footer from "./components/Footer/Footer";
+import MainContent from "./components/MainContent/MainContent";
 
 
 
 function App() {
     return (
-        <div style={{height: '5000px'}}>
+        <div>
             <Header />
             <Screen />
             <TextSlide />
+            <MainContent />
             <Footer />
         </div>
     );

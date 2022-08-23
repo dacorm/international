@@ -9,6 +9,8 @@ import twitter from '../../assets/images/socials/twitter-svgrepo-com (1).svg';
 import twitch from '../../assets/images/socials/twitch-svgrepo-com.svg';
 import Post from "../Post/Post";
 import FooterBottom from "../FooterBottom/FooterBottom";
+import mail from '../../assets/images/mail.svg';
+import message from '../../assets/images/message.svg';
 
 const postsData = [{
     title: 'gwen parker is leading her team to the semifinals',
@@ -160,8 +162,30 @@ const Footer = () => {
                         }
                     </ul>
                 </div>
+                <div className={styles.footerDownDown}>
+                    <h2 className={styles.listHeading}>Contact info</h2>
+                    <div className={styles.separatorDown}/>
+                    <p className={styles.footerText}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Cum et eum quaerat quasi sed similique!</p>
+                    <div className={styles.subscribeWrap}>
+                        <div className={styles.greenRound}>
+                            <img src={message} alt="MessageIcon" className={styles.messageIcon}/>
+                        </div>
+                        <p className={styles.subscribeText}>Subscribe to our newsletter</p>
+                    </div>
+                    <div className={styles.inputWrap}>
+                        <input type='email' placeholder='Enter your email here' className={styles.input}/>
+                        <div className={styles.greenInput}>
+                            <img src={drop} alt="dropDownIcon" className={styles.dropRight} />
+                        </div>
+                    </div>
+                    <div className={styles.emailWrap}>
+                        <img src={mail} alt="Email icon" className={styles.mailIcon}/>
+                        <p className={styles.emailText}>info@pixeldiamond@mail.ru</p>
+                    </div>
+                </div>
             </div>
-            <FooterBottom />
+            <FooterBottom/>
         </footer>
     );
 };

@@ -222,3 +222,104 @@
     display: flex;
     align-items: flex-end;
 }
+
+.footerDownDown {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+}
+
+.separatorDown {
+    border-bottom: 3px solid #58d819;
+    width: 50px;
+    margin: 0 0 20px 0;
+}
+
+.footerText {
+    width: 272px;
+    font-size: 12px;
+    color: #b8b8b8;
+    line-height: 1.8333333333em;
+    margin: 5px 0;
+}
+
+.subscribeWrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.greenRound {
+    width: 50px;
+    height: 50px;
+    border-radius: 200px;
+    background-color: #58d819;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.messageIcon {
+    width: 25px;
+    height: 25px;
+}
+
+.subscribeText {
+    width: 128px;
+    font-family: 'Exo', sans-serif;
+    font-size: 12px;
+    color: white;
+    line-height: 1.3333333333em;
+    text-transform: uppercase;
+    margin-left: 9px;
+}
+
+.inputWrap {
+    display: flex;
+    width: 270px;
+    background-color: white;
+    height: 40px;
+    border-radius: 200px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input {
+    border: none;
+    background-color: transparent;
+    padding: 0 10px;
+    outline: none;
+    margin-right: 15px;
+}
+
+.greenInput {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #58d819;
+    border-radius: 200px;
+    margin-right: 3px;
+}
+
+.emailWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.emailText {
+    font-size: 10px;
+    font-family: 'Exo', sans-serif;
+    color: white;
+    text-transform: uppercase;
+    margin-left: 9px;
+}
+
+.mailIcon {
+    width: 25px;
+    height: 25px;
+}
