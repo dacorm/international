@@ -29,7 +29,7 @@ const BigPost: React.FC<BigPostProps> = ({ title, color = 'yellow', author, text
                     [styles.spanPurple]: color === 'purple',
                     [styles.spanBlue]: color === 'blue',
                     [styles.spanRed]: color === 'red',
-                })}>Vellatrix</span></p>
+                })}>{author}</span></p>
                 <div className={styles.articleSep}/>
                 <p className={styles.articleDate}>{date}</p>
             </div>

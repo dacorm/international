@@ -7,20 +7,20 @@ import youtube from '../../assets/images/socials/youtube-svgrepo-com.svg';
 import facebook from '../../assets/images/socials/facebook-svgrepo-com3.svg';
 import twitter from '../../assets/images/socials/twitter-svgrepo-com (1).svg';
 import twitch from '../../assets/images/socials/twitch-svgrepo-com.svg';
+import BigPost from "../BigPost/BigPost";
+import BigArticle from "../BigArticle/BigArticle";
+import Post from "../Post/Post"
+import Comment from "../Comment/Comment";
+import TextArticle from "../TextArticle/TextArticle";
+import { articlesData,
+    bigArticlesData,
+    commentData,
+    postsData,
+    smallPostsData,
+    newsPostData,
+    reviewsPostData, geekyPostData} from "../../assets/mainContentData";
 
-const articlesData = [{
-    title: 'New expansion pack coming to "Rise of Depredators"',
-    labelText: 'Gaming News',
-    color: 'blue'
-}, {
-    title: '"Legend of Kenshi II" is a bit green for now',
-    labelText: 'Game Reviews',
-    color: 'red'
-}, {
-    title: '"Ichigo Idol" anime will have a new season in April',
-    labelText: 'Geeky News',
-    color: 'yellow'
-},]
+
 
 const MainContent = () => {
     return (
@@ -37,10 +37,79 @@ const MainContent = () => {
                         />))
                     }
                 </div>
+                <div className={styles.articles}>
+                    <div className={styles.bigArticles}>
+                        {
+                            bigArticlesData.map((article, index) => (<BigArticle title={article.title}
+                                                                                 labelText={article.labelText}
+                                                                                 author={article.author}
+                                                                                 textPreview={article.textPreview}
+                                                                                 commentsCount={article.commentsCount}
+                                                                                 date={article.date}
+                                                                                 color={article.color}
+                                                                                 key={`${index}+2`}
+                            />))
+                        }
+                    </div>
+                    <div className={styles.littleArticles}>
+                        {
+                            postsData.map((post, index) => (<BigPost
+                                title={post.title}
+                                color={post.color}
+                                author={post.author}
+                                date={post.date}
+                                textPreview={post.textPreview}
+                                labelText={post.labelText}
+                                key={`${index}+3`}
+                            />))
+                        }
+                    </div>
+                </div>
+                <div className={styles.textPreviews}>
+                    <div className={styles.newsReviews}>
+                        <h2 className={styles.Heading}>Gaming news</h2>
+                        <div className={styles.separatorDown}/>
+                        {
+                            newsPostData.map((post, index) => (<TextArticle
+                                color={post.color}
+                                name={post.author}
+                                title={post.title}
+                                date={post.data}
+                                key={`${index}+4`}
+                            />))
+                        }
+                    </div>
+                    <div className={styles.gameReviews}>
+                        <h2 className={styles.Heading}>Game Reviews</h2>
+                        <div className={styles.separatorPurple}/>
+                        {
+                            reviewsPostData.map((post, index) => (<TextArticle
+                                color={post.color}
+                                name={post.author}
+                                title={post.title}
+                                date={post.data}
+                                key={`${index}+4`}
+                            />))
+                        }
+                    </div>
+                    <div className={styles.geekyReviews}>
+                        <h2 className={styles.Heading}>Geeky news</h2>
+                        <div className={styles.separatorYellow}/>
+                        {
+                            geekyPostData.map((post, index) => (<TextArticle
+                                color={post.color}
+                                name={post.author}
+                                title={post.title}
+                                date={post.data}
+                                key={`${index}+4`}
+                            />))
+                        }
+                    </div>
+                </div>
             </div>
             <div className={styles.sidebar}>
                 <div className={styles.inputWrap}>
-                    <input type='text' placeholder='Search for articles here' className={styles.input} />
+                    <input type='text' placeholder='Search for articles here' className={styles.input}/>
                     <div className={styles.blueRound}>
                         <img src={search} alt="Search icon" className={styles.search}/>
                     </div>
@@ -64,6 +133,43 @@ const MainContent = () => {
                         <img src={twitch} alt="" className={styles.socialIcon}/>
                         <p className={styles.counter}>9632</p>
                     </div>
+                </div>
+                <h2 className={styles.Heading}>Popular Posts</h2>
+                <div className={styles.separatorDown}/>
+                <div className={styles.popularPosts}>
+                    {
+                        smallPostsData.map((post, index) => (<Post
+                            title={post.title}
+                            author={post.author}
+                            date={post.date}
+                            key={index}
+                        />))
+                    }
+                </div>
+                <h2 className={styles.Heading}>Latest Reviews</h2>
+                <div className={styles.separatorPurple}/>
+                <div className={styles.popularPosts}>
+                    {
+                        smallPostsData.map((post, index) => (<Post
+                            title={post.title}
+                            author={post.author}
+                            date={post.date}
+                            key={`${index}+1`}
+                        />))
+                    }
+                </div>
+                <h2 className={styles.Heading}>Lastest comments</h2>
+                <div className={styles.separatorDown}/>
+                <div className={styles.comments}>
+                    {
+                        commentData.map((comment, index) => (<Comment
+                            name={comment.name}
+                            title={comment.title}
+                            comment={comment.comment}
+                            key={`${index}+2`}
+                            color={comment.color}
+                        />))
+                    }
                 </div>
             </div>
         </div>

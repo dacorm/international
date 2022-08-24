@@ -1,7 +1,6 @@
 .content {
     display: flex;
     flex: 6;
-    height: 500px;
     width: 1170px;
     margin: 60px auto;
 }
@@ -148,4 +147,64 @@
     color: white;
     text-transform: uppercase;
     margin: 3px 0 0 0;
+}
+
+.articles {
+    display: flex;
+    flex: 6;
+    gap: 30px;
+    padding-top: 30px;
+}
+
+.bigArticles {
+    flex: 4;
+}
+
+.littleArticles {
+    flex: 2;
+}
+
+.separatorPurple {
+    border-bottom: 3px solid #f9288a;
+    width: 70px;
+    margin: 0 0 20px 0;
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.textPreviews {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.separatorYellow {
+    border-bottom: 3px solid #ffb400;
+    width: 70px;
+    margin: 0 0 20px 0;
+}
+
+.newsReviews {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.gameReviews {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.geekyReviews {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
 }

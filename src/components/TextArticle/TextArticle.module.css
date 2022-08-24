@@ -1,0 +1,55 @@
+.articleAuthor {
+    font-size: 11px;
+    color: #777;
+    margin-right: 5px;
+}
+
+.articleDate {
+    font-size: 11px;
+    color: #777;
+    margin-right: 5px;
+}
+
+.articleSep {
+    height: 9px;
+    margin: 0 5px;
+    border-right: 1px solid gray;
+    justify-self: center;
+}
+
+.authorDate {
+    display: flex;
+    align-items: center;
+}
+
+.article {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid gray;
+    width: 270px;
+    padding-top: 15px;
+}
+
+.title {
+    font-size: 17px;
+    color: #363636;
+    font-family: 'Exo', sans-serif;
+    text-transform: uppercase;
+    margin: 0 0 5px 0;
+}
+
+.spanPurple {
+    color: #7442ce;
+}
+
+.spanBlue {
+    color: var(--primary);
+}
+
+.spanYellow {
+    color: #ffb400;
+}
+
+.spanRed {
+    color: #f30a5c;
+}

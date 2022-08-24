@@ -1,0 +1,51 @@
+.comment {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    background-image: url("../../assets/images/16.jpg");
+    width: 60px;
+    height: 60px;
+    border-radius: 200px;
+    margin-right: 8px;
+}
+
+.texts {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.name {
+    font-size: 12px;
+    color: #363636;
+    font-family: 'Exo',sans-serif;
+    margin: 0 0 4px 0;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.commentaryText {
+    margin: 4px 0 0 0;
+    color: #777;
+    font-size: 11px;
+}
+
+.titleYellow {
+    color: #ffb400;
+}
+
+.titleBlue {
+    color: var(--primary);
+}
+
+.titleGreen {
+    color: #58d819;
+}
