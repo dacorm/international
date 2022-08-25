@@ -1,0 +1,59 @@
+.video {
+    width: 270px;
+    height: 160px;
+    background-image: url("../../assets/images/16.jpg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: .3s ease;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.video:hover .text {
+    opacity: 1;
+}
+
+.video:hover .overlay {
+    transform: translateY(-20px);
+}
+
+
+.video:hover .textSmall {
+    opacity: 1;
+}
+
+.overlay {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-radius: 200px;
+    transform: translateY(40px);
+    transition: .3s ease;
+}
+
+.text {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: 'Exo', sans-serif;
+    margin: 5px 0 0 0;
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: .3s ease;
+}
+
+.textSmall {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-family: 'Exo', sans-serif;
+    margin: 5px 0 0 0;
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: .3s ease;
+}

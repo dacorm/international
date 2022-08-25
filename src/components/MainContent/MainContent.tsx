@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import Article from "../Article/Article";
 import styles from './MainContent.module.css';
 import LittleArticle from "../LittleArticle/LittleArticle";
@@ -7,27 +7,54 @@ import youtube from '../../assets/images/socials/youtube-svgrepo-com.svg';
 import facebook from '../../assets/images/socials/facebook-svgrepo-com3.svg';
 import twitter from '../../assets/images/socials/twitter-svgrepo-com (1).svg';
 import twitch from '../../assets/images/socials/twitch-svgrepo-com.svg';
+import magimons from '../../assets/images/unnamed.png'
 import BigPost from "../BigPost/BigPost";
 import BigArticle from "../BigArticle/BigArticle";
 import Post from "../Post/Post"
 import Comment from "../Comment/Comment";
 import TextArticle from "../TextArticle/TextArticle";
-import { articlesData,
+import {
+    articlesData,
     bigArticlesData,
     commentData,
-    postsData,
-    smallPostsData,
+    geekyPostData,
     newsPostData,
-    reviewsPostData, geekyPostData} from "../../assets/mainContentData";
-
+    postsData,
+    reviewsPostData,
+    smallPostsData,
+    videoData
+} from "../../assets/mainContentData";
+import drop from "../../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg";
+import Video from "../Video/Video";
+import Tag from "../Tag/Tag";
 
 
 const MainContent = () => {
+    const slider = useRef<HTMLDivElement>(null);
+
+    let position = 0;
+
+    const prevHandler = () => {
+        position += 280
+        if (position > 350) position = 0
+        slider?.current?.childNodes.forEach((element) => {
+            (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`)
+        })
+    }
+
+    const nextHandler = () => {
+        position -= 280
+        if (position < -1299) position = 0
+        slider?.current?.childNodes.forEach((element) => {
+            (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`)
+        })
+    }
+
     return (
         <div className={styles.content}>
             <div className={styles.main}>
                 <div className={styles.grid}>
-                    <Article className={styles.area}></Article>
+                    <Article className={styles.area} image={magimons} />
                     {
                         articlesData.map((article, index) => (<LittleArticle
                             labelText={article.labelText}
@@ -106,6 +133,31 @@ const MainContent = () => {
                         }
                     </div>
                 </div>
+                <div className={styles.latestVideos}>
+                    <div className={styles.videosHeading}>
+                        <div>
+                            <h2 className={styles.Heading}>Latest Videos</h2>
+                            <div className={styles.separatorVid}/>
+                        </div>
+                        <div>
+                            <button className={styles.button} onClick={prevHandler}>
+                                <img src={drop} alt="dropDownIcon" className={styles.dropLeft} />
+                            </button>
+                            <button className={styles.button} onClick={nextHandler}>
+                                <img src={drop} alt="dropDownIcon" className={styles.dropRight} />
+                            </button>
+                        </div>
+                    </div>
+                    <div className={styles.videoContainer} ref={slider} >
+                        {
+                            videoData.map((video, index) => (<Video
+                                text={video.text}
+                                textSmall={video.textSmall}
+                                key={`${index}+5`}
+                            />))
+                        }
+                    </div>
+                </div>
             </div>
             <div className={styles.sidebar}>
                 <div className={styles.inputWrap}>
@@ -170,6 +222,18 @@ const MainContent = () => {
                             color={comment.color}
                         />))
                     }
+                </div>
+                <div>
+                    <h2 className={styles.Heading}>Pixel tags</h2>
+                    <div className={styles.separatorDown}/>
+                    <div className={styles.tags}>
+                        <Tag text={'Gaming'} />
+                        <Tag text={'Video Reviews'} />
+                        <Tag text={'Previews'} />
+                        <Tag text={'Movie Reviews'} />
+                        <Tag text={'eSports'} />
+
+                    </div>
                 </div>
             </div>
         </div>

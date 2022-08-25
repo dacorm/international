@@ -1,9 +1,9 @@
 .article {
-    background-image: url("../../assets/images/16.jpg");
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     box-shadow: inset 0px -100px 190px -60px rgb(0 0 0 / 85%);
+    cursor: pointer;
 }
 
 .wrapper {
@@ -17,6 +17,7 @@
     text-transform: uppercase;
     color: white;
     margin: 10px 0 0 0;
+    text-shadow: 1px 1px 2px black;
 }
 
 .subtitle {

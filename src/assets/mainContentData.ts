@@ -166,3 +166,41 @@ export const geekyPostData = [{
     data: 'December, 15th',
     color: 'yellow'
 },]
+
+export const videoData = [{
+    text: 'Jazzstar announced that the GTE5 for PC is delayed',
+    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+},{
+    text: 'New expansion pack coming to "Rise of Depredators"',
+    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+},{
+    text: 'Galaxy Adventure RX is a boring remake of a classic',
+    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+},{
+    text: 'We reviewed the new Magimons game',
+    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+},{
+    text: 'The Clash of Dragons is breaking record sales in...',
+    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+},{
+    text: 'Jazzstar announced that the GTE5 for PC is delayed',
+    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+},{
+    text: 'Jazzstar announced that the GTE5 for PC is delayed',
+    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+},{
+    text: 'New expansion pack coming to "Rise of Depredators"',
+    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+},{
+    text: 'Galaxy Adventure RX is a boring remake of a classic',
+    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+},{
+    text: 'We reviewed the new Magimons game',
+    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+},{
+    text: 'The Clash of Dragons is breaking record sales in...',
+    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+},{
+    text: 'Jazzstar announced that the GTE5 for PC is delayed',
+    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+},]
