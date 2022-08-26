@@ -9,28 +9,32 @@ const postsData = [{
     date: 'December, 15th',
     textPreview: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus.',
     labelText: 'Gaming News',
-    color: 'yellow'
+    color: 'yellow',
+    id: 13,
 },{
     title: 'The new mecha cyber games is breaking barriers',
     author: 'Vellatrix',
     date: 'December, 15th',
     textPreview: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus.',
     labelText: 'Gaming Reviews',
-    color: 'blue'
+    color: 'blue',
+    id: 14,
 },{
     title: 'Pro soccer 2017 league kicked off today',
     author: 'Faye V.',
     date: 'December, 15th',
     textPreview: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus.',
     labelText: 'eSports',
-    color: 'red'
+    color: 'red',
+    id: 15,
 },{
     title: 'Jessica time to star in new Charlotte series',
     author: 'Vellatrix',
     date: 'December, 15th',
     textPreview: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus.',
     labelText: 'Geeky news',
-    color: 'yellow'
+    color: 'yellow',
+    id: 16,
 },]
 
 type FeaturesPopupProps = {
@@ -201,7 +205,8 @@ const FeaturesPopup: React.FC<FeaturesPopupProps> = ({ className }) => {
                         textPreview={post.textPreview}
                         labelText={post.labelText}
                         color={post.color}
-                        key={index}
+                        key={post.id}
+                        id={post.id}
                     />))
                 }
             </div>

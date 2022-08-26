@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./Post.module.css";
 import post from "../../assets/images/36.jpg";
 import cn from 'classnames';
+import {Link} from "react-router-dom";
 
 type PostProps = {
     title: string
@@ -9,11 +10,12 @@ type PostProps = {
     date: string
     color?: 'blue' | 'purple'
     className?: string
+    id: number
 }
 
-const Post: React.FC<PostProps> = ({ title, author, date, color = 'purple', className }) => {
+const Post: React.FC<PostProps> = ({ title, author, date, color = 'purple', className, id }) => {
     return (
-        <li className={styles.article}>
+        <Link to={`/article/${id}`} className={styles.article}>
             <img src={post} alt="Article Image" className={styles.articleImg}/>
             <div className={styles.articleTextWrap}>
                 <p className={cn(styles.articleTitle, className)}>{title}</p>
@@ -25,7 +27,7 @@ const Post: React.FC<PostProps> = ({ title, author, date, color = 'purple', clas
                     <p className={styles.articleDate}>{date}</p>
                 </div>
             </div>
-        </li>
+        </Link>
     );
 };
 

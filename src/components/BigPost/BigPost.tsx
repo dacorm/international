@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './BigPost.module.css';
 import cn from 'classnames'
+import {Link} from "react-router-dom";
 
 type BigPostProps = {
     title: string
@@ -9,11 +10,12 @@ type BigPostProps = {
     textPreview: string
     labelText: string
     color?: string
+    id: number
 }
 
-const BigPost: React.FC<BigPostProps> = ({ title, color = 'yellow', author, textPreview, labelText, date }) => {
+const BigPost: React.FC<BigPostProps> = ({ title, color = 'yellow', author, textPreview, labelText, date, id }) => {
     return (
-        <div className={styles.post}>
+        <Link to={`/article/${id}`} className={styles.post}>
             <div className={styles.postImg}>
                 <div className={cn(styles.label, {
                     [styles.labelYellow]: color === 'yellow',
@@ -34,7 +36,7 @@ const BigPost: React.FC<BigPostProps> = ({ title, color = 'yellow', author, text
                 <p className={styles.articleDate}>{date}</p>
             </div>
             <p className={styles.textPreview}>{textPreview}</p>
-        </div>
+        </Link>
     );
 };
 

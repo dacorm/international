@@ -54,13 +54,14 @@ const MainContent = () => {
         <div className={styles.content}>
             <div className={styles.main}>
                 <div className={styles.grid}>
-                    <Article className={styles.area} image={magimons} />
+                    <Article className={styles.area} image={magimons} id={1} />
                     {
                         articlesData.map((article, index) => (<LittleArticle
                             labelText={article.labelText}
                             titleText={article.title}
                             color={article.color}
-                            key={index}
+                            key={article.id}
+                            id={article.id}
                         />))
                     }
                 </div>
@@ -74,7 +75,8 @@ const MainContent = () => {
                                                                                  commentsCount={article.commentsCount}
                                                                                  date={article.date}
                                                                                  color={article.color}
-                                                                                 key={`${index}+2`}
+                                                                                 key={article.id}
+                                                                                 id={article.id}
                             />))
                         }
                     </div>
@@ -87,7 +89,8 @@ const MainContent = () => {
                                 date={post.date}
                                 textPreview={post.textPreview}
                                 labelText={post.labelText}
-                                key={`${index}+3`}
+                                key={post.id}
+                                id={post.id}
                             />))
                         }
                     </div>
@@ -102,7 +105,8 @@ const MainContent = () => {
                                 name={post.author}
                                 title={post.title}
                                 date={post.data}
-                                key={`${index}+4`}
+                                key={post.id}
+                                id={post.id}
                             />))
                         }
                     </div>
@@ -115,7 +119,8 @@ const MainContent = () => {
                                 name={post.author}
                                 title={post.title}
                                 date={post.data}
-                                key={`${index}+4`}
+                                key={post.id}
+                                id={post.id}
                             />))
                         }
                     </div>
@@ -128,7 +133,8 @@ const MainContent = () => {
                                 name={post.author}
                                 title={post.title}
                                 date={post.data}
-                                key={`${index}+4`}
+                                key={post.id}
+                                id={post.id}
                             />))
                         }
                     </div>
@@ -194,7 +200,8 @@ const MainContent = () => {
                             title={post.title}
                             author={post.author}
                             date={post.date}
-                            key={index}
+                            key={post.id}
+                            id={post.id}
                         />))
                     }
                 </div>
@@ -206,7 +213,8 @@ const MainContent = () => {
                             title={post.title}
                             author={post.author}
                             date={post.date}
-                            key={`${index}+1`}
+                            key={post.id}
+                            id={post.id}
                         />))
                     }
                 </div>

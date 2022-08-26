@@ -7,9 +7,10 @@ import inv from '../../assets/images/inventory_2_FILL0_wght400_GRAD0_opsz48.svg'
 import cn from 'classnames';
 import HeadingPopup from "../HeadingPopup/HeadingPopup";
 import FeaturesPopup from "../FeturesPopup/FeaturesPopup";
+import { Link } from 'react-router-dom';
 
 type HeadingProps = {
-    className: string
+    className?: string
 }
 
 const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
@@ -20,13 +21,13 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
         <>
             <nav className={cn(styles.whiteNav, className)}>
                 <div className={styles.before}></div>
-                <div className={styles.logo}>
+                <Link to='/' className={styles.logo}>
                     <img src={logo} alt="Logo" className={styles.logoImg}/>
                     <div className={styles.text}>
                         <h2 className={styles.logoText}>Pixel<span>Diamond</span></h2>
                         <p className={styles.logoSub}>The Latest Gaming News</p>
                     </div>
-                </div>
+                </Link>
                 <ul className={styles.mainMenu}>
                     <li className={styles.menuItem}>
                         <p className={styles.menuText}>Home</p>

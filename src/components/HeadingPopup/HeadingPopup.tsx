@@ -13,23 +13,28 @@ type popupProps = {
 const postsData = [{
     title: 'gwen parker is leading her team to the semifinals',
     author: 'Dexter',
-    date: 'Dec, 15th'
+    date: 'Dec, 15th',
+    id: 30
 },{
     title: 'Pro Soccer League Kicked Off Today!!',
     author: 'Faye V.',
-    date: 'Dec, 15th'
+    date: 'Dec, 15th',
+    id: 31
 },{
     title: 'Last night the wolves beat the rhinos 12-10',
     author: 'Dexter',
-    date: 'Dec, 15th'
+    date: 'Dec, 15th',
+    id: 32
 },{
     title: 'gwen parker is leading her team to the semifinals',
     author: 'Dexter',
-    date: 'Dec, 15th'
+    date: 'Dec, 15th',
+    id: 33
 },{
     title: 'gwen parker is leading her team to the semifinals',
     author: 'Dexter',
-    date: 'Dec, 15th'
+    date: 'Dec, 15th',
+    id: 34
 },]
 
 const HeadingPopup: React.FC<popupProps> = ({ className }) => {
@@ -142,7 +147,13 @@ const HeadingPopup: React.FC<popupProps> = ({ className }) => {
                 <div className={styles.separator}/>
                 <ul className={styles.articlesUl}>
                     {
-                        postsData.map((post, index) => ( <Post title={post.title} author={post.author} date={post.date} key={index} />))
+                        postsData.map((post, index) => ( <Post
+                            title={post.title}
+                            author={post.author}
+                            date={post.date}
+                            key={post.id}
+                            id={post.id}
+                        />))
                     }
                 </ul>
             </div>

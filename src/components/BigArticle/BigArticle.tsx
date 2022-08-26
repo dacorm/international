@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './BigArticle.module.css';
 import cn from "classnames";
+import {Link} from "react-router-dom";
 
 type BigArticleProps = {
     title: string
@@ -10,13 +11,14 @@ type BigArticleProps = {
     commentsCount: number
     date: string
     color?: string
+    id: number
 }
 
-const BigArticle: React.FC<BigArticleProps> = ({ title, labelText, author, textPreview, commentsCount, date, color = 'blue' }) => {
+const BigArticle: React.FC<BigArticleProps> = ({ title, labelText, author, textPreview, commentsCount, date, color = 'blue', id }) => {
 
 
     return (
-        <div className={styles.article}>
+        <Link to={`/article/${id}`} className={styles.article}>
             <div className={styles.articleImage}>
                 <div className={cn(styles.label, {
                     [styles.labelYellow]: color === 'yellow',
@@ -47,7 +49,7 @@ const BigArticle: React.FC<BigArticleProps> = ({ title, labelText, author, textP
             <p className={styles.textPreview}>
                 {textPreview}
             </p>
-        </div>
+        </Link>
     );
 };
 

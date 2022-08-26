@@ -1,21 +1,22 @@
-import React from 'react';
-import Header from "./components/Header/Header";
-import Screen from "./components/Screen/Screen";
-import TextSlide from "./components/TextSlide/TextSlide";
-import Footer from "./components/Footer/Footer";
-import MainContent from "./components/MainContent/MainContent";
+import React, { Suspense } from 'react';
+import {Routes, Route} from "react-router-dom";
+import Home from "./pages/Home";
 
-
+const ArticlePage = React.lazy(() => import('./pages/Article'));
 
 function App() {
     return (
-        <div>
-            <Header />
-            <Screen />
-            <TextSlide />
-            <MainContent />
-            <Footer />
-        </div>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+                path="article/:id"
+                element={
+                    <Suspense fallback={<div>Идёт загрузка...</div>}>
+                        <ArticlePage />
+                    </Suspense>
+                }
+            />
+        </Routes>
     );
 }
 

@@ -1,33 +1,40 @@
 export const articlesData = [{
     title: 'New expansion pack coming to "Rise of Depredators"',
     labelText: 'Gaming News',
-    color: 'blue'
+    color: 'blue',
+    id: 2
 }, {
     title: '"Legend of Kenshi II" is a bit green for now',
     labelText: 'Game Reviews',
-    color: 'red'
+    color: 'red',
+    id: 3,
 }, {
     title: '"Ichigo Idol" anime will have a new season in April',
     labelText: 'Geeky News',
-    color: 'yellow'
+    color: 'yellow',
+    id: 4,
 },]
 
 export const smallPostsData = [{
     title: 'The Clash of Dragons is breaking record sales in USA and Japan',
     author: 'Dexter',
-    date: 'Dec, 15th'
+    date: 'Dec, 15th',
+    id: 26,
 }, {
     title: '"Legend of Kenshii II" is a bit green for now',
     author: 'Faye V.',
-    date: 'Dec, 15th'
+    date: 'Dec, 15th',
+    id: 27
 }, {
     title: 'Last night the wolves beat the rhinos 12-10',
     author: 'Dexter',
-    date: 'Dec, 15th'
+    date: 'Dec, 15th',
+    id: 28
 },{
     title: 'Jazzstar announced that the GTE5 for PC is delayed',
     author: 'Dexter',
-    date: 'Dec, 15th'
+    date: 'Dec, 15th',
+    id: 29
 },]
 
 export const postsData = [{
@@ -36,35 +43,40 @@ export const postsData = [{
     date: 'December, 15th',
     textPreview: 'Lorem ipsum dolor sit amet, consectetur bere adipisicing elit, sed do eiusmod tempor lorem incididunt.',
     labelText: 'Gaming News',
-    color: 'blue'
+    color: 'blue',
+    id: 8
 }, {
     title: 'Jessica Tam to star in the new "Charlotte" series',
     author: 'Vellatrix',
     date: 'December, 15th',
     textPreview: 'Lorem ipsum dolor sit amet, consectetur bere adipisicing elit, sed do eiusmod tempor lorem incididunt.',
     labelText: 'Geeky News',
-    color: 'yellow'
+    color: 'yellow',
+    id: 9
 }, {
     title: 'New "Rizen" game is gonna be released in summer 2019',
     author: 'Faye V.',
     date: 'December, 15th',
     textPreview: 'Lorem ipsum dolor sit amet, consectetur bere adipisicing elit, sed do eiusmod tempor lorem incididunt.',
     labelText: 'gaming news',
-    color: 'blue'
+    color: 'blue',
+    id: 10
 }, {
     title: 'The new mecha cyborg game is breaking barriers',
     author: 'Vellatrix',
     date: 'December, 15th',
     textPreview: 'Lorem ipsum dolor sit amet, consectetur bere adipisicing elit, sed do eiusmod tempor lorem incididunt.',
     labelText: 'Geeky news',
-    color: 'yellow'
+    color: 'yellow',
+    id: 11
 }, {
     title: 'We reviewed the "Guardians of the Universe" movie',
     author: 'Faye V.',
     date: 'December, 15th',
     textPreview: 'Lorem ipsum dolor sit amet, consectetur bere adipisicing elit, sed do eiusmod tempor lorem incididunt.',
     labelText: 'eSports',
-    color: 'purple'
+    color: 'purple',
+    id: 12
 },]
 
 export const bigArticlesData = [{
@@ -77,6 +89,7 @@ export const bigArticlesData = [{
     color: 'blue',
     author: 'Dexter',
     commentsCount: 174,
+    id: 5,
 },{
     title: 'We reviewed the new and exciting Fantasy game "Olympus"',
     date: 'December, 15th',
@@ -87,6 +100,7 @@ export const bigArticlesData = [{
     color: 'red',
     author: 'Vellatrix',
     commentsCount: 258,
+    id: 6,
 },{
     title: 'Everything about Kawai Party 8!',
     date: 'December, 15th',
@@ -97,6 +111,7 @@ export const bigArticlesData = [{
     color: 'blue',
     author: 'Dexter',
     commentsCount: 174,
+    id: 7,
 },]
 
 export const commentData = [{
@@ -120,51 +135,60 @@ export const newsPostData = [{
     title: 'Legend of the Temple is coming to all consoles',
     author: 'Vellatrix',
     data: 'December, 15th',
-    color: 'blue'
+    color: 'blue',
+    id: 17
 },{
     title: 'Pro Soccer 2017 is gonna run with a new graphics engine',
     author: 'Dexter',
     data: 'December, 15th',
-    color: 'blue'
+    color: 'blue',
+    id: 18
 },{
     title: 'Thomas Barker joins the team of "The Amazing Knight"',
     author: 'Dexter',
     data: 'December, 15th',
-    color: 'blue'
+    color: 'blue',
+    id: 19
 },]
 
 export const reviewsPostData = [{
     title: 'Dragons and Knights arrived with a big impression',
     author: 'Vellatrix',
     data: 'December, 15th',
-    color: 'red'
+    color: 'red',
+    id: 20
 },{
     title: 'The new Mary World lacks the fun and charm of older versions',
     author: 'Morgana',
     data: 'December, 15th',
-    color: 'red'
+    color: 'red',
+    id: 21
 },{
     title: 'We played Pirates Greed Japan and has the potential to be GOTY',
     author: 'Vellatrix',
     data: 'December, 15th',
-    color: 'red'
+    color: 'red',
+    id: 22
 },]
 
 export const geekyPostData = [{
     title: '"Steamboat" anime will have a preview event on May',
     author: 'Morgana',
     data: 'December, 15th',
-    color: 'yellow'
+    color: 'yellow',
+    id: 23
 },{
     title: 'Plans for a new AC theme park in California studios',
     author: 'Morgana',
     data: 'December, 15th',
-    color: 'yellow'
+    color: 'yellow',
+    id: 24
 },{
     title: 'Jessica Tam to appear at this year Bebop convention',
     author: 'Vellatrix',
     data: 'December, 15th',
-    color: 'yellow'
+    color: 'yellow',
+    id: 25
 },]
 
 export const videoData = [{

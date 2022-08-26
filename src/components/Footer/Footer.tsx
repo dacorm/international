@@ -15,15 +15,18 @@ import message from '../../assets/images/message.svg';
 const postsData = [{
     title: 'gwen parker is leading her team to the semifinals',
     author: 'Dexter',
-    date: 'Dec, 15th'
+    date: 'Dec, 15th',
+    id: 35,
 }, {
     title: 'Pro Soccer League Kicked Off Today!!',
     author: 'Faye V.',
-    date: 'Dec, 15th'
+    date: 'Dec, 15th',
+    id: 36
 }, {
     title: 'Last night the wolves beat the rhinos 12-10',
     author: 'Dexter',
-    date: 'Dec, 15th'
+    date: 'Dec, 15th',
+    id: 37
 },]
 
 const Footer = () => {
@@ -130,7 +133,8 @@ const Footer = () => {
                                 title={post.title}
                                 author={post.author}
                                 date={post.date}
-                                key={index}
+                                key={post.id}
+                                id={post.id}
                                 className={styles.postText}
                             />))
                         }
@@ -143,7 +147,8 @@ const Footer = () => {
                                 title={post.title}
                                 author={post.author}
                                 date={post.date}
-                                key={index}
+                                key={post.id}
+                                id={post.id}
                                 className={styles.postText}
                             />))
                         }
@@ -156,7 +161,8 @@ const Footer = () => {
                                 title={post.title}
                                 author={post.author}
                                 date={post.date}
-                                key={index}
+                                key={post.id}
+                                id={post.id}
                                 className={styles.postText}
                             />))
                         }

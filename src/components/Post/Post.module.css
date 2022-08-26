@@ -9,6 +9,8 @@
     align-items: flex-start;
     padding-bottom: 15px;
     cursor: pointer;
+    text-decoration: none;
+    color: black
 }
 
 .textWrap {
