@@ -9,6 +9,7 @@ import Footer from "../components/Footer/Footer";
 import Tag from "../components/Tag/Tag";
 import {postsData} from "../assets/mainContentData";
 import BigPost from "../components/BigPost/BigPost";
+import CommentForm from "../components/CommentForm/CommentForm";
 
 const Article = () => {
     const [text, setText] = useState('');
@@ -86,6 +87,7 @@ const Article = () => {
             <div className={styles.comments}>
                 <h2 className={styles.Heading}>Write comment</h2>
                 <div className={styles.separatorDown}/>
+                <CommentForm />
             </div>
             <Footer/>
         </div>
