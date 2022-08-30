@@ -1,0 +1,26 @@
+.comment {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 200px;
+    background-image: url("../../assets/images/16.jpg");
+}
+
+.firstName {
+    font-size: 16px;
+    font-family: 'Exo', sans-serif;
+    color: #363636;
+    text-transform: uppercase;
+}
+
+.commentText {
+    margin: 20px 0 46px 0;
+    font-size: 14px;
+    color: #777777;
+    max-width: 770px;
+}

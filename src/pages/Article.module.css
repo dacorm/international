@@ -94,3 +94,10 @@
     width: 870px;
     align-self: center;
 }
+
+.commentaries {
+    display: flex;
+    flex-direction: column;
+    width: 870px;
+    align-self: center;
+}
