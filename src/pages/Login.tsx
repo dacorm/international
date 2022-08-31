@@ -3,11 +3,18 @@ import styles from './Login.module.css';
 import Header from "../components/Header/Header";
 import WhiteHeading from "../components/WhiteHeading/WhiteHeading";
 import TextSlide from "../components/TextSlide/TextSlide";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {FieldValues, SubmitHandler, useForm} from "react-hook-form";
 import Footer from "../components/Footer/Footer";
+import {fetchAuth, selectIsAuth} from "../redux/slices/auth";
+import {useAppDispatch, useAppSelector} from "../assets/hooks";
+
 
 const Login = () => {
+    const navigate = useNavigate();
+    const isAuth = useAppSelector(selectIsAuth);
+    const dispatch = useAppDispatch();
+
     const {
         register,
         formState: {
@@ -16,13 +23,35 @@ const Login = () => {
         handleSubmit,
         reset
     } = useForm({
+        defaultValues: {
+            email: '',
+            password: '',
+        },
         mode: 'onBlur'
     });
 
-    const onSubmit: SubmitHandler<FieldValues> = (data) => {
-        alert(JSON.stringify(data))
-        reset();
+    const onSubmit: SubmitHandler<FieldValues> = async (values) => {
+        const data = await dispatch(fetchAuth({
+            email: values.email,
+            password: values.password
+        }));
+
+        if (!data.payload) {
+            return alert('Не удалось авторизоваться')
+        }
+
+        // @ts-ignore
+        if ('token' in data.payload) {
+            // @ts-ignore
+            window.localStorage.setItem('token', data.payload.token);
+        }
+
     }
+
+    if (isAuth) {
+        navigate('/')
+    }
+
 
     return (
         <>

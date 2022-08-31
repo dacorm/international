@@ -220,6 +220,8 @@
     height: 27px;
     cursor: pointer;
     transition: .3s ease;
+    text-decoration: none;
+    justify-content: center;
 }
 
 .logout:hover {

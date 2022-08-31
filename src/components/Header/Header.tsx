@@ -7,6 +7,9 @@ import US from '../../assets/images/flag-us.png';
 import drop from '../../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg';
 import wish from '../../assets/images/favorite_FILL0_wght400_GRAD0_opsz48.svg';
 import compare from '../../assets/images/sell_FILL0_wght400_GRAD0_opsz48.svg';
+import {Link} from "react-router-dom";
+import {useAppDispatch, useAppSelector} from "../../assets/hooks";
+import {logout, selectIsAuth, selectName} from "../../redux/slices/auth";
 
 const langs = [{
     image: US,
@@ -25,6 +28,9 @@ const langs = [{
 const wallets = ['U$D', 'Euros', 'Pesos']
 
 const Header = () => {
+    const isAuth = useAppSelector(selectIsAuth);
+    const user = useAppSelector(selectName);
+    const dispatch = useAppDispatch();
     const [visible, setVisible] = useState(false);
     const [open, setOpen] = useState(false);
     const [lang, setLang] = useState({
@@ -32,7 +38,12 @@ const Header = () => {
         image: US
     })
     const [wallet, setWallet] = useState('U$D');
-
+    const onClickLogout = () => {
+        if (window.confirm('Вы действительно хотите выйти?')) {
+            dispatch(logout());
+            window.localStorage.removeItem('token');
+        }
+    }
 
     const handleLangClick = () => {
         setVisible(!visible);
@@ -85,11 +96,13 @@ const Header = () => {
                 </div>}
             </div>
             <div className={styles.right}>
-                <div className={styles.account}>
-                    <div className={styles.avatar}></div>
-                    <p className={styles.username}>James_Spiegel</p>
-                    <img src={drop} alt="DropDown" className={styles.drop} />
-                </div>
+                {
+                    isAuth && (<div className={styles.account}>
+                        <div className={styles.avatar}/>
+                        <p className={styles.username}>{user.fullName}</p>
+                        <img src={drop} alt="DropDown" className={styles.drop} />
+                    </div>)
+                }
                 <div className={styles.wish}>
                     <img src={wish} alt="wishlist" className={styles.wishsvg} />
                     <p className={styles.wishText}>Wishlist (5)</p>
@@ -98,12 +111,21 @@ const Header = () => {
                     <img src={compare} alt="compare" className={styles.comparesvg} />
                     <p className={styles.compareText}>Compare (2)</p>
                 </div>
-                <button className={styles.logout}>
-                    <p className={styles.buttonText}>Logout</p>
-                    <div className={styles.dropCont}>
-                    <img src={drop} alt="DropDown" className={styles.dropButton} />
-                    </div>
-                </button>
+                {
+                    isAuth ? (
+                        <button className={styles.logout} onClick={onClickLogout}>
+                            <p className={styles.buttonText}>Logout</p>
+                            <div className={styles.dropCont}>
+                                <img src={drop} alt="DropDown" className={styles.dropButton} />
+                            </div>
+                        </button>
+                    ) : (<Link to='/login' className={styles.logout}>
+                        <p className={styles.buttonText}>Login</p>
+                        <div className={styles.dropCont}>
+                            <img src={drop} alt="DropDown" className={styles.dropButton} />
+                        </div>
+                    </Link>)
+                }
             </div>
         </header>
     );

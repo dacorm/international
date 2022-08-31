@@ -3,11 +3,18 @@ import styles from './Login.module.css';
 import Header from "../components/Header/Header";
 import WhiteHeading from "../components/WhiteHeading/WhiteHeading";
 import TextSlide from "../components/TextSlide/TextSlide";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {FieldValues, SubmitHandler, useForm} from "react-hook-form";
 import Footer from "../components/Footer/Footer";
+import {fetchRegister, selectIsAuth} from "../redux/slices/auth";
+import {useAppDispatch, useAppSelector} from "../assets/hooks";
 
 const Login = () => {
+    const navigate = useNavigate();
+    const isAuth = useAppSelector(selectIsAuth);
+    const dispatch = useAppDispatch();
+
+
     const {
         register,
         watch,
@@ -17,12 +24,34 @@ const Login = () => {
         handleSubmit,
         reset
     } = useForm({
+        defaultValues: {
+            fullName: '',
+            email: '',
+            password: '',
+        },
         mode: 'onBlur'
     });
 
-    const onSubmit: SubmitHandler<FieldValues> = (data) => {
-        alert(JSON.stringify(data))
-        reset();
+    const onSubmit: SubmitHandler<FieldValues> = async (values) => {
+        const data = await dispatch(fetchRegister({
+            fullName: values.fullName,
+            email: values.email,
+            password: values.password
+        }));
+
+        if (!data.payload) {
+            return alert('Не удалось авторизоваться')
+        }
+
+        // @ts-ignore
+        if ('token' in data.payload) {
+            // @ts-ignore
+            window.localStorage.setItem('token', data.payload.token);
+        }
+    }
+
+    if (isAuth) {
+        navigate('/')
     }
 
     return (
@@ -41,6 +70,18 @@ const Login = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.formCont}>
                     <h2 className={styles.Heading}>Register now</h2>
                     <div className={styles.separatorDownReg}/>
+                    <label className={styles.label}>Full Name</label>
+                    <input
+                        type="text" className={styles.input} placeholder={'Enter your name'}
+                        {...register('fullName', {
+                            required: "Поле обязательно к заполнению",
+                            minLength: {
+                                value: 2,
+                                message: 'Минимальная длина 2 символа'
+                            }
+                        })}
+                    />
+                    <div style={{height: '40px'}}>{errors?.fullName && <p className={styles.formError}>{String(errors?.fullName?.message) || 'Error'}</p>}</div>
                     <label className={styles.label}>Email adress</label>
                     <input
                         type="email" className={styles.input} placeholder={'Enter your email adress'}
@@ -65,19 +106,6 @@ const Login = () => {
                         })}
                     />
                     <div style={{height: '40px'}}>{errors?.password && <p className={styles.formError}>{String(errors?.password?.message) || 'Error'}</p>}</div>
-                    <label className={styles.label}>Confirm password</label>
-                    <input
-                        type="password" className={styles.input} placeholder={'Enter your password'}
-                        {...register("confirmPassword", {
-                            required: 'Поле обязательно к заполнению',
-                            validate: (val: string) => {
-                                if (watch('password') !== val) {
-                                    return "Пароли не совпадают";
-                                }
-                            },
-                        })}
-                    />
-                    <div style={{height: '40px'}}>{errors?.confirmPassword && <p className={styles.formError}>{String(errors?.confirmPassword?.message) || 'Error'}</p>}</div>
                     <button type='submit' className={styles.buttonReg}>
                         Register!
                     </button>

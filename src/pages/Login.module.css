@@ -43,6 +43,11 @@
     text-transform: uppercase;
     font-weight: 700;
     border-bottom: 2px solid var(--primary);
+    cursor: pointer;
+}
+
+.loginBtn:hover {
+    opacity: .6;
 }
 
 .loginBtnReg {
@@ -52,6 +57,11 @@
     text-transform: uppercase;
     font-weight: 700;
     border-bottom: 2px solid #f30a5c;
+    cursor: pointer;
+}
+
+.loginBtnReg:hover {
+    opacity: .6;
 }
 
 .registerBtn {
@@ -122,6 +132,12 @@
     margin-top: 50px;
     margin-bottom: 50px;
     border: none;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.button:hover {
+    opacity: .6;
 }
 
 .buttonReg {
@@ -140,6 +156,12 @@
     margin-top: 50px;
     margin-bottom: 50px;
     border: none;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.buttonReg:hover {
+    opacity: .6;
 }
 
 .formCont {
