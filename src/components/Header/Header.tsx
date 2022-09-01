@@ -97,11 +97,11 @@ const Header = () => {
             </div>
             <div className={styles.right}>
                 {
-                    isAuth && (<div className={styles.account}>
+                    isAuth && (<Link to='/profile' className={styles.account}>
                         <div className={styles.avatar}/>
                         <p className={styles.username}>{user.fullName}</p>
                         <img src={drop} alt="DropDown" className={styles.drop} />
-                    </div>)
+                    </Link>)
                 }
                 <div className={styles.wish}>
                     <img src={wish} alt="wishlist" className={styles.wishsvg} />

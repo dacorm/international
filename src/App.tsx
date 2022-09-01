@@ -1,10 +1,13 @@
 import React, {Suspense, useEffect} from 'react';
-import {Routes, Route, useLocation} from "react-router-dom";
+import {Route, Routes, useLocation} from "react-router-dom";
 import Home from "./pages/Home";
+import {fetchAuthMe, selectIsAuth} from "./redux/slices/auth";
+import {useAppDispatch, useAppSelector} from "./assets/hooks";
 
 const ArticlePage = React.lazy(() => import('./pages/Article'));
 const LoginPage = React.lazy(() => import('./pages/Login'))
 const RegisterPage = React.lazy(() => import('./pages/Register'));
+const ProfilePage = React.lazy(() => import('./pages/Profile'));
 
 const ScrollToTop = () => {
     const {pathname} = useLocation();
@@ -16,6 +19,13 @@ const ScrollToTop = () => {
 }
 
 function App() {
+    const dispatch = useAppDispatch();
+    const isAuth = useAppSelector(selectIsAuth);
+
+    useEffect(() => {
+        dispatch(fetchAuthMe());
+    }, [])
+
 
     return (
         <>
@@ -43,6 +53,14 @@ function App() {
                     element={
                         <Suspense fallback={<div>Идёт загрузка...</div>}>
                             <RegisterPage/>
+                        </Suspense>
+                    }
+                />
+                <Route
+                    path="profile"
+                    element={
+                        <Suspense fallback={<div>Идёт загрузка...</div>}>
+                            <ProfilePage/>
                         </Suspense>
                     }
                 />

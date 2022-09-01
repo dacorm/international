@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './Login.module.css';
 import Header from "../components/Header/Header";
 import WhiteHeading from "../components/WhiteHeading/WhiteHeading";
@@ -48,9 +48,11 @@ const Login = () => {
 
     }
 
-    if (isAuth) {
-        navigate('/')
-    }
+    useEffect(() => {
+        if (isAuth) {
+            navigate('/')
+        }
+    }, [isAuth])
 
 
     return (
