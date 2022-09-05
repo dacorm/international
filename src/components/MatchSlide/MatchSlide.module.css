@@ -1,0 +1,62 @@
+.slider {
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    gap: 25px;
+    padding-top: 25px;
+    transition: .3s ease-in-out;
+}
+
+.showMore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 50px;
+}
+
+.linkText {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Exo', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: #363636;
+}
+
+.sliderTrack {
+    width: 1045px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    gap: 15px;
+}
+
+.sliderItem {
+    width: 250px;
+    height: 90px;
+    transition: .3s ease-in-out;
+}
+
+.dropLeft {
+    width: 15px;
+    height: 15px;
+    margin-left: 3px;
+    transform: rotate(90deg);
+    cursor: pointer;
+    color: black;
+}
+
+.dropRight {
+    width: 15px;
+    height: 15px;
+    margin-left: 3px;
+    transform: rotate(270deg);
+    cursor: pointer;
+}
+
+.sliderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

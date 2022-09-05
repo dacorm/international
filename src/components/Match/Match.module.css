@@ -1,0 +1,61 @@
+.match {
+    display: flex;
+    flex: 5;
+    box-sizing: border-box;
+    width: 250px;
+    min-width: 250px;
+    height: 90px;
+    align-items: center;
+    gap: 10px;
+}
+
+.teams {
+    display: flex;
+    flex: 4;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.league {
+    display: flex;
+    flex: 1;
+}
+
+.logo {
+    width: 30px;
+    height: 30px;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.teamName {
+    font-size: 11px;
+    font-family: 'Exo', sans-serif;
+    color: #363636;
+    text-transform: uppercase;
+    font-weight: 700;
+    width: 80px;
+    margin: 0;
+}
+
+.score {
+    font-size: 11px;
+    font-family: 'Exo', sans-serif;
+    color: #363636;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0;
+}
+
+.league {
+    font-size: 11px;
+    font-family: 'Exo', sans-serif;
+    color: #363636;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0;
+}
