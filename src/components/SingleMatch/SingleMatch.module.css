@@ -1,0 +1,75 @@
+.listHeading {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: 'Exo', sans-serif;
+    margin: 0 0 10px 0;
+    color: #363636;
+}
+
+.separator {
+    border-bottom: 3px solid #7442ce;
+    width: 50px;
+    margin: 0 0 20px 0;
+}
+
+.singleMatch {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.matchWrapper {
+    width: 300px;
+    height: 150px;
+    border: 1px solid gray;
+}
+
+.teams {
+    display: flex;
+    flex: 4;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.league {
+    display: flex;
+    flex: 1;
+}
+
+.logo {
+    width: 30px;
+    height: 30px;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.teamName {
+    font-size: 11px;
+    font-family: 'Exo', sans-serif;
+    color: #363636;
+    text-transform: uppercase;
+    font-weight: 700;
+    width: 80px;
+    margin: 0;
+}
+
+.score {
+    font-size: 11px;
+    font-family: 'Exo', sans-serif;
+    color: #363636;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0;
+}
+
+.time {
+    font-size: 14px;
+    font-family: 'Exo', sans-serif;
+    color: #363636;
+    text-transform: uppercase;
+    font-weight: 700;
+}

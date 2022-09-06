@@ -5,6 +5,7 @@ import axios from "axios";
 import {DotaMatchJSON} from "../../@types/serverType";
 import Match from "../Match/Match";
 import Preloader from "../Preloader/Preloader";
+import {Link} from "react-router-dom";
 
 const MatchSlide = () => {
     const slider = useRef<HTMLDivElement>(null);
@@ -43,9 +44,9 @@ const MatchSlide = () => {
     return (
         <div className={styles.sliderContainer}>
             <div className={styles.showMore}>
-                <a href='#' className={styles.linkText}>
+                <Link to='/matches' className={styles.linkText}>
                     Show More Matches
-                </a>
+                </Link>
             </div>
             <div className={styles.slider}>
                 <img src={drop} alt="dropDownIcon" className={styles.dropLeft} onClick={prevHandler}/>

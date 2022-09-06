@@ -8,6 +8,7 @@ const ArticlePage = React.lazy(() => import('./pages/Article'));
 const LoginPage = React.lazy(() => import('./pages/Login'))
 const RegisterPage = React.lazy(() => import('./pages/Register'));
 const ProfilePage = React.lazy(() => import('./pages/Profile'));
+const MatchesPage = React.lazy(() => import('./pages/Matches'));
 
 const ScrollToTop = () => {
     const {pathname} = useLocation();
@@ -61,6 +62,22 @@ function App() {
                     element={
                         <Suspense fallback={<div>Идёт загрузка...</div>}>
                             <ProfilePage/>
+                        </Suspense>
+                    }
+                />
+                <Route
+                    path="matches"
+                    element={
+                        <Suspense fallback={<div>Идёт загрузка...</div>}>
+                            <MatchesPage/>
+                        </Suspense>
+                    }
+                />
+                <Route
+                    path="matches/:id"
+                    element={
+                        <Suspense fallback={<div>Идёт загрузка...</div>}>
+                            <MatchesPage/>
                         </Suspense>
                     }
                 />

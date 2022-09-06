@@ -14,6 +14,11 @@
     height: 92px;
 }
 
+.logoImg {
+    width: 52px;
+    height: 52px;
+}
+
 .logo {
     display: flex;
     justify-content: center;

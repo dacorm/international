@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styles from './WhiteHeading.module.css';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo.jpg';
 import drop from '../../assets/images/drop2.svg';
 import search from '../../assets/images/search_FILL0_wght400_GRAD0_opsz48.svg';
 import inv from '../../assets/images/inventory_2_FILL0_wght400_GRAD0_opsz48.svg';
@@ -24,8 +24,8 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
                 <Link to='/' className={styles.logo}>
                     <img src={logo} alt="Logo" className={styles.logoImg}/>
                     <div className={styles.text}>
-                        <h2 className={styles.logoText}>Pixel<span>Diamond</span></h2>
-                        <p className={styles.logoSub}>The Latest Gaming News</p>
+                        <h2 className={styles.logoText}>International<span>2022</span></h2>
+                        <p className={styles.logoSub}>Последние новости</p>
                     </div>
                 </Link>
                 <ul className={styles.mainMenu}>
