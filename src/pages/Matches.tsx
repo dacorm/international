@@ -1,4 +1,4 @@
-import React, {LegacyRef, useEffect, useRef, useState} from 'react';
+import React, {LegacyRef, useCallback, useEffect, useRef, useState} from 'react';
 import styles from './Matches.module.css';
 import Header from "../components/Header/Header";
 import WhiteHeading from "../components/WhiteHeading/WhiteHeading";
@@ -10,14 +10,37 @@ import {NavLink, useNavigate, useParams} from "react-router-dom";
 import SingleMatch from "../components/SingleMatch/SingleMatch";
 import axios from "axios";
 import {ProMatchJSON} from "../@types/serverType";
+import Preloader from "../components/Preloader/Preloader";
+import logo1 from '../assets/images/teams/01.png';
+import logo2 from '../assets/images/teams/02.png';
+import logo3 from '../assets/images/teams/03.png';
+import logo4 from '../assets/images/teams/04.png';
+import {randomNumber} from "../assets/helpers";
+import {withErrorBoundary} from "react-error-boundary";
 
 const days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
 
 const Matches = () => {
+    const [loading, setLoading] = useState(false);
+    const [teamLogo, setTeamLogo] = useState([logo1, logo2, logo3, logo4]);
+    const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
     const slider = useRef<HTMLDivElement>(null);
     const navigate = useNavigate();
     const [items, setItems] = useState<ProMatchJSON[]>([]);
-    const { id } = useParams();
+    const [filteredItems, setFilteredItems] = useState<ProMatchJSON[]>([]);
+    const [position, setPosition] = useState(0);
+    const {id} = useParams();
+
+    useEffect(() => {
+        let arr = [];
+
+        if (items) {
+            for (let i = 0; i < items.length; i++) {
+                arr.push(randomNumber(0, 4))
+            }
+            setRandomNumbers(arr)
+        }
+    }, [items])
 
     const unixTimeStampConverter = (unix: number) => {
         let miliseconds = unix * 1000
@@ -25,8 +48,8 @@ const Matches = () => {
     }
 
     const unixTimeStampConverterToTime = (unix: number) => {
-        const unix_timestamp = unix
-        const date = new Date(unix_timestamp * 1000);
+        const unixTimestamp = unix
+        const date = new Date(unixTimestamp * 1000);
         const hours = date.getHours();
         const minutes = date.getMinutes();
         const seconds = date.getSeconds();
@@ -39,8 +62,10 @@ const Matches = () => {
     }, [])
 
     const fetchData = async () => {
-        const { data } = await axios.get('https://api.opendota.com/api/proMatches');
+        setLoading(true);
+        const {data} = await axios.get('https://api.opendota.com/api/proMatches');
         setItems(data);
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -48,23 +73,28 @@ const Matches = () => {
     }, [])
 
 
-    let position = 0;
+    useEffect(() => {
+        if (items) {
+            const arr = items.filter(item => unixTimeStampConverter(item.start_time) === id)
+            setFilteredItems(arr)
+        }
+    }, [items, id])
 
-    const prevHandler = () => {
-        position += 75
-        if (position > 620) position = 0
+    const prevHandler = useCallback(() => {
+        setPosition((position: number) => position += 75)
+        if (position > 620) setPosition(0)
         slider?.current?.childNodes.forEach((element) => {
             (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`)
         })
-    }
+    }, [position])
 
-    const nextHandler = () => {
-        position -= 75
-        if (position < -751) position = 0
+    const nextHandler = useCallback(() => {
+        setPosition((position: number) => position += 75)
+        if (position < -751) setPosition(0)
         slider?.current?.childNodes.forEach((element) => {
             (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`)
         })
-    }
+    }, [position])
 
     const monthConverter = (month: number) => {
         switch (month) {
@@ -154,51 +184,69 @@ const Matches = () => {
 
     return (
         <div>
-            <Header />
-            <WhiteHeading />
+            <Header/>
+            <WhiteHeading/>
             <div className={styles.screen}>
                 <h1 className={styles.title}>Scores With Calendar</h1>
             </div>
-            <TextSlide />
-            <MatchSlide />
+            <TextSlide/>
+            <MatchSlide/>
             <div className={styles.calendar}>
                 <div className={styles.header}>
                     <p className={styles.text}>{monthConverter(new Date().getMonth())} {new Date().getFullYear()}</p>
                 </div>
                 <div className={styles.calendarDateSlider}>
-                    <button className={styles.button} onClick={prevHandler}><img src={drop} alt="dropDownIcon" className={styles.dropLeft} /></button>
+                    <button className={styles.button} onClick={prevHandler}><img src={drop} alt="dropDownIcon"
+                                                                                 className={styles.dropLeft}/></button>
                     <div className={styles.sliderTrack} ref={slider as LegacyRef<HTMLDivElement>}>
-                    {
-                        monthDaysConverter(new Date().getMonth())?.map((item) => (
-                            <NavLink
-                                to={`/matches/${item}`}
-                                key={item}
-                                className={({isActive}) => isActive ? `${styles.sliderItem} ${styles.active}` : `${styles.sliderItem}`}>
-                                <p className={styles.navText}>{monthConverter(new Date().getMonth())?.split('').slice(0, 3).join('')}</p>
-                                {item}
-                            </NavLink>
-                        ))
-                    }
+                        {
+                            monthDaysConverter(new Date().getMonth())?.map((item) => (
+                                <NavLink
+                                    to={`/matches/${item}`}
+                                    key={item}
+                                    className={({isActive}) => isActive ? `${styles.sliderItem} ${styles.active}` : `${styles.sliderItem}`}>
+                                    <p className={styles.navText}>{monthConverter(new Date().getMonth())?.split('').slice(0, 3).join('')}</p>
+                                    {item}
+                                </NavLink>
+                            ))
+                        }
                     </div>
-                    <button className={styles.button} onClick={nextHandler}><img src={drop} alt="dropDownIcon" className={styles.dropRight} /></button>
+                    <button className={styles.button} onClick={nextHandler}><img src={drop} alt="dropDownIcon"
+                                                                                 className={styles.dropRight}/></button>
                 </div>
-                <div className={styles.matches}>
+                {loading && <Preloader/>}
+                {!loading && <div className={styles.matches}>
                     {
-                        items.filter(item => unixTimeStampConverter(item.start_time) === id).map((item) => (
+                        filteredItems.length > 0 ? filteredItems.map((item, index) => (
                             <SingleMatch
+                                logo={teamLogo[randomNumbers[index]]}
+                                logo2={teamLogo[randomNumbers[index + 1]]}
+                                key={item.match_id}
                                 leagueName={item.league_name}
                                 playTime={unixTimeStampConverterToTime(item.start_time)}
                                 direName={item.dire_name}
                                 direScore={item.dire_score}
                                 radiantName={item.radiant_name}
-                                radiantScore={item.radiant_score} />
-                        ))
+                                radiantScore={item.radiant_score}/>
+                        )) : (<div className={styles.wrapper}>
+                            <h1 className={styles.matchesNotFound}>Матчи в этот день не найдены</h1>
+                        </div>)
                     }
-                </div>
+                </div>}
             </div>
-            <Footer />
+            <Footer/>
         </div>
     );
 };
 
-export default Matches;
+export default withErrorBoundary(Matches, {
+    fallback: (<>
+        <Header/>
+        <WhiteHeading/>
+        <div className={styles.screen}>
+            <h1 className={styles.title}>Что-то пошло не так</h1>
+        </div>
+        <TextSlide/>
+        <Footer />
+    </>)
+});

@@ -11,6 +11,7 @@ import {postsData} from "../assets/mainContentData";
 import BigPost from "../components/BigPost/BigPost";
 import CommentForm from "../components/CommentForm/CommentForm";
 import Commentary from "../components/Commentary/Commentary";
+import {withErrorBoundary} from "react-error-boundary";
 
 export const commentsData = [{
     name: 'Elizabeth Valentine',
@@ -145,4 +146,16 @@ const Article = () => {
     );
 };
 
-export default Article;
+export default withErrorBoundary(Article, {
+    fallback: (<>
+        <Header/>
+        <WhiteHeading/>
+        <div className={styles.articleHeading}>
+            <h1 className={styles.title}>
+                Что-то пошло не так
+            </h1>
+        </div>
+        <TextSlide/>
+        <Footer />
+    </>)
+});

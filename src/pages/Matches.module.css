@@ -16,6 +16,21 @@
     font-weight: 700;
 }
 
+.matchesNotFound {
+    font-size: 40px;
+    font-family: 'Exo', sans-serif;
+    color: #363636;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 .calendar {
     display: flex;
     flex-direction: column;
@@ -121,4 +136,5 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+    padding-bottom: 35px;
 }

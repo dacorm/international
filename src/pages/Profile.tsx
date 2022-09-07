@@ -7,6 +7,7 @@ import {useAppSelector} from "../assets/hooks";
 import {selectIsAuth, selectName} from "../redux/slices/auth";
 import {useNavigate} from "react-router-dom";
 import Footer from "../components/Footer/Footer";
+import {withErrorBoundary} from "react-error-boundary";
 
 const Profile = () => {
     const isAuth = useAppSelector(selectIsAuth);
@@ -45,4 +46,15 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default withErrorBoundary(Profile, {
+    fallback: (<>
+        <Header/>
+        <WhiteHeading/>
+        <div className={styles.screen}>
+            <h1 className={styles.title}>Что-то пошло не так</h1>
+        </div>
+        <TextSlide/>
+        <Footer />
+    </>)
+})
+;

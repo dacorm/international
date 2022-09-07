@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from "./SingleMatch.module.css";
-import logo1 from "../../assets/images/01.png";
-import logo2 from "../../assets/images/02.png";
+
 
 type SingleMatchProps = {
     leagueName: string
@@ -10,9 +9,12 @@ type SingleMatchProps = {
     direScore: number
     radiantName: string
     radiantScore: number
+    logo: string
+    logo2: string
 }
 
-const SingleMatch: React.FC<SingleMatchProps> = ({ leagueName, playTime, direName, direScore, radiantName, radiantScore }) => {
+const SingleMatch: React.FC<SingleMatchProps> = ({ leagueName, logo, logo2, playTime, direName, direScore, radiantName, radiantScore }) => {
+
     return (
         <div className={styles.singleMatch}>
             <h2 className={styles.listHeading}>{leagueName}</h2>
@@ -21,7 +23,7 @@ const SingleMatch: React.FC<SingleMatchProps> = ({ leagueName, playTime, direNam
                 <p className={styles.time}>{playTime}</p>
                 <div className={styles.teams}>
                     <div className={styles.team}>
-                        <img src={logo1} alt="Team1Logo" className={styles.logo}/>
+                        <img src={logo} alt="Team1Logo" className={styles.logo}/>
                         <p className={styles.teamName}>{direName}</p>
                         <p className={styles.score}>{direScore}</p>
                     </div>
@@ -36,4 +38,4 @@ const SingleMatch: React.FC<SingleMatchProps> = ({ leagueName, playTime, direNam
     );
 };
 
-export default SingleMatch;
+export default React.memo(SingleMatch);

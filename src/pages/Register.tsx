@@ -8,6 +8,7 @@ import {FieldValues, SubmitHandler, useForm} from "react-hook-form";
 import Footer from "../components/Footer/Footer";
 import {fetchRegister, selectIsAuth} from "../redux/slices/auth";
 import {useAppDispatch, useAppSelector} from "../assets/hooks";
+import {withErrorBoundary} from "react-error-boundary";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -116,4 +117,14 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default withErrorBoundary(Login, {
+    fallback: (<>
+        <Header/>
+        <WhiteHeading/>
+        <div className={styles.screen}>
+            <h1 className={styles.title}>Что-то пошло не так</h1>
+        </div>
+        <TextSlide/>
+        <Footer />
+    </>)
+});
