@@ -8,6 +8,16 @@
     transition: .3s ease-in-out;
 }
 
+@media screen and (max-width: 1279px) {
+    .slider {
+        width: 845px;
+    }
+
+    .sliderTrack {
+        width: 645px;
+    }
+}
+
 .showMore {
     display: flex;
     align-items: center;

@@ -5,10 +5,22 @@
     margin: 60px auto;
 }
 
+@media screen and (max-width: 1279px) {
+    .content {
+        width: 1024px;
+    }
+}
+
 .sidebar {
     flex: 1;
     margin-left: 30px;
     flex-direction: column;
+}
+
+@media screen and (max-width: 1279px) {
+    .sidebar {
+        display: none;
+    }
 }
 
 .main {
@@ -290,4 +302,66 @@
     align-items: center;
     gap: 5px;
     flex-wrap: wrap;
+}
+
+.faq {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    transition: .3s ease-in-out;
+}
+
+.quest {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid gray;
+    transition: .3s ease-in-out;
+}
+
+.add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../assets/images/add_FILL0_wght400_GRAD0_opsz48.svg");
+    background-size: contain;
+    background-position: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 200px;
+    background-color: #1c95f3;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+.remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../assets/images/remove_FILL0_wght400_GRAD0_opsz48.svg");
+    background-size: contain;
+    background-position: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 200px;
+    background-color: #f30a5c;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+.question {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: 'Exo', sans-serif;
+    font-weight: 700;
+    transition: .3s ease-in-out;
+}
+
+.answer {
+    font-size: 11px;
+    color: #777777;
+    font-family: 'Exo', sans-serif;
+    font-weight: 700;
 }
