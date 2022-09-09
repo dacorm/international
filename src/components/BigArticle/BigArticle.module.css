@@ -40,6 +40,12 @@
     text-decoration: none;
 }
 
+@media screen and (max-width: 1023px) {
+    .article {
+        max-width: 570px;
+    }
+}
+
 .articleImage {
     width: 570px;
     height: 300px;
@@ -56,6 +62,12 @@
     color: #363636;
     text-transform: uppercase;
     margin: 8px 0;
+}
+
+@media screen and (max-width: 1023px) {
+    .title {
+        max-width: 570px;
+    }
 }
 
 .wrapper {
@@ -75,6 +87,12 @@
     margin: 8px 0;
     color: #777;
     font-size: 13px;
+}
+
+@media screen and (max-width: 1023px) {
+    .textPreview {
+        max-width: 570px;
+    }
 }
 
 .spanPurple {

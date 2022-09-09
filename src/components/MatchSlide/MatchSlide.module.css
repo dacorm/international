@@ -18,6 +18,16 @@
     }
 }
 
+@media screen and (max-width: 1023px) {
+    .slider {
+        width: 645px;
+    }
+
+    .sliderTrack {
+        width: 445px;
+    }
+}
+
 .showMore {
     display: flex;
     align-items: center;

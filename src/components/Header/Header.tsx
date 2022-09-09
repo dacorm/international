@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Header.module.css';
 import FR from '../../assets/images/flag-fr.png';
 import ES from '../../assets/images/flag-es.png';
@@ -33,6 +33,7 @@ const Header = () => {
     const dispatch = useAppDispatch();
     const [visible, setVisible] = useState(false);
     const [open, setOpen] = useState(false);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [lang, setLang] = useState({
         name: 'English',
         image: US
@@ -53,18 +54,64 @@ const Header = () => {
         setOpen(!open);
     }
 
+    const openPopup = () => {
+        setIsPopupOpen(!isPopupOpen);
+        document.body.style.overflow = "hidden"
+    }
+
+    useEffect(() => {
+        if (!isPopupOpen) {
+            document.body.style.overflow = "auto"
+        }
+    }, [isPopupOpen])
+
     return (
         <header className={styles.header}>
+            {isPopupOpen && <div className={styles.overlay}/>}
+            <div className={styles.hamburgerLines} onClick={openPopup}>
+                <span className={`${styles.line} ${styles.line1} ${isPopupOpen ? styles.line1Opened : null}`}></span>
+                <span className={`${styles.line} ${styles.line2} ${isPopupOpen ? styles.line2Opened : null}`}></span>
+                <span className={`${styles.line} ${styles.line3} ${isPopupOpen ? styles.line3Opened : null}`}></span>
+            </div>
+            {isPopupOpen && <div className={styles.burgerPopup}>
+                <div className={styles.rightInPopup}>
+                    {
+                        isAuth && (<Link to='/profile' className={styles.account} onClick={() => openPopup}>
+                            <div className={styles.avatar}/>
+                            <p className={styles.username}>{user.fullName}</p>
+                            <img src={drop} alt="DropDown" className={styles.drop}/>
+                        </Link>)
+                    }
+                    {
+                        isAuth ? (
+                            <button className={styles.logout} onClick={() => {
+                                onClickLogout();
+                                openPopup();
+                            }}>
+                                <p className={styles.buttonText}>Logout</p>
+                                <div className={styles.dropCont}>
+                                    <img src={drop} alt="DropDown" className={styles.dropButton}/>
+                                </div>
+                            </button>
+                        ) : (<Link to='/login' className={styles.logout}>
+                            <p className={styles.buttonText}>Login</p>
+                            <div className={styles.dropCont}>
+                                <img src={drop} alt="DropDown" className={styles.dropButton}/>
+                            </div>
+                        </Link>)
+                    }
+                </div>
+            </div>}
             <div className={styles.left}>
                 <div className={styles.lang} onClick={handleLangClick}>
-                    <img src={lang.image} alt="US Flag" className={styles.image} />
+                    <img src={lang.image} alt="US Flag" className={styles.image}/>
                     <p className={styles.language}>{lang.name}</p>
-                    <img src={drop} alt="DropDown" className={`${styles.drop} ${visible ? styles.dropLeft : ''}`} />
+                    <img src={drop} alt="DropDown" className={`${styles.drop} ${visible ? styles.dropLeft : ''}`}/>
                 </div>
                 <div className={styles.currency} onClick={handleWalletClick}>
                     <p className={styles.text}>Currency: </p>
                     <p className={styles.wallet}>{wallet}</p>
-                    <img src={drop} alt="DropDown" className={`${styles.drop} ${open ? styles.dropLeft : ''}`} />
+                    <img src={drop} alt="DropDown" className={`${styles.drop} ${open ? styles.dropLeft : ''}`}/>
                 </div>
                 {visible && <div className={styles.langPopup} onClick={() => setVisible(false)}>
                     {
@@ -76,7 +123,7 @@ const Header = () => {
                                 })
                                 setVisible(false);
                             }} key={lang.name}>
-                                <img src={lang.image} alt="US Flag" className={styles.popupimg} />
+                                <img src={lang.image} alt="US Flag" className={styles.popupimg}/>
                                 <p className={styles.popuplang}>{lang.name}</p>
                             </div>
                         ))
@@ -100,15 +147,15 @@ const Header = () => {
                     isAuth && (<Link to='/profile' className={styles.account}>
                         <div className={styles.avatar}/>
                         <p className={styles.username}>{user.fullName}</p>
-                        <img src={drop} alt="DropDown" className={styles.drop} />
+                        <img src={drop} alt="DropDown" className={styles.drop}/>
                     </Link>)
                 }
                 <div className={styles.wish}>
-                    <img src={wish} alt="wishlist" className={styles.wishsvg} />
+                    <img src={wish} alt="wishlist" className={styles.wishsvg}/>
                     <p className={styles.wishText}>Wishlist (5)</p>
                 </div>
                 <div className={styles.compare}>
-                    <img src={compare} alt="compare" className={styles.comparesvg} />
+                    <img src={compare} alt="compare" className={styles.comparesvg}/>
                     <p className={styles.compareText}>Compare (2)</p>
                 </div>
                 {
@@ -116,13 +163,13 @@ const Header = () => {
                         <button className={styles.logout} onClick={onClickLogout}>
                             <p className={styles.buttonText}>Logout</p>
                             <div className={styles.dropCont}>
-                                <img src={drop} alt="DropDown" className={styles.dropButton} />
+                                <img src={drop} alt="DropDown" className={styles.dropButton}/>
                             </div>
                         </button>
                     ) : (<Link to='/login' className={styles.logout}>
                         <p className={styles.buttonText}>Login</p>
                         <div className={styles.dropCont}>
-                            <img src={drop} alt="DropDown" className={styles.dropButton} />
+                            <img src={drop} alt="DropDown" className={styles.dropButton}/>
                         </div>
                     </Link>)
                 }

@@ -63,26 +63,31 @@ span {
 }
 
 .popup {
-    position: absolute;
-    bottom: -590%;
-    left: -75%;
+    position: fixed;
+    z-index: 7;
+    top: 15%;
+    left: 15%;
 }
 
 @media screen and (max-width: 1919px) {
     .popup {
-        left: -84%;
+        top: 17%;
+        left: 0;
+        overflow: hidden;
     }
 }
 
 .popupFeatures {
-    position: absolute;
-    bottom: -655%;
-    left: -70%;
+    position: fixed;
+    z-index: 7;
+    top: 15%;
+    left: 20%;
 }
 
 @media screen and (max-width: 1919px) {
     .popupFeatures {
-        left: -60%;
+        top: 17%;
+        left: 10%;
     }
 }
 

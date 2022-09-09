@@ -11,6 +11,12 @@
     }
 }
 
+@media screen and (max-width: 1023px) {
+    .content {
+        width: 768px;
+    }
+}
+
 .sidebar {
     flex: 1;
     margin-left: 30px;
@@ -38,6 +44,22 @@
     background-color: orange;
     grid-row: 1 / 4;
     width: 570px;
+}
+
+@media screen and (max-width: 1023px) {
+    .grid {
+        max-width: 768px;
+    }
+
+    .area {
+        width: 400px;
+    }
+
+    .main {
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
 }
 
 .area2 {
@@ -200,6 +222,16 @@
     flex: 2;
 }
 
+@media screen and (max-width: 1023px) {
+    .bigArticles {
+        flex: 2;
+    }
+
+    .littleArticles {
+        display: none;
+    }
+}
+
 .separatorPurple {
     border-bottom: 3px solid #f9288a;
     width: 70px;
@@ -216,6 +248,13 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+}
+
+@media screen and (max-width: 1023px) {
+    .textPreviews {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .separatorYellow {
@@ -266,6 +305,12 @@
     flex-direction: column;
 }
 
+@media screen and (max-width: 1023px) {
+    .latestVideos {
+        align-items: center;
+    }
+}
+
 .videosHeading {
     display: flex;
     justify-content: space-between;
@@ -297,6 +342,16 @@
     flex-direction: column;
 }
 
+@media screen and (max-width: 1023px) {
+    .videoContainer {
+        width: 550px;
+    }
+
+    .videosHeading {
+        width: 768px;
+    }
+}
+
 .tags {
     display: flex;
     align-items: center;
@@ -310,6 +365,12 @@
     flex-direction: column;
     gap: 20px;
     transition: .3s ease-in-out;
+}
+
+@media screen and (max-width: 1023px) {
+    .faq {
+        max-width: 768px;
+    }
 }
 
 .quest {
