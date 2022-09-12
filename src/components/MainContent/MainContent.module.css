@@ -52,7 +52,7 @@
     }
 
     .area {
-        width: 400px;
+        width: 468px;
     }
 
     .main {
@@ -223,8 +223,15 @@
 }
 
 @media screen and (max-width: 1023px) {
+    .articles {
+        justify-content: center;
+        align-items: center;
+        flex: none;
+    }
+
     .bigArticles {
-        flex: 2;
+        flex: none;
+        margin: 0 auto;
     }
 
     .littleArticles {

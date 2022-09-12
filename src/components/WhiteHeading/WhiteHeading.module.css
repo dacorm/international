@@ -140,3 +140,17 @@ span {
     height: 24px;
     justify-self: flex-end;
 }
+
+@media screen and (max-width: 1023px) {
+    .menuItem {
+        display: none;
+    }
+
+    .menuItem:first-of-type {
+        display: flex;
+    }
+
+    .menuItem:nth-of-type(2) {
+        display: flex;
+    }
+}

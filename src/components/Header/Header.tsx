@@ -59,6 +59,11 @@ const Header = () => {
         document.body.style.overflow = "hidden"
     }
 
+    const closePopup = () => {
+        setIsPopupOpen(false);
+        document.body.style.overflow = "auto"
+    }
+
     useEffect(() => {
         if (!isPopupOpen) {
             document.body.style.overflow = "auto"
@@ -67,11 +72,11 @@ const Header = () => {
 
     return (
         <header className={styles.header}>
-            {isPopupOpen && <div className={styles.overlay}/>}
+            {isPopupOpen && <div className={styles.overlay} onClick={closePopup}/>}
             <div className={styles.hamburgerLines} onClick={openPopup}>
-                <span className={`${styles.line} ${styles.line1} ${isPopupOpen ? styles.line1Opened : null}`}></span>
-                <span className={`${styles.line} ${styles.line2} ${isPopupOpen ? styles.line2Opened : null}`}></span>
-                <span className={`${styles.line} ${styles.line3} ${isPopupOpen ? styles.line3Opened : null}`}></span>
+                <span className={`${styles.line} ${styles.line1} ${isPopupOpen ? styles.line1Opened : null}`}/>
+                <span className={`${styles.line} ${styles.line2} ${isPopupOpen ? styles.line2Opened : null}`}/>
+                <span className={`${styles.line} ${styles.line3} ${isPopupOpen ? styles.line3Opened : null}`}/>
             </div>
             {isPopupOpen && <div className={styles.burgerPopup}>
                 <div className={styles.rightInPopup}>
