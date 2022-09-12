@@ -101,3 +101,28 @@
     width: 870px;
     align-self: center;
 }
+
+@media screen and (max-width: 870px) {
+    .tags {
+        width: 100%;
+    }
+
+    .related {
+        margin: 0 25px;
+        width: calc(100% - 50px);
+    }
+
+    .comments {
+        margin: 0 25px;
+        width: calc(100% - 50px);
+    }
+
+    .commentaries {
+        margin: 0 25px;
+        width: calc(100% - 50px);
+    }
+
+    .bigPosts {
+        width: 255px;
+    }
+}

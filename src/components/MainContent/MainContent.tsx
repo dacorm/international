@@ -69,7 +69,7 @@ const MainContent = () => {
                 <div className={styles.articles}>
                     <div className={styles.bigArticles}>
                         {
-                            bigArticlesData.map((article, index) => (<BigArticle title={article.title}
+                            bigArticlesData.map((article) => (<BigArticle title={article.title}
                                                                                  labelText={article.labelText}
                                                                                  author={article.author}
                                                                                  textPreview={article.textPreview}
