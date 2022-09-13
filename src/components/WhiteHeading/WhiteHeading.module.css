@@ -161,3 +161,21 @@ span {
         display: flex;
     }
 }
+
+@media screen and (max-width: 767px) {
+    .mainMenu {
+        display: none;
+    }
+
+    .iconSearch {
+        display: none;
+    }
+
+    .iconInv {
+        display: none;
+    }
+
+    .after {
+        display: none;
+    }
+}

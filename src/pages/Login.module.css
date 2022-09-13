@@ -16,6 +16,12 @@
     text-transform: uppercase;
 }
 
+@media screen and (max-width: 767px) {
+    .title {
+        width: 250px;
+    }
+}
+
 .login {
     display: flex;
     flex-direction: column;
@@ -34,6 +40,12 @@
     padding: 20px;
     border-bottom: 1px solid gray;
     border-top: 1px solid gray;
+}
+
+@media screen and (max-width: 767px) {
+    .loginAndRegister {
+        max-width: 350px;
+    }
 }
 
 .loginBtn {
@@ -166,6 +178,13 @@
 
 .formCont {
     min-width: 470px;
+}
+
+@media screen and (max-width: 767px) {
+    .formCont {
+        max-width: 350px;
+        min-width: 0;
+    }
 }
 
 .formError {

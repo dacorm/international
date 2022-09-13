@@ -112,7 +112,7 @@ const Article = () => {
                 <div className={styles.separatorDown}/>
                 <div className={styles.bigPosts}>
                     {
-                        postsData.map((post, index) => (<BigPost
+                        postsData.map((post) => (<BigPost
                             title={post.title}
                             color={post.color}
                             author={post.author}

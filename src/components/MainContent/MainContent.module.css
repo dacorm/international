@@ -17,6 +17,13 @@
     }
 }
 
+@media screen and (max-width: 767px) {
+    .content {
+        width: 350px;
+        margin: 0 auto;
+    }
+}
+
 .sidebar {
     flex: 1;
     margin-left: 30px;
@@ -85,7 +92,20 @@
     outline: none;
     margin-left: 9px;
     height: 20px;
+}
 
+@media screen and (max-width: 767px) {
+    .grid {
+        max-width: 350px;
+        height: fit-content;
+        padding-top: 30px;
+        margin: 0 auto;
+        grid-template-columns: 1fr;
+    }
+
+    .area {
+        width: 350px;
+    }
 }
 
 .inputWrap {
@@ -365,6 +385,16 @@
     }
 }
 
+@media screen and (max-width: 767px) {
+    .videosHeading {
+        width: 350px;
+    }
+
+    .videoContainer {
+        width: 270px;
+    }
+}
+
 .tags {
     display: flex;
     align-items: center;
@@ -383,6 +413,12 @@
 @media screen and (max-width: 1023px) {
     .faq {
         max-width: 768px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .faq {
+        max-width: 350px;
     }
 }
 

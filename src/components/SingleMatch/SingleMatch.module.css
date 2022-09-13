@@ -24,6 +24,12 @@
     border: 1px solid gray;
 }
 
+@media screen and (max-width: 767px) {
+    .matchWrapper {
+        width: 200px;
+    }
+}
+
 .teams {
     display: flex;
     flex: 4;

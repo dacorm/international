@@ -55,6 +55,16 @@
     margin-top: 20px;
 }
 
+@media screen and (max-width: 767px) {
+    .fullName {
+        max-width: 350px;
+    }
+
+    .email {
+        max-width: 350px;
+    }
+}
+
 .text {
     font-family: 'Exo', sans-serif;
     color: #363636;

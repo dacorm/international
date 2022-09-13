@@ -33,6 +33,12 @@
     align-self: center;
 }
 
+@media screen and (max-width: 767px) {
+    .articleMainText {
+        max-width: 350px;
+    }
+}
+
 .textTitle {
     font-size: 18px;
     font-family: 'Exo', sans-serif;
@@ -46,6 +52,12 @@
     padding: 0 150px;
     font-size: 14px;
     color: #777777;
+}
+
+@media screen and (max-width: 767px) {
+    .text {
+        max-width: 350px;
+    }
 }
 
 .tags {

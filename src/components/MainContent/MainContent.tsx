@@ -57,7 +57,7 @@ const MainContent = () => {
                 <div className={styles.grid}>
                     <Article className={styles.area} image={magimons} id={1}/>
                     {
-                        articlesData.map((article, index) => (<LittleArticle
+                        articlesData.map((article) => (<LittleArticle
                             labelText={article.labelText}
                             titleText={article.title}
                             color={article.color}

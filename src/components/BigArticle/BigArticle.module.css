@@ -56,6 +56,16 @@
     background-image: url("../../assets/images/16.jpg");
 }
 
+@media screen and (max-width: 767px) {
+    .article {
+        max-width: 350px;
+    }
+
+    .articleImage {
+        width: 350px;
+    }
+}
+
 .title {
     font-size: 30px;
     line-height: 1.1333333333em;

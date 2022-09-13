@@ -16,6 +16,12 @@
     font-weight: 700;
 }
 
+@media screen and (max-width: 767px) {
+    .title {
+        width: 200px;
+    }
+}
+
 .matchesNotFound {
     font-size: 40px;
     font-family: 'Exo', sans-serif;
@@ -40,6 +46,14 @@
     width: calc(100% - 270px);
     margin-right: 135px;
     margin-left: 135px;
+}
+
+@media screen and (max-width: 767px) {
+    .calendar {
+        width: 350px;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 .header {
@@ -118,6 +132,11 @@
     gap: 5px;
 }
 
+@media screen and (max-width: 767px) {
+    .sliderTrack {
+    }
+}
+
 .active {
     color: #7442ce;
 }
@@ -137,4 +156,10 @@
     flex-wrap: wrap;
     gap: 20px;
     padding-bottom: 35px;
+}
+
+@media screen and (max-width: 767px) {
+    .matches {
+        flex-direction: column;
+    }
 }

@@ -93,6 +93,21 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 767px) {
+    .back {
+        align-items: center;
+        padding-left: 0;
+    }
+
+    .heading {
+        max-width: 350px;
+    }
+
+    .subheading {
+        max-width: 350px;
+    }
+}
+
 .dropWrapper {
     width: 43px;
     height: 43px;
