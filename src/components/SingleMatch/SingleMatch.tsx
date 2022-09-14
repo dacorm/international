@@ -28,14 +28,15 @@ const SingleMatch: React.FC<SingleMatchProps> = ({ leagueName, logo, logo2, play
                     <div className={styles.team}>
                         <img src={logo} alt="Team1Logo" className={styles.logo}/>
                         <p className={styles.teamName}>{direName}</p>
-                        {!isWinner && (<img src={cup} alt="winner icon" className={styles.winner}/>)}
                         <p className={styles.score}>{direScore}</p>
+                        {!isWinner && (<img src={cup} alt="winner icon" className={styles.winner}/>)}
                     </div>
                     <div className={styles.team}>
                         <img src={logo2} alt="Team2Logo" className={styles.logo}/>
                         <p className={styles.teamName}>{radiantName}</p>
-                        {isWinner && (<img src={cup} alt="winner icon" className={styles.winner}/>)}
                         <p className={styles.score}>{radiantScore}</p>
+                        {isWinner && (<img src={cup} alt="winner icon" className={styles.winner}/>)}
+
                     </div>
                 </div>
             </div>
