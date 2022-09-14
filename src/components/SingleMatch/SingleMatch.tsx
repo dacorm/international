@@ -16,7 +16,7 @@ type SingleMatchProps = {
 
 const SingleMatch: React.FC<SingleMatchProps> = ({ leagueName, logo, logo2, playTime, direName, direScore, radiantName, radiantScore }) => {
 
-    const isWinner: boolean = Boolean(radiantScore > direScore)
+    const isWinner = Boolean(radiantScore > direScore)
 
     return (
         <div className={styles.singleMatch}>
