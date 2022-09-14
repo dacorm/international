@@ -48,6 +48,12 @@
     }
 }
 
+@media screen and (max-width: 374px) {
+    .loginAndRegister {
+        max-width: 310px;
+    }
+}
+
 .loginBtn {
     color: #363636;
     font-family: 'Exo', sans-serif;

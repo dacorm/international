@@ -56,6 +56,14 @@
     }
 }
 
+@media screen and (max-width: 374px) {
+    .calendar {
+        width: 310px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
 .header {
     display: flex;
     align-items: center;

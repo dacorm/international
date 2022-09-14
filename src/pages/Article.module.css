@@ -39,12 +39,30 @@
     }
 }
 
+@media screen and (max-width: 374px) {
+    .articleMainText {
+        max-width: 310px;
+    }
+}
+
 .textTitle {
     font-size: 18px;
     font-family: 'Exo', sans-serif;
     color: #363636;
     padding: 0 150px;
     margin: 40px 0 0 0;
+}
+
+@media screen and (max-width: 767px) {
+    .textTitle {
+        padding: 0 75px;
+    }
+}
+
+@media screen and (max-width: 374px) {
+    .textTitle {
+        max-width: 310px;
+    }
 }
 
 .text {
@@ -57,6 +75,13 @@
 @media screen and (max-width: 767px) {
     .text {
         max-width: 350px;
+        padding: 0 75px;
+    }
+}
+
+@media screen and (max-width: 374px) {
+    .text {
+        max-width: 310px;
     }
 }
 
@@ -136,5 +161,12 @@
 
     .bigPosts {
         width: 255px;
+    }
+}
+
+@media screen and (max-width: 374px) {
+    .tags {
+        width: 310px;
+        flex-wrap: wrap;
     }
 }

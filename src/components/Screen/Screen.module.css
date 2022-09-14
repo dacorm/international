@@ -108,6 +108,26 @@
     }
 }
 
+@media screen and (max-width: 374px) {
+    .back {
+        align-items: center;
+        padding-left: 0;
+    }
+
+    .heading {
+        max-width: 310px;
+    }
+
+    .subheading {
+        max-width: 310px;
+    }
+
+    .label {
+        margin-top: 15px;
+    }
+}
+
+
 .dropWrapper {
     width: 43px;
     height: 43px;

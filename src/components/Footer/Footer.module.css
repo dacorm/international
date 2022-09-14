@@ -103,6 +103,17 @@
     }
 }
 
+@media screen and (max-width: 374px) {
+    .slider {
+        width: 310px;
+    }
+
+    .sliderTrack {
+        width: 230px;
+    }
+}
+
+
 .sliderItem {
     width: 100px;
     height: 100px;
