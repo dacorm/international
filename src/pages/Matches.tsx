@@ -52,13 +52,12 @@ const Matches = () => {
         const date = new Date(unixTimestamp * 1000);
         const hours = date.getHours();
         const minutes = date.getMinutes();
-        const seconds = date.getSeconds();
-        const formattedTime = hours + ':' + minutes + ':' + seconds;
+        const formattedTime = hours + ':' + minutes;
         return formattedTime
     }
 
     useEffect(() => {
-        navigate(`/matches/${new Date().getDate()}`)
+        navigate(`/calendar/${new Date().getDate()}`)
     }, [])
 
     const fetchData = async () => {
@@ -187,7 +186,7 @@ const Matches = () => {
             <Header/>
             <WhiteHeading/>
             <div className={styles.screen}>
-                <h1 className={styles.title}>Scores With Calendar</h1>
+                <h1 className={styles.title}>Результаты матчей за {id} {monthConverter(new Date().getMonth())}</h1>
             </div>
             <TextSlide/>
             <MatchSlide/>
@@ -202,7 +201,7 @@ const Matches = () => {
                         {
                             monthDaysConverter(new Date().getMonth())?.map((item) => (
                                 <NavLink
-                                    to={`/matches/${item}`}
+                                    to={`/calendar/${item}`}
                                     key={item}
                                     className={({isActive}) => isActive ? `${styles.sliderItem} ${styles.active}` : `${styles.sliderItem}`}>
                                     <p className={styles.navText}>{monthConverter(new Date().getMonth())?.split('').slice(0, 3).join('')}</p>
@@ -233,6 +232,7 @@ const Matches = () => {
                         </div>)
                     }
                 </div>}
+                <a href='https://betcity.ru/' target='_blank' className={styles.banner} />
             </div>
             <Footer/>
         </div>

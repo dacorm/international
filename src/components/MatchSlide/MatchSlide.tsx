@@ -44,7 +44,7 @@ const MatchSlide = () => {
     return (
         <div className={styles.sliderContainer}>
             <div className={styles.showMore}>
-                <Link to='/matches' className={styles.linkText}>
+                <Link to='/calendar' className={styles.linkText}>
                     Show More Matches
                 </Link>
             </div>

@@ -23,7 +23,7 @@ const SingleMatch: React.FC<SingleMatchProps> = ({ leagueName, logo, logo2, play
             <h2 className={styles.listHeading}>{leagueName}</h2>
             <div className={styles.separator}/>
             <div className={styles.matchWrapper}>
-                <p className={styles.time}>{playTime}</p>
+                <p className={styles.time}>Матч окончен: {playTime}</p>
                 <div className={styles.teams}>
                     <div className={styles.team}>
                         <img src={logo} alt="Team1Logo" className={styles.logo}/>

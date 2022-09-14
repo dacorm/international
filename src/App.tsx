@@ -66,7 +66,7 @@ function App() {
                     }
                 />
                 <Route
-                    path="matches"
+                    path="calendar"
                     element={
                         <Suspense fallback={<div>Идёт загрузка...</div>}>
                             <MatchesPage/>
@@ -74,7 +74,7 @@ function App() {
                     }
                 />
                 <Route
-                    path="matches/:id"
+                    path="calendar/:id"
                     element={
                         <Suspense fallback={<div>Идёт загрузка...</div>}>
                             <MatchesPage/>
