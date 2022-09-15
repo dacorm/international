@@ -1,3 +1,13 @@
+@keyframes move-light {
+    from {
+        transform: translateX(-4em) skewX(-45deg);
+    }
+
+    to {
+        transform: translateX(10em) skewX(-45deg);
+    }
+}
+
 .header {
     display: flex;
     background-color: var(--main);
@@ -223,16 +233,6 @@
     padding: 0;
 }
 
-.aegis {
-    width: 30px;
-    height: 30px;
-    transition: .3s ease;
-}
-
-.aegis:hover {
-    opacity: .6;
-}
-
 .langPopup {
     display: flex;
     flex-direction: column;
@@ -254,13 +254,47 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url("../../assets/images/aegis-ti11.png");
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
     cursor: pointer;
     transition: .3s ease;
     position: relative;
+    overflow: hidden;
+}
+
+.currency:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 100%;
+    background-color: rgba(255, 253, 253, 0.6);
+    transform: translateX(-4em) skewX(-45deg);
+    animation: move-light 1.5s linear infinite;
+    z-index: 5;
 }
 
 .currency:hover {
     opacity: .6;
+}
+
+.currencyModified {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../assets/images/aegis-ti11.png");
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: .3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .text {

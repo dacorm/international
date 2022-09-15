@@ -148,7 +148,6 @@
 
 .buttonText {
     font-size: 14px;
-    line-height: 55;
     font-family: 'Exo', sans-serif;
     text-transform: uppercase;
     color: white;
@@ -170,6 +169,75 @@
 .active {
     display: flex;
     animation: fadeInFromNone .6s ease-in-out;
+}
+
+.overlay {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    z-index: 4;
+}
+
+.close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -35px;
+    right: -35px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.close:hover {
+    opacity: .6;
+}
+
+@media screen and (max-width: 767px) {
+    .close {
+        right: 0;
+    }
+}
+
+.popupButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: none;
+    background-color: #FF6838;
+    height: 36px;
+    min-width: 64px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0 16px;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.banner {
+    width: 300px;
+    height: 300px;
 }
 
 .slider {

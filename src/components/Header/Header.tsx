@@ -36,6 +36,7 @@ const Header = () => {
     const user = useAppSelector(selectName);
     const dispatch = useAppDispatch();
     const [visible, setVisible] = useState(false);
+    const [stopAnimation, setStopAnimation] = useState(false);
     const [open, setOpen] = useState(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [lang, setLang] = useState({
@@ -71,6 +72,7 @@ const Header = () => {
 
     const handleWalletClick = () => {
         setOpen(!open);
+        if (!stopAnimation) setStopAnimation(true);
     }
 
     const openPopup = () => {
@@ -133,9 +135,7 @@ const Header = () => {
                     <p className={styles.language}>{lang.name}</p>
                     <img src={drop} alt="DropDown" className={`${styles.drop} ${visible ? styles.dropLeft : ''}`}/>
                 </div>
-                <div className={styles.currency} onClick={handleWalletClick}>
-                    <img src={aegis} alt="Аегис дота" className={styles.aegis}/>
-                </div>
+                <div className={stopAnimation ? styles.currencyModified : styles.currency} onClick={handleWalletClick} />
                 {visible && <div className={styles.langPopup} onClick={() => setVisible(false)}>
                     {
                         langs.map(lang => (

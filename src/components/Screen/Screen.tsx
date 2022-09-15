@@ -1,10 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styles from './Screen.module.css';
 import drop from '../../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg';
 import cs from '../../assets/images/099a6cd51d99d94856577c535e858cc0.jpg';
 import dota from '../../assets/images/ae306fadfec0cb591697545dbb30a456.jpg';
 import lol from '../../assets/images/57167e56a68d8.jpg';
 import WhiteHeading from "../WhiteHeading/WhiteHeading";
+import banner from '../../assets/images/300x350---6.gif';
+import close from '../../assets/images/close_FILL0_wght400_GRAD0_opsz48.svg';
 
 const data = [{
     image: dota,
@@ -23,6 +25,17 @@ const data = [{
 const Screen = () => {
     const [activeIndex, setActiveIndex] = useState(1);
     const [slideActive, setSlideActive] = useState(1);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const openPopup = () => {
+       setIsOpen(true);
+       document.body.style.overflow = "hidden"
+    }
+
+    const closePopup = () => {
+        setIsOpen(false);
+        document.body.style.overflow = "auto"
+    }
 
     // useEffect(() => {
     //     if (activeIndex > 3) {
@@ -52,12 +65,19 @@ const Screen = () => {
                             <h1 className={styles.heading}>{item.title}</h1>
                             <p className={styles.subheading}>{item.subtitle}</p>
                         </div>
-                        <button className={styles.button}>
-                            <p className={styles.buttonText}>Go To The Article</p>
+                        <button className={styles.button} onClick={openPopup}>
+                            <p className={styles.buttonText}>Получи фрибет</p>
                             <div className={styles.dropWrapper}>
                                 <img src={drop} alt={drop} className={styles.drop} />
                             </div>
                         </button>
+                        {isOpen && (<div className={styles.overlay}>
+                            <div className={styles.popup}>
+                            <img src={close} alt="Закрыть попап" className={styles.close} onClick={closePopup}/>
+                            <img src={banner} alt="Бетсити баннер" className={styles.banner}/>
+                            <a href='https://betcity.ru/' target='_blank' className={styles.popupButton}>Получить</a>
+                        </div>
+                        </div>)}
                     </div>
                 ))
             }
