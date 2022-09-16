@@ -8,6 +8,9 @@ import {selectIsAuth, selectName} from "../redux/slices/auth";
 import {useNavigate} from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 import {withErrorBoundary} from "react-error-boundary";
+import {Helmet, HelmetData} from 'react-helmet-async';
+
+const helmetData = new HelmetData({});
 
 const Profile = () => {
     const isAuth = useAppSelector(selectIsAuth);
@@ -24,6 +27,13 @@ const Profile = () => {
 
     return (
         <div>
+            <Helmet helmetData={helmetData}>
+                <meta
+                    name="description"
+                    content="profile page"
+                />
+                <title>Profile</title>
+            </Helmet>
             <Header/>
             <WhiteHeading/>
             <div className={styles.screen}>

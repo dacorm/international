@@ -17,6 +17,9 @@ import logo3 from '../assets/images/teams/03.png';
 import logo4 from '../assets/images/teams/04.png';
 import {randomNumber} from "../assets/helpers";
 import {withErrorBoundary} from "react-error-boundary";
+import {Helmet, HelmetData} from 'react-helmet-async';
+
+const helmetData = new HelmetData({});
 
 const days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
 
@@ -183,6 +186,13 @@ const Matches = () => {
 
     return (
         <div>
+            <Helmet helmetData={helmetData}>
+                <meta
+                    name="description"
+                    content="match calendar"
+                />
+                <title>Matches Calendar</title>
+            </Helmet>
             <Header/>
             <WhiteHeading/>
             <div className={styles.screen}>

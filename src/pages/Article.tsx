@@ -12,6 +12,9 @@ import BigPost from "../components/BigPost/BigPost";
 import CommentForm from "../components/CommentForm/CommentForm";
 import Commentary from "../components/Commentary/Commentary";
 import {withErrorBoundary} from "react-error-boundary";
+import {Helmet, HelmetData} from 'react-helmet-async';
+
+const helmetData = new HelmetData({});
 
 export const commentsData = [{
     name: 'Elizabeth Valentine',
@@ -70,6 +73,13 @@ const Article = () => {
 
     return (
         <div className={styles.article}>
+            <Helmet helmetData={helmetData}>
+                <meta
+                    name="description"
+                    content="Article"
+                />
+                <title>Article</title>
+            </Helmet>
             <Header/>
             <WhiteHeading/>
             <TextSlide/>

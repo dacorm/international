@@ -9,6 +9,9 @@ import Footer from "../components/Footer/Footer";
 import {fetchAuth, selectIsAuth} from "../redux/slices/auth";
 import {useAppDispatch, useAppSelector} from "../assets/hooks";
 import {withErrorBoundary} from "react-error-boundary";
+import {Helmet, HelmetData} from 'react-helmet-async';
+
+const helmetData = new HelmetData({});
 
 
 const Login = () => {
@@ -58,6 +61,13 @@ const Login = () => {
 
     return (
         <>
+            <Helmet helmetData={helmetData}>
+                <meta
+                    name="description"
+                    content="Login"
+                />
+                <title>Login</title>
+            </Helmet>
             <Header/>
             <WhiteHeading/>
             <div className={styles.screen}>
