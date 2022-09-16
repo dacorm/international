@@ -45,6 +45,9 @@ const Header = () => {
     })
     const popupRef = useRef<HTMLDivElement>(null);
 
+    const isUserAdmin = isAuth && (user.fullName === 'admin')
+
+
     const onClickLogout = () => {
         if (window.confirm('Вы действительно хотите выйти?')) {
             dispatch(logout());
@@ -158,6 +161,7 @@ const Header = () => {
                 </div>}
             </div>
             <div className={styles.right}>
+                {isUserAdmin && <Link to='/admin'>Админка</Link>}
                 {
                     isAuth && (<Link to='/profile' className={styles.account}>
                         <div className={styles.avatar}/>
