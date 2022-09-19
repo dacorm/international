@@ -309,6 +309,19 @@
     margin: 0 5px 0 0;
 }
 
+.adminPanelNav {
+    text-decoration: none;
+    align-self: center;
+    margin-right: 8px;
+    color: white;
+    font-family: 'Exo', sans-serif;
+    cursor: pointer;
+}
+
+.adminPanelNav:hover {
+    opacity: .6;
+}
+
 .account {
     display: flex;
     justify-content: center;

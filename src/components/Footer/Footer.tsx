@@ -1,6 +1,6 @@
 import React, {LegacyRef, useRef, useState} from 'react';
 import styles from './Footer.module.css';
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/icons8-dota-2.svg";
 import sponsor from '../../assets/images/sponsor03.png';
 import drop from "../../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg";
 import youtube from '../../assets/images/socials/youtube-svgrepo-com.svg';
@@ -59,8 +59,8 @@ const Footer = () => {
                     <div className={styles.logo}>
                         <img src={logo} alt="Logo" className={styles.logoImg}/>
                         <div className={styles.text}>
-                            <h2 className={styles.logoText}>Pixel<span className={styles.logoSpan}>Diamond</span></h2>
-                            <p className={styles.logoSub}>The Latest Gaming News</p>
+                            <h2 className={styles.logoText}>International<span className={styles.logoSpan}>2022</span></h2>
+                            <p className={styles.logoSub}>Последние новости</p>
                         </div>
                     </div>
                     <div className={styles.slider}>

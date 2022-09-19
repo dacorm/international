@@ -49,7 +49,7 @@
     font-weight: 700;
 }
 
-span {
+.span {
     font-family: 'Exo', sans-serif;
     color: var(--primary);
 }

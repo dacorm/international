@@ -111,6 +111,7 @@ const Header = () => {
                             <img src={drop} alt="DropDown" className={styles.drop}/>
                         </Link>)
                     }
+                    {isUserAdmin && <Link to='/admin' className={styles.adminPanelNav}>Админка</Link>}
                     {
                         isAuth ? (
                             <button className={styles.logout} onClick={() => {
@@ -161,7 +162,7 @@ const Header = () => {
                 </div>}
             </div>
             <div className={styles.right}>
-                {isUserAdmin && <Link to='/admin'>Админка</Link>}
+                {isUserAdmin && <Link to='/admin' className={styles.adminPanelNav}>Админка</Link>}
                 {
                     isAuth && (<Link to='/profile' className={styles.account}>
                         <div className={styles.avatar}/>
