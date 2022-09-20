@@ -22,7 +22,7 @@ const InfoPopup: React.FC<InfoPopupProps> = ({ isLoading }) => {
                 }}/>
                 {isOk && (<>
                     <img src={bad} alt="Статья создана"/>
-                    <p className={styles.popupText}>Не удалось создать статью</p>
+                    <p className={styles.popupText}>Не удалось создать статью, перезагрузите страницу и попробуйте снова</p>
                 </>)}
                 {
                     !isOk && (<>
