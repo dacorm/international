@@ -33,6 +33,7 @@ const Admin = () => {
     const [title, setTitle] = useState('');
     const inputFileRef = useRef(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(false);
 
     const isUserAdmin = isAuth && (user.fullName === 'admin')
 
@@ -70,7 +71,7 @@ const Admin = () => {
             setIsLoading(false);
         } catch (err) {
             console.warn(err);
-            alert('Не удалось создать статью');
+            setError(true);
         }
     };
 
@@ -128,7 +129,7 @@ const Admin = () => {
                 </button>
             </div>
             <Footer/>
-            <InfoPopup isLoading={isLoading} />
+            <InfoPopup isLoading={isLoading} error={error} setError={setError} />
         </>
     );
 };
