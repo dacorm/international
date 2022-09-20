@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
-import {useAppDispatch, useAppSelector} from "../assets/hooks";
+import {useAppSelector} from "../assets/hooks";
 import {selectIsAuth, selectName} from "../redux/slices/auth";
 import {useNavigate} from "react-router-dom";
 import SimpleMDE from 'react-simplemde-editor';
@@ -26,7 +26,6 @@ type Options = {
 const Admin = () => {
     const isAuth = useAppSelector(selectIsAuth);
     const user = useAppSelector(selectName);
-    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const [text, setText] = useState('');
     const [imageUrl, setImageUrl] = useState('');
@@ -65,6 +64,9 @@ const Admin = () => {
                 text
             }
             const { data } = await axios.post('/posts', fields);
+            setTitle('');
+            setText('');
+            setIsLoading(false);
         } catch (err) {
             console.warn(err);
             alert('Не удалось создать статью');

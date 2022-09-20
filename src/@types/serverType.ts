@@ -31,3 +31,26 @@ export interface ProMatchJSON {
     dire_score: number;
     radiant_win: boolean;
 }
+
+export interface User {
+    _id: string;
+    fullName: string;
+    email: string;
+    passwordHash: string;
+    createdAt: Date;
+    updatedAt: Date;
+    __v: number;
+}
+
+export interface Post {
+    _id: string;
+    title: string;
+    text: string;
+    tags: string[];
+    viewsCount: number;
+    imageUrl: string;
+    user: User;
+    createdAt: Date;
+    updatedAt: Date;
+    __v: number;
+}
