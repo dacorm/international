@@ -92,3 +92,8 @@
 .submitButton:hover {
     color: #FF6838;
 }
+
+.submitButtonDisabled {
+    border: 1px solid gray;
+    cursor: not-allowed;
+}

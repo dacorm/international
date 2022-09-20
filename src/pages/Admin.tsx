@@ -9,6 +9,7 @@ import WhiteHeading from "../components/WhiteHeading/WhiteHeading";
 import Footer from "../components/Footer/Footer";
 import 'easymde/dist/easymde.min.css';
 import axios from "../axios";
+import InfoPopup from "../components/InfoPopup/InfoPopup";
 
 type Options = {
     spellChecker: boolean;
@@ -122,13 +123,12 @@ const Admin = () => {
                 )}
                 <input type="text" className={styles.titleInput} value={title} onChange={handleTitleChange} placeholder='Заголовок статьи...' />
                 <SimpleMDE className={styles.editor} value={text} onChange={onChange} options={options} />
-                <button onClick={onSubmit} className={styles.submitButton}>
+                <button onClick={onSubmit} disabled={isLoading} className={`${styles.submitButton} ${isLoading ? styles.submitButtonDisabled : ''}`}>
                     Опубликовать статью
                 </button>
             </div>
-
-
             <Footer/>
+            <InfoPopup isLoading={isLoading} />
         </>
     );
 };
