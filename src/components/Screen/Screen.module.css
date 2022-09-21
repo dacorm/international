@@ -153,8 +153,9 @@
     color: white;
     text-shadow: 0 0 10px #020102;
     font-weight: 800;
-    margin-left: 35px;
+    margin-left: 15px;
     transition: all .5s ease-in-out;
+    text-decoration: none;
 }
 
 .button:hover .drop {
