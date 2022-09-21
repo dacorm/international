@@ -32,7 +32,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: 50px;
+    margin-left: 50px;
+    border: 1px solid var(--primary);
+    background: transparent;
+    border-radius: 10px;
+    padding: 10px;
+    transition: .3s ease;
+    cursor: pointer;
+}
+
+.showMore:hover {
+    background: var(--primary);
 }
 
 .linkText {
@@ -79,6 +89,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+@media screen and (min-width: 1921px) {
+    .sliderContainer {
+        width: 100%;
+        justify-content: space-around;
+    }
 }
 
 @media screen and (max-width: 767px) {

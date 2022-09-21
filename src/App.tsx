@@ -11,6 +11,7 @@ const ProfilePage = React.lazy(() => import('./pages/Profile'));
 const MatchesPage = React.lazy(() => import('./pages/Matches'));
 const NotFoundPage = React.lazy(() => import('./pages/NotFound'));
 const AdminPanelPage = React.lazy(() => import('./pages/Admin'));
+const TournamentPage = React.lazy(() => import('./pages/Tournament'));
 
 const ScrollToTop = () => {
     const {pathname} = useLocation();
@@ -88,6 +89,14 @@ function App() {
                     element={
                         <Suspense fallback={<div>Идёт загрузка...</div>}>
                             <AdminPanelPage/>
+                        </Suspense>
+                    }
+                />
+                <Route
+                    path="tournament"
+                    element={
+                        <Suspense fallback={<div>Идёт загрузка...</div>}>
+                            <TournamentPage/>
                         </Suspense>
                     }
                 />

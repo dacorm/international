@@ -1,0 +1,60 @@
+.match {
+    display: flex;
+    flex-direction: column;
+    height: 110px;
+    border: 1px solid #dbdbdb;
+    width: 260px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.team {
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    width: 100%;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.teamInfo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.teamName {
+    display: flex;
+    flex-direction: column;
+}
+
+.teamImg {
+    width: 30px;
+    height: 30px;
+}
+
+.teamText {
+    font-size: 11px;
+    font-family: 'Exo', sans-serif;
+    text-transform: uppercase;
+    color: #363636;
+    font-weight: 700;
+    margin: 0;
+}
+
+.country {
+    font-size: 9px;
+    color: #8b8b8b;
+    margin: 2px 0 0 0;
+}
+
+.round {
+    position: absolute;
+    background: white;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    top: 43%;
+    left: 50px;
+}

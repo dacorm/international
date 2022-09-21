@@ -43,11 +43,11 @@ const MatchSlide = () => {
 
     return (
         <div className={styles.sliderContainer}>
-            <div className={styles.showMore}>
+            <button className={styles.showMore}>
                 <Link to='/calendar' className={styles.linkText}>
-                    Show More Matches
+                    Показать матчи
                 </Link>
-            </div>
+            </button>
             <div className={styles.slider}>
                 <img src={drop} alt="dropDownIcon" className={styles.dropLeft} onClick={prevHandler}/>
                 {isLoading && <Preloader />}
