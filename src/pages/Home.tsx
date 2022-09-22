@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from "../components/Header/Header";
 import Screen from "../components/Screen/Screen";
 import TextSlide from "../components/TextSlide/TextSlide";
@@ -6,11 +6,22 @@ import MainContent from "../components/MainContent/MainContent";
 import Footer from "../components/Footer/Footer";
 import MatchSlide from "../components/MatchSlide/MatchSlide";
 import {Helmet, HelmetData} from 'react-helmet-async';
+import FreebetPopup from "../components/FreebetPopup/FreebetPopup";
 
 const helmetData = new HelmetData({});
 
 
 const Home = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const onClose = () => {
+        setIsOpen(false);
+    }
+
+    useEffect(() => {
+        setIsOpen(true)
+    }, [])
+
     return (
         <div>
             <Helmet helmetData={helmetData}>
@@ -20,6 +31,7 @@ const Home = () => {
                 />
                 <title>International Main</title>
             </Helmet>
+            {isOpen && <FreebetPopup onClose={onClose} />}
             <Header />
             <Screen />
             <TextSlide />

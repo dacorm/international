@@ -205,21 +205,22 @@ const Tournament = () => {
                             </h2>
                             <div className={styles.separator}/>
                             <div className={styles.tournamentTable}>
-                               <div className={styles.column}>
+                               <div className={styles.columnAnother}>
                                    <TournamentMatch />
                                    <TournamentMatch />
                                    <TournamentMatch />
                                    <TournamentMatch />
                                </div>
-                                <div className={styles.column}>
+                                <div className={styles.columnAnother}>
                                     <TournamentMatch />
                                     <TournamentMatch />
                                 </div>
-                                <div className={styles.column}>
+                                <div className={styles.columnAnother}>
                                     <TournamentMatch />
                                 </div>
                             </div>
                         </div>
+                        <a href='https://betcity.ru/' target='_blank' className={styles.banner} />
                     </div>
                 </div>
             </div>

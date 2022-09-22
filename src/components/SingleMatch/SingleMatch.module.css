@@ -6,6 +6,12 @@
     color: #363636;
 }
 
+@media screen and (max-width: 767px) {
+    .listHeading {
+        width: 200px;
+    }
+}
+
 .separator {
     border-bottom: 3px solid #7442ce;
     width: 50px;

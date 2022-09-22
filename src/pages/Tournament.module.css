@@ -16,6 +16,20 @@
     text-transform: uppercase;
 }
 
+@media screen and (max-width: 767px) {
+    .title {
+        width: 300px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .title {
+        width: 350px;
+        text-align: center;
+    }
+}
+
 .listHeading {
     font-size: 20px;
     text-transform: uppercase;
@@ -144,17 +158,78 @@
         width: 600px;
     }
 
+    .tableRow {
+        justify-content: space-between;
+    }
+
+    .column {
+        width: 50px;
+    }
+
     .tournamentTable {
         width: 600px;
         overflow-y: scroll;
     }
 }
 
-.column {
+.columnAnother {
     width: 300px;
     display: flex;
     flex-direction: column;
     height: 520px;
     align-items: center;
     justify-content: center;
+}
+
+.banner {
+    width: 920px;
+    height: 100px;
+    background-image: url("../assets/images/photo_2022-09-14_14-59-46.jpg");
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1023px) {
+    .banner {
+        background-image: url("../assets/images/300x350---6.gif");
+        height: 350px;
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .content {
+        width: 400px;
+    }
+
+    .tournament {
+        flex-direction: column;
+    }
+
+    .table {
+        width: 400px;
+    }
+
+    .tournamentTable {
+        width: 400px;
+        overflow-y: scroll;
+    }
+}
+
+@media screen and (max-width: 424px) {
+    .content {
+        width: 300px;
+    }
+
+    .tournament {
+        flex-direction: column;
+    }
+
+    .table {
+        width: 300px;
+    }
+
+    .tournamentTable {
+        width: 300px;
+        overflow-y: scroll;
+    }
 }

@@ -41,7 +41,7 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
                         <p className={styles.menuText}>News</p>
                     </li>
                     <li className={styles.menuItem}>
-                        <p className={styles.menuText}>Reviews</p>
+                        <Link to='/calendar' className={styles.menuText}>Матчи</Link>
                     </li>
                     <li className={styles.menuItem} onClick={() => setVisible(!visible)}>
                         <p className={styles.menuText}>Features</p>
@@ -49,11 +49,9 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
                     </li>
                     {visible && <FeaturesPopup className={styles.popupFeatures} />}
                     <li className={styles.menuItem}>
-                        <p className={styles.menuText}>Shop</p>
+                        <Link to='/tournament' className={styles.menuText}>Турнирная таблица</Link>
                     </li>
                 </ul>
-                <img src={search} alt="Search" className={styles.iconSearch}/>
-                <img src={inv} alt="Inventory" className={styles.iconInv}/>
                 <div className={styles.after}></div>
             </nav>
         </>

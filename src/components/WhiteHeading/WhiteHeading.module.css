@@ -101,11 +101,12 @@
 .menuText {
     font-size: 13px;
     font-weight: 700;
-    line-height: 92px;
     color: var(--main);
     font-family: 'Exo', sans-serif;
     margin: 0;
     padding: 0;
+    text-decoration: none;
+    text-align: center;
 }
 
 .menuItem {
@@ -116,10 +117,12 @@
     margin: 0;
     padding: 0 32px;
     border-top: 3px solid white;
+    height: 100%;
+    transition: .3s ease;
 }
 
 .menuItem:hover {
-    border-top: 3px solid var(--primary);
+    opacity: .6;
 }
 
 .drop {

@@ -16,6 +16,12 @@
     font-weight: 700;
 }
 
+@media screen and (max-width: 890px) {
+    .title {
+        width: 500px;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .title {
         width: 200px;
