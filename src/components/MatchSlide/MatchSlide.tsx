@@ -6,6 +6,7 @@ import {DotaMatchJSON} from "../../@types/serverType";
 import Match from "../Match/Match";
 import Preloader from "../Preloader/Preloader";
 import {Link} from "react-router-dom";
+import {unixTimeStampConverterToTime} from "../../helpers/unixConverters";
 
 const MatchSlide = () => {
     const slider = useRef<HTMLDivElement>(null);
@@ -20,13 +21,17 @@ const MatchSlide = () => {
     }
 
     useEffect(() => {
+        console.log(items);
+    }, [items])
+
+    useEffect(() => {
         fetchData();
     }, [])
 
     let position = 0;
 
     const prevHandler = () => {
-        position += 265
+        position += 250
         if (position > 300) position = 0
         slider?.current?.childNodes.forEach((element) => {
             (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`)
@@ -34,7 +39,7 @@ const MatchSlide = () => {
     }
 
     const nextHandler = () => {
-        position -= 265
+        position -= 250
         if (position < -5199) position = 0
         slider?.current?.childNodes.forEach((element) => {
             (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`)
@@ -60,6 +65,7 @@ const MatchSlide = () => {
                             direScore={item.dire_score}
                             league={item.league_name}
                             key={item.match_id}
+                            date={unixTimeStampConverterToTime(item.start_time)}
                         />))
                     }
                 </div>}

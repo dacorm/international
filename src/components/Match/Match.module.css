@@ -7,6 +7,9 @@
     height: 90px;
     align-items: center;
     gap: 10px;
+    padding: 0 5px;
+    border-left: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
 }
 
 .teams {
@@ -18,7 +21,22 @@
 
 .league {
     display: flex;
+    flex-direction: column;
     flex: 1;
+    text-align: center;
+}
+
+.leagueText {
+    margin: 0;
+}
+
+.dateText {
+    margin: 0 0 8px 0;
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    padding: 2px 5px;
+    max-width: 45px;
+    align-self: center;
 }
 
 .logo {

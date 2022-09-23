@@ -9,9 +9,21 @@ type MatchProps = {
     radiantScore: number
     direScore: number
     league: string
+    date: string
 }
 
-const Match: React.FC<MatchProps> = ({ radiantName, direName, radiantScore, direScore, league }) => {
+const Match: React.FC<MatchProps> = ({ radiantName, direName, radiantScore, direScore, league, date }) => {
+
+    const leagueFormatter = (league: string) => {
+        const leagueArr = league.split(' ');
+        let formattedArr
+        if (leagueArr.length > 3) {
+            formattedArr = leagueArr.slice(0, 2)
+            return formattedArr.join(' ')
+        }
+        return leagueArr.join(' ')
+    }
+
     return (
         <div className={styles.match}>
             <div className={styles.teams}>
@@ -26,7 +38,10 @@ const Match: React.FC<MatchProps> = ({ radiantName, direName, radiantScore, dire
                     <p className={styles.score}>{radiantScore}</p>
                 </div>
             </div>
-            <p className={styles.league}>{league}</p>
+            <div className={styles.league}>
+                <p className={styles.dateText}>{date}</p>
+                <p className={styles.leagueText}>{leagueFormatter(league)}</p>
+            </div>
         </div>
     );
 };

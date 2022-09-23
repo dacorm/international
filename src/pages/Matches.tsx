@@ -18,6 +18,7 @@ import logo4 from '../assets/images/teams/04.png';
 import {randomNumber} from "../assets/helpers";
 import {withErrorBoundary} from "react-error-boundary";
 import {Helmet, HelmetData} from 'react-helmet-async';
+import {unixTimeStampConverter, unixTimeStampConverterToTime} from "../helpers/unixConverters";
 
 const helmetData = new HelmetData({});
 
@@ -44,20 +45,6 @@ const Matches = () => {
             setRandomNumbers(arr)
         }
     }, [items])
-
-    const unixTimeStampConverter = (unix: number) => {
-        let miliseconds = unix * 1000
-        return String(new Date(miliseconds).getDate())
-    }
-
-    const unixTimeStampConverterToTime = (unix: number) => {
-        const unixTimestamp = unix
-        const date = new Date(unixTimestamp * 1000);
-        const hours = date.getHours();
-        const minutes = date.getMinutes();
-        const formattedTime = hours + ':' + minutes;
-        return formattedTime
-    }
 
     useEffect(() => {
         navigate(`/calendar/${new Date().getDate()}`)
