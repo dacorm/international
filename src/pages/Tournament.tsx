@@ -6,11 +6,20 @@ import TextSlide from "../components/TextSlide/TextSlide";
 import Footer from "../components/Footer/Footer";
 import tourn from '../assets/images/711.jpg';
 import TournamentMatch from "../components/TournamentMatch/TournamentMatch";
+import {Helmet, HelmetData} from 'react-helmet-async';
 
+const helmetData = new HelmetData({});
 
 const Tournament = () => {
     return (
         <>
+            <Helmet helmetData={helmetData}>
+                <meta
+                    name="description"
+                    content="international 2022 page"
+                />
+                <title>Турнир The International 2022</title>
+            </Helmet>
             <Header/>
             <WhiteHeading/>
             <div className={styles.screen}>
