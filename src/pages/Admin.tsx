@@ -68,6 +68,7 @@ const Admin = () => {
             const { data } = await axios.post('/posts', fields);
             setTitle('');
             setText('');
+            setImageUrl('');
             setIsLoading(false);
         } catch (err) {
             console.warn(err);
