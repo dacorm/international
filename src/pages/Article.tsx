@@ -103,9 +103,9 @@ const Article = () => {
             <Helmet helmetData={helmetData}>
                 <meta
                     name="description"
-                    content="Article"
+                    content={`Последние новости по dota 2 - ${title} - на сайте international11.com`}
                 />
-                <title>Article</title>
+                <title> {title} - последние новости на нашем сайте international11.com</title>
             </Helmet>
             <Header/>
             <WhiteHeading/>
