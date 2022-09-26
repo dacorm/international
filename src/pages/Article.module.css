@@ -118,7 +118,7 @@
 
 .bigPosts {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 30px;
     width: 870px;

@@ -21,10 +21,6 @@ const MatchSlide = () => {
     }
 
     useEffect(() => {
-        console.log(items);
-    }, [items])
-
-    useEffect(() => {
         fetchData();
     }, [])
 

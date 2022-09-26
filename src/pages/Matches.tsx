@@ -19,10 +19,10 @@ import {randomNumber} from "../assets/helpers";
 import {withErrorBoundary} from "react-error-boundary";
 import {Helmet, HelmetData} from 'react-helmet-async';
 import {unixTimeStampConverter, unixTimeStampConverterToTime} from "../helpers/unixConverters";
+import {monthDaysConverter} from "../helpers/monthDaysConverter";
+import {monthConverter} from "../helpers/monthConverter";
 
 const helmetData = new HelmetData({});
-
-const days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
 
 const Matches = () => {
     const [loading, setLoading] = useState(false);
@@ -85,91 +85,7 @@ const Matches = () => {
         })
     }, [position])
 
-    const monthConverter = (month: number) => {
-        switch (month) {
-            case 0:
-                return 'Январь';
-                break;
-            case 1:
-                return 'Февраль';
-                break;
-            case 2:
-                return 'Март';
-                break;
-            case 3:
-                return 'Апрель';
-                break;
-            case 4:
-                return 'Май';
-                break;
-            case 5:
-                return 'Июнь';
-                break;
-            case 6:
-                return 'Июль';
-                break;
-            case 7:
-                return 'Август';
-                break;
-            case 8:
-                return 'Сентябрь';
-                break;
-            case 9:
-                return 'Октябрь';
-                break;
-            case 10:
-                return 'Декабрь';
-                break;
-            case 11:
-                return 'Январь';
-                break;
-            default:
-                console.warn('enter number')
-        }
-    }
 
-    const monthDaysConverter = (month: number) => {
-        switch (month) {
-            case 0:
-                return days.slice(0, 31);
-                break;
-            case 1:
-                return days.slice(0, 30);
-                break;
-            case 2:
-                return days.slice(0, 31);
-                break;
-            case 3:
-                return days.slice(0, 30);
-                break;
-            case 4:
-                return days.slice(0, 31);
-                break;
-            case 5:
-                return days.slice(0, 30);
-                break;
-            case 6:
-                return days.slice(0, 31);
-                break;
-            case 7:
-                return days.slice(0, 31);
-                break;
-            case 8:
-                return days.slice(0, 30);
-                break;
-            case 9:
-                return days.slice(0, 31);
-                break;
-            case 10:
-                return days.slice(0, 31);
-                break;
-            case 11:
-                return days.slice(0, 30);
-                break;
-            default:
-                console.warn('enter number')
-        }
-    }
 
     return (
         <div>

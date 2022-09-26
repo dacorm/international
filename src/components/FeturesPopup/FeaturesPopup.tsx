@@ -206,7 +206,7 @@ const FeaturesPopup: React.FC<FeaturesPopupProps> = ({ className }) => {
                         labelText={post.labelText}
                         color={post.color}
                         key={post.id}
-                        id={post.id}
+                        id={post.id.toString()}
                     />))
                 }
             </div>

@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Article from "../Article/Article";
 import styles from './MainContent.module.css';
 import LittleArticle from "../LittleArticle/LittleArticle";
@@ -7,19 +7,15 @@ import youtube from '../../assets/images/socials/youtube-svgrepo-com.svg';
 import facebook from '../../assets/images/socials/facebook-svgrepo-com3.svg';
 import twitter from '../../assets/images/socials/twitter-svgrepo-com (1).svg';
 import twitch from '../../assets/images/socials/twitch-svgrepo-com.svg';
-import magimons from '../../assets/images/unnamed.png'
 import BigPost from "../BigPost/BigPost";
 import BigArticle from "../BigArticle/BigArticle";
 import Post from "../Post/Post"
 import Comment from "../Comment/Comment";
 import TextArticle from "../TextArticle/TextArticle";
 import {
-    articlesData,
-    bigArticlesData,
     commentData,
     geekyPostData,
     newsPostData,
-    postsData,
     reviewsPostData,
     smallPostsData,
     videoData
@@ -27,11 +23,29 @@ import {
 import drop from "../../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg";
 import Video from "../Video/Video";
 import Tag from "../Tag/Tag";
+import {useAppDispatch, useAppSelector} from "../../assets/hooks";
+import {fetchPosts} from "../../redux/slices/posts";
+import {convertTextIntoPreview} from "../../helpers/convertTextIntoPreview";
+import {convertDate} from "../../helpers/convertDate";
+import Preloader from "../Preloader/Preloader";
 
 
 const MainContent = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const slider = useRef<HTMLDivElement>(null);
+    const dispatch = useAppDispatch();
+    const { posts } = useAppSelector(state => state.posts);
+
+    useEffect(() => {
+        setIsLoading(true);
+        dispatch(fetchPosts());
+    }, [])
+
+    useEffect(() => {
+       if (posts) setIsLoading(false);
+       if (!posts) setIsLoading(true);
+    }, [posts])
 
     let position = 0;
 
@@ -55,43 +69,56 @@ const MainContent = () => {
         <div className={styles.content}>
             <div className={styles.main}>
                 <div className={styles.grid}>
-                    <Article className={styles.area} image={magimons} id={1}/>
+                    { isLoading && <Preloader /> }
                     {
-                        articlesData.map((article) => (<LittleArticle
-                            labelText={article.labelText}
+                        posts?.items?.slice(9, 10).map((article) => (
+                            <Article
+                                className={styles.area}
+                                image={article.imageUrl}
+                                id={article._id}
+                                title={article.title}
+                                key={article._id}
+                            />
+                        ))
+                    }
+                    {
+                        posts?.items?.slice(10, 13).map((article) => (<LittleArticle
+                            labelText={'Dota2'}
                             titleText={article.title}
-                            color={article.color}
-                            key={article.id}
-                            id={article.id}
+                            key={article._id}
+                            id={article._id}
+                            image={article.imageUrl}
                         />))
                     }
                 </div>
                 <div className={styles.articles}>
                     <div className={styles.bigArticles}>
+                        { isLoading && <Preloader /> }
                         {
-                            bigArticlesData.map((article) => (<BigArticle title={article.title}
-                                                                                 labelText={article.labelText}
-                                                                                 author={article.author}
-                                                                                 textPreview={article.textPreview}
-                                                                                 commentsCount={article.commentsCount}
-                                                                                 date={article.date}
-                                                                                 color={article.color}
-                                                                                 key={article.id}
-                                                                                 id={article.id}
+                            posts?.items?.slice(5, 8).map((article) => (<BigArticle title={article.title}
+                                                                                 labelText={'Dota2'}
+                                                                                 author={'Admin'}
+                                                                                 textPreview={convertTextIntoPreview(article.text)}
+                                                                                 commentsCount={article.viewsCount}
+                                                                                 date={convertDate(article.createdAt.toString())}
+                                                                                 key={article._id}
+                                                                                 id={article._id}
+                                                                                 image={article.imageUrl}
                             />))
                         }
                     </div>
                     <div className={styles.littleArticles}>
+                        { isLoading && <Preloader /> }
                         {
-                            postsData.map((post, index) => (<BigPost
+                            posts?.items?.slice(0, 5).map((post) => (<BigPost
                                 title={post.title}
-                                color={post.color}
-                                author={post.author}
-                                date={post.date}
-                                textPreview={post.textPreview}
-                                labelText={post.labelText}
-                                key={post.id}
-                                id={post.id}
+                                author={'Admin'}
+                                date={convertDate(post.createdAt.toString())}
+                                textPreview={convertTextIntoPreview(post.text)}
+                                labelText={'Dota2'}
+                                key={post._id}
+                                id={post._id}
+                                image={post.imageUrl}
                             />))
                         }
                     </div>
@@ -101,7 +128,7 @@ const MainContent = () => {
                         <h2 className={styles.Heading}>Gaming news</h2>
                         <div className={styles.separatorDown}/>
                         {
-                            newsPostData.map((post, index) => (<TextArticle
+                            newsPostData.map((post) => (<TextArticle
                                 color={post.color}
                                 name={post.author}
                                 title={post.title}

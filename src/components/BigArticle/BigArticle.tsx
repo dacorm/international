@@ -11,15 +11,30 @@ type BigArticleProps = {
     commentsCount: number
     date: string
     color?: string
-    id: number
+    id: number | string
+    image?: string
 }
 
-const BigArticle: React.FC<BigArticleProps> = ({ title, labelText, author, textPreview, commentsCount, date, color = 'blue', id }) => {
+const BigArticle: React.FC<BigArticleProps> = ({ title, labelText, author, textPreview, commentsCount, date, color = 'blue', id, image }) => {
 
+    const checkImageValidity = (image: string | undefined) => {
+        if (image) {
+            return `url(https://mern-blog-dacorm.herokuapp.com/${image})`
+        } else {
+            return ``
+        }
+    }
 
     return (
         <Link to={`/article/${id}`} className={styles.article}>
-            <div className={styles.articleImage}>
+            <div className={styles.articleImage}
+                 style={{
+                     backgroundImage: checkImageValidity(image),
+                     backgroundSize: 'cover',
+                     backgroundRepeat: 'no-repeat',
+                     backgroundPosition: 'center'
+                 }}
+            >
                 <div className={cn(styles.label, {
                     [styles.labelYellow]: color === 'yellow',
                     [styles.labelPurple]: color === 'purple',
@@ -44,7 +59,7 @@ const BigArticle: React.FC<BigArticleProps> = ({ title, labelText, author, textP
                     [styles.spanPurple]: color === 'purple',
                     [styles.spanBlue]: color === 'blue',
                     [styles.spanRed]: color === 'red',
-                })}>{commentsCount} Comments</span>
+                })}>{commentsCount} просмотров</span>
             </div>
             <p className={styles.textPreview}>
                 {textPreview}

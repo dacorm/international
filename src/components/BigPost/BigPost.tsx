@@ -10,13 +10,30 @@ type BigPostProps = {
     textPreview: string
     labelText: string
     color?: string
-    id: number
+    id: string
+    image?: string
 }
 
-const BigPost: React.FC<BigPostProps> = ({ title, color = 'yellow', author, textPreview, labelText, date, id }) => {
+const BigPost: React.FC<BigPostProps> = ({ title, color = 'yellow', author, textPreview, labelText, date, id, image }) => {
+
+    const checkImageValidity = (image: string | undefined) => {
+        if (image) {
+            return `url(https://mern-blog-dacorm.herokuapp.com/${image})`
+        } else {
+            return ``
+        }
+    }
+
     return (
         <Link to={`/article/${id}`} className={styles.post}>
-            <div className={styles.postImg}>
+            <div className={styles.postImg}
+                 style={{
+                     backgroundImage: checkImageValidity(image),
+                     backgroundSize: 'cover',
+                     backgroundRepeat: 'no-repeat',
+                     backgroundPosition: 'center'
+                 }}
+            >
                 <div className={cn(styles.label, {
                     [styles.labelYellow]: color === 'yellow',
                     [styles.labelPurple]: color === 'purple',

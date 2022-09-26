@@ -7,15 +7,29 @@ type LittleArticleProps = {
     labelText: string
     color?: string
     titleText: string
-    id: number
+    id: number | string
+    image?: string
 }
 
-const LittleArticle: React.FC<LittleArticleProps> = ({ labelText, color = 'blue', titleText, id }) => {
+const LittleArticle: React.FC<LittleArticleProps> = ({ labelText, color = 'blue', titleText, id, image }) => {
 
-
+    const checkImageValidity = (image: string | undefined) => {
+        if (image) {
+            return `url(https://mern-blog-dacorm.herokuapp.com/${image})`
+        } else {
+            return ``
+        }
+    }
 
     return (
-        <Link to={`/article/${id}`} className={styles.article}>
+        <Link to={`/article/${id}`} className={styles.article}
+              style={{
+                  backgroundImage: checkImageValidity(image),
+                  backgroundSize: 'cover',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center'
+              }}
+        >
             <div className={cn(styles.label, {
                 [styles.labelYellow]: color === 'yellow',
                 [styles.labelPurple]: color === 'purple',
