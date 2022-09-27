@@ -38,3 +38,17 @@
 .close:hover {
     opacity: .6;
 }
+
+@media screen and (max-width: 767px) {
+    .popup {
+        width: 100%;
+    }
+
+    .popupImage {
+        width: 100%;
+    }
+
+    .close {
+        right: 0;
+    }
+}

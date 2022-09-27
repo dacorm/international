@@ -19,7 +19,9 @@ const Home = () => {
     }
 
     useEffect(() => {
-        setIsOpen(true)
+        setTimeout(() => {
+            setIsOpen(true)
+        }, 30000)
     }, [])
 
     return (
