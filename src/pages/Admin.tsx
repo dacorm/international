@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {useAppSelector} from "../assets/hooks";
 import {selectIsAuth, selectName} from "../redux/slices/auth";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import SimpleMDE from 'react-simplemde-editor';
 import styles from './Admin.module.css';
 import Header from "../components/Header/Header";
@@ -34,12 +34,28 @@ const Admin = () => {
     const inputFileRef = useRef(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
+    const { id } = useParams();
+
+    const isEditing = Boolean(id);
 
     const isUserAdmin = isAuth && (user.fullName === 'admin')
 
     const onChange = useCallback((value: React.SetStateAction<string>) => {
         setText(value);
     }, []);
+
+    const fetchArticle = async () => {
+        const { data } = await axios.get(`/posts/${id}`)
+        setText(data.text);
+        setTitle(data.title);
+        setImageUrl(data.imageUrl)
+    }
+
+    useEffect(() => {
+      if (id) {
+          fetchArticle();
+      }
+    }, [])
 
     const handleChangeFile = async (evt: React.ChangeEvent<HTMLInputElement>) => {
         try {
@@ -65,7 +81,7 @@ const Admin = () => {
                 imageUrl,
                 text
             }
-            const { data } = await axios.post('/posts', fields);
+            const { data } = isEditing ? await axios.patch(`/posts/${id}`, fields) : await axios.post('/posts', fields);
             setTitle('');
             setText('');
             setImageUrl('');

@@ -27,7 +27,7 @@ import {useAppDispatch, useAppSelector} from "../../assets/hooks";
 import {fetchPosts} from "../../redux/slices/posts";
 import {convertTextIntoPreview} from "../../helpers/convertTextIntoPreview";
 import {convertDate} from "../../helpers/convertDate";
-import Preloader from "../Preloader/Preloader";
+import SkeletonLoader from "../SkeletonLoader/SkeletonLoader";
 
 
 const MainContent = () => {
@@ -40,12 +40,8 @@ const MainContent = () => {
     useEffect(() => {
         setIsLoading(true);
         dispatch(fetchPosts());
+        setIsLoading(false);
     }, [])
-
-    useEffect(() => {
-       if (posts) setIsLoading(false);
-       if (!posts) setIsLoading(true);
-    }, [posts])
 
     let position = 0;
 
@@ -65,13 +61,16 @@ const MainContent = () => {
         })
     }
 
+    if (isLoading) {
+        return <SkeletonLoader />
+    }
+
     return (
         <div className={styles.content}>
             <div className={styles.main}>
                 <div className={styles.grid}>
-                    { isLoading && <Preloader /> }
                     {
-                        posts?.items?.slice(9, 10).map((article) => (
+                        posts?.items?.slice(0, posts?.items?.length).reverse().slice(9, 10).map((article) => (
                             <Article
                                 className={styles.area}
                                 image={article.imageUrl}
@@ -82,7 +81,7 @@ const MainContent = () => {
                         ))
                     }
                     {
-                        posts?.items?.slice(10, 13).map((article) => (<LittleArticle
+                        posts?.items?.slice(0, posts?.items?.length).reverse().slice(10, 13).map((article) => (<LittleArticle
                             labelText={'Dota2'}
                             titleText={article.title}
                             key={article._id}
@@ -93,9 +92,8 @@ const MainContent = () => {
                 </div>
                 <div className={styles.articles}>
                     <div className={styles.bigArticles}>
-                        { isLoading && <Preloader /> }
                         {
-                            posts?.items?.slice(5, 8).map((article) => (<BigArticle title={article.title}
+                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(5, 8).map((article) => (<BigArticle title={article.title}
                                                                                  labelText={'Dota2'}
                                                                                  author={'Admin'}
                                                                                  textPreview={convertTextIntoPreview(article.text)}
@@ -108,9 +106,8 @@ const MainContent = () => {
                         }
                     </div>
                     <div className={styles.littleArticles}>
-                        { isLoading && <Preloader /> }
                         {
-                            posts?.items?.slice(0, 5).map((post) => (<BigPost
+                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(0, 5).map((post) => (<BigPost
                                 title={post.title}
                                 author={'Admin'}
                                 date={convertDate(post.createdAt.toString())}

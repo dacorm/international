@@ -3,7 +3,7 @@ import styles from './Article.module.css';
 import Header from "../components/Header/Header";
 import TextSlide from "../components/TextSlide/TextSlide";
 import WhiteHeading from "../components/WhiteHeading/WhiteHeading";
-import {useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 import Tag from "../components/Tag/Tag";
 import BigPost from "../components/BigPost/BigPost";
@@ -14,10 +14,11 @@ import {Helmet, HelmetData} from 'react-helmet-async';
 import axios from "../axios";
 import ReactMarkdown from "react-markdown";
 import {useAppDispatch, useAppSelector} from "../assets/hooks";
-import {fetchPosts} from "../redux/slices/posts";
+import {fetchPosts, fetchRemovePost} from "../redux/slices/posts";
 import {convertDate} from "../helpers/convertDate";
 import {convertTextIntoPreview} from "../helpers/convertTextIntoPreview";
 import {getRandomNumber} from "../helpers/getRandomNumber";
+import {selectIsAuth, selectName} from "../redux/slices/auth";
 
 const helmetData = new HelmetData({});
 
@@ -68,6 +69,20 @@ const Article = () => {
     const {id} = useParams();
     const dispatch = useAppDispatch();
     const { posts } = useAppSelector(state => state.posts);
+    const isAuth = useAppSelector(selectIsAuth);
+    const user = useAppSelector(selectName);
+    const navigate = useNavigate();
+
+    const isUserAdmin = isAuth && (user.fullName === 'admin')
+
+    const onClickRemove = () => {
+        if (id) {
+            if (window.confirm('Вы действительно хотите удалить статью?')) {
+                dispatch(fetchRemovePost(id));
+                navigate('/');
+            }
+        }
+    }
 
     useEffect(() => {
         dispatch(fetchPosts());
@@ -124,6 +139,10 @@ const Article = () => {
             </div>
             <div className={styles.articleMainText}>
                 <h2 className={styles.textTitle}>{title ?? 'Загрузка...'}</h2>
+                {isUserAdmin && <div className={styles.buttons}>
+                    <Link to={`/admin/${id}`} className={styles.adminButton}>Редактировать</Link>
+                    <button className={styles.adminButton} onClick={onClickRemove}>Удалить</button>
+                </div>}
                 <ReactMarkdown children={text}  />
             </div>
             <div className={styles.tags}>

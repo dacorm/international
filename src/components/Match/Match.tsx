@@ -10,6 +10,7 @@ type MatchProps = {
     direScore: number
     league: string
     date: string
+    id: number
 }
 
 const Match: React.FC<MatchProps> = ({ radiantName, direName, radiantScore, direScore, league, date }) => {

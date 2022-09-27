@@ -55,6 +55,7 @@ const MatchSlide = () => {
                 {!isLoading && <div className={styles.sliderTrack} ref={slider as LegacyRef<HTMLDivElement>}>
                     {
                         items.map((item) => (<Match
+                            id={item.match_id}
                             radiantName={item.radiant_name}
                             direName={item.dire_name}
                             radiantScore={item.radiant_score}

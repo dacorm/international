@@ -93,6 +93,14 @@ function App() {
                     }
                 />
                 <Route
+                    path="admin/:id"
+                    element={
+                        <Suspense fallback={<div>Идёт загрузка...</div>}>
+                            <AdminPanelPage/>
+                        </Suspense>
+                    }
+                />
+                <Route
                     path="tournament"
                     element={
                         <Suspense fallback={<div>Идёт загрузка...</div>}>
