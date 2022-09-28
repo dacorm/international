@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Login.module.css';
 import Header from "../components/Header/Header";
 import WhiteHeading from "../components/WhiteHeading/WhiteHeading";
@@ -18,6 +18,7 @@ const Login = () => {
     const navigate = useNavigate();
     const isAuth = useAppSelector(selectIsAuth);
     const dispatch = useAppDispatch();
+    const [isLoading, setIsLoading] = useState(false);
 
     const {
         register,
@@ -35,6 +36,7 @@ const Login = () => {
     });
 
     const onSubmit: SubmitHandler<FieldValues> = async (values) => {
+        setIsLoading(true);
         const data = await dispatch(fetchAuth({
             email: values.email,
             password: values.password
@@ -49,6 +51,7 @@ const Login = () => {
             // @ts-ignore
             window.localStorage.setItem('token', data.payload.token);
         }
+        setIsLoading(false);
 
     }
 
@@ -106,8 +109,8 @@ const Login = () => {
                         })}
                     />
                     <div style={{height: '40px'}}>{errors?.password && <p className={styles.formError}>{String(errors?.password?.message) || 'Error'}</p>}</div>
-                    <button type='submit' className={styles.button}>
-                        Login now!
+                    <button type='submit' className={styles.button} disabled={isLoading}>
+                        {isLoading ? 'Входим в систему...' : 'Войти'}
                     </button>
                 </form>
                 <Footer />

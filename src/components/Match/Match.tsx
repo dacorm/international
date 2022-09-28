@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Match.module.css';
 import logo1 from '../../assets/images/01.png';
 import logo2 from '../../assets/images/02.png';
+import {Link} from "react-router-dom";
 
 type MatchProps = {
     radiantName: string
@@ -13,7 +14,7 @@ type MatchProps = {
     id: number
 }
 
-const Match: React.FC<MatchProps> = ({ radiantName, direName, radiantScore, direScore, league, date }) => {
+const Match: React.FC<MatchProps> = ({ radiantName, direName, radiantScore, direScore, league, date, id }) => {
 
     const leagueFormatter = (league: string) => {
         const leagueArr = league.split(' ');
@@ -26,7 +27,7 @@ const Match: React.FC<MatchProps> = ({ radiantName, direName, radiantScore, dire
     }
 
     return (
-        <div className={styles.match}>
+        <Link to={`/match/${id}`} className={styles.match}>
             <div className={styles.teams}>
                 <div className={styles.team}>
                     <img src={logo1} alt="Team1Logo" className={styles.logo}/>
@@ -43,7 +44,7 @@ const Match: React.FC<MatchProps> = ({ radiantName, direName, radiantScore, dire
                 <p className={styles.dateText}>{date}</p>
                 <p className={styles.leagueText}>{leagueFormatter(league)}</p>
             </div>
-        </div>
+        </Link>
     );
 };
 

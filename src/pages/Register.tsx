@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './Login.module.css';
 import Header from "../components/Header/Header";
 import WhiteHeading from "../components/WhiteHeading/WhiteHeading";
@@ -17,6 +17,7 @@ const Login = () => {
     const navigate = useNavigate();
     const isAuth = useAppSelector(selectIsAuth);
     const dispatch = useAppDispatch();
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const {
@@ -37,6 +38,7 @@ const Login = () => {
     });
 
     const onSubmit: SubmitHandler<FieldValues> = async (values) => {
+        setIsLoading(true);
         const data = await dispatch(fetchRegister({
             fullName: values.fullName,
             email: values.email,
@@ -52,6 +54,7 @@ const Login = () => {
             // @ts-ignore
             window.localStorage.setItem('token', data.payload.token);
         }
+        setIsLoading(false);
     }
 
     if (isAuth) {
@@ -117,8 +120,8 @@ const Login = () => {
                         })}
                     />
                     <div style={{height: '40px'}}>{errors?.password && <p className={styles.formError}>{String(errors?.password?.message) || 'Error'}</p>}</div>
-                    <button type='submit' className={styles.buttonReg}>
-                        Register!
+                    <button type='submit' className={styles.buttonReg} disabled={isLoading}>
+                        {isLoading ? 'Идет регистрация..' : 'Зарегистрироваться'}
                     </button>
                 </form>
                 <Footer />

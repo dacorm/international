@@ -3,6 +3,14 @@ export const unixTimeStampConverter = (unix: number) => {
     return String(new Date(miliseconds).getDate())
 }
 
+export const unixTimeStampConverterMatch = (unix: number | undefined) => {
+    if (unix) {
+        let miliseconds = unix * 1000
+        return String(new Date(miliseconds)).split('').slice(0, 21).join('')
+    }
+
+}
+
 const formatMinutes = (minutes: number) => {
     if (minutes < 10) return `0${minutes}`
     return minutes

@@ -51,7 +51,7 @@ const MatchSlide = () => {
             </button>
             <div className={styles.slider}>
                 <img src={drop} alt="dropDownIcon" className={styles.dropLeft} onClick={prevHandler}/>
-                {isLoading && <Preloader />}
+                {isLoading && <Preloader/>}
                 {!isLoading && <div className={styles.sliderTrack} ref={slider as LegacyRef<HTMLDivElement>}>
                     {
                         items.map((item) => (<Match

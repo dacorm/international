@@ -10,6 +10,7 @@
     padding: 0 5px;
     border-left: 1px solid #dbdbdb;
     border-right: 1px solid #dbdbdb;
+    text-decoration: none;
 }
 
 .teams {
@@ -37,6 +38,7 @@
     padding: 2px 5px;
     max-width: 45px;
     align-self: center;
+    text-decoration: none;
 }
 
 .logo {
@@ -58,6 +60,7 @@
     font-weight: 700;
     width: 80px;
     margin: 0;
+    text-decoration: none;
 }
 
 .score {
@@ -67,6 +70,7 @@
     text-transform: uppercase;
     font-weight: 700;
     margin: 0;
+    text-decoration: none;
 }
 
 .league {
@@ -76,4 +80,5 @@
     text-transform: uppercase;
     font-weight: 700;
     margin: 0;
+    text-decoration: none;
 }
