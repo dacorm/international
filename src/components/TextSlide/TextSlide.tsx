@@ -4,12 +4,12 @@ import {useAppSelector} from "../../assets/hooks";
 
 const TextSlide = () => {
     const { posts } = useAppSelector(state => state.posts);
-    const [text, setText] = useState('');
+    const [text, setText] = useState<string | undefined>('');
 
     useEffect(() => {
-        const fourPosts = posts!.items!.slice(0, 5);
-        const titles = fourPosts.map((item) => item.title)
-        setText(titles.join(' // '));
+        const fourPosts = posts?.items?.slice(0, posts?.items?.length).reverse().slice(10, 13).slice(0, 5);
+        const titles = fourPosts?.map((item) => item.title)
+        setText(titles?.join(' // '));
     }, [posts])
 
     return (
