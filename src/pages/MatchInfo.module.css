@@ -157,3 +157,26 @@
     height: 570px;
     margin-bottom: 35px;
 }
+
+@media screen and (max-width: 1023px) {
+    .content {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .content {
+        width: 400px;
+    }
+
+    .match {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 424px) {
+    .content {
+        width: 300px;
+    }
+
+}
