@@ -30,7 +30,7 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
                 </Link>
                 <ul className={styles.mainMenu}>
                     <li className={styles.menuItem}>
-                        <p className={styles.menuText}>Home</p>
+                        <Link to='/players' className={styles.menuText}>Топ игроков</Link>
                     </li>
                     <li className={styles.menuItem} onClick={() => setOpen(!open)} >
                         <p className={styles.menuText}>eSports</p>

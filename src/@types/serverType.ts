@@ -141,3 +141,40 @@ export interface MatchInfoType {
     loss: number;
     replay_url: string;
 }
+
+export interface Ids {
+    account_id: number;
+    rating: number;
+    fh_unavailable?: boolean;
+}
+
+export interface Profile {
+    account_id: number;
+    personaname: string;
+    name?: any;
+    plus: boolean;
+    cheese: number;
+    steamid: string;
+    avatar: string;
+    avatarmedium: string;
+    avatarfull: string;
+    profileurl: string;
+    last_login?: any;
+    loccountrycode?: any;
+    status?: any;
+    is_contributor: boolean;
+    is_subscriber: boolean;
+}
+
+export interface MmrEstimate {
+    estimate: number;
+}
+
+export interface PlayerI {
+    profile: Profile;
+    rank_tier: number;
+    competitive_rank?: any;
+    mmr_estimate: MmrEstimate;
+    leaderboard_rank: number;
+    solo_competitive_rank: number;
+}
