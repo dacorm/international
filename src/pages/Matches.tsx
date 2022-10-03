@@ -21,6 +21,7 @@ import {Helmet, HelmetData} from 'react-helmet-async';
 import {unixTimeStampConverter, unixTimeStampConverterToTime} from "../helpers/unixConverters";
 import {monthDaysConverter} from "../helpers/monthDaysConverter";
 import {monthConverter} from "../helpers/monthConverter";
+import FallbackLoader from "../components/FallbackLoader/FallbackLoader";
 
 const helmetData = new HelmetData({});
 
@@ -85,7 +86,9 @@ const Matches = () => {
         })
     }, [position])
 
-
+    if (loading) {
+        return <FallbackLoader />
+    }
 
     return (
         <div>

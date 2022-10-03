@@ -27,7 +27,6 @@ import {useAppDispatch, useAppSelector} from "../../assets/hooks";
 import {fetchPosts} from "../../redux/slices/posts";
 import {convertTextIntoPreview} from "../../helpers/convertTextIntoPreview";
 import {convertDate} from "../../helpers/convertDate";
-import SkeletonLoader from "../SkeletonLoader/SkeletonLoader";
 
 
 const MainContent = () => {
@@ -35,7 +34,7 @@ const MainContent = () => {
     const [isLoading, setIsLoading] = useState(false);
     const slider = useRef<HTMLDivElement>(null);
     const dispatch = useAppDispatch();
-    const { posts } = useAppSelector(state => state.posts);
+    const {posts} = useAppSelector(state => state.posts);
 
     useEffect(() => {
         setIsLoading(true);
@@ -61,10 +60,6 @@ const MainContent = () => {
         })
     }
 
-    if (isLoading) {
-        return <SkeletonLoader />
-    }
-
     return (
         <div className={styles.content}>
             <div className={styles.main}>
@@ -81,28 +76,30 @@ const MainContent = () => {
                         ))
                     }
                     {
-                        posts?.items?.slice(0, posts?.items?.length).reverse().slice(10, 13).map((article) => (<LittleArticle
-                            labelText={'Dota2'}
-                            titleText={article.title}
-                            key={article._id}
-                            id={article._id}
-                            image={article.imageUrl}
-                        />))
+                        posts?.items?.slice(0, posts?.items?.length).reverse().slice(10, 13).map((article) => (
+                            <LittleArticle
+                                labelText={'Dota2'}
+                                titleText={article.title}
+                                key={article._id}
+                                id={article._id}
+                                image={article.imageUrl}
+                            />))
                     }
                 </div>
                 <div className={styles.articles}>
                     <div className={styles.bigArticles}>
                         {
-                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(5, 8).map((article) => (<BigArticle title={article.title}
-                                                                                 labelText={'Dota2'}
-                                                                                 author={'Admin'}
-                                                                                 textPreview={convertTextIntoPreview(article.text)}
-                                                                                 commentsCount={article.viewsCount}
-                                                                                 date={convertDate(article.createdAt.toString())}
-                                                                                 key={article._id}
-                                                                                 id={article._id}
-                                                                                 image={article.imageUrl}
-                            />))
+                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(5, 8).map((article) => (
+                                <BigArticle title={article.title}
+                                            labelText={'Dota2'}
+                                            author={'Admin'}
+                                            textPreview={convertTextIntoPreview(article.text)}
+                                            commentsCount={article.viewsCount}
+                                            date={convertDate(article.createdAt.toString())}
+                                            key={article._id}
+                                            id={article._id}
+                                            image={article.imageUrl}
+                                />))
                         }
                     </div>
                     <div className={styles.littleArticles}>
