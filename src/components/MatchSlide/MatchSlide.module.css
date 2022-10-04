@@ -39,12 +39,13 @@
     display: flex;
     align-items: center;
     overflow: hidden;
+    transition: .2s ease;
 }
 
 .sliderItem {
     width: 250px;
     height: 90px;
-    transition: .3s ease-in-out;
+    transition: .2s ease;
 }
 
 .dropLeft {

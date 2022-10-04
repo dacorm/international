@@ -76,6 +76,10 @@ const Players = () => {
             <MatchSlide/>
             <div className={styles.content}>
                 <ul className={styles.table}>
+                    <li className={styles.heading}>
+                        <h2 className={styles.listHeading}>Лучшие игроки по MMR</h2>
+                        <div className={styles.separator}/>
+                    </li>
                     {players.sort((a, b) => {
                         return b.mmr_estimate.estimate - a.mmr_estimate.estimate
                     }).map((player) => (

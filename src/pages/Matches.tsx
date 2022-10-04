@@ -79,7 +79,7 @@ const Matches = () => {
     }, [position])
 
     const nextHandler = useCallback(() => {
-        setPosition((position: number) => position += 75)
+        setPosition((position: number) => position -= 75)
         if (position < -751) setPosition(0)
         slider?.current?.childNodes.forEach((element) => {
             (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`)

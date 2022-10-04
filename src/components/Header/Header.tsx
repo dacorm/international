@@ -8,7 +8,6 @@ import drop from '../../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg
 import wish from '../../assets/images/favorite_FILL0_wght400_GRAD0_opsz48.svg';
 import compare from '../../assets/images/sell_FILL0_wght400_GRAD0_opsz48.svg';
 import banner from '../../assets/images/300x350---6.gif';
-import aegis from '../../assets/images/aegis-ti11.png'
 import {Link} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../assets/hooks";
 import {logout, selectIsAuth, selectName} from "../../redux/slices/auth";
@@ -111,6 +110,8 @@ const Header = () => {
                             <img src={drop} alt="DropDown" className={styles.drop}/>
                         </Link>)
                     }
+                    <Link to='/calendar' className={styles.adminPanelNav}>Матчи</Link>
+                    <Link to='/players' className={styles.adminPanelNav}>Топ игроков</Link>
                     {isUserAdmin && <Link to='/admin' className={styles.adminPanelNav}>Админка</Link>}
                     {
                         isAuth ? (
