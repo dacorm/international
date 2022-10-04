@@ -18,7 +18,7 @@ const BigPost: React.FC<BigPostProps> = ({ title, color = 'yellow', author, text
 
     const checkImageValidity = (image: string | undefined) => {
         if (image) {
-            return `url(https://mern-blog-dacorm.herokuapp.com/${image})`
+            return `url(https://dota2.press/${image})`
         } else {
             return ``
         }

@@ -101,9 +101,9 @@ const Article = () => {
     }, [id])
 
     const checkImageValidity = useCallback((preview: string | undefined) => {
-        if (preview?.includes('https://mern-blog-dacorm.herokuapp.com/')) return
+        if (preview?.includes('https://dota2.press/')) return
         if (preview) {
-            setPreview(`url(https://mern-blog-dacorm.herokuapp.com/${preview})`)
+            setPreview(`url(https://dota2.press/${preview})`)
         } else {
             setPreview('')
         }

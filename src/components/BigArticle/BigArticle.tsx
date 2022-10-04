@@ -19,7 +19,7 @@ const BigArticle: React.FC<BigArticleProps> = ({ title, labelText, author, textP
 
     const checkImageValidity = (image: string | undefined) => {
         if (image) {
-            return `url(https://mern-blog-dacorm.herokuapp.com/${image})`
+            return `url(https://dota2.press/${image})`
         } else {
             return ``
         }

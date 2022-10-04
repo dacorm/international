@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'https://mern-blog-dacorm.herokuapp.com/'
+    baseURL: 'https://dota2.press/'
 });
 
 instance.interceptors.request.use((config) => {
