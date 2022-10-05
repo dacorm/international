@@ -15,6 +15,8 @@ const AdminPanelPage = React.lazy(() => import('./pages/Admin'));
 const TournamentPage = React.lazy(() => import('./pages/Tournament'));
 const MatchOverviewPage = React.lazy(() => import('./pages/MatchInfo'));
 const PlayersPage = React.lazy(() => import('./pages/Players'));
+const NewsPage = React.lazy(() => import('./pages/News'));
+
 
 
 const ScrollToTop = () => {
@@ -125,6 +127,14 @@ function App() {
                     element={
                         <Suspense fallback={<FallbackLoader />}>
                             <PlayersPage/>
+                        </Suspense>
+                    }
+                />
+                <Route
+                    path="news"
+                    element={
+                        <Suspense fallback={<FallbackLoader />}>
+                            <NewsPage/>
                         </Suspense>
                     }
                 />

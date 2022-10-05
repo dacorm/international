@@ -10,6 +10,8 @@ import Footer from "../components/Footer/Footer";
 import 'easymde/dist/easymde.min.css';
 import axios from "../axios";
 import InfoPopup from "../components/InfoPopup/InfoPopup";
+import {withErrorBoundary} from "react-error-boundary";
+import TextSlide from "../components/TextSlide/TextSlide";
 
 type Options = {
     spellChecker: boolean;
@@ -151,4 +153,16 @@ const Admin = () => {
     );
 };
 
-export default Admin;
+export default withErrorBoundary(Admin, {
+    fallback: (<>
+        <Header/>
+        <WhiteHeading/>
+        <div className={styles.articleHeading}>
+            <h1 className={styles.title}>
+                Что-то пошло не так
+            </h1>
+        </div>
+        <TextSlide/>
+        <Footer />
+    </>)
+});

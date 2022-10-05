@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './BigArticle.module.css';
 import cn from "classnames";
 import {Link} from "react-router-dom";
+import { useInView } from 'react-intersection-observer';
 
 type BigArticleProps = {
     title: string
@@ -15,7 +16,16 @@ type BigArticleProps = {
     image?: string
 }
 
-const BigArticle: React.FC<BigArticleProps> = ({ title, labelText, author, textPreview, commentsCount, date, color = 'blue', id, image }) => {
+const BigArticle: React.FC<BigArticleProps> =
+    ({ title,
+         labelText,
+         author,
+         textPreview,
+         commentsCount
+         , date, color = 'blue', id, image }) => {
+    const { ref, inView } = useInView({
+        threshold: 0.3,
+    });
 
     const checkImageValidity = (image: string | undefined) => {
         if (image) {
@@ -26,10 +36,10 @@ const BigArticle: React.FC<BigArticleProps> = ({ title, labelText, author, textP
     }
 
     return (
-        <Link to={`/article/${id}`} className={styles.article}>
+        <Link to={`/article/${id}`} className={styles.article} ref={ref}>
             <div className={styles.articleImage}
                  style={{
-                     backgroundImage: checkImageValidity(image),
+                     backgroundImage: `${inView ? checkImageValidity(image) : ''}`,
                      backgroundSize: 'cover',
                      backgroundRepeat: 'no-repeat',
                      backgroundPosition: 'center'

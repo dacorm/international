@@ -7,6 +7,7 @@ import Footer from "../components/Footer/Footer";
 import drop from "../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg";
 import {Link} from "react-router-dom";
 import {Helmet, HelmetData} from 'react-helmet-async';
+import {withErrorBoundary} from "react-error-boundary";
 
 const helmetData = new HelmetData({});
 
@@ -40,4 +41,16 @@ const NotFound = () => {
     );
 };
 
-export default NotFound;
+export default withErrorBoundary(NotFound, {
+    fallback: (<>
+        <Header/>
+        <WhiteHeading/>
+        <div className={styles.articleHeading}>
+            <h1 className={styles.title}>
+                Что-то пошло не так
+            </h1>
+        </div>
+        <TextSlide/>
+        <Footer />
+    </>)
+});

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './LittleArticle.module.css';
 import cn from "classnames";
 import {Link} from "react-router-dom";
+import {useInView} from "react-intersection-observer";
 
 type LittleArticleProps = {
     labelText: string
@@ -12,6 +13,10 @@ type LittleArticleProps = {
 }
 
 const LittleArticle: React.FC<LittleArticleProps> = ({ labelText, color = 'blue', titleText, id, image }) => {
+    const { ref, inView } = useInView({
+        threshold: 0.3,
+    });
+
 
     const checkImageValidity = (image: string | undefined) => {
         if (image) {
@@ -22,9 +27,9 @@ const LittleArticle: React.FC<LittleArticleProps> = ({ labelText, color = 'blue'
     }
 
     return (
-        <Link to={`/article/${id}`} className={styles.article}
+        <Link ref={ref} to={`/article/${id}`} className={styles.article}
               style={{
-                  backgroundImage: checkImageValidity(image),
+                  backgroundImage: `${inView ? checkImageValidity(image) : ''}`,
                   backgroundSize: 'cover',
                   backgroundRepeat: 'no-repeat',
                   backgroundPosition: 'center'

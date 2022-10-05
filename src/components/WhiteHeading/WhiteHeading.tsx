@@ -38,7 +38,7 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
                     </li>
                     {open && <HeadingPopup className={styles.popup} />}
                     <li className={styles.menuItem}>
-                        <p className={styles.menuText}>News</p>
+                        <Link to={'/news'} className={styles.menuText}>News</Link>
                     </li>
                     <li className={styles.menuItem}>
                         <Link to='/calendar' className={styles.menuText}>Матчи</Link>

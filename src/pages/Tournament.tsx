@@ -7,6 +7,7 @@ import Footer from "../components/Footer/Footer";
 import tourn from '../assets/images/711.jpg';
 import TournamentMatch from "../components/TournamentMatch/TournamentMatch";
 import {Helmet, HelmetData} from 'react-helmet-async';
+import {withErrorBoundary} from "react-error-boundary";
 
 const helmetData = new HelmetData({});
 
@@ -238,4 +239,16 @@ const Tournament = () => {
     );
 };
 
-export default Tournament;
+export default withErrorBoundary(Tournament, {
+    fallback: (<>
+        <Header/>
+        <WhiteHeading/>
+        <div className={styles.articleHeading}>
+            <h1 className={styles.title}>
+                Что-то пошло не так
+            </h1>
+        </div>
+        <TextSlide/>
+        <Footer />
+    </>)
+});

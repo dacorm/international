@@ -12,6 +12,7 @@ import {useParams} from "react-router-dom";
 import axios from "axios";
 import {MatchInfoType} from "../@types/serverType";
 import {unixTimeStampConverterMatch} from "../helpers/unixConverters";
+import {withErrorBoundary} from "react-error-boundary";
 
 
 const helmetData = new HelmetData({});
@@ -89,4 +90,16 @@ const MatchInfo = () => {
     );
 };
 
-export default MatchInfo;
+export default withErrorBoundary(MatchInfo, {
+    fallback: (<>
+        <Header/>
+        <WhiteHeading/>
+        <div className={styles.articleHeading}>
+            <h1 className={styles.title}>
+                Что-то пошло не так
+            </h1>
+        </div>
+        <TextSlide/>
+        <Footer />
+    </>)
+});

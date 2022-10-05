@@ -35,7 +35,7 @@ const MainContent = () => {
     const slider = useRef<HTMLDivElement>(null);
     const dispatch = useAppDispatch();
     const {posts} = useAppSelector(state => state.posts);
-
+    
     useEffect(() => {
         setIsLoading(true);
         dispatch(fetchPosts());

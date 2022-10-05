@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './BigPost.module.css';
 import cn from 'classnames'
 import {Link} from "react-router-dom";
+import {useInView} from "react-intersection-observer";
 
 type BigPostProps = {
     title: string
@@ -15,6 +16,10 @@ type BigPostProps = {
 }
 
 const BigPost: React.FC<BigPostProps> = ({ title, color = 'yellow', author, textPreview, labelText, date, id, image }) => {
+    const { ref, inView } = useInView({
+        threshold: 0.3,
+    });
+
 
     const checkImageValidity = (image: string | undefined) => {
         if (image) {
@@ -25,10 +30,10 @@ const BigPost: React.FC<BigPostProps> = ({ title, color = 'yellow', author, text
     }
 
     return (
-        <Link to={`/article/${id}`} className={styles.post}>
+        <Link ref={ref} to={`/article/${id}`} className={styles.post}>
             <div className={styles.postImg}
                  style={{
-                     backgroundImage: checkImageValidity(image),
+                     backgroundImage: `${inView ? checkImageValidity(image) : ''}`,
                      backgroundSize: 'cover',
                      backgroundRepeat: 'no-repeat',
                      backgroundPosition: 'center'

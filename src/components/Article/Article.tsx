@@ -3,6 +3,7 @@ import styles from './Article.module.css';
 import cn from 'classnames';
 import backImg from '../../assets/images/16.jpg'
 import {Link} from "react-router-dom";
+import {useInView} from "react-intersection-observer";
 
 type ArticleProps = {
     className?: string
@@ -12,6 +13,11 @@ type ArticleProps = {
 }
 
 const Article: React.FC<ArticleProps> = ({ className, image= backImg, id, title }) => {
+    const { ref, inView } = useInView({
+        threshold: 0.3,
+    });
+
+
 
     const checkImageValidity = (image: string | undefined) => {
         if (image) {
@@ -22,8 +28,8 @@ const Article: React.FC<ArticleProps> = ({ className, image= backImg, id, title 
     }
 
     return (
-            <Link to={`/article/${id}`} className={cn(styles.article, className)}  style={{
-            backgroundImage: checkImageValidity(image),
+            <Link ref={ref} to={`/article/${id}`} className={cn(styles.article, className)}  style={{
+            backgroundImage: `${inView ? checkImageValidity(image) : ''}`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center'

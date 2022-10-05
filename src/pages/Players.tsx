@@ -9,6 +9,7 @@ import Footer from "../components/Footer/Footer";
 import {Ids, PlayerI} from "../@types/serverType";
 import axios from "axios";
 import FallbackLoader from "../components/FallbackLoader/FallbackLoader";
+import {withErrorBoundary} from "react-error-boundary";
 
 const helmetData = new HelmetData({});
 
@@ -98,4 +99,16 @@ const Players = () => {
     );
 };
 
-export default Players;
+export default withErrorBoundary(Players, {
+    fallback: (<>
+        <Header/>
+        <WhiteHeading/>
+        <div className={styles.articleHeading}>
+            <h1 className={styles.title}>
+                Что-то пошло не так
+            </h1>
+        </div>
+        <TextSlide/>
+        <Footer />
+    </>)
+});
