@@ -61,3 +61,54 @@
     width: 50px;
     margin: 0 0 20px 0;
 }
+
+@media screen and (max-width: 1279px) {
+    .posts {
+        margin-left: 50px;
+        flex: 2;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .content {
+        width: 700px;
+    }
+
+    .related {
+        display: none;
+    }
+
+    .posts {
+        margin-left: 75px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .content {
+        width: 400px;
+    }
+
+    .posts {
+        margin: 0 0 0 20px;
+    }
+}
+
+@media screen and (max-width: 423px) {
+    .content {
+        width: 370px;
+    }
+
+    .posts {
+        margin: 0 0 0 10px;
+    }
+}
+
+@media screen and (max-width: 371px) {
+    .content {
+        width: 315px;
+    }
+
+    .posts {
+        margin: 0 0 0 0;
+    }
+}
