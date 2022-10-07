@@ -22,26 +22,6 @@ import {selectIsAuth, selectName} from "../redux/slices/auth";
 
 const helmetData = new HelmetData({});
 
-export const commentsData = [{
-    name: 'Elizabeth Valentine',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do\n' +
-        '                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud\n' +
-        '                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in\n' +
-        '                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-},{
-    name: 'Thomas Stevens',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do\n' +
-        '                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud\n' +
-        '                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in\n' +
-        '                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-},{
-    name: 'Megan Lebeu',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do\n' +
-        '                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud\n' +
-        '                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in\n' +
-        '                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-}]
-
 const Article = () => {
     const [comments, setComments] = useState([{
         name: 'Denis',
