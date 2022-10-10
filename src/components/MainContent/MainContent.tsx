@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import Article from "../Article/Article";
 import styles from './MainContent.module.css';
 import LittleArticle from "../LittleArticle/LittleArticle";
@@ -7,6 +7,7 @@ import youtube from '../../assets/images/socials/youtube-svgrepo-com.svg';
 import facebook from '../../assets/images/socials/facebook-svgrepo-com3.svg';
 import twitter from '../../assets/images/socials/twitter-svgrepo-com (1).svg';
 import twitch from '../../assets/images/socials/twitch-svgrepo-com.svg';
+import _debounce from 'lodash/debounce';
 import BigPost from "../BigPost/BigPost";
 import BigArticle from "../BigArticle/BigArticle";
 import Post from "../Post/Post"
@@ -44,6 +45,7 @@ const MainContent = () => {
 
     let position = 0;
 
+
     const prevHandler = () => {
         position += 280
         if (position > 350) position = 0
@@ -51,6 +53,8 @@ const MainContent = () => {
             (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`)
         })
     }
+    const debouncePrev = useCallback(_debounce(prevHandler, 150), [position]);
+
 
     const nextHandler = () => {
         position -= 280
@@ -59,6 +63,9 @@ const MainContent = () => {
             (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`)
         })
     }
+
+    const debounceNext = useCallback(_debounce(nextHandler, 150), [position]);
+
 
     return (
         <div className={styles.content}>
@@ -168,10 +175,10 @@ const MainContent = () => {
                             <div className={styles.separatorVid}/>
                         </div>
                         <div>
-                            <button className={styles.button} onClick={prevHandler}>
+                            <button className={styles.button} onClick={debouncePrev}>
                                 <img src={drop} alt="dropDownIcon" className={styles.dropLeft}/>
                             </button>
-                            <button className={styles.button} onClick={nextHandler}>
+                            <button className={styles.button} onClick={debounceNext}>
                                 <img src={drop} alt="dropDownIcon" className={styles.dropRight}/>
                             </button>
                         </div>

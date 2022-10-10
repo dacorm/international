@@ -9,7 +9,7 @@
     overflow: hidden;
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1332px) {
     .whiteNav {
         width: 100%;
         margin: 0;
@@ -151,7 +151,7 @@
     justify-self: flex-end;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1134px) {
     .menuItem {
         display: none;
     }
@@ -180,5 +180,19 @@
 
     .after {
         display: none;
+    }
+
+    .before {
+        display: none;
+    }
+
+    .whiteNav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo {
+        margin: 0;
     }
 }

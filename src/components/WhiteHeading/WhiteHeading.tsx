@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './WhiteHeading.module.css';
 import logo from '../../assets/images/logo.jpg';
 import drop from '../../assets/images/drop2.svg';
@@ -17,6 +17,27 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
     const [open, setOpen] = useState(false);
     const [visible, setVisible] = useState(false);
 
+    const togglePopup = () => {
+        if (!open) {
+            setOpen(true);
+            document.body.style.overflow = "hidden"
+        } else {
+            setOpen(false);
+            document.body.style.overflow = "auto"
+
+        }
+    }
+
+    const toggleSecondPopup = () => {
+        if (!visible) {
+            setVisible(true);
+            document.body.style.overflow = "hidden"
+        } else {
+            setVisible(false);
+            document.body.style.overflow = "auto"
+        }
+    }
+
     return (
         <>
             <nav className={cn(styles.whiteNav, className)}>
@@ -32,7 +53,7 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
                     <li className={styles.menuItem}>
                         <Link to='/players' className={styles.menuText}>Топ игроков</Link>
                     </li>
-                    <li className={styles.menuItem} onClick={() => setOpen(!open)} >
+                    <li className={styles.menuItem} onClick={togglePopup} >
                         <p className={styles.menuText}>eSports</p>
                         <img src={drop} alt="dropDownIcon" className={styles.drop}/>
                     </li>
@@ -43,7 +64,7 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
                     <li className={styles.menuItem}>
                         <Link to='/calendar' className={styles.menuText}>Матчи</Link>
                     </li>
-                    <li className={styles.menuItem} onClick={() => setVisible(!visible)}>
+                    <li className={styles.menuItem} onClick={toggleSecondPopup}>
                         <p className={styles.menuText}>Features</p>
                         <img src={drop} alt="dropDownIcon" className={styles.drop}/>
                     </li>
