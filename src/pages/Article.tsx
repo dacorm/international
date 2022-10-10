@@ -111,11 +111,7 @@ const Article = () => {
                 <ReactMarkdown children={text}  />
             </div>
             <div className={styles.tags}>
-                <Tag text={'Gaming'}/>
-                <Tag text={'Reviews'}/>
                 <Tag text={'News'}/>
-                <Tag text={'Gaming'}/>
-                <Tag text={'Gaming'}/>
             </div>
             <div className={styles.related}>
                 <h2 className={styles.Heading}>Рекомендованные статьи</h2>
