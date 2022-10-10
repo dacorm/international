@@ -118,7 +118,7 @@ const Article = () => {
                 <Tag text={'Gaming'}/>
             </div>
             <div className={styles.related}>
-                <h2 className={styles.Heading}>Related articles</h2>
+                <h2 className={styles.Heading}>Рекомендованные статьи</h2>
                 <div className={styles.separatorDown}/>
                 <div className={styles.bigPosts}>
                     {
@@ -136,12 +136,12 @@ const Article = () => {
                 </div>
             </div>
             <div className={styles.comments}>
-                <h2 className={styles.Heading}>Write comment</h2>
+                <h2 className={styles.Heading}>Написать комментарий</h2>
                 <div className={styles.separatorDown}/>
                 <CommentForm comments={comments} setComments={setComments} />
             </div>
             <div className={styles.commentaries}>
-                <h2 className={styles.Heading}>Comments ({comments.length})</h2>
+                <h2 className={styles.Heading}>Комментарии ({comments.length})</h2>
                 <div className={styles.separatorDown}/>
                 {
                     comments.map((comment, index) => ( <Commentary

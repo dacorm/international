@@ -32,9 +32,9 @@ const CommentForm: React.FC<CommentFormProps> = ({ comments, setComments }) => {
 
     return (
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-            <label htmlFor='input' className={styles.label}>Your name</label>
+            <label htmlFor='input' className={styles.label}>Ваше имя</label>
             <input
-                className={styles.input} type='text' placeholder={'Enter your firstname'} id='input'
+                className={styles.input} type='text' placeholder={'Введите имя'} id='input'
                 {...register('firstName', {
                     required: "Поле обязательно к заполнению",
                     minLength: {
@@ -44,9 +44,9 @@ const CommentForm: React.FC<CommentFormProps> = ({ comments, setComments }) => {
                 })}
             />
             <div style={{height: '40px'}}>{errors?.firstName && <p className={styles.formError}>{String(errors?.firstName?.message) || 'Error'}</p>}</div>
-            <label htmlFor='textarea' className={styles.label}>Your comment</label>
+            <label htmlFor='textarea' className={styles.label}>Комментарий</label>
             <textarea
-                className={styles.textarea} placeholder={'Write your comment here'} id='textarea'
+                className={styles.textarea} placeholder={'Введите текст комментария'} id='textarea'
                 {...register('commentText', {
                     required: "Поле обязательно к заполнению",
                     minLength: {

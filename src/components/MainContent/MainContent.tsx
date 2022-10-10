@@ -45,7 +45,6 @@ const MainContent = () => {
 
     let position = 0;
 
-
     const prevHandler = () => {
         position += 280
         if (position > 350) position = 0
@@ -53,8 +52,8 @@ const MainContent = () => {
             (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`)
         })
     }
-    const debouncePrev = useCallback(_debounce(prevHandler, 150), [position]);
 
+    const debouncePrev = useCallback(_debounce(prevHandler, 150), [position]);
 
     const nextHandler = () => {
         position -= 280
