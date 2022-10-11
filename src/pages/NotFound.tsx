@@ -6,27 +6,12 @@ import TextSlide from "../components/TextSlide/TextSlide";
 import Footer from "../components/Footer/Footer";
 import drop from "../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg";
 import {Link} from "react-router-dom";
-import {Helmet, HelmetData} from 'react-helmet-async';
 import {withErrorBoundary} from "react-error-boundary";
-
-const helmetData = new HelmetData({});
+import Layout from "../components/Layout/Layout";
 
 const NotFound = () => {
     return (
-        <div>
-            <Helmet helmetData={helmetData}>
-                <meta
-                    name="description"
-                    content="not found page"
-                />
-                <title>Not Found</title>
-            </Helmet>
-            <Header />
-            <WhiteHeading />
-            <div className={styles.screen}>
-                <h1 className={styles.title}>404 ошибка</h1>
-            </div>
-            <TextSlide />
+        <Layout seoDescription='Страница не найдена' seoTitle='Страница не найдена' title='404 ошибка'>
             <div className={styles.notFoundContainer}>
                 <h1 className={styles.oopsTitle}>Упс, кажется такой страницы не существует</h1>
                 <button className={styles.button}>
@@ -36,8 +21,7 @@ const NotFound = () => {
                     </div>
                 </button>
             </div>
-            <Footer />
-        </div>
+        </Layout>
     );
 };
 

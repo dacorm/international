@@ -1,18 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {Helmet, HelmetData} from "react-helmet-async";
 import Header from "../components/Header/Header";
 import WhiteHeading from "../components/WhiteHeading/WhiteHeading";
 import styles from "./Players.module.css";
 import TextSlide from "../components/TextSlide/TextSlide";
-import MatchSlide from "../components/MatchSlide/MatchSlide";
 import Footer from "../components/Footer/Footer";
 import {Ids, PlayerI} from "../@types/serverType";
 import axios from "axios";
 import FallbackLoader from "../components/FallbackLoader/FallbackLoader";
 import {withErrorBoundary} from "react-error-boundary";
-
-const helmetData = new HelmetData({});
-
+import Layout from "../components/Layout/Layout";
 
 const Players = () => {
     const [ids, setIds] = useState<Ids[]>();
@@ -60,21 +56,7 @@ const Players = () => {
     }
 
     return (
-        <div>
-            <Helmet helmetData={helmetData}>
-                <meta
-                    name="description"
-                    content="match calendar"
-                />
-                <title>Matches Calendar</title>
-            </Helmet>
-            <Header/>
-            <WhiteHeading/>
-            <div className={styles.screen}>
-                <h1 className={styles.title}>Рейтинг игроков по MMR</h1>
-            </div>
-            <TextSlide/>
-            <MatchSlide/>
+        <Layout title='Рейтинг игроков по MMR' seoTitle='Лучшие игроки Dota2' seoDescription='Лучшие игроки Dota2'>
             <div className={styles.content}>
                 <ul className={styles.table}>
                     <li className={styles.heading}>
@@ -94,8 +76,7 @@ const Players = () => {
                     ))}
                 </ul>
             </div>
-            <Footer />
-        </div>
+        </Layout>
     );
 };
 

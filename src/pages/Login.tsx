@@ -9,9 +9,7 @@ import Footer from "../components/Footer/Footer";
 import {fetchAuth, selectIsAuth} from "../redux/slices/auth";
 import {useAppDispatch, useAppSelector} from "../assets/hooks";
 import {withErrorBoundary} from "react-error-boundary";
-import {Helmet, HelmetData} from 'react-helmet-async';
-
-const helmetData = new HelmetData({});
+import Layout from "../components/Layout/Layout";
 
 
 const Login = () => {
@@ -63,20 +61,7 @@ const Login = () => {
 
 
     return (
-        <>
-            <Helmet helmetData={helmetData}>
-                <meta
-                    name="description"
-                    content="Login"
-                />
-                <title>Login</title>
-            </Helmet>
-            <Header/>
-            <WhiteHeading/>
-            <div className={styles.screen}>
-                <h1 className={styles.title}>Login And Register</h1>
-            </div>
-            <TextSlide/>
+        <Layout seoDescription='Войти в аккаунт' seoTitle='Вход в аккаунт' title='Вход в аккаунт'>
             <div className={styles.login}>
                 <div className={styles.loginAndRegister}>
                     <div className={styles.loginBtn}>Login</div>
@@ -113,9 +98,8 @@ const Login = () => {
                         {isLoading ? 'Входим в систему...' : 'Войти'}
                     </button>
                 </form>
-                <Footer />
             </div>
-        </>
+        </Layout>
     );
 };
 

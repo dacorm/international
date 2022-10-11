@@ -15,6 +15,7 @@ import FallbackLoader from "../components/FallbackLoader/FallbackLoader";
 import BigPost from "../components/BigPost/BigPost";
 import {getRandomNumber} from "../helpers/getRandomNumber";
 import {withErrorBoundary} from "react-error-boundary";
+import Layout from "../components/Layout/Layout";
 
 const helmetData = new HelmetData({});
 
@@ -44,21 +45,7 @@ const News = () => {
     }
 
     return (
-        <div>
-            <Helmet helmetData={helmetData}>
-                <meta
-                    name="description"
-                    content="news"
-                />
-                <title>Все новости Dota2</title>
-            </Helmet>
-            <Header/>
-            <WhiteHeading/>
-            <div className={styles.screen}>
-                <h1 className={styles.title}>Новости Dota2</h1>
-            </div>
-            <TextSlide/>
-            <MatchSlide/>
+        <Layout seoTitle='Все новости Dota2' seoDescription='Новости Dota2' title='Новости Dota2'>
             <div className={styles.content}>
                 <div className={styles.posts}>
                     {posts!.items!.slice(0, posts?.items?.length).reverse().map((item) => (
@@ -78,7 +65,7 @@ const News = () => {
                     <h2 className={styles.listHeading}>Рекомендованные статьи</h2>
                     <div className={styles.separator}/>
                     {
-                            posts?.items?.slice(number, number + 2).map((post) => (<BigPost
+                        posts?.items?.slice(number, number + 2).map((post) => (<BigPost
                             title={post.title}
                             author={'Admin'}
                             date={convertDate(post.createdAt.toString())}
@@ -91,8 +78,7 @@ const News = () => {
                     }
                 </div>
             </div>
-            <Footer />
-        </div>
+        </Layout>
     );
 };
 

@@ -1,12 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styles from './Screen.module.css';
 import drop from '../../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg';
 import cs from '../../assets/images/099a6cd51d99d94856577c535e858cc0.jpg';
-import dota from '../../assets/images/ae306fadfec0cb591697545dbb30a456.jpg';
+import dota from '../../assets/images/banner.webp';
 import lol from '../../assets/images/57167e56a68d8.jpg';
 import WhiteHeading from "../WhiteHeading/WhiteHeading";
-import banner from '../../assets/images/300x350---5.gif';
-import close from '../../assets/images/close_FILL0_wght400_GRAD0_opsz48.svg';
 import {Link} from "react-router-dom";
 
 const data = [{

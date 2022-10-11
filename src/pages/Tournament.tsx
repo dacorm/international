@@ -6,27 +6,13 @@ import TextSlide from "../components/TextSlide/TextSlide";
 import Footer from "../components/Footer/Footer";
 import tourn from '../assets/images/711.jpg';
 import TournamentMatch from "../components/TournamentMatch/TournamentMatch";
-import {Helmet, HelmetData} from 'react-helmet-async';
 import {withErrorBoundary} from "react-error-boundary";
+import Layout from "../components/Layout/Layout";
 
-const helmetData = new HelmetData({});
 
 const Tournament = () => {
     return (
-        <>
-            <Helmet helmetData={helmetData}>
-                <meta
-                    name="description"
-                    content="international 2022 page"
-                />
-                <title>Турнир The International 2022</title>
-            </Helmet>
-            <Header/>
-            <WhiteHeading/>
-            <div className={styles.screen}>
-                <h1 className={styles.title}>The Interntational 2022</h1>
-            </div>
-            <TextSlide />
+        <Layout seoDescription='Турнир The International 2022' seoTitle='Турнир The International 2022' title='The International 2022'>
             <div className={styles.content}>
                 <div className={styles.tournamentInfo}>
                     <h2 className={styles.listHeading}>Турнир The International 2022 по Dota 2
@@ -215,12 +201,12 @@ const Tournament = () => {
                             </h2>
                             <div className={styles.separator}/>
                             <div className={styles.tournamentTable}>
-                               <div className={styles.columnAnother}>
-                                   <TournamentMatch />
-                                   <TournamentMatch />
-                                   <TournamentMatch />
-                                   <TournamentMatch />
-                               </div>
+                                <div className={styles.columnAnother}>
+                                    <TournamentMatch />
+                                    <TournamentMatch />
+                                    <TournamentMatch />
+                                    <TournamentMatch />
+                                </div>
                                 <div className={styles.columnAnother}>
                                     <TournamentMatch />
                                     <TournamentMatch />
@@ -234,8 +220,7 @@ const Tournament = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
-        </>
+        </Layout>
     );
 };
 

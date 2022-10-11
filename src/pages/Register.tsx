@@ -9,9 +9,7 @@ import Footer from "../components/Footer/Footer";
 import {fetchRegister, selectIsAuth} from "../redux/slices/auth";
 import {useAppDispatch, useAppSelector} from "../assets/hooks";
 import {withErrorBoundary} from "react-error-boundary";
-import {Helmet, HelmetData} from 'react-helmet-async';
-
-const helmetData = new HelmetData({});
+import Layout from "../components/Layout/Layout";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -62,20 +60,7 @@ const Login = () => {
     }
 
     return (
-        <>
-            <Helmet helmetData={helmetData}>
-                <meta
-                    name="description"
-                    content="register"
-                />
-                <title>Register</title>
-            </Helmet>
-            <Header/>
-            <WhiteHeading/>
-            <div className={styles.screen}>
-                <h1 className={styles.title}>Login And Register</h1>
-            </div>
-            <TextSlide/>
+        <Layout seoDescription='Регистрация' seoTitle='Регистрация' title='Регистрация'>
             <div className={styles.login}>
                 <div className={styles.loginAndRegister}>
                     <Link to='/login' className={styles.registerBtn}>Login</Link>
@@ -124,9 +109,8 @@ const Login = () => {
                         {isLoading ? 'Идет регистрация..' : 'Зарегистрироваться'}
                     </button>
                 </form>
-                <Footer />
             </div>
-        </>
+        </Layout>
     );
 };
 

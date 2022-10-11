@@ -3,7 +3,6 @@ import styles from './Matches.module.css';
 import Header from "../components/Header/Header";
 import WhiteHeading from "../components/WhiteHeading/WhiteHeading";
 import TextSlide from "../components/TextSlide/TextSlide";
-import MatchSlide from "../components/MatchSlide/MatchSlide";
 import Footer from "../components/Footer/Footer";
 import drop from '../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg';
 import {NavLink, useNavigate, useParams} from "react-router-dom";
@@ -17,13 +16,12 @@ import logo3 from '../assets/images/teams/03.png';
 import logo4 from '../assets/images/teams/04.png';
 import {randomNumber} from "../assets/helpers";
 import {withErrorBoundary} from "react-error-boundary";
-import {Helmet, HelmetData} from 'react-helmet-async';
 import {unixTimeStampConverter, unixTimeStampConverterToTime} from "../helpers/unixConverters";
 import {monthDaysConverter} from "../helpers/monthDaysConverter";
 import {monthConverter} from "../helpers/monthConverter";
 import FallbackLoader from "../components/FallbackLoader/FallbackLoader";
+import Layout from "../components/Layout/Layout";
 
-const helmetData = new HelmetData({});
 
 const Matches = () => {
     const [loading, setLoading] = useState(false);
@@ -91,21 +89,9 @@ const Matches = () => {
     }
 
     return (
-        <div>
-            <Helmet helmetData={helmetData}>
-                <meta
-                    name="description"
-                    content="match calendar"
-                />
-                <title>Matches Calendar</title>
-            </Helmet>
-            <Header/>
-            <WhiteHeading/>
-            <div className={styles.screen}>
-                <h1 className={styles.title}>Результаты матчей за {id} {monthConverter(new Date().getMonth())}</h1>
-            </div>
-            <TextSlide/>
-            <MatchSlide/>
+        <Layout seoDescription='The International 2022 по Dota 2: расписание матчей по турниру International 11'
+                seoTitle={`The International 2022 по Dota 2: расписание матчей по турниру International 11`}
+                title={`Результаты матчей за ${id} ${monthConverter(new Date().getMonth())}`}>
             <div className={styles.calendar}>
                 <div className={styles.header}>
                     <p className={styles.text}>{monthConverter(new Date().getMonth())} {new Date().getFullYear()}</p>
@@ -150,8 +136,7 @@ const Matches = () => {
                 </div>}
                 <a href='https://betcity.ru/' target='_blank' className={styles.banner} />
             </div>
-            <Footer/>
-        </div>
+        </Layout>
     );
 };
 
