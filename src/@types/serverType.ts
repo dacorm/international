@@ -178,3 +178,8 @@ export interface PlayerI {
     leaderboard_rank: number;
     solo_competitive_rank: number;
 }
+
+export interface MatchesI {
+    win: number;
+    lose: number;
+}

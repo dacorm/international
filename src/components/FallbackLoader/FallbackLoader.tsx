@@ -17,9 +17,9 @@ const FallbackLoader = () => {
             <Helmet helmetData={helmetData}>
                 <meta
                     name="description"
-                    content="match calendar"
+                    content="Loading..."
                 />
-                <title>Matches Calendar</title>
+                <title>Загрузка...</title>
             </Helmet>
             <Header/>
             <WhiteHeading/>

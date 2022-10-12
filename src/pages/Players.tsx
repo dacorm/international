@@ -18,7 +18,7 @@ const Players = () => {
 
     const fetchData = async () => {
         const { data } = await axios.get('https://api.opendota.com/api/playersByRank?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96');
-        setIds(data.slice(0, 15))
+        setIds(data.slice(0, 10))
     }
 
     const fetchPlayers = async (array: any) => {
