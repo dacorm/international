@@ -30,6 +30,8 @@
     padding-left: 50%;
     animation: text 7s infinite linear;
     cursor: pointer;
+    text-decoration: none;
+    margin: 12px 0 12px 0;
 }
 
 .text:hover {

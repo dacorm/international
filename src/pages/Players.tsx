@@ -75,6 +75,7 @@ const Players = () => {
                             </Link>
                         </li>
                     ))}
+                    <button className={styles.loadButton}>Показать ещё</button>
                 </ul>
             </div>
         </Layout>

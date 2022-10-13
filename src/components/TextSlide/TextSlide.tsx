@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styles from './TextSlide.module.css';
 import {useAppSelector} from "../../assets/hooks";
+import {Link} from "react-router-dom";
 
 const TextSlide = () => {
     const { posts } = useAppSelector(state => state.posts);
@@ -15,10 +16,10 @@ const TextSlide = () => {
     return (
         <div className={styles.string}>
             <div className={styles.left}/>
-            <p className={styles.text}>{text ?? 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, sunt?Lorem ipsum\n' +
+            <Link to='/news' className={styles.text}>{text ?? 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, sunt?Lorem ipsum\n' +
             '                dolor sit amet, consectetur adipisicing elit. Omnis, sunt?Lorem ipsum dolor sit amet, consectetur\n' +
             '                adipisicing elit. Omnis, sunt?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, sunt?'}
-            </p>
+            </Link>
             <div className={styles.right}/>
         </div>
     );
