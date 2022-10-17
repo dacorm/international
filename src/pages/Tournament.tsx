@@ -12,7 +12,7 @@ import Layout from "../components/Layout/Layout";
 
 const Tournament = () => {
     return (
-        <Layout seoDescription='Турнир The International 2022' seoTitle='Турнир The International 2022' title='The International 2022'>
+        <Layout seoDescription='Турнирная сетка матчей The International 2022 по Dota 2 – расписание, турнирная сетка, состав команд, результаты' seoTitle='Турнирная сетка матчей The International 2022 по ДОТА2' title='Турнирная сетка матчей The International 2022'>
             <div className={styles.content}>
                 <div className={styles.tournamentInfo}>
                     <h2 className={styles.listHeading}>Турнир The International 2022 по Dota 2
@@ -30,50 +30,38 @@ const Tournament = () => {
                         </div>
                     </div>
                     <div className={styles.textBlock}>
-                        <p className={styles.text}>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque cupiditate illo magnam
-                            maxime nostrum pariatur perferendis sit voluptate? A accusamus, aliquam, aliquid amet aut
-                            beatae debitis dolorem ea expedita harum id inventore ipsum, labore laudantium magnam
-                            maiores molestias nam necessitatibus perspiciatis quas qui repellat repellendus rerum sed
-                            sunt suscipit ut vel veritatis voluptas voluptate? Animi atque aut beatae blanditiis
-                            consequuntur corporis expedita id itaque labore necessitatibus, nostrum quo ratione rerum
-                            saepe sequi similique ut? A ab, animi atque blanditiis cumque, dolore error et eveniet
-                            explicabo facilis fuga hic id iste omnis perferendis, quae qui quo repellendus reprehenderit
-                            rerum saepe sint totam ullam ut veniam voluptate voluptatem! Aliquid architecto assumenda
-                            atque delectus dolor dolorum, harum ipsum minima, molestiae nam nisi omnis perspiciatis quas
-                            reiciendis rem, reprehenderit veritatis. A ab id, ipsa quis recusandae ullam velit. Ab
-                            adipisci amet architecto asperiores at aut autem, beatae commodi deleniti dolorem doloremque
-                            ducimus enim eum excepturi fugiat illum in ipsa iste iure laborum maiores maxime minus, nemo
-                            nobis nostrum officia quibusdam ratione repellendus saepe sapiente temporibus totam vero
-                            vitae? Accusantium consequatur dignissimos doloremque dolorum est et excepturi id, magnam
-                            modi non porro recusandae repellendus similique velit voluptas. Aliquid assumenda at cum
-                            dignissimos distinctio dolorem, dolores enim eveniet harum iste maxime nemo nostrum pariatur
-                            perferendis quas, quo reprehenderit voluptates? Ab ad aliquid aspernatur blanditiis delectus
-                            dolor dolorum error impedit, laboriosam magni maiores numquam omnis optio porro quisquam
-                            ratione reiciendis repellat sit suscipit tempore ut vitae voluptatem voluptatum. Earum
-                            provident, ut. Aut dolorum eos labore nobis quas ratione sint voluptate. Accusantium aliquid
-                            aut exercitationem facilis ipsum laboriosam laborum magni modi molestiae nemo perspiciatis
-                            provident quasi, quisquam quo sequi tempora vel velit voluptatem. Facilis molestias odit
-                            quas? Aliquid fugiat neque, quas quo quod sint! Ad aliquid asperiores aspernatur at atque
-                            delectus dicta earum eius excepturi hic minus, modi neque nisi, nobis obcaecati odit rerum
-                            saepe soluta tenetur voluptatibus! Aspernatur consequatur dicta, dolores eligendi eveniet
-                            ex, explicabo laudantium nostrum perferendis saepe sint suscipit, voluptas? Ab accusantium
-                            ad aliquid animi aperiam aut consequuntur cumque delectus deserunt dicta dignissimos dolores
-                            eaque earum eligendi est ex excepturi hic laudantium magnam modi mollitia nam natus
-                            necessitatibus nihil numquam odit perferendis porro quaerat quam reiciendis repellat,
-                            repellendus rerum tenetur unde ut vel vero. Ab adipisci aliquid amet animi aspernatur
-                            assumenda beatae blanditiis consequatur cum deserunt dolor dolore earum eos est eum facere
-                            iste minima nemo nesciunt odit quae quidem quos recusandae reiciendis reprehenderit
-                            sapiente, sed suscipit ut voluptate voluptatum. Architecto consequatur quasi saepe. Aliquam
-                            assumenda commodi consequuntur culpa deserunt enim est facilis laudantium magnam maiores
-                            natus nulla quia quis rerum sequi tempora voluptatem, voluptates. Accusantium at aut beatae
-                            blanditiis consequuntur cum debitis dignissimos eaque, eius eligendi eos error expedita
-                            harum, incidunt ipsum itaque laborum magnam minus nam natus nobis, officia perspiciatis
-                            possimus reprehenderit rerum sit tempora veniam. Alias aliquid animi asperiores assumenda,
-                            doloribus dolorum eum facilis illo impedit incidunt ipsum minima natus necessitatibus nemo
-                            nesciunt odit praesentium quae, quaerat quos ratione repellendus rerum sequi sit tempore
-                            velit. Dolores fugiat hic illum libero magnam, placeat.
-                        </p>
+                        <p>Осенью этого года состоится важный киберспортивный турнир, даты начала и завершения основной части соревнования 15 и 30 октября соответственно. Дисциплина &ndash; Дота, призовой фонд 1,6 млн. долларов США, место проведения &ndash; Сингапур. Второй раз в истории соревнование пройдет на азиатском континенте (11 подобное событие). Организатором является американская корпорация Valve &ndash; разработчик и издатель видеоигр.</p>
+
+                        <h2>Формат, условия участия</h2>
+
+                        <p>В турнире по Дота international 2022 примут участие два десятка команд, но пройти в финал смогут только лучшие из них. Битва за звание чемпиона будет двухдневной, в качестве площадки выбран Сингапурский крытый стадион. Главной встрече предшествуют две стадии (даты указаны в скобках):</p>
+
+                        <ol>
+                            <li>Квалификация (8-12). Сыграют вторые и третьи места первенств регионов &ndash; дюжина коллективов, между которыми будут распределены два входа.</li>
+                            <li>Групповой этап (15-18). Пройдут матчи с участием двенадцати клубов-победителей завершившегося сезона Dota Pro Circuit, шести финалистов своих первенств по регионам и двух команд, получивших допуск на предыдущем этапе.</li>
+                        </ol>
+
+                        <p>По итогам групповой части четыре слабейшие команды покинут состязание, восемь лучших попадут в верхнюю сетку плей-офф и сразятся за титул победителя турнира (29-30), остальные встретятся в борьбе за почетные места.</p>
+
+                        <p>Важное условие. Вышедшие в групповой этап 20 коллективов поделят на две равные подгруппы. Прохождение дальше, как и выбывание, будет зависеть от места команды именно в своей подгруппе.</p>
+
+                        <h2>Немного из истории The International 2022</h2>
+
+                        <p>Рассматриваемое событие считается крупнейшим среди ежегодных киберспортивных турниров. Изначально в данном чемпионате принимало участие 16 лучших коллективов мира, но постепенно формат изменился. Первый The International проходил в немецком Кельне (2011), далее в Сиэтле (США), на протяжении шести лет. Другие принимавшие мероприятие города: Ванкувер, Шанхай и Бухарест. Единственным годом пропуска стал 2020, когда турнир отменили из-за эпидемии ковид.</p>
+
+                        <p>Интересный факт. На чемпионат могла попасть российская команда Virtus.pro, но оказалась за бортом соревнования из-за особой системы подсчета очков у Valve (без дробных значений). Участвующий в турнире клуб Team Spirit ранее выступала под флагом России, но сейчас является международным, с офисом в Белграде.</p>
+
+                        <p>Региональные первенства проводятся по особой системе. Как разные регионы мира считаются:</p>
+
+                        <ul>
+                            <li>Обе Америки (северная и южная).</li>
+                            <li>Восточная и западная части Европы.</li>
+                            <li>Китай (из-за огромного населения и большого числа игроков соответственно).</li>
+                            <li>Юго-Восточная Азия, кроме Поднебесной.</li>
+                        </ul>
+
+                        <p>При этом отсутствуют представители Ближнего Востока, Африки, Австралии и Океании. Разработанный организатором формат может вызывать сомнения, но недостатки компенсируются качественной раскруткой события и приличными призовыми. Распределится выигрыш неравными долями между местами с первое по третье, роль кубка играет выполненный в античном стиле щит из бронзы и серебра.</p>
+
                     </div>
                     <div className={styles.results}>
                         <h2 className={styles.listHeading}>Результаты

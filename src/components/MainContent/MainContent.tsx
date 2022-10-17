@@ -170,7 +170,7 @@ const MainContent = () => {
                 <div className={styles.latestVideos}>
                     <div className={styles.videosHeading}>
                         <div>
-                            <h2 className={styles.Heading}>Latest Videos</h2>
+                            <h2 className={styles.Heading}>Последние трансляции метчей</h2>
                             <div className={styles.separatorVid}/>
                         </div>
                         <div>
@@ -193,155 +193,105 @@ const MainContent = () => {
                     </div>
                     <div className={styles.faq}>
                         <div>
-                            <h2 className={styles.Heading}>FAQ</h2>
+                            <h2 className={styles.Heading}>The international 2022</h2>
                             <div className={styles.separatorVid}/>
                         </div>
                         <div className={styles.quest}>
-                            <p className={styles.question}>How do i create my forum account</p>
+                            <p className={styles.question}>The international 2022 – уже одиннадцатый по счету турнир серии</p>
                             <div className={isOpen ? styles.remove : styles.add} onClick={() => setIsOpen(!isOpen)}/>
                         </div>
                         {
                             isOpen && (
-                                <p className={styles.answer}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Adipisci corporis in itaque nobis quaerat quo saepe! Accusamus blanditiis culpa
-                                    exercitationem minus placeat possimus quas quidem ratione temporibus! Ab beatae
-                                    cumque, ducimus error esse eveniet magnam modi, necessitatibus pariatur quaerat
-                                    quibusdam ratione repellat repellendus, rerum sequi ut vero! Aperiam, dolores in
-                                    ipsum iure laudantium placeat suscipit voluptatibus. Animi illo ipsam minima quas,
-                                    quibusdam sunt vel. A, ab accusantium asperiores delectus dolores ducimus eum
-                                    impedit, maiores maxime mollitia nulla perspiciatis praesentium provident quia quo,
-                                    similique temporibus. Ad adipisci commodi consectetur cupiditate dicta dolores ea
-                                    earum est ex excepturi expedita facilis fuga ipsum laborum, laudantium, libero
-                                    minima necessitatibus, odio pariatur perspiciatis possimus quis quisquam sapiente
-                                    totam vitae voluptas voluptatem voluptatibus. Accusantium ad amet consequatur
-                                    deserunt dignissimos excepturi exercitationem explicabo facilis fugit non quidem,
-                                    quisquam sapiente similique sint sit, voluptate voluptates. Aliquam architecto
-                                    dolorem ipsum laudantium magnam odit optio reprehenderit sit veritatis. A
-                                    consequuntur debitis delectus deserunt dicta dolor doloribus eius error eum, facilis
-                                    ipsam ipsum maiores, molestias neque nobis non officia omnis quis recusandae
-                                    repellendus sed sequi similique sint sit sunt tempore, voluptatibus voluptatum.
-                                    Architecto eligendi eveniet, fugiat incidunt obcaecati praesentium. Animi deserunt
-                                    nisi quos soluta. Blanditiis commodi hic incidunt, laborum nihil nisi quaerat quam
-                                    quasi ullam vel. Accusamus, accusantium adipisci assumenda atque delectus distinctio
-                                    dolores ea est eum eveniet hic illum incidunt ipsum iusto magnam minus natus nemo
-                                    nesciunt omnis pariatur perspiciatis provident quaerat quam quisquam quos rem
-                                    repellat rerum sequi sunt suscipit totam veniam vitae voluptatem! Exercitationem
-                                    fugiat odio porro! Dolor hic illum optio rem veniam. Animi at distinctio eius illum
-                                    nostrum nulla odit quas tempore! Accusantium asperiores dignissimos ea fugit illo
-                                    maxime nam natus quae sint voluptates? Et, quia, recusandae. Ad, alias aspernatur
-                                    assumenda consectetur consequatur deleniti dolorem ea eius eos error est eum
-                                    explicabo, impedit ipsa laborum magni minima minus nesciunt nostrum numquam, officia
-                                    porro reprehenderit! Atque, facere, magnam? Amet aspernatur, consequuntur debitis
-                                    delectus deleniti eligendi enim eos ex excepturi in incidunt laboriosam molestiae
-                                    nemo nulla obcaecati officia quo sit ut veritatis voluptatum? Alias dolorum earum
-                                    illo incidunt obcaecati pariatur quibusdam quidem sapiente ullam, ut! Dicta facilis
-                                    illum labore minima nostrum repudiandae sequi tempora ut, vel voluptas? Alias
-                                    aliquam assumenda atque aut consequatur cupiditate debitis dolor dolorem ea eligendi
-                                    esse excepturi fugiat in ipsam labore laboriosam, laudantium mollitia nemo neque
-                                    nihil obcaecati odio placeat quasi recusandae repellat repellendus sed similique
-                                    soluta sunt veniam veritatis voluptas voluptatem voluptatibus. Ab blanditiis
-                                    consequatur consequuntur culpa dolorem esse est eveniet, expedita harum illum ipsum
-                                    libero molestias nulla odio quibusdam repellendus saepe, sit vitae voluptas
-                                    voluptate! Cupiditate maiores nam quam quo reprehenderit. Blanditiis corporis eaque
-                                    earum explicabo iusto nihil quibusdam temporibus ullam unde. Beatae commodi cum
-                                    dolorum fugit, illum iste laboriosam quibusdam quidem quod totam. Accusamus ad
-                                    adipisci atque blanditiis consequatur dignissimos doloremque ducimus, fuga harum
-                                    illo impedit in ipsum iste, iusto maiores minima mollitia neque quas quidem quisquam
-                                    sequi veritatis voluptatum. Accusamus aliquam aspernatur assumenda beatae delectus
-                                    enim eveniet expedita inventore officiis quae, qui quia quibusdam saepe sequi sint,
-                                    sit, sunt suscipit. Accusantium aliquam amet aperiam consequatur cum cumque
-                                    cupiditate debitis deleniti dolores ducimus eaque eius, est facere fuga id illo
-                                    minus neque optio perspiciatis porro praesentium provident quaerat quam quibusdam
-                                    quos, reiciendis rem repellendus saepe ullam unde ut voluptate voluptates
-                                    voluptatum? Dolores error facere itaque magni minus nemo odit officiis ratione
-                                    suscipit vel? Aliquam corporis culpa cupiditate debitis, distinctio ex incidunt
-                                    laborum laudantium nam pariatur porro ratione tempore vel. Accusantium aliquid animi
-                                    architecto commodi consequuntur, cum earum eius harum laboriosam maiores odio
-                                    possimus praesentium quia quisquam tempora veniam voluptatibus. Accusamus animi aut
-                                    consectetur dicta ducimus labore laborum minus nemo neque, nobis obcaecati odio
-                                    officia omnis quisquam, rem velit voluptatibus? Dolore fuga maiores nemo rem
-                                    voluptates! Adipisci aliquid amet aperiam beatae consequatur corporis cum dicta
-                                    dolores earum eum ex, excepturi fuga ipsum laudantium minima mollitia nam nemo
-                                    officia officiis perspiciatis possimus praesentium quaerat quas qui quo repellendus
-                                    soluta temporibus ut voluptas voluptatum. Ab, aliquid aut deserunt distinctio eius,
-                                    eligendi enim eos esse harum laborum magni maxime minima nisi odit quidem quis sed,
-                                    soluta temporibus. A, accusantium animi dicta distinctio ducimus iure minus neque
-                                    nobis perferendis quibusdam suscipit totam veniam vitae. Ad amet asperiores commodi
-                                    doloribus eius eligendi enim inventore iste magni minus molestiae odio possimus
-                                    provident quaerat, quasi quo sunt suscipit tempora veritatis voluptate. Dolor
-                                    dolores, et fugit inventore ipsum minus modi natus numquam ratione voluptate?
-                                    Aliquam atque officia perferendis possimus repellendus. Aliquam cum deserunt dolore
-                                    ex excepturi facere iusto nemo nesciunt odio perspiciatis porro quasi quibusdam
-                                    suscipit temporibus totam, ullam voluptatum! Atque dolores explicabo labore quas
-                                    vero? Adipisci amet dolorum eius esse nam reiciendis repellendus ut? Aut autem,
-                                    minus modi molestiae numquam omnis possimus quaerat sed soluta suscipit totam ut.
-                                    Corporis excepturi expedita inventore, ipsa laborum minima natus nesciunt sint
-                                    ullam? Adipisci alias beatae fugit labore nisi non possimus sint, totam? Ab deserunt
-                                    expedita ipsa ipsum maiores molestias odio omnis porro quae quos rerum, soluta
-                                    tenetur voluptatum. Aliquam aspernatur debitis ducimus eveniet in ipsum iure
-                                    laboriosam optio porro unde! Corporis dignissimos exercitationem ipsum laudantium
-                                    natus nulla tempore! Accusamus alias aspernatur beatae cupiditate dignissimos
-                                    doloremque doloribus eum eveniet excepturi id illo illum, inventore magni maiores
-                                    minima modi necessitatibus odit omnis pariatur possimus ratione, repudiandae
-                                    sapiente sequi tenetur unde vel veritatis. Ea earum eius enim eum explicabo ipsum
-                                    magnam quo totam vel voluptates! Asperiores atque commodi consequuntur, distinctio
-                                    earum enim est et excepturi explicabo facere ipsa ipsam iste labore laborum, magnam
-                                    modi molestias natus nobis nulla quam quidem rem sapiente sequi sit soluta suscipit
-                                    tempora veniam. Assumenda deleniti dignissimos enim excepturi harum nesciunt quae
-                                    quos voluptates! Animi asperiores corporis cupiditate debitis doloribus, dolorum
-                                    error est expedita facere fugit hic in officia placeat quae qui rem sed ut voluptate
-                                    voluptatem voluptatibus? Ab accusamus aliquam at culpa cum deleniti deserunt dolore
-                                    doloremque ducimus, eveniet fuga harum laboriosam magni minus molestiae nesciunt
-                                    nihil nisi nostrum quam quia reiciendis sapiente sit soluta totam veritatis vero
-                                    voluptates, voluptatum? Dicta incidunt natus ratione repellat? Ab accusamus
-                                    architecto aspernatur consectetur cum, delectus deserunt dolores ducimus, ea enim ex
-                                    id illum impedit inventore ipsam ipsum minima nemo nihil nostrum numquam officia
-                                    omnis perferendis, quae quia quo quod ratione recusandae rem reprehenderit sapiente
-                                    sequi similique sint soluta temporibus vel velit voluptatum! Aliquam dolorem esse
-                                    quasi rem sit. Aliquam autem culpa doloribus esse labore placeat quos saepe!
-                                    Adipisci animi atque cum cupiditate dolore explicabo numquam obcaecati, omnis quia
-                                    totam. Autem corporis eveniet fugiat repellat soluta voluptatum? At aut autem
-                                    corporis dignissimos explicabo harum inventore ipsam maiores, maxime minus molestiae
-                                    mollitia porro quos, repudiandae tempora, vel velit? A animi aperiam, aspernatur
-                                    commodi dignissimos et facilis labore molestias nemo obcaecati omnis placeat quas
-                                    quos reiciendis sed, vel velit voluptatibus. Amet animi, aperiam autem beatae cum
-                                    dolorum ducimus eos error eum id illo, impedit inventore ipsa labore magni maxime
-                                    molestiae non nulla odio pariatur perspiciatis placeat porro quia quibusdam quo quod
-                                    repellat repudiandae rerum saepe sapiente sint soluta temporibus tenetur ullam
-                                    veniam vero voluptatibus? Amet architecto consequatur cumque dicta, dignissimos enim
-                                    facere impedit, ipsa laboriosam minus possimus provident quisquam recusandae
-                                    repellat sequi vel voluptatum. Aliquid amet assumenda blanditiis corporis facere
-                                    facilis ipsum iure labore magni mollitia nemo odit officiis placeat, quisquam
-                                    ratione repudiandae rerum sed suscipit vel voluptatum. Aspernatur nemo odit
-                                    quibusdam vitae voluptatum. Aliquam, cum dolorem earum eligendi enim ex expedita
-                                    fugit harum id, in ipsam magnam mollitia nulla obcaecati officiis perspiciatis quam
-                                    quidem quod ratione recusandae repellendus sed sequi similique soluta totam veniam
-                                    voluptates. Deleniti dicta dolor ducimus explicabo incidunt itaque modi molestiae
-                                    nemo, numquam quae repellendus tempora temporibus tenetur unde velit? Consectetur
-                                    deserunt doloremque doloribus ea eaque eius eligendi fugit illo incidunt laboriosam,
-                                    magni necessitatibus odio optio perspiciatis repellendus similique vitae! Alias
-                                    consectetur deleniti deserunt dignissimos dolore eaque, eius eveniet ex facere
-                                    inventore, ipsam ipsum iste iusto laudantium minus modi natus nihil officia optio
-                                    provident quas quisquam rerum vero! Blanditiis culpa cumque dolorem doloribus eius
-                                    eligendi expedita explicabo facere, fuga fugiat laudantium, nam non nostrum officiis
-                                    provident saepe sed voluptatem voluptates. Cupiditate delectus illum in iusto
-                                    laborum ratione vel velit. Assumenda beatae ducimus eligendi fuga illum magni nemo
-                                    sed veniam. Accusantium architecto blanditiis eaque inventore ipsam magni minus
-                                    omnis quam repudiandae similique, tenetur unde veniam veritatis? Accusantium
-                                    cupiditate maxime quam quo tenetur? Aspernatur debitis ea error, facilis fugit illum
-                                    laudantium minima modi nemo placeat quasi reiciendis sequi. A accusamus ad adipisci
-                                    aliquid aperiam architecto at blanditiis corporis culpa cumque debitis, delectus
-                                    dicta eius esse eum exercitationem fugiat illo ipsa laborum maiores molestias nisi
-                                    nostrum numquam officiis perferendis perspiciatis porro quibusdam recusandae rem
-                                    sequi tempora tempore temporibus ullam veritatis voluptates voluptatibus voluptatum.
-                                    Aut corporis distinctio doloremque est porro quod sapiente! Accusantium aperiam cum
-                                    distinctio eum hic iusto libero nisi odio, possimus tempora. Aperiam eligendi esse
-                                    expedita explicabo, fugit hic iure libero natus sed totam! Amet aperiam aspernatur
-                                    assumenda consectetur delectus dolores, ducimus ipsum magni minima nesciunt nihil
-                                    nostrum quam quos recusandae saepe sapiente soluta. Consequuntur dolor ea et facere
-                                    ipsam laudantium libero mollitia neque nihil officia perferendis, quisquam rerum
-                                    saepe sit sunt ut voluptates. Ad at blanditiis eum excepturi fugiat modi
-                                    necessitatibus perferendis temporibus unde?</p>
+                                <div className={styles.answer}><p>The international 2022 &ndash; уже одиннадцатый по счету турнир серии The International. Каждый год организаторы анонсируют новый город для проведения соревнований, и на этот раз это Сингапур. Впервые турнир пройдет в юго-восточной Азии!</p>
+
+                                    <p>Призовой фонд турнира уже превысил отметку в двенадцать миллионов долларов, и это не предел. Победители прошлого турнира получили 45% от общей суммы фонда &ndash; предполагается, что в этом году распределение призовых будет идентичным.</p>
+
+                                    <h2>Уникальность одиннадцатого the international 2022</h2>
+
+                                    <p>Формат проведения соревнований остается прежним, но на этот раз организаторы решили изменить количество участников &ndash; вместо привычных восемнадцати команд нас ждет двадцать.</p>
+
+                                    <p>Место проведения турнира на этот раз не одна, а две площадки &ndash; плей-офф будет проходить на стадионе Suntec Singapore, когда как матчи финальной стадии соревнований примет у себя крытый стадион Сингапура.</p>
+
+                                    <p>Впервые в истории за последних два места на турнире будет идти борьба на последней квалификации, которая пройдет непосредственно в Сингапуре - Last Chance Qualifier.</p>
+
+                                    <h2>Отбор команд и пара слов об участниках</h2>
+
+                                    <p>В первую очередь в главный киберспортивный турнир года попадают двенадцать команд, признанные лучшими по итогам профессионального сезона Dota Pro Circuit. Такие команды поучают прямое приглашение на турнир по доте international 2022 и попадают сразу в групповую стадию. В этом году командами, получившими прямой инвайт, стали:</p>
+
+                                    <ul>
+                                        <li>TeamSpirit</li>
+                                        <li>OG</li>
+                                        <li>Team Aster</li>
+                                        <li>beastcoast</li>
+                                        <li>BOOM Esports</li>
+                                        <li>Thunder Awaken</li>
+                                        <li>TSM</li>
+                                        <li>PSG.LGD</li>
+                                        <li>Gaimin Gladiators</li>
+                                        <li>OG</li>
+                                        <li>Evil Geniuses</li>
+                                        <li>Tundra Esports</li>
+                                    </ul>
+
+                                    <p>Более половины из списка принимали участие в предыдущем интернейшеле.</p>
+
+                                    <p>Русскоязычная команда Team Spirit, как мы все прекрасно помним, являясь аутсайдерами, неожиданно для всех вырвали у фаворитов турнира PSG.LGD первое место, пройдя по нижней сетке соревнований. забрав приз в $18,208,300 команда обещала вернуться в следующем году. Смогут ли они повторить свой феноменальный успех на the international 2022? Это мы узнаем совсем скоро.</p>
+
+                                    <p>После этой неожиданной победы многие задались вопросом: не случайна ли победа team spirit? Может, это банально везенье? Но прямое приглашение организаторов по результатам профессионального сезона показало, что нет &ndash; это не случайность. Примечательно, что Спириты вырвали приглашение на PGL Arlington Major обыграв своих соперников из финала Ti 10 &ndash; китайскую команду PSG.LGD.</p>
+
+                                    <p>Следующие, кто получил место на Ti 11 &ndash; шесть команд, прошедших региональные квалификации. Шесть регионов &ndash; шесть команд.</p>
+
+                                    <p>В СНГ-регионе изначально намечались интересные квалификации &ndash; команда virtus pro не смогла получить прямого приглашения на the international 2022 и была вынуждена сражаться за выход в турнир на квалификациях. Являясь фаворитом региона все были уверены в победе &laquo;медведей&raquo; но&hellip; СНГ-команды умеют удивлять. Никому ранее не известная команда без громкого прошлого BetBoom вырвала место в Инте у Virtus Pro, не дав им забрать и одной карты в гранд-финале.</p>
+
+                                    <p>Ходят разговоры, что это случайность и дело не в BetBoom а в самих &laquo;медведях&raquo;, которые не смогли взять себя в руки и собраться для победы.</p>
+
+                                    <p>Без неожиданностей не прошли и квалификации Европейского региона. Ожидалось, что свое место на Ti 11 заберет Team Secret, но что-то пошло не так и молодая команда Entity победила в финале со счетом 3-0.</p>
+
+                                    <p>Entity показывало потрясающие результаты и многие уверены, что команда отлично покажет себя на главном соревновании года, попадая, как минимум, в топ 10.</p>
+
+                                    <p>Итак, все шесть команд, кто получает &laquo;билет&raquo; на прохождение в групповой этап Ti 11 по итогам квалификаций:</p>
+
+                                    <ul>
+                                        <li>BetBoom</li>
+                                        <li>Hokori</li>
+                                        <li>Royal Never Give Up</li>
+                                        <li>Entity Gaming</li>
+                                        <li>Soniqs</li>
+                                        <li>Talon Esports</li>
+                                    </ul>
+
+                                    <p>Двенадцать плюс шесть &ndash; восемнадцать, а участников группового этапа запланировано двадцать. Это не ошибка, и пока что, действительно, команды, которые займут последние слоты турнира, используя последний шанс, неизвестны.</p>
+
+                                    <p>Последний шанс &ndash; это Last Chance Qualifier, который пройдет с 8 по 12 октября. По результатам соревнований станет известно, кто займет последние два слота the international 2022.</p>
+
+                                    <p>Бороться будут команды, которые не смогли пройти региональные квалификации и заняли на них 2-3 места. Участие примут 12 команд:</p>
+
+                                    <ul>
+                                        <li>Natus Vincere</li>
+                                        <li>Nouns</li>
+                                        <li>Polaris Esports</li>
+                                        <li>Team Secret</li>
+                                        <li>Tempest</li>
+                                        <li>Vici Gaming</li>
+                                        <li>Infamous</li>
+                                        <li>T1</li>
+                                        <li>Team Liquid</li>
+                                        <li>Virtus.pro</li>
+                                        <li>Wildcard Gaming</li>
+                                        <li>Xtreme Gaming</li>
+                                    </ul>
+
+                                    <h2>Система и время проведения</h2>
+
+                                    <p>Уже известны точные даты the international 2022 по доте. Last Chance Qualifier будет проходить непосредственно в Сингапуре с 8 по 12 числа октября.</p>
+
+                                    <p>Недавно стало известно, что система проведение будет такова:</p>
+
+                                    <p>Участники будут поделены на две группы по шесть коллективов. После этого команды будут бороться по круговой системе, играя best-of-2 &ndash; то есть, по две игры с каждым соперником. Далее ожидается сетка плей-офф стадии Last Chance, где в верхней сетке окажутся четыре состава, занявшие первые места групповой стадии, и в нижней &ndash; остальные. В групповую стадию непосредственно the international 2022 попадут две команды-победители верхней и нижней сетки.</p>
+
+                                    <p>С 15 по 18 октября пройдет групповая стадия. На ней все двадцать команд разделятся на две группы. По результатам групповой стадии выбывают четыре команды, набравшие наименьшее количество очков.</p>
+
+                                    <p>Основная стадия плей-офф пройдет сс 20 по 23 октября, и после перерыва на новом стадионе пройдет финал &ndash; с 29 по 20 октября.</p></div>
                             )
                         }
                     </div>
