@@ -141,9 +141,14 @@
     font-family: 'Exo', sans-serif;
     text-transform: uppercase;
     font-weight: 700;
-
 }
 
 .loadButton:hover {
     opacity: .6;
+}
+
+.loadButtonDisabled {
+    border: 1px solid gray;
+    color: #777777;
+    cursor: not-allowed;
 }

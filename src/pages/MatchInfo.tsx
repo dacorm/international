@@ -19,7 +19,7 @@ const MatchInfo = () => {
     const [info, setInfo] = useState<MatchInfoType>();
 
     const fetchData = async () => {
-        const {data} = await axios.get(`https://api.opendota.com/api/matches/${id}`)
+        const {data} = await axios.get(`https://api.opendota.com/api/matches/${id}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`)
         setInfo(data);
     }
 
@@ -61,12 +61,13 @@ const MatchInfo = () => {
                     </div>
                 </div>
                 <div className={styles.replay}>
-                    <h2 className={styles.listHeading}>Повтор матча</h2>
+                    <h2 className={styles.listHeading}>Посмотреть матчи</h2>
                     <div className={styles.separator}/>
-                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/jHyrFF2x1OM"
-                            title="A Legacy of Champions"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen className={styles.iframe}/>
+                    <iframe
+                        src="https://player.twitch.tv/?channel=pgl_dota2&parent=international11.com&parent=localhost&muted=true"
+                        allowFullScreen
+                        className={styles.iframe}
+                    />
                 </div>
             </div>
         </Layout>

@@ -11,14 +11,24 @@ import {withErrorBoundary} from "react-error-boundary";
 import Layout from "../components/Layout/Layout";
 import {Link} from "react-router-dom";
 
+let firstNumber = 0;
+let secondNumber = 10;
+
 const Players = () => {
     const [ids, setIds] = useState<Ids[]>();
     const [playerIds, setPlayerIds] = useState<number[]>();
     const [players, setPlayers] = useState<PlayerI[]>();
+    const [isLoading, setIsLoading] = useState(false);
 
     const fetchData = async () => {
+        setIsLoading(true);
         const { data } = await axios.get('https://api.opendota.com/api/playersByRank?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96');
-        setIds(data.slice(0, 10))
+        setIds(data.slice(firstNumber, secondNumber));
+    }
+
+    const loadMorePlayers = () => {
+        secondNumber += 10;
+        fetchData();
     }
 
     const fetchPlayers = async (array: any) => {
@@ -28,6 +38,7 @@ const Players = () => {
             arr.push(data);
         }
         setPlayers(arr);
+        setIsLoading(false);
     }
 
     useEffect(() => {
@@ -75,7 +86,12 @@ const Players = () => {
                             </Link>
                         </li>
                     ))}
-                    <button className={styles.loadButton}>Показать ещё</button>
+                    <button
+                        onClick={loadMorePlayers}
+                        className={`${styles.loadButton} ${isLoading ? styles.loadButtonDisabled : ''}`}
+                        disabled={isLoading}>
+                        {isLoading ? 'Загрузка...' : 'Показать ещё'}
+                    </button>
                 </ul>
             </div>
         </Layout>

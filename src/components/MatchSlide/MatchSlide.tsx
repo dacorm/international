@@ -15,7 +15,7 @@ const MatchSlide = () => {
 
     const fetchData = async () => {
         setIsLoading(true);
-        const data = await axios.get('https://api.opendota.com/api/proMatches');
+        const data = await axios.get('https://api.opendota.com/api/proMatches?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96');
         setItems(data.data.slice(0, 20));
         setIsLoading(false);
     }

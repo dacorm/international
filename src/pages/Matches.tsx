@@ -51,7 +51,7 @@ const Matches = () => {
 
     const fetchData = async () => {
         setLoading(true);
-        const {data} = await axios.get('https://api.opendota.com/api/proMatches');
+        const {data} = await axios.get('https://api.opendota.com/api/proMatches?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96');
         setItems(data);
         setLoading(false);
     }
