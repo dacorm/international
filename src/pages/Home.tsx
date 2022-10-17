@@ -33,7 +33,11 @@ const Home = () => {
                 />
                 <title>International Main</title>
             </Helmet>
-            {isOpen && <FreebetPopup onClose={onClose} />}
+            {isOpen && <FreebetPopup
+                lazy={true}
+                isOpen={isOpen}
+                onClose={onClose}
+            />}
             <Header />
             <Screen />
             <TextSlide />

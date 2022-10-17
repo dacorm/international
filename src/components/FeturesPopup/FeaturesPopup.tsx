@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './FeaturesPopup.module.css'
 import BigPost from "../BigPost/BigPost";
 import cn from 'classnames';
@@ -39,9 +39,24 @@ const postsData = [{
 
 type FeaturesPopupProps = {
     className: string
+    lazy: boolean
+    isOpen: boolean
 }
 
-const FeaturesPopup: React.FC<FeaturesPopupProps> = ({ className }) => {
+const FeaturesPopup: React.FC<FeaturesPopupProps> = ({ className, lazy, isOpen }) => {
+    const [isMounted, setIsMounted] = useState(false);
+
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen])
+
+    if (lazy && !isMounted) {
+        return null;
+    }
+
     return (
         <div className={cn(styles.popup, className)}>
             <div className={styles.up}>

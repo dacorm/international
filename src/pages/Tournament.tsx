@@ -216,7 +216,7 @@ const Tournament = () => {
                                 </div>
                             </div>
                         </div>
-                        <a href='https://betcity.ru/' target='_blank' className={styles.banner} />
+                        <a href='https://s.betcitypromo.ru/click?pid=99&offer_id=3&sub1=international11&sub4=3469&sub5=cpa&sub6=international11&l=1586938601' target='_blank' className={styles.banner} />
                     </div>
                 </div>
             </div>

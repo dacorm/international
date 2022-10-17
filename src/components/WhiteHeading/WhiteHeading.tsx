@@ -57,7 +57,11 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
                         <p className={styles.menuText}>eSports</p>
                         <img src={drop} alt="dropDownIcon" className={styles.drop}/>
                     </li>
-                    {open && <HeadingPopup className={styles.popup} />}
+                    {open && <HeadingPopup
+                        lazy={true}
+                        isOpen={open}
+                        className={styles.popup}
+                    />}
                     <li className={styles.menuItem}>
                         <Link to={'/news'} className={styles.menuText}>News</Link>
                     </li>
@@ -68,7 +72,11 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
                         <p className={styles.menuText}>Features</p>
                         <img src={drop} alt="dropDownIcon" className={styles.drop}/>
                     </li>
-                    {visible && <FeaturesPopup className={styles.popupFeatures} />}
+                    {visible && <FeaturesPopup
+                        lazy={true}
+                        isOpen={visible}
+                        className={styles.popupFeatures}
+                    />}
                     <li className={styles.menuItem}>
                         <Link to='/tournament' className={styles.menuText}>Турнирная таблица</Link>
                     </li>

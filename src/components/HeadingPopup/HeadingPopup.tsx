@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './HeadingPopup.module.css';
 import team1 from '../../assets/images/01.png';
 import team2 from '../../assets/images/02.png';
@@ -8,6 +8,8 @@ import Post from "../Post/Post";
 
 type popupProps = {
     className: string
+    lazy: boolean
+    isOpen: boolean
 }
 
 const postsData = [{
@@ -37,7 +39,20 @@ const postsData = [{
     id: 34
 },]
 
-const HeadingPopup: React.FC<popupProps> = ({ className }) => {
+const HeadingPopup: React.FC<popupProps> = ({ className, lazy, isOpen }) => {
+    const [isMounted, setIsMounted] = useState(false);
+
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen])
+
+    if (lazy && !isMounted) {
+        return null
+    }
+
     return (
         <div className={cn(styles.popup, className)}>
             <div className={styles.lists}>
