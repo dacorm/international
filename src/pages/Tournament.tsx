@@ -157,7 +157,7 @@ const Tournament = () => {
                                                 {item.team1}
                                             </div>
                                             <p className={styles.itemScore}>
-
+                                                vs
                                             </p>
                                             <div className={styles.itemTeam}>
                                                 {item.team2}
