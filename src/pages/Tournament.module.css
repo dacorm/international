@@ -223,6 +223,7 @@
     color: #363636;
     font-weight: 700;
     margin: 0;
+    width: 100px;
 }
 
 .itemScore {
@@ -262,8 +263,7 @@
 .scheduleWrapper {
     display: flex;
     align-items: center;
-    gap: 15px;
-    justify-content: center;
+    justify-content: space-between;
     text-align: center;
     width: 250px;
 }
