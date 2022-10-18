@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from "../components/Header/Header";
 import WhiteHeading from "../components/WhiteHeading/WhiteHeading";
 import styles from "./Tournament.module.css";
@@ -8,11 +8,51 @@ import tourn from '../assets/images/711.jpg';
 import TournamentMatch from "../components/TournamentMatch/TournamentMatch";
 import {withErrorBoundary} from "react-error-boundary";
 import Layout from "../components/Layout/Layout";
+import { TopEvents, Event } from "../@types/serverType";
+import axios from "axios";
+import FallbackLoader from "../components/FallbackLoader/FallbackLoader";
+import {unixTimeStampConverter, unixTimeStampConverterToTime} from "../helpers/unixConverters";
+import {monthConverter} from "../helpers/monthConverter";
 
 
 const Tournament = () => {
+    const [items, setItems] = useState<TopEvents>();
+    const [topEvents, setTopEvents] = useState<Event[]>();
+
+    const fetchData = async () => {
+        const { data } = await axios.get('https://line04w.bk6bba-resources.com/line/desktop/topEvents3?place=live&sysId=1&lang=ru&salt=2o9hzyrwfmwl9cnms46&scopeMarket=1600');
+        setItems(data);
+    }
+
+    const filterEvents = () => {
+        let filteredArr: Event[] = [];
+        if (items) {
+            for (let i = 0; i < items.events.length; i++) {
+                if (items.events[i].competitionCaption.includes('Dota 2. The International.')) {
+                    filteredArr.push(items.events[i]);
+                }
+            }
+        }
+        setTopEvents(filteredArr);
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, [])
+
+    useEffect(() => {
+       filterEvents();
+    }, [items])
+
+    if (!topEvents) {
+        return <FallbackLoader />
+    }
+
     return (
-        <Layout seoDescription='Турнирная сетка матчей The International 2022 по Dota 2 – расписание, турнирная сетка, состав команд, результаты' seoTitle='Турнирная сетка матчей The International 2022 по ДОТА2' title='Турнирная сетка матчей The International 2022'>
+        <Layout
+            seoDescription='Турнирная сетка матчей The International 2022 по Dota 2 – расписание, турнирная сетка, состав команд, результаты'
+            seoTitle='Турнирная сетка матчей The International 2022 по ДОТА2'
+            title='Турнирная сетка матчей The International 2022'>
             <div className={styles.content}>
                 <div className={styles.tournamentInfo}>
                     <h2 className={styles.listHeading}>Турнир The International 2022 по Dota 2
@@ -30,26 +70,50 @@ const Tournament = () => {
                         </div>
                     </div>
                     <div className={styles.textBlock}>
-                        <p>Осенью этого года состоится важный киберспортивный турнир, даты начала и завершения основной части соревнования 15 и 30 октября соответственно. Дисциплина &ndash; Дота, призовой фонд 1,6 млн. долларов США, место проведения &ndash; Сингапур. Второй раз в истории соревнование пройдет на азиатском континенте (11 подобное событие). Организатором является американская корпорация Valve &ndash; разработчик и издатель видеоигр.</p>
+                        <p>Осенью этого года состоится важный киберспортивный турнир, даты начала и завершения основной
+                            части соревнования 15 и 30 октября соответственно. Дисциплина &ndash; Дота, призовой фонд
+                            1,6 млн. долларов США, место проведения &ndash; Сингапур. Второй раз в истории соревнование
+                            пройдет на азиатском континенте (11 подобное событие). Организатором является американская
+                            корпорация Valve &ndash; разработчик и издатель видеоигр.</p>
 
                         <h2>Формат, условия участия</h2>
 
-                        <p>В турнире по Дота international 2022 примут участие два десятка команд, но пройти в финал смогут только лучшие из них. Битва за звание чемпиона будет двухдневной, в качестве площадки выбран Сингапурский крытый стадион. Главной встрече предшествуют две стадии (даты указаны в скобках):</p>
+                        <p>В турнире по Дота international 2022 примут участие два десятка команд, но пройти в финал
+                            смогут только лучшие из них. Битва за звание чемпиона будет двухдневной, в качестве площадки
+                            выбран Сингапурский крытый стадион. Главной встрече предшествуют две стадии (даты указаны в
+                            скобках):</p>
 
                         <ol>
-                            <li>Квалификация (8-12). Сыграют вторые и третьи места первенств регионов &ndash; дюжина коллективов, между которыми будут распределены два входа.</li>
-                            <li>Групповой этап (15-18). Пройдут матчи с участием двенадцати клубов-победителей завершившегося сезона Dota Pro Circuit, шести финалистов своих первенств по регионам и двух команд, получивших допуск на предыдущем этапе.</li>
+                            <li>Квалификация (8-12). Сыграют вторые и третьи места первенств регионов &ndash; дюжина
+                                коллективов, между которыми будут распределены два входа.
+                            </li>
+                            <li>Групповой этап (15-18). Пройдут матчи с участием двенадцати клубов-победителей
+                                завершившегося сезона Dota Pro Circuit, шести финалистов своих первенств по регионам и
+                                двух команд, получивших допуск на предыдущем этапе.
+                            </li>
                         </ol>
 
-                        <p>По итогам групповой части четыре слабейшие команды покинут состязание, восемь лучших попадут в верхнюю сетку плей-офф и сразятся за титул победителя турнира (29-30), остальные встретятся в борьбе за почетные места.</p>
+                        <p>По итогам групповой части четыре слабейшие команды покинут состязание, восемь лучших попадут
+                            в верхнюю сетку плей-офф и сразятся за титул победителя турнира (29-30), остальные
+                            встретятся в борьбе за почетные места.</p>
 
-                        <p>Важное условие. Вышедшие в групповой этап 20 коллективов поделят на две равные подгруппы. Прохождение дальше, как и выбывание, будет зависеть от места команды именно в своей подгруппе.</p>
+                        <p>Важное условие. Вышедшие в групповой этап 20 коллективов поделят на две равные подгруппы.
+                            Прохождение дальше, как и выбывание, будет зависеть от места команды именно в своей
+                            подгруппе.</p>
 
                         <h2>Немного из истории The International 2022</h2>
 
-                        <p>Рассматриваемое событие считается крупнейшим среди ежегодных киберспортивных турниров. Изначально в данном чемпионате принимало участие 16 лучших коллективов мира, но постепенно формат изменился. Первый The International проходил в немецком Кельне (2011), далее в Сиэтле (США), на протяжении шести лет. Другие принимавшие мероприятие города: Ванкувер, Шанхай и Бухарест. Единственным годом пропуска стал 2020, когда турнир отменили из-за эпидемии ковид.</p>
+                        <p>Рассматриваемое событие считается крупнейшим среди ежегодных киберспортивных турниров.
+                            Изначально в данном чемпионате принимало участие 16 лучших коллективов мира, но постепенно
+                            формат изменился. Первый The International проходил в немецком Кельне (2011), далее в Сиэтле
+                            (США), на протяжении шести лет. Другие принимавшие мероприятие города: Ванкувер, Шанхай и
+                            Бухарест. Единственным годом пропуска стал 2020, когда турнир отменили из-за эпидемии
+                            ковид.</p>
 
-                        <p>Интересный факт. На чемпионат могла попасть российская команда Virtus.pro, но оказалась за бортом соревнования из-за особой системы подсчета очков у Valve (без дробных значений). Участвующий в турнире клуб Team Spirit ранее выступала под флагом России, но сейчас является международным, с офисом в Белграде.</p>
+                        <p>Интересный факт. На чемпионат могла попасть российская команда Virtus.pro, но оказалась за
+                            бортом соревнования из-за особой системы подсчета очков у Valve (без дробных значений).
+                            Участвующий в турнире клуб Team Spirit ранее выступала под флагом России, но сейчас является
+                            международным, с офисом в Белграде.</p>
 
                         <p>Региональные первенства проводятся по особой системе. Как разные регионы мира считаются:</p>
 
@@ -60,7 +124,52 @@ const Tournament = () => {
                             <li>Юго-Восточная Азия, кроме Поднебесной.</li>
                         </ul>
 
-                        <p>При этом отсутствуют представители Ближнего Востока, Африки, Австралии и Океании. Разработанный организатором формат может вызывать сомнения, но недостатки компенсируются качественной раскруткой события и приличными призовыми. Распределится выигрыш неравными долями между местами с первое по третье, роль кубка играет выполненный в античном стиле щит из бронзы и серебра.</p>
+                        <p>При этом отсутствуют представители Ближнего Востока, Африки, Австралии и Океании.
+                            Разработанный организатором формат может вызывать сомнения, но недостатки компенсируются
+                            качественной раскруткой события и приличными призовыми. Распределится выигрыш неравными
+                            долями между местами с первое по третье, роль кубка играет выполненный в античном стиле щит
+                            из бронзы и серебра.</p>
+
+                    </div>
+                    <div className={styles.replay}>
+                        <h2 className={styles.listHeading}>Посмотреть матчи</h2>
+                        <div className={styles.separator}/>
+                        <iframe
+                            src="https://player.twitch.tv/?channel=pgl_dota2&parent=international11.com&parent=localhost&muted=true"
+                            allowFullScreen
+                            className={styles.iframe}
+                        />
+                    </div>
+                    <div className={styles.schedule}>
+                        <h2 className={styles.listHeading}>Лайв матчи
+                        </h2>
+                        <div className={styles.separator}/>
+                        <ul className={styles.scheduleItems}>
+                            {
+                                topEvents.map((item) => (
+                                    <li className={styles.scheduleItem} key={item.id}>
+                                        <p className={styles.itemTime}>
+                                            {unixTimeStampConverter(item.startTimeTimestamp)}
+                                             {monthConverter(new Date().getMonth())} в {unixTimeStampConverterToTime(item.startTimeTimestamp)}
+                                        </p>
+                                        <div className={styles.scheduleWrapper}>
+                                            <div className={styles.itemTeam}>
+                                                {item.team1}
+                                            </div>
+                                            <p className={styles.itemScore}>
+
+                                            </p>
+                                            <div className={styles.itemTeam}>
+                                                {item.team2}
+                                            </div>
+                                        </div>
+                                        <p className={styles.itemStage}>
+                                            {item.competitionCaption}
+                                        </p>
+                                    </li>
+                                ))
+                            }
+                        </ul>
 
                     </div>
                     <div className={styles.results}>
@@ -190,21 +299,22 @@ const Tournament = () => {
                             <div className={styles.separator}/>
                             <div className={styles.tournamentTable}>
                                 <div className={styles.columnAnother}>
-                                    <TournamentMatch />
-                                    <TournamentMatch />
-                                    <TournamentMatch />
-                                    <TournamentMatch />
+                                    <TournamentMatch/>
+                                    <TournamentMatch/>
+                                    <TournamentMatch/>
+                                    <TournamentMatch/>
                                 </div>
                                 <div className={styles.columnAnother}>
-                                    <TournamentMatch />
-                                    <TournamentMatch />
+                                    <TournamentMatch/>
+                                    <TournamentMatch/>
                                 </div>
                                 <div className={styles.columnAnother}>
-                                    <TournamentMatch />
+                                    <TournamentMatch/>
                                 </div>
                             </div>
                         </div>
-                        <a href='https://s.betcitypromo.ru/click?pid=99&offer_id=3&sub1=international11&sub4=3469&sub5=cpa&sub6=international11&l=1586938601' target='_blank' className={styles.banner} />
+                        <a href='https://s.betcitypromo.ru/click?pid=99&offer_id=3&sub1=international11&sub4=3469&sub5=cpa&sub6=international11&l=1586938601'
+                           target='_blank' className={styles.banner}/>
                     </div>
                 </div>
             </div>
@@ -222,6 +332,6 @@ export default withErrorBoundary(Tournament, {
             </h1>
         </div>
         <TextSlide/>
-        <Footer />
+        <Footer/>
     </>)
 });

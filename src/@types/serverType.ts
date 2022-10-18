@@ -183,3 +183,96 @@ export interface MatchesI {
     win: number;
     lose: number;
 }
+
+export interface Subscore {
+    kindId: string;
+    kindName: string;
+    c1: string;
+    c2: string;
+    comment: string;
+}
+
+export interface Cell {
+    isTitle: boolean;
+    caption: string;
+    factorId?: number;
+    eventId?: number;
+    eventKindId?: number;
+    value?: number;
+    paramText: string;
+    param?: number;
+    captionAlign: string;
+    flexParam?: boolean;
+    blocked?: boolean;
+    paramHigh?: number;
+    paramLow?: number;
+}
+
+export interface Row {
+    isTitle: boolean;
+    cells: Cell[];
+}
+
+export interface Market {
+    marketId: string;
+    ident: string;
+    sortOrder: number;
+    caption: string;
+    commonHeaders: any[];
+    rows: Row[];
+}
+
+export interface Event {
+    id: number;
+    number: number;
+    startTimeTimestamp: number;
+    competitionId: number;
+    competitionName: string;
+    competitionCaption: string;
+    skId: number;
+    skName: string;
+    skSortOrder: string;
+    team1Id: number;
+    team2Id: number;
+    team1: string;
+    team2: string;
+    eventName: string;
+    name: string;
+    place: string;
+    priority: number;
+    kind: number;
+    rootKind: number;
+    sortOrder: string;
+    willBeLive: boolean;
+    tv: number[];
+    sportViewId: number;
+    timer: string;
+    timerSeconds: number;
+    timerDirection: number;
+    timerTimestampMsec: any;
+    scoreFunction: string;
+    scoreComment: string;
+    scoreCommentTail: string;
+    scores: scores[];
+    subscores: Subscore[];
+    allFactorsCount: number;
+    markets: Market[];
+    regionId?: number;
+    statisticsType: string;
+    competitionsGroupId: string;
+    competitionsGroupCaption: string;
+}
+
+type scores = {
+    c1: number;
+    c2: number;
+}
+
+export interface TopEvents {
+    result: string;
+    request: string;
+    place: string;
+    lang: string;
+    events: Event[];
+    md5: string;
+}

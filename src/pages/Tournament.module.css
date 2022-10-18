@@ -188,6 +188,84 @@
     margin-bottom: 20px;
 }
 
+.scheduleItems {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.scheduleItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
+
+.itemTime {
+    font-size: 11px;
+    font-family: 'Exo', sans-serif;
+    text-transform: uppercase;
+    color: #363636;
+    font-weight: 700;
+    margin: 0;
+}
+
+.itemTeam {
+    font-size: 11px;
+    font-family: 'Exo', sans-serif;
+    text-transform: uppercase;
+    color: #363636;
+    font-weight: 700;
+    margin: 0;
+}
+
+.itemScore {
+    font-size: 11px;
+    font-family: 'Exo', sans-serif;
+    text-transform: uppercase;
+    color: #363636;
+    font-weight: 700;
+    margin: 0;
+}
+
+.itemStage {
+    font-size: 11px;
+    font-family: 'Exo', sans-serif;
+    text-transform: uppercase;
+    color: #363636;
+    font-weight: 700;
+    margin: 0;
+    width: 140px;
+    text-align: right;
+}
+
+.replay {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.iframe {
+    border: 0;
+    width: 100%;
+    height: 570px;
+    margin-bottom: 35px;
+}
+
+.scheduleWrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
 @media screen and (max-width: 1023px) {
     .banner {
         background-image: url("../assets/images/300x350---6.gif");
