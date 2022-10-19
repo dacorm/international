@@ -38,6 +38,15 @@
     color: #363636;
 }
 
+.listHeadingTeams {
+    padding-top: 35px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: 'Exo', sans-serif;
+    margin: 0 0 10px 0;
+    color: #363636;
+}
+
 .separator {
     border-bottom: 3px solid #7442ce;
     width: 80px;
@@ -138,7 +147,7 @@
 .tournamentTable {
     display: flex;
     align-items: center;
-    width: 1200px;
+    width: 1000px;
     margin-bottom: 45px;
     gap: 30px;
 }
@@ -176,7 +185,7 @@
     width: 300px;
     display: flex;
     flex-direction: column;
-    height: 520px;
+    height: fit-content;
     align-items: center;
     justify-content: center;
 }
@@ -268,6 +277,75 @@
     width: 250px;
 }
 
+.teams {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.teamsTable {
+    display: flex;
+    list-style-type: none;
+    flex-direction: column;
+    width: 370px;
+    height: 300px;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    padding: 5px 15px;
+    margin: 0;
+    gap: 15px;
+}
+
+.tableHeadingTeams {
+    display: flex;
+    align-items: center;
+}
+
+.tableHeadingImage {
+    width: 40px;
+    height: 40px;
+}
+
+.tableHeadingText {
+    font-size: 16px;
+    font-family: 'Exo', sans-serif;
+    font-weight: 700;
+    color: #363636;
+    margin: 0 0 0 7px;
+}
+
+.teamMember {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0;
+    margin: 0;
+}
+
+.memberText {
+    font-size: 16px;
+    margin: 0;
+    color: #363636;
+}
+
+.memberSpan {
+    font-weight: 700;
+}
+
+.qualifier {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #ebebeb;
+}
+
+.qualifierText {
+    font-size: 16px;
+    font-family: 'Exo', sans-serif;
+    font-weight: 700;
+    color: #363636;
+    margin: 10px 0 0 0;
+}
 
 @media screen and (max-width: 1023px) {
     .banner {

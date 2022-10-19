@@ -288,7 +288,7 @@
 }
 
 .footerDownDown {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-self: center;
     justify-self: center;
