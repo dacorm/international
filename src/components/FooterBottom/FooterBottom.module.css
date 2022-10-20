@@ -27,6 +27,7 @@
     color: #777;
     margin-right: 5px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .articleDate {

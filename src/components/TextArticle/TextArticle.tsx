@@ -8,7 +8,7 @@ type TextArticleProps = {
     name: string
     title: string
     date: string
-    id: number
+    id: string
 }
 
 const TextArticle: React.FC<TextArticleProps> = ({ color, name, title, date, id }) => {

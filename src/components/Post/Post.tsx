@@ -10,13 +10,23 @@ type PostProps = {
     date: string
     color?: 'blue' | 'purple'
     className?: string
-    id: number
+    id: string
+    image?: string
 }
 
-const Post: React.FC<PostProps> = ({ title, author, date, color = 'purple', className, id }) => {
+const Post: React.FC<PostProps> = ({ title, author, date, color = 'purple', className, id, image }) => {
+
+    const checkImageValidity = (image: string | undefined) => {
+        if (image) {
+            return `https://dota2.press/${image}`
+        } else {
+            return post
+        }
+    }
+
     return (
         <Link to={`/article/${id}`} className={styles.article}>
-            <img src={post} alt="Article Image" className={styles.articleImg}/>
+            <img src={checkImageValidity(image)} alt="Article Image" className={styles.articleImg}/>
             <div className={styles.articleTextWrap}>
                 <p className={cn(styles.articleTitle, className)}>{title}</p>
                 <div className={styles.textWrap}>

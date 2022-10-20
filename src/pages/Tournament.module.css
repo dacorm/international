@@ -347,6 +347,23 @@
     margin: 10px 0 0 0;
 }
 
+.loadButton {
+    width: 100%;
+    height: 35px;
+    background: transparent;
+    border: 1px solid var(--primary);
+    cursor: pointer;
+    transition: opacity .3s;
+    color: #363636;
+    font-family: 'Exo', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.loadButton:hover {
+    opacity: .6;
+}
+
 @media screen and (max-width: 1023px) {
     .banner {
         background-image: url("../assets/images/300x350---6.gif");

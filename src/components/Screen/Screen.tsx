@@ -1,29 +1,38 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Screen.module.css';
 import drop from '../../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg';
-import cs from '../../assets/images/099a6cd51d99d94856577c535e858cc0.jpg';
 import dota from '../../assets/images/banner.webp';
-import lol from '../../assets/images/57167e56a68d8.jpg';
 import WhiteHeading from "../WhiteHeading/WhiteHeading";
 import {Link} from "react-router-dom";
-
-const data = [{
-    image: dota,
-    title: 'The "Clash of Eternity" new game was just released',
-    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-}, {
-    image: cs,
-    title: 'We reviewed the new Magimons game',
-    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-}, {
-    image: lol,
-    title: 'New expansion pack coming to "Rise of Depredators"',
-    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-}]
+import {useAppDispatch, useAppSelector} from "../../assets/hooks";
+import {fetchPosts} from "../../redux/slices/posts";
+import {Post} from "../../@types/serverType";
+import Loader from "../Loader/Loader";
 
 const Screen = () => {
     const [activeIndex, setActiveIndex] = useState(1);
     const [slideActive, setSlideActive] = useState(1);
+    const [data, setData] = useState<Post[]>([]);
+    const dispatch = useAppDispatch();
+    const {posts} = useAppSelector(state => state.posts);
+
+    useEffect(() => {
+        dispatch(fetchPosts());
+    }, [])
+
+    useEffect(() => {
+        if (posts.items) {
+            setData(posts.items.slice(0, posts?.items.length).reverse().slice(0, 3));
+        }
+    }, [posts])
+
+    const checkImageValidity = (image: string | undefined) => {
+        if (image) {
+            return `url(https://dota2.press/${image})`
+        } else {
+            return dota
+        }
+    }
 
     // useEffect(() => {
     //     if (activeIndex > 3) {
@@ -41,17 +50,16 @@ const Screen = () => {
         <div className={styles.screen}>
             <WhiteHeading className={styles.whiteHeading} />
             {
-                data.map((item, index) => (
+                data.length > 0 ? data.map((item, index) => (
                     <div className={`${styles.back} ${activeIndex === index + 1 ? styles.active : ''}`} style={{
-                        backgroundImage: `url(${item.image})`,
+                        backgroundImage: checkImageValidity(item.imageUrl),
                         backgroundSize: "cover",
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "center",
                     }} key={index}>
-                        <div className={styles.label}><p className={styles.labelText}>Gaming News</p></div>
+                        <div className={styles.label}><p className={styles.labelText}>Dota 2</p></div>
                         <div className={styles.title}>
-                            <h1 className={styles.heading}>{item.title}</h1>
-                            <p className={styles.subheading}>{item.subtitle}</p>
+                            <h1 className={styles.heading}><Link to={`/article/${item._id}`} className={styles.heading}>{item.title}</Link></h1>
                         </div>
                         <button className={styles.button}>
                             <Link to={'/tournament'} className={styles.buttonText}>Турнирная таблица</Link>
@@ -60,7 +68,7 @@ const Screen = () => {
                             </div>
                         </button>
                     </div>
-                ))
+                )) : <Loader />
             }
             <div className={styles.slider}>
                 <div className={`${styles.slide} ${slideActive === 1 ? styles.slideActive : ''}`} onClick={() => {

@@ -52,6 +52,7 @@
     font-family: 'Exo', sans-serif;
     text-align: left;
     text-transform: uppercase;
+    text-decoration: none;
 }
 
 .subheading {
@@ -115,6 +116,7 @@
     }
 
     .heading {
+        font-size: 30px;
         max-width: 310px;
     }
 

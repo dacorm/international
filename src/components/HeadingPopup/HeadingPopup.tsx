@@ -167,7 +167,7 @@ const HeadingPopup: React.FC<popupProps> = ({ className, lazy, isOpen }) => {
                             author={post.author}
                             date={post.date}
                             key={post.id}
-                            id={post.id}
+                            id={String(post.id)}
                         />))
                     }
                 </ul>

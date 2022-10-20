@@ -115,20 +115,10 @@ export const bigArticlesData = [{
 },]
 
 export const commentData = [{
-    name: 'Jessica Croft',
-    title: 'Jessica tam to star in the new...',
-    comment: 'Lorem ipsum dolor sit tameteturre adipisicing elit, incididunt...',
+    name: 'Denis',
+    title: 'ЧЕМПИОН TI 11 ПОЛУЧИТ БОЛЕЕ 7,5 МИЛЛИОНОВ ДОЛЛАРОВ...',
+    comment: 'Отличная новость, актуальная',
     color: 'yellow'
-},{
-    name: 'Nathan Tompson',
-    title: 'The clash of dragons is breaking',
-    comment: 'Lorem ipsum dolor sit tameteturre adipisicing elit, incididunt...',
-    color: 'blue'
-},{
-    name: 'Elizabeth Valentine',
-    title: 'We reviewed the "Dragons of"',
-    comment: 'Lorem ipsum dolor sit tameteturre adipisicing elit, incididunt...',
-    color: 'green'
 },]
 
 export const newsPostData = [{

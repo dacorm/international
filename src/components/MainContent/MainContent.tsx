@@ -125,44 +125,44 @@ const MainContent = () => {
                 </div>
                 <div className={styles.textPreviews}>
                     <div className={styles.newsReviews}>
-                        <h2 className={styles.Heading}>Gaming news</h2>
+                        <h2 className={styles.Heading}>Обзоры игр</h2>
                         <div className={styles.separatorDown}/>
                         {
-                            newsPostData.map((post) => (<TextArticle
-                                color={post.color}
-                                name={post.author}
+                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(15, 18).map((post) => (<TextArticle
+                                color={'blue'}
+                                name={'Admin'}
                                 title={post.title}
-                                date={post.data}
-                                key={post.id}
-                                id={post.id}
+                                date={convertDate(post.createdAt.toString())}
+                                key={post._id}
+                                id={post._id}
                             />))
                         }
                     </div>
                     <div className={styles.gameReviews}>
-                        <h2 className={styles.Heading}>Game Reviews</h2>
+                        <h2 className={styles.Heading}>Новости Dota2</h2>
                         <div className={styles.separatorPurple}/>
                         {
-                            reviewsPostData.map((post, index) => (<TextArticle
-                                color={post.color}
-                                name={post.author}
+                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(10, 13).map((post) => (<TextArticle
+                                color={'blue'}
+                                name={'Admin'}
                                 title={post.title}
-                                date={post.data}
-                                key={post.id}
-                                id={post.id}
+                                date={convertDate(post.createdAt.toString())}
+                                key={post._id}
+                                id={post._id}
                             />))
                         }
                     </div>
                     <div className={styles.geekyReviews}>
-                        <h2 className={styles.Heading}>Geeky news</h2>
+                        <h2 className={styles.Heading}>Из мира киберспорта</h2>
                         <div className={styles.separatorYellow}/>
                         {
-                            geekyPostData.map((post, index) => (<TextArticle
-                                color={post.color}
-                                name={post.author}
+                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(18, 21).map((post) => (<TextArticle
+                                color={'blue'}
+                                name={'Admin'}
                                 title={post.title}
-                                date={post.data}
-                                key={post.id}
-                                id={post.id}
+                                date={convertDate(post.createdAt.toString())}
+                                key={post._id}
+                                id={post._id}
                             />))
                         }
                     </div>
@@ -324,33 +324,37 @@ const MainContent = () => {
                         <p className={styles.counter}>9632</p>
                     </div>
                 </div>
-                <h2 className={styles.Heading}>Popular Posts</h2>
+                <h2 className={styles.Heading}>Популярные посты</h2>
                 <div className={styles.separatorDown}/>
                 <div className={styles.popularPosts}>
                     {
-                        smallPostsData.map((post, index) => (<Post
+                        posts?.items?.slice(0, posts?.items?.length).sort((a, b) => {
+                            return b.viewsCount - a.viewsCount
+                        }).slice(0, 4).map((post) => (<Post
                             title={post.title}
-                            author={post.author}
-                            date={post.date}
-                            key={post.id}
-                            id={post.id}
+                            author={'Admin'}
+                            date={convertDate(post.createdAt.toString())}
+                            key={post._id}
+                            id={post._id}
+                            image={post.imageUrl}
                         />))
                     }
                 </div>
-                <h2 className={styles.Heading}>Latest Reviews</h2>
+                <h2 className={styles.Heading}>Последние статьи</h2>
                 <div className={styles.separatorPurple}/>
                 <div className={styles.popularPosts}>
                     {
-                        smallPostsData.map((post, index) => (<Post
+                        posts?.items?.slice(0, posts?.items?.length).reverse().slice(0, 4).map((post) => (<Post
                             title={post.title}
-                            author={post.author}
-                            date={post.date}
-                            key={post.id}
-                            id={post.id}
+                            author={'Admin'}
+                            date={convertDate(post.createdAt.toString())}
+                            key={post._id}
+                            id={post._id}
+                            image={post.imageUrl}
                         />))
                     }
                 </div>
-                <h2 className={styles.Heading}>Lastest comments</h2>
+                <h2 className={styles.Heading}>Последние комментарии</h2>
                 <div className={styles.separatorDown}/>
                 <div className={styles.comments}>
                     {
@@ -364,7 +368,7 @@ const MainContent = () => {
                     }
                 </div>
                 <div>
-                    <h2 className={styles.Heading}>Pixel tags</h2>
+                    <h2 className={styles.Heading}>Облако тегов</h2>
                     <div className={styles.separatorDown}/>
                     <div className={styles.tags}>
                         <Tag text={'Gaming'}/>

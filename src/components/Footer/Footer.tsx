@@ -1,4 +1,4 @@
-import React, {LegacyRef, useRef, useState} from 'react';
+import React, {LegacyRef, useEffect, useRef, useState} from 'react';
 import styles from './Footer.module.css';
 import logo from "../../assets/images/icons8-dota-2.svg";
 import sponsor from '../../assets/images/sponsor03.png';
@@ -11,6 +11,9 @@ import Post from "../Post/Post";
 import FooterBottom from "../FooterBottom/FooterBottom";
 import mail from '../../assets/images/mail.svg';
 import message from '../../assets/images/message.svg';
+import {useAppDispatch, useAppSelector} from "../../assets/hooks";
+import {fetchPosts} from "../../redux/slices/posts";
+import {convertDate} from "../../helpers/convertDate";
 
 const postsData = [{
     title: 'gwen parker is leading her team to the semifinals',
@@ -32,6 +35,12 @@ const postsData = [{
 const Footer = () => {
     const slider = useRef<HTMLDivElement>(null);
     const [items, setItems] = useState([sponsor, sponsor, sponsor, sponsor, sponsor, sponsor, sponsor, sponsor, sponsor, sponsor, sponsor, sponsor]);
+    const dispatch = useAppDispatch();
+    const {posts} = useAppSelector(state => state.posts);
+
+    useEffect(() => {
+        dispatch(fetchPosts());
+    }, [])
 
     let position = 0;
 
@@ -126,43 +135,48 @@ const Footer = () => {
                         </ul>
                     </div>
                     <ul className={styles.mainPages}>
-                        <h2 className={styles.listHeading}>Latest reviews</h2>
+                        <h2 className={styles.listHeading}>Последние статьи</h2>
                         <div className={styles.separator}/>
                         {
-                            postsData.map((post, index) => (<Post
+                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(0, 4).map((post) => (<Post
                                 title={post.title}
-                                author={post.author}
-                                date={post.date}
-                                key={post.id}
-                                id={post.id}
+                                author={'Admin'}
+                                date={convertDate(post.createdAt.toString())}
+                                key={post._id}
+                                id={post._id}
+                                image={post.imageUrl}
                                 className={styles.postText}
                             />))
                         }
                     </ul>
                     <ul className={styles.mainPages}>
-                        <h2 className={styles.listHeading}>Latest posts</h2>
+                        <h2 className={styles.listHeading}>Рекомендованные статьи</h2>
                         <div className={styles.separator}/>
                         {
-                            postsData.map((post, index) => (<Post
+                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(4, 8).map((post) => (<Post
                                 title={post.title}
-                                author={post.author}
-                                date={post.date}
-                                key={post.id}
-                                id={post.id}
+                                author={'Admin'}
+                                date={convertDate(post.createdAt.toString())}
+                                key={post._id}
+                                id={post._id}
+                                image={post.imageUrl}
                                 className={styles.postText}
                             />))
                         }
                     </ul>
                     <ul className={styles.mainPages}>
-                        <h2 className={styles.listHeading}>Popular posts</h2>
+                        <h2 className={styles.listHeading}>Популярные статьи</h2>
                         <div className={styles.separator}/>
                         {
-                            postsData.map((post, index) => (<Post
+                            posts?.items?.slice(0, posts?.items?.length).sort((a, b) => {
+                                return b.viewsCount - a.viewsCount
+                            }).slice(0, 4).map((post) => (<Post
                                 title={post.title}
-                                author={post.author}
-                                date={post.date}
-                                key={post.id}
-                                id={post.id}
+                                author={'Admin'}
+                                date={convertDate(post.createdAt.toString())}
+                                key={post._id}
+                                id={post._id}
+                                image={post.imageUrl}
                                 className={styles.postText}
                             />))
                         }
