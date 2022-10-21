@@ -8,7 +8,7 @@ import tourn from '../assets/images/711.jpg';
 import TournamentMatch from "../components/TournamentMatch/TournamentMatch";
 import {withErrorBoundary} from "react-error-boundary";
 import Layout from "../components/Layout/Layout";
-import { TopEvents, Event } from "../@types/serverType";
+import {Event, TopEvents} from "../@types/serverType";
 import axios from "axios";
 import FallbackLoader from "../components/FallbackLoader/FallbackLoader";
 import {unixTimeStampConverter, unixTimeStampConverterToTime} from "../helpers/unixConverters";
@@ -27,44 +27,45 @@ import beastcoast from '../assets/images/intTeams/beastcoast.jpg';
 import bo from '../assets/images/flags/bo.png';
 import pe from '../assets/images/flags/pe.png';
 import aster from '../assets/images/intTeams/aster.jpg';
-import thunder from '../assets/images/intTeams/Thunder.jpg';
+import thunder from '../assets/images/intTeams/thunder.jpg';
 import ph from '../assets/images/flags/ph.png';
 import la from '../assets/images/flags/la.png';
 import id from '../assets/images/flags/id.png';
-import boom from '../assets/images/intTeams/BOOM.jpg';
+import boom from '../assets/images/intTeams/boom.jpg';
 import kr from '../assets/images/flags/kr.png';
 import cz from '../assets/images/flags/cz.png';
 import ca from '../assets/images/flags/ca.png';
-import tsm from '../assets/images/intTeams/TSM.jpg';
+import tsm from '../assets/images/intTeams/tsm.jpg';
 import il from '../assets/images/flags/il.png';
 import de from '../assets/images/flags/de.png';
 import mk from '../assets/images/flags/mk.png';
 import sk from '../assets/images/flags/sk.png';
-import tundra from '../assets/images/intTeams/Tundra.jpg';
-import gladiators from '../assets/images/intTeams/Gladiators.jpg';
+import tundra from '../assets/images/intTeams/tundra.jpg';
+import gladiators from '../assets/images/intTeams/gladiators.jpg';
 import dk from '../assets/images/flags/dk.png';
 import nl from '../assets/images/flags/nl.png';
-import eg from '../assets/images/intTeams/EvilGeniuses.jpg';
+import eg from '../assets/images/intTeams/evilgeniuses.jpg';
 import th from '../assets/images/flags/th.png';
-import fnatic from '../assets/images/intTeams/Fnatic.jpg';
-import soniqs from '../assets/images/intTeams/Soniqs.jpg';
-import hokori from '../assets/images/intTeams/Hokori.jpg';
+import fnatic from '../assets/images/intTeams/fnatic.jpg';
+import soniqs from '../assets/images/intTeams/soniqs.jpg';
+import hokori from '../assets/images/intTeams/hokori.jpg';
 import br from '../assets/images/flags/br.png';
 import at from '../assets/images/flags/at.png';
 import by from '../assets/images/flags/by.png';
 import betboom from '../assets/images/intTeams/betboom.webp';
-import entity from '../assets/images/intTeams/Entity.webp';
+import entity from '../assets/images/intTeams/entity.webp';
 import my from '../assets/images/flags/my.png';
 import au from '../assets/images/flags/au.png';
-import rng from '../assets/images/intTeams/RNG.webp';
-import talon from '../assets/images/intTeams/Talon.webp';
-import secret from '../assets/images/intTeams/TeamSecret.webp';
-import liquid from '../assets/images/intTeams/TeamLiquid.webp';
+import rng from '../assets/images/intTeams/rng.webp';
+import talon from '../assets/images/intTeams/talon.webp';
+import secret from '../assets/images/intTeams/secret.webp';
+import liquid from '../assets/images/intTeams/liquid.webp';
 import fi from '../assets/images/flags/fi.png';
 import kg from '../assets/images/flags/kg.png';
 import pl from '../assets/images/flags/pl.png';
 import se from '../assets/images/flags/se.png';
 import ee from '../assets/images/flags/ee.png';
+import drop from "../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg";
 
 const Tournament = () => {
     const [items, setItems] = useState<TopEvents>();
@@ -225,6 +226,12 @@ const Tournament = () => {
                                     </li>
                                 )) : 'Матчей не найдено'
                             }
+                            <button className={styles.button}>
+                                <a href={'https://s.betcitypromo.ru/click?pid=99&offer_id=3&sub1=international11&sub4=3469&sub5=cpa&sub6=international11&l=1586938601'} target='_blank' className={styles.buttonText}>Сделать ставку</a>
+                                <div className={styles.dropWrapper}>
+                                    <img src={drop} alt={drop} className={styles.drop} />
+                                </div>
+                            </button>
                         </ul>
                     </div>
                     <h2 className={styles.listHeadingTeams}>Составы команд
@@ -1021,24 +1028,70 @@ const Tournament = () => {
                                 Турнирная сетка
                             </h2>
                             <div className={styles.separator}/>
-                            <div className={styles.tournamentTable}>
-                                <div className={styles.columnAnother}>
-                                    <TournamentMatch team1Name={'Hokori'} team2Logo={beastcoast} team2Name={'beascoast'} />
-                                    <TournamentMatch team1Logo={spirit} team1Name={'Spirit'} team2Logo={boom} team2Name={'BOOM'} />
-                                    <TournamentMatch team1Name={'Fnatic'} team2Logo={gladiators} team2Name={'Gladiators'} />
-                                    <TournamentMatch team1Name={'RNG'} team2Name={'Entity'} />
+                            <div className={styles.wrapperFirst}>
+                                <div className={styles.wrapperSecond}>
+                                    <div className={styles.tournamentTable}>
+                                        <div className={styles.columnAnother}>
+                                            <div className={styles.emptiness} />
+                                        </div>
+                                        <div className={styles.columnAnother}>
+                                            <p className={styles.columnText}>1/4 финала</p>
+                                            <TournamentMatch team1Logo={eg} team1Name={'EG'} team1Score={0} team2Score={2} team2Logo={thunder} team2Name={'Thunder'} />
+                                            <TournamentMatch team1Logo={secret} team1Name={'Secret'} team1Score={2} team2Score={0} team2Logo={psg} team2Name={'PSG.LGD'} />
+                                            <TournamentMatch team1Logo={tundra} team1Name={'Tundra'} team1Score={2} team2Score={0} team2Logo={og} team2Name={'OG'} />
+                                            <TournamentMatch team1Logo={liquid} team1Name={'Liquid'} team1Score={0} team2Score={2} team2Logo={aster} team2Name={'Aster'} />
+                                        </div>
+                                        <div className={styles.columnAnother}>
+                                            <p className={styles.columnText}>Полуфинал</p>
+                                            <TournamentMatch team1Logo={thunder} team1Name={'Thunder'} team2Logo={secret} team2Name={'Secret'} />
+                                            <TournamentMatch team1Logo={tundra} team1Name={'Tundra'} team2Logo={aster} team2Name={'Aster'} />
+                                        </div>
+                                        <div className={styles.columnAnother}>
+                                            <p className={styles.columnText}>Финал верхней сетки</p>
+                                            <TournamentMatch team1Name={'TBD'} team2Name={'TBD'} />
+                                        </div>
+                                    </div>
+                                    <div className={styles.tournamentTable}>
+                                        <div className={styles.columnAnother}>
+                                            <p className={styles.columnText}>Раунд 1</p>
+                                            <TournamentMatch team1Name={'Hokori'} team1Logo={hokori} team2Logo={beastcoast} team1Score={0} team2Score={1} team2Name={'beascoast'} />
+                                            <TournamentMatch team1Logo={spirit} team1Name={'Spirit'} team1Score={0} team2Score={1} team2Logo={boom} team2Name={'BOOM'} />
+                                            <TournamentMatch team1Name={'Fnatic'} team1Logo={fnatic} team2Logo={gladiators} team1Score={0} team2Score={1} team2Name={'Gladiators'} />
+                                            <TournamentMatch team1Name={'RNG'} team1Logo={rng} team2Logo={entity} team1Score={0} team2Score={1} team2Name={'Entity'} />
+                                        </div>
+                                        <div className={styles.columnAnother}>
+                                            <p className={styles.columnText}>Раунд 2</p>
+                                            <TournamentMatch team1Logo={eg} team1Name={'EG'} team1Score={0} team2Score={1} team2Logo={beastcoast} team2Name={'beastcoast'} />
+                                            <TournamentMatch team1Logo={psg} team1Name={'PSG.LGD'} team2Logo={boom} team2Name={'BOOM'} />
+                                            <TournamentMatch team1Logo={og} team1Name={'OG'} team2Logo={gladiators} team2Name={'Gladiators'} />
+                                            <TournamentMatch team1Logo={liquid} team1Name={'Liquid'} team2Logo={entity} team2Name={'Entity'} />
+                                        </div>
+                                        <div className={styles.columnAnother}>
+                                            <p className={styles.columnText}>Раунд 3</p>
+                                            <TournamentMatch team1Name={'TBD'} team2Name={'TBD'} />
+                                            <TournamentMatch team1Name={'TBD'} team2Name={'TBD'} />
+                                        </div>
+                                        <div className={styles.columnAnother}>
+                                            <p className={styles.columnText}>Раунд 4</p>
+                                            <TournamentMatch team1Name={'TBD'} team2Name={'TBD'} />
+                                            <TournamentMatch team1Name={'TBD'} team2Name={'TBD'} />
+                                        </div>
+                                        <div className={styles.columnAnother}>
+                                            <p className={styles.columnText}>Полуфинал нижней сетки</p>
+                                            <TournamentMatch team1Name={'TBD'} team2Name={'TBD'} />
+                                        </div>
+                                        <div className={styles.columnAnother}>
+                                            <p className={styles.columnText}>Финал нижней сетки</p>
+                                            <TournamentMatch team1Name={'TBD'} team2Name={'TBD'} />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className={styles.columnAnother}>
-                                    <TournamentMatch team1Name={'EG/Thunder'} team2Name={'TBD'} />
-                                    <TournamentMatch team1Name={'Secret/LGD'} team2Name={'TBD'} />
-                                    <TournamentMatch team1Name={'Tundra/OG'} team2Name={'TBD'} />
-                                    <TournamentMatch team1Name={'Aster/Liquid'} team2Name={'TBD'} />
-                                </div>
-                                <div className={styles.columnAnother}>
+                                <div className={styles.columnFinal}>
+                                    <p className={styles.columnText}>Гранд-финал</p>
                                     <TournamentMatch team1Name={'TBD'} team2Name={'TBD'} />
                                 </div>
                             </div>
-                        </div>
+                            </div>
                         <a href='https://s.betcitypromo.ru/click?pid=99&offer_id=3&sub1=international11&sub4=3469&sub5=cpa&sub6=international11&l=1586938601'
                            target='_blank' className={styles.banner}/>
                     </div>
