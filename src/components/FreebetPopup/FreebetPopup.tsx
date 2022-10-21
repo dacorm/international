@@ -25,7 +25,7 @@ const FreebetPopup: React.FC<FreebetPopupProps> = ({ onClose, lazy, isOpen }) =>
     return (
         <div className={styles.overlay}>
             <div className={styles.popup}>
-                <a href='https://s.betcitypromo.ru/click?pid=99&offer_id=3&sub1=international11&sub4=3469&sub5=cpa&sub6=international11&l=1586938601' target='_blank'>
+                <a href='https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1' target='_blank'>
                     <img src={banner} alt="Баннер бетсити" className={styles.popupImage}/>
                 </a>
                 <img src={close} alt="Иконка закрытия" className={styles.close} onClick={onClose} />

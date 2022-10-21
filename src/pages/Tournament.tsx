@@ -227,7 +227,7 @@ const Tournament = () => {
                                 )) : 'Матчей не найдено'
                             }
                             <button className={styles.button}>
-                                <a href={'https://s.betcitypromo.ru/click?pid=99&offer_id=3&sub1=international11&sub4=3469&sub5=cpa&sub6=international11&l=1586938601'} target='_blank' className={styles.buttonText}>Сделать ставку</a>
+                                <a href={'https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1'} target='_blank' className={styles.buttonText}>Сделать ставку</a>
                                 <div className={styles.dropWrapper}>
                                     <img src={drop} alt={drop} className={styles.drop} />
                                 </div>
@@ -1092,7 +1092,7 @@ const Tournament = () => {
                                 </div>
                             </div>
                             </div>
-                        <a href='https://s.betcitypromo.ru/click?pid=99&offer_id=3&sub1=international11&sub4=3469&sub5=cpa&sub6=international11&l=1586938601'
+                        <a href='https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1'
                            target='_blank' className={styles.banner}/>
                     </div>
                 </div>

@@ -23,7 +23,6 @@ const TournamentMatch: React.FC<TournamentMatchProps> = ({ team1Logo, team1Name,
                         <img src={team1Logo || team1} alt="Команда1" className={styles.teamImg}/>
                         <div className={styles.teamName}>
                             <p className={styles.teamText}>{team1Name}</p>
-                            <p className={styles.country}>United States</p>
                         </div>
                     </div>
                     <p className={styles.teamText}>{team1Score}</p>
@@ -33,7 +32,6 @@ const TournamentMatch: React.FC<TournamentMatchProps> = ({ team1Logo, team1Name,
                         <img src={team2Logo || team2} alt="Команда2" className={styles.teamImg}/>
                         <div className={styles.teamName}>
                             <p className={styles.teamText}>{team2Name}</p>
-                            <p className={styles.country}>Brazil</p>
                         </div>
                     </div>
                     <p className={styles.teamText}>{team2Score}</p>
