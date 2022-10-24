@@ -529,7 +529,7 @@ const Tournament = () => {
                             <ul className={styles.teamsTable}>
                                 <div className={styles.tableHeadingTeams}>
                                     <img src={gladiators} alt="Gladiators" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>Gladators</h2>
+                                    <h2 className={styles.tableHeadingText}>Gladiators</h2>
                                 </div>
                                 <li className={styles.teamMember}>
                                     <img src={ru} alt="Флаг" className={styles.memberFlag}/>
