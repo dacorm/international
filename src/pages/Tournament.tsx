@@ -66,18 +66,25 @@ import pl from '../assets/images/flags/pl.png';
 import se from '../assets/images/flags/se.png';
 import ee from '../assets/images/flags/ee.png';
 import drop from "../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg";
+import Results from "../components/Results/Results";
+import Roasters from "../components/Roasters/Roasters";
 
 const Tournament = () => {
     const [items, setItems] = useState<TopEvents>();
     const [topEvents, setTopEvents] = useState<Event[]>();
     const [open, setOpen] = useState(false);
+    const [visible, setVisible] = useState(false);
 
     const showTeams = () => {
         setOpen(true);
     }
 
+    const showResults = () => {
+        setVisible(true);
+    }
+
     const fetchData = async () => {
-        const { data } = await axios.get('https://line04w.bk6bba-resources.com/line/desktop/topEvents3?place=live&sysId=1&lang=ru&salt=2o9hzyrwfmwl9cnms46&scopeMarket=1600');
+        const {data} = await axios.get('https://line04w.bk6bba-resources.com/line/desktop/topEvents3?place=live&sysId=1&lang=ru&salt=2o9hzyrwfmwl9cnms46&scopeMarket=1600');
         setItems(data);
     }
 
@@ -98,11 +105,11 @@ const Tournament = () => {
     }, [])
 
     useEffect(() => {
-       filterEvents();
+        filterEvents();
     }, [items])
 
     if (!topEvents) {
-        return <FallbackLoader />
+        return <FallbackLoader/>
     }
 
     return (
@@ -227,9 +234,10 @@ const Tournament = () => {
                                 )) : 'Матчей не найдено'
                             }
                             <button className={styles.button}>
-                                <a href={'https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1'} target='_blank' className={styles.buttonText}>Сделать ставку</a>
+                                <a href={'https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1'}
+                                   target='_blank' className={styles.buttonText}>Сделать ставку</a>
                                 <div className={styles.dropWrapper}>
-                                    <img src={drop} alt={drop} className={styles.drop} />
+                                    <img src={drop} alt={drop} className={styles.drop}/>
                                 </div>
                             </button>
                         </ul>
@@ -245,23 +253,28 @@ const Tournament = () => {
                             </div>
                             <li className={styles.teamMember}>
                                 <img src={cn} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Ван <span className={styles.memberSpan}>Ame</span> Чуньюй</p>
+                                <p className={styles.memberText}>Ван <span
+                                    className={styles.memberSpan}>Ame</span> Чуньюй</p>
                             </li>
                             <li className={styles.teamMember}>
                                 <img src={us} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Чен <span className={styles.memberSpan}>NothingToSay</span> Цзинь Сян</p>
+                                <p className={styles.memberText}>Чен <span
+                                    className={styles.memberSpan}>NothingToSay</span> Цзинь Сян</p>
                             </li>
                             <li className={styles.teamMember}>
                                 <img src={cn} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Чжан <span className={styles.memberSpan}>Faith_bian</span> Жуйда</p>
+                                <p className={styles.memberText}>Чжан <span
+                                    className={styles.memberSpan}>Faith_bian</span> Жуйда</p>
                             </li>
                             <li className={styles.teamMember}>
                                 <img src={cn} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Чжао <span className={styles.memberSpan}>XinQ</span> Цзысин</p>
+                                <p className={styles.memberText}>Чжао <span
+                                    className={styles.memberSpan}>XinQ</span> Цзысин</p>
                             </li>
                             <li className={styles.teamMember}>
                                 <img src={cn} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Чжан <span className={styles.memberSpan}>y`</span> Лыпин</p>
+                                <p className={styles.memberText}>Чжан <span
+                                    className={styles.memberSpan}>y`</span> Лыпин</p>
                             </li>
                             <div className={styles.qualifier}>
                                 <p className={styles.qualifierText}>DPC #1</p>
@@ -274,23 +287,28 @@ const Tournament = () => {
                             </div>
                             <li className={styles.teamMember}>
                                 <img src={ua} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Артем <span className={styles.memberSpan}>Yuragi</span> Голубев</p>
+                                <p className={styles.memberText}>Артем <span
+                                    className={styles.memberSpan}>Yuragi</span> Голубев</p>
                             </li>
                             <li className={styles.teamMember}>
                                 <img src={bg} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Божидар <span className={styles.memberSpan}>Bzm</span> Богданов</p>
+                                <p className={styles.memberText}>Божидар <span
+                                    className={styles.memberSpan}>Bzm</span> Богданов</p>
                             </li>
                             <li className={styles.teamMember}>
                                 <img src={jr} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Аммар <span className={styles.memberSpan}>Atf</span> Ассаф</p>
+                                <p className={styles.memberText}>Аммар <span
+                                    className={styles.memberSpan}>Atf</span> Ассаф</p>
                             </li>
                             <li className={styles.teamMember}>
                                 <img src={no} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Томми <span className={styles.memberSpan}>Taiga</span> Ле</p>
+                                <p className={styles.memberText}>Томми <span
+                                    className={styles.memberSpan}>Taiga</span> Ле</p>
                             </li>
                             <li className={styles.teamMember}>
                                 <img src={ru} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Михаил <span className={styles.memberSpan}>Misha</span> Агатов</p>
+                                <p className={styles.memberText}>Михаил <span
+                                    className={styles.memberSpan}>Misha</span> Агатов</p>
                             </li>
                             <div className={styles.qualifier}>
                                 <p className={styles.qualifierText}>DPC #2</p>
@@ -303,23 +321,28 @@ const Tournament = () => {
                             </div>
                             <li className={styles.teamMember}>
                                 <img src={ua} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Илья <span className={styles.memberSpan}>Yatoro</span> Мулярчук</p>
+                                <p className={styles.memberText}>Илья <span
+                                    className={styles.memberSpan}>Yatoro</span> Мулярчук</p>
                             </li>
                             <li className={styles.teamMember}>
                                 <img src={ru} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Александр <span className={styles.memberSpan}>TORONTOTOKYO</span> Хертек</p>
+                                <p className={styles.memberText}>Александр <span
+                                    className={styles.memberSpan}>TORONTOTOKYO</span> Хертек</p>
                             </li>
                             <li className={styles.teamMember}>
                                 <img src={ru} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Магомед <span className={styles.memberSpan}>Collapse</span> Халилов</p>
+                                <p className={styles.memberText}>Магомед <span
+                                    className={styles.memberSpan}>Collapse</span> Халилов</p>
                             </li>
                             <li className={styles.teamMember}>
                                 <img src={ua} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Мирослав <span className={styles.memberSpan}>Mira</span> Колпаков</p>
+                                <p className={styles.memberText}>Мирослав <span
+                                    className={styles.memberSpan}>Mira</span> Колпаков</p>
                             </li>
                             <li className={styles.teamMember}>
                                 <img src={ru} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Ярослав <span className={styles.memberSpan}>Miposhka</span> Найденов</p>
+                                <p className={styles.memberText}>Ярослав <span
+                                    className={styles.memberSpan}>Miposhka</span> Найденов</p>
                             </li>
                             <div className={styles.qualifier}>
                                 <p className={styles.qualifierText}>DPC #3</p>
@@ -332,23 +355,28 @@ const Tournament = () => {
                             </div>
                             <li className={styles.teamMember}>
                                 <img src={pe} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Гектор <span className={styles.memberSpan}>K1</span> Родригез</p>
+                                <p className={styles.memberText}>Гектор <span
+                                    className={styles.memberSpan}>K1</span> Родригез</p>
                             </li>
                             <li className={styles.teamMember}>
                                 <img src={pe} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Жан-Пьер <span className={styles.memberSpan}>Chris Luck</span> Гонзалес</p>
+                                <p className={styles.memberText}>Жан-Пьер <span
+                                    className={styles.memberSpan}>Chris Luck</span> Гонзалес</p>
                             </li>
                             <li className={styles.teamMember}>
                                 <img src={bo} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Адриан Сеспедес <span className={styles.memberSpan}>Wisper</span> Доблес</p>
+                                <p className={styles.memberText}>Адриан Сеспедес <span
+                                    className={styles.memberSpan}>Wisper</span> Доблес</p>
                             </li>
                             <li className={styles.teamMember}>
                                 <img src={pe} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Элвис <span className={styles.memberSpan}>Scofield</span> Пенья</p>
+                                <p className={styles.memberText}>Элвис <span
+                                    className={styles.memberSpan}>Scofield</span> Пенья</p>
                             </li>
                             <li className={styles.teamMember}>
                                 <img src={pe} alt="Флаг" className={styles.memberFlag}/>
-                                <p className={styles.memberText}>Стивен <span className={styles.memberSpan}>StingeR</span> Варгас</p>
+                                <p className={styles.memberText}>Стивен <span
+                                    className={styles.memberSpan}>StingeR</span> Варгас</p>
                             </li>
                             <div className={styles.qualifier}>
                                 <p className={styles.qualifierText}>DPC #4</p>
@@ -360,547 +388,7 @@ const Tournament = () => {
                         >
                             Показать полностью
                         </button>}
-                        {open && <>
-                            <ul className={styles.teamsTable}>
-                                <div className={styles.tableHeadingTeams}>
-                                    <img src={aster} alt="Aster" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>Team Aster</h2>
-                                </div>
-                                <li className={styles.teamMember}>
-                                    <img src={cn} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Ду <span className={styles.memberSpan}>Monet</span> Пн</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={cn} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Цзэн <span className={styles.memberSpan}>Ori</span> Цзяоян</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={cn} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Лин <span className={styles.memberSpan}>Xxs</span> Дзин</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={cn} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Е <span className={styles.memberSpan}>BoBoKa</span> Джибяо</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={cn} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Ю <span className={styles.memberSpan}>Fantasy</span> Яюнь</p>
-                                </li>
-                                <div className={styles.qualifier}>
-                                    <p className={styles.qualifierText}>DPC #5</p>
-                                </div>
-                            </ul>
-                            <ul className={styles.teamsTable}>
-                                <div className={styles.tableHeadingTeams}>
-                                    <img src={thunder} alt="Thunder" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>Thunder Awaken</h2>
-                                </div>
-                                <li className={styles.teamMember}>
-                                    <img src={pe} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Кристиан <span
-                                        className={styles.memberSpan}>Pakazs</span> Савина</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={pe} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Гонзало <span
-                                        className={styles.memberSpan}>Darkmago</span> Эррера</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={pe} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Рафаэль <span
-                                        className={styles.memberSpan}>Sacred</span> Йонатан</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={pe} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Фарих <span
-                                        className={styles.memberSpan}>Matthew</span> Пуэнес</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={pe} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Леонардо <span
-                                        className={styles.memberSpan}>Panda</span> Эрнандес</p>
-                                </li>
-                                <div className={styles.qualifier}>
-                                    <p className={styles.qualifierText}>DPC #6</p>
-                                </div>
-                            </ul>
-                            <ul className={styles.teamsTable}>
-                                <div className={styles.tableHeadingTeams}>
-                                    <img src={boom} alt="Boom" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>BOOM Esports</h2>
-                                </div>
-                                <li className={styles.teamMember}>
-                                    <img src={la} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Сулия <span
-                                        className={styles.memberSpan}>JaCkky</span> Кхоомфетсавонг</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ph} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Эрин <span
-                                        className={styles.memberSpan}>Yopaj</span> Джаспер Феррер</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={id} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Саефул <span
-                                        className={styles.memberSpan}>Fbz</span> Ильхам</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ph} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Тимоти <span
-                                        className={styles.memberSpan}>Tims</span> Рандрап</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ph} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Ролен Андри <span
-                                        className={styles.memberSpan}>Skem</span> Габриэль Онг</p>
-                                </li>
-                                <div className={styles.qualifier}>
-                                    <p className={styles.qualifierText}>DPC #7</p>
-                                </div>
-                            </ul>
-                            <ul className={styles.teamsTable}>
-                                <div className={styles.tableHeadingTeams}>
-                                    <img src={tsm} alt="TSM" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>TSM FTX</h2>
-                                </div>
-                                <li className={styles.teamMember}>
-                                    <img src={pe} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Энцо <span
-                                        className={styles.memberSpan}>Timado</span> Гианоли</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ca} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Джонатан <span
-                                        className={styles.memberSpan}>bryle-</span> Сантос де Гия</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={cz} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Йонас <span
-                                        className={styles.memberSpan}>SabeRLighT</span> Волек</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ca} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Дэвид <span
-                                        className={styles.memberSpan}>MoonMeander</span> Тан</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={kr} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Ду Ёнг <span
-                                        className={styles.memberSpan}>DuBu</span> Ким</p>
-                                </li>
-                                <div className={styles.qualifier}>
-                                    <p className={styles.qualifierText}>DPC #8</p>
-                                </div>
-                            </ul>
-                            <ul className={styles.teamsTable}>
-                                <div className={styles.tableHeadingTeams}>
-                                    <img src={tundra} alt="Tundra" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>Tundra Esports</h2>
-                                </div>
-                                <li className={styles.teamMember}>
-                                    <img src={sk} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Оливер <span
-                                        className={styles.memberSpan}>Skiter</span> Лепко</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={de} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Леон <span
-                                        className={styles.memberSpan}>Nine</span> Кирилин</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={il} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Нета <span
-                                        className={styles.memberSpan}>33</span> Шапира</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={mk} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Мартин <span
-                                        className={styles.memberSpan}>Saksa</span> Саздов</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={us} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Цзинцзюн <span
-                                        className={styles.memberSpan}>Sneyking</span> У</p>
-                                </li>
-                                <div className={styles.qualifier}>
-                                    <p className={styles.qualifierText}>DPC #9</p>
-                                </div>
-                            </ul>
-                            <ul className={styles.teamsTable}>
-                                <div className={styles.tableHeadingTeams}>
-                                    <img src={gladiators} alt="Gladiators" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>Gladiators</h2>
-                                </div>
-                                <li className={styles.teamMember}>
-                                    <img src={ru} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Антон <span
-                                        className={styles.memberSpan}>dyrachyo</span> Шкредов</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={cz} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Мирослав <span
-                                        className={styles.memberSpan}>BOOM</span> Бицан</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={dk} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Маркус <span
-                                        className={styles.memberSpan}>Ace</span> Хелгард</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={de} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Эрик <span
-                                        className={styles.memberSpan}>tOfu</span> Энгель</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={nl} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Мельхиор <span
-                                        className={styles.memberSpan}>Seleri</span> Хилленкамп</p>
-                                </li>
-                                <div className={styles.qualifier}>
-                                    <p className={styles.qualifierText}>DPC #10</p>
-                                </div>
-                            </ul>
-                            <ul className={styles.teamsTable}>
-                                <div className={styles.tableHeadingTeams}>
-                                    <img src={eg} alt="EvilGeniuses" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>Evil Geniuses</h2>
-                                </div>
-                                <li className={styles.teamMember}>
-                                    <img src={ca} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Артур <span
-                                        className={styles.memberSpan}>Arteezy</span> Бабаев</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ph} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Эйбэд Азэль <span
-                                        className={styles.memberSpan}>Abed</span> Юсоп</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ru} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Егор <span
-                                        className={styles.memberSpan}>Nightfall</span> Григоренко</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={dk} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Андреас Франк <span
-                                        className={styles.memberSpan}>Cr1t-</span> Нильсен</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={il} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Таль <span
-                                        className={styles.memberSpan}>Fly</span> Айзик</p>
-                                </li>
-                                <div className={styles.qualifier}>
-                                    <p className={styles.qualifierText}>DPC #11</p>
-                                </div>
-                            </ul>
-                            <ul className={styles.teamsTable}>
-                                <div className={styles.tableHeadingTeams}>
-                                    <img src={fnatic} alt="Fnatic" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>Fnatic</h2>
-                                </div>
-                                <li className={styles.teamMember}>
-                                    <img src={ph} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Марк <span
-                                        className={styles.memberSpan}>Raven</span> Фаусто</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ph} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Армель Пауль <span
-                                        className={styles.memberSpan}>Armel</span> Тэбиос</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={th} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Ануча <span
-                                        className={styles.memberSpan}>Jabz</span> Джиравонг</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ph} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Джардел Джико <span
-                                        className={styles.memberSpan}>DJ</span> Мампусти</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ph} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Жунюэль <span
-                                        className={styles.memberSpan}>Jaunuel</span> Арцилла</p>
-                                </li>
-                                <div className={styles.qualifier}>
-                                    <p className={styles.qualifierText}>DPC #12</p>
-                                </div>
-                            </ul>
-                            <ul className={styles.teamsTable}>
-                                <div className={styles.tableHeadingTeams}>
-                                    <img src={soniqs} alt="Soniqs" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>Soniqs</h2>
-                                </div>
-                                <li className={styles.teamMember}>
-                                    <img src={us} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Явар <span
-                                        className={styles.memberSpan}>YawaR</span> Хассан</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={us} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Квин <span
-                                        className={styles.memberSpan}>Quinn</span> Каллахан</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={br} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Родриго <span
-                                        className={styles.memberSpan}>Lelis</span> Лелис Сантос</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={us} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Ариф <span
-                                        className={styles.memberSpan}>MSS</span> Анвар</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={de} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Адриан <span
-                                        className={styles.memberSpan}>Fata</span> Тринкс</p>
-                                </li>
-                                <div className={styles.qualifier}>
-                                    <p className={styles.qualifierText}>TI 2022. Отборочные</p>
-                                </div>
-                            </ul>
-                            <ul className={styles.teamsTable}>
-                                <div className={styles.tableHeadingTeams}>
-                                    <img src={hokori} alt="Hokori" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>Hokori</h2>
-                                </div>
-                                <li className={styles.teamMember}>
-                                    <img src={pe} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Эдвард <span
-                                        className={styles.memberSpan}>Lumiere</span> Гильен</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={br} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Жоао <span
-                                        className={styles.memberSpan}>BOOM</span> Джаннини</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={pe} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Пабло <span
-                                        className={styles.memberSpan}>Vitaly</span> Ангуло</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={br} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Тиаго <span
-                                        className={styles.memberSpan}>Thiolicor</span> Колдейро</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={pe} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Энтони <span
-                                        className={styles.memberSpan}>Gardick</span> Лопез</p>
-                                </li>
-                                <div className={styles.qualifier}>
-                                    <p className={styles.qualifierText}>TI 2022. Отборочные</p>
-                                </div>
-                            </ul>
-                            <ul className={styles.teamsTable}>
-                                <div className={styles.tableHeadingTeams}>
-                                    <img src={entity} alt="Entity" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>Entity</h2>
-                                </div>
-                                <li className={styles.teamMember}>
-                                    <img src={ru} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Иван <span
-                                        className={styles.memberSpan}>Pure</span> Москаленко</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={de} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Даниэль <span
-                                        className={styles.memberSpan}>Stormstormer</span> Шоетзау</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={at} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Тобиас <span
-                                        className={styles.memberSpan}>Tobi</span> Бучнер</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ru} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Владислав <span
-                                        className={styles.memberSpan}>Kataomi</span> Семенов</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={by} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Дмитрий <span
-                                        className={styles.memberSpan}>Fishman</span> Полищук</p>
-                                </li>
-                                <div className={styles.qualifier}>
-                                    <p className={styles.qualifierText}>TI 2022. Отборочные</p>
-                                </div>
-                            </ul>
-                            <ul className={styles.teamsTable}>
-                                <div className={styles.tableHeadingTeams}>
-                                    <img src={betboom} alt="BetBoom" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>BetBoom Team</h2>
-                                </div>
-                                <li className={styles.teamMember}>
-                                    <img src={ru} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Никита <span
-                                        className={styles.memberSpan}>Daxak</span> Кузьмин</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ru} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Денис <span
-                                        className={styles.memberSpan}>IarI</span> Сигитов</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ru} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Евгений <span
-                                        className={styles.memberSpan}>Noticed</span> Игнатенко</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ru} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Владимир <span
-                                        className={styles.memberSpan}>RodjER</span> Никогосян</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ru} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Акбар <span
-                                        className={styles.memberSpan}>SoNNeikO</span> Бутаев</p>
-                                </li>
-                                <div className={styles.qualifier}>
-                                    <p className={styles.qualifierText}>TI 2022. Отборочные</p>
-                                </div>
-                            </ul>
-                            <ul className={styles.teamsTable}>
-                                <div className={styles.tableHeadingTeams}>
-                                    <img src={rng} alt="RNG" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>Royal Never Give Up</h2>
-                                </div>
-                                <li className={styles.teamMember}>
-                                    <img src={my} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Даниэль <span
-                                        className={styles.memberSpan}>Ghost</span> Чан</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={cn} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Лу <span
-                                        className={styles.memberSpan}>Somnus M</span> Я</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={cn} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Ян <span
-                                        className={styles.memberSpan}>Chalice</span> Шэньи</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={cn} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Ху <span
-                                        className={styles.memberSpan}>Kaka</span> Лянчжи</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={my} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Джиан Вей <span
-                                        className={styles.memberSpan}>xNova</span> Яп</p>
-                                </li>
-                                <div className={styles.qualifier}>
-                                    <p className={styles.qualifierText}>TI 2022. Отборочные</p>
-                                </div>
-                            </ul>
-                            <ul className={styles.teamsTable}>
-                                <div className={styles.tableHeadingTeams}>
-                                    <img src={talon} alt="Talon" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>Talon Esports</h2>
-                                </div>
-                                <li className={styles.teamMember}>
-                                    <img src={th} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Ньенгнара <span
-                                        className={styles.memberSpan}>23savage</span> Тирамаханон</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={id} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Рафлай <span
-                                        className={styles.memberSpan}>Mikoto</span> Фатур</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={au} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Дэмиен <span
-                                        className={styles.memberSpan}>kpii</span> Чок</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={th} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Ворвавит <span
-                                        className={styles.memberSpan}>Q</span> Мекчай</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={id} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Брицио <span
-                                        className={styles.memberSpan}>Hyde</span> Ади Путра</p>
-                                </li>
-                                <div className={styles.qualifier}>
-                                    <p className={styles.qualifierText}>TI 2022. Отборочные</p>
-                                </div>
-                            </ul>
-                            <ul className={styles.teamsTable}>
-                                <div className={styles.tableHeadingTeams}>
-                                    <img src={secret} alt="Secret" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>Team Secret</h2>
-                                </div>
-                                <li className={styles.teamMember}>
-                                    <img src={nl} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Ремко <span
-                                        className={styles.memberSpan}>Crystallis</span> Аретс</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={pl} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Михаил <span
-                                        className={styles.memberSpan}>Nisha</span> Янковски</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ua} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Роман <span
-                                        className={styles.memberSpan}>Resolut1on</span> Фоменок</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={kg} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Бакыт <span
-                                        className={styles.memberSpan}>Zayac</span> Эмилжанов</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={ee} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Клемент <span
-                                        className={styles.memberSpan}>Pyppey</span> Иванов</p>
-                                </li>
-                                <div className={styles.qualifier}>
-                                    <p className={styles.qualifierText}>TI 11: Last Chance</p>
-                                </div>
-                            </ul>
-                            <ul className={styles.teamsTable}>
-                                <div className={styles.tableHeadingTeams}>
-                                    <img src={liquid} alt="Liquid" className={styles.tableHeadingImage}/>
-                                    <h2 className={styles.tableHeadingText}>Team Liquid</h2>
-                                </div>
-                                <li className={styles.teamMember}>
-                                    <img src={fi} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Лассе <span
-                                        className={styles.memberSpan}>MATUMBAMAN</span> Урпалайнен</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={se} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Майк <span
-                                        className={styles.memberSpan}>miCKe</span> Ву</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={se} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Людвиг <span
-                                        className={styles.memberSpan}>zai</span> Уолберг</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={se} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Самуэль <span
-                                        className={styles.memberSpan}>Boxi</span> Сван</p>
-                                </li>
-                                <li className={styles.teamMember}>
-                                    <img src={se} alt="Флаг" className={styles.memberFlag}/>
-                                    <p className={styles.memberText}>Айдэн <span
-                                        className={styles.memberSpan}>iNSaNiA</span> Саркои</p>
-                                </li>
-                                <div className={styles.qualifier}>
-                                    <p className={styles.qualifierText}>TI 11: Last Chance</p>
-                                </div>
-                            </ul>
-                        </>}
+                        {open && <Roasters lazy={true} isOpen={open} />}
                     </div>
                     <div className={styles.results}>
                         <h2 className={styles.listHeading}>Результаты
@@ -956,72 +444,14 @@ const Tournament = () => {
                                     <p className={styles.text}>---</p>
                                 </div>
                             </div>
-                            <div className={styles.tableRow}>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>5-6</p>
-                                </div>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>TBD</p>
-                                </div>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>---</p>
-                                </div>
-                            </div>
-                            <div className={styles.tableRow}>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>7-8</p>
-                                </div>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>TBD</p>
-                                </div>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>---</p>
-                                </div>
-                            </div>
-                            <div className={styles.tableRow}>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>9-12</p>
-                                </div>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>TBD</p>
-                                </div>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>---</p>
-                                </div>
-                            </div>
-                            <div className={styles.tableRow}>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>13-16</p>
-                                </div>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>TBD</p>
-                                </div>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>---</p>
-                                </div>
-                            </div>
-                            <div className={styles.tableRow}>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>17-18</p>
-                                </div>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>TBD</p>
-                                </div>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>---</p>
-                                </div>
-                            </div>
-                            <div className={styles.tableRow}>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>19-20</p>
-                                </div>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>TBD</p>
-                                </div>
-                                <div className={styles.column}>
-                                    <p className={styles.text}>---</p>
-                                </div>
-                            </div>
+                            {!visible && <button
+                                className={styles.loadButton}
+                                onClick={showResults}
+                            >
+                                Показать полностью
+                            </button>}
+                            {visible && <Results lazy={true} isOpen={visible}/>
+                            }
                         </div>
                         <div className={styles.playoffs}>
                             <h2 className={styles.listHeading}>
@@ -1032,66 +462,90 @@ const Tournament = () => {
                                 <div className={styles.wrapperSecond}>
                                     <div className={styles.tournamentTable}>
                                         <div className={styles.columnAnother}>
-                                            <div className={styles.emptiness} />
+                                            <div className={styles.emptiness}/>
                                         </div>
                                         <div className={styles.columnAnother}>
                                             <p className={styles.columnText}>1/4 финала</p>
-                                            <TournamentMatch team1Logo={eg} team1Name={'EG'} team1Score={0} team2Score={2} team2Logo={thunder} team2Name={'Thunder'} />
-                                            <TournamentMatch team1Logo={secret} team1Name={'Secret'} team1Score={2} team2Score={0} team2Logo={psg} team2Name={'PSG.LGD'} />
-                                            <TournamentMatch team1Logo={tundra} team1Name={'Tundra'} team1Score={2} team2Score={0} team2Logo={og} team2Name={'OG'} />
-                                            <TournamentMatch team1Logo={liquid} team1Name={'Liquid'} team1Score={0} team2Score={2} team2Logo={aster} team2Name={'Aster'} />
+                                            <TournamentMatch team1Logo={eg} team1Name={'EG'} team1Score={0}
+                                                             team2Score={2} team2Logo={thunder} team2Name={'Thunder'}/>
+                                            <TournamentMatch team1Logo={secret} team1Name={'Secret'} team1Score={2}
+                                                             team2Score={0} team2Logo={psg} team2Name={'PSG.LGD'}/>
+                                            <TournamentMatch team1Logo={tundra} team1Name={'Tundra'} team1Score={2}
+                                                             team2Score={0} team2Logo={og} team2Name={'OG'}/>
+                                            <TournamentMatch team1Logo={liquid} team1Name={'Liquid'} team1Score={0}
+                                                             team2Score={2} team2Logo={aster} team2Name={'Aster'}/>
                                         </div>
                                         <div className={styles.columnAnother}>
                                             <p className={styles.columnText}>Полуфинал</p>
-                                            <TournamentMatch team1Logo={thunder} team1Name={'Thunder'} team1Score={0} team2Score={2} team2Logo={secret} team2Name={'Secret'} />
-                                            <TournamentMatch team1Logo={tundra} team1Name={'Tundra'} team1Score={2} team2Score={0} team2Logo={aster} team2Name={'Aster'} />
+                                            <TournamentMatch team1Logo={thunder} team1Name={'Thunder'} team1Score={0}
+                                                             team2Score={2} team2Logo={secret} team2Name={'Secret'}/>
+                                            <TournamentMatch team1Logo={tundra} team1Name={'Tundra'} team1Score={2}
+                                                             team2Score={0} team2Logo={aster} team2Name={'Aster'}/>
                                         </div>
                                         <div className={styles.columnAnother}>
                                             <p className={styles.columnText}>Финал верхней сетки</p>
-                                            <TournamentMatch team1Name={'Secret'} team1Logo={secret} team2Logo={tundra} team2Name={'Tundra'} />
+                                            <TournamentMatch team1Name={'Secret'} team1Logo={secret} team2Logo={tundra}
+                                                             team2Name={'Tundra'}/>
                                         </div>
                                     </div>
                                     <div className={styles.tournamentTable}>
                                         <div className={styles.columnAnother}>
                                             <p className={styles.columnText}>Раунд 1</p>
-                                            <TournamentMatch team1Name={'Hokori'} team1Logo={hokori} team2Logo={beastcoast} team1Score={0} team2Score={1} team2Name={'beascoast'} />
-                                            <TournamentMatch team1Logo={spirit} team1Name={'Spirit'} team1Score={0} team2Score={1} team2Logo={boom} team2Name={'BOOM'} />
-                                            <TournamentMatch team1Name={'Fnatic'} team1Logo={fnatic} team2Logo={gladiators} team1Score={0} team2Score={1} team2Name={'Gladiators'} />
-                                            <TournamentMatch team1Name={'RNG'} team1Logo={rng} team2Logo={entity} team1Score={0} team2Score={1} team2Name={'Entity'} />
+                                            <TournamentMatch team1Name={'Hokori'} team1Logo={hokori}
+                                                             team2Logo={beastcoast} team1Score={0} team2Score={1}
+                                                             team2Name={'beascoast'}/>
+                                            <TournamentMatch team1Logo={spirit} team1Name={'Spirit'} team1Score={0}
+                                                             team2Score={1} team2Logo={boom} team2Name={'BOOM'}/>
+                                            <TournamentMatch team1Name={'Fnatic'} team1Logo={fnatic}
+                                                             team2Logo={gladiators} team1Score={0} team2Score={1}
+                                                             team2Name={'Gladiators'}/>
+                                            <TournamentMatch team1Name={'RNG'} team1Logo={rng} team2Logo={entity}
+                                                             team1Score={0} team2Score={1} team2Name={'Entity'}/>
                                         </div>
                                         <div className={styles.columnAnother}>
                                             <p className={styles.columnText}>Раунд 2</p>
-                                            <TournamentMatch team1Logo={eg} team1Name={'EG'} team1Score={0} team2Score={1} team2Logo={beastcoast} team2Name={'beastcoast'} />
-                                            <TournamentMatch team1Logo={psg} team1Name={'PSG.LGD'} team2Logo={boom} team2Name={'BOOM'} />
-                                            <TournamentMatch team1Logo={og} team1Name={'OG'} team2Logo={gladiators} team2Name={'Gladiators'} />
-                                            <TournamentMatch team1Logo={liquid} team1Name={'Liquid'} team2Logo={entity} team2Name={'Entity'} />
+                                            <TournamentMatch team1Logo={eg} team1Name={'EG'} team1Score={0}
+                                                             team2Score={1} team2Logo={beastcoast}
+                                                             team2Name={'beastcoast'}/>
+                                            <TournamentMatch team1Logo={psg} team1Name={'PSG.LGD'} team2Logo={boom}
+                                                             team2Name={'BOOM'}/>
+                                            <TournamentMatch team1Logo={og} team1Name={'OG'} team2Logo={gladiators}
+                                                             team2Name={'Gladiators'}/>
+                                            <TournamentMatch team1Logo={liquid} team1Name={'Liquid'} team2Logo={entity}
+                                                             team2Name={'Entity'}/>
                                         </div>
                                         <div className={styles.columnAnother}>
                                             <p className={styles.columnText}>Раунд 3</p>
-                                            <TournamentMatch team1Name={'beastcoast'} team1Logo={beastcoast} team1Score={1} team2Score={2} team2Logo={psg} team2Name={'PSG.LGD'} />
-                                            <TournamentMatch team1Name={'OG'} team1Score={0} team2Score={2} team1Logo={og} team2Logo={liquid} team2Name={'Liquid'} />
+                                            <TournamentMatch team1Name={'beastcoast'} team1Logo={beastcoast}
+                                                             team1Score={1} team2Score={2} team2Logo={psg}
+                                                             team2Name={'PSG.LGD'}/>
+                                            <TournamentMatch team1Name={'OG'} team1Score={0} team2Score={2}
+                                                             team1Logo={og} team2Logo={liquid} team2Name={'Liquid'}/>
                                         </div>
                                         <div className={styles.columnAnother}>
                                             <p className={styles.columnText}>Раунд 4</p>
-                                            <TournamentMatch team1Name={'Aster'} team1Logo={aster} team1Score={2} team2Score={0} team2Logo={psg} team2Name={'PSG.LGD'} />
-                                            <TournamentMatch team1Name={'Thunder'} team1Logo={thunder} team1Score={1} team2Score={2} team2Logo={liquid} team2Name={'Liquid'} />
+                                            <TournamentMatch team1Name={'Aster'} team1Logo={aster} team1Score={2}
+                                                             team2Score={0} team2Logo={psg} team2Name={'PSG.LGD'}/>
+                                            <TournamentMatch team1Name={'Thunder'} team1Logo={thunder} team1Score={1}
+                                                             team2Score={2} team2Logo={liquid} team2Name={'Liquid'}/>
                                         </div>
                                         <div className={styles.columnAnother}>
                                             <p className={styles.columnText}>Полуфинал нижней сетки</p>
-                                            <TournamentMatch team1Name={'Aster'} team1Logo={aster} team2Logo={liquid} team2Name={'Liquid'} />
+                                            <TournamentMatch team1Name={'Aster'} team1Logo={aster} team2Logo={liquid}
+                                                             team2Name={'Liquid'}/>
                                         </div>
                                         <div className={styles.columnAnother}>
                                             <p className={styles.columnText}>Финал нижней сетки</p>
-                                            <TournamentMatch team1Name={'TBD'} team2Name={'TBD'} />
+                                            <TournamentMatch team1Name={'TBD'} team2Name={'TBD'}/>
                                         </div>
                                     </div>
                                 </div>
                                 <div className={styles.columnFinal}>
                                     <p className={styles.columnText}>Гранд-финал</p>
-                                    <TournamentMatch team1Name={'TBD'} team2Name={'TBD'} />
+                                    <TournamentMatch team1Name={'TBD'} team2Name={'TBD'}/>
                                 </div>
                             </div>
-                            </div>
+                        </div>
                         <a href='https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1'
                            target='_blank' className={styles.banner}/>
                     </div>
