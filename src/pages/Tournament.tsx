@@ -1043,12 +1043,12 @@ const Tournament = () => {
                                         </div>
                                         <div className={styles.columnAnother}>
                                             <p className={styles.columnText}>Полуфинал</p>
-                                            <TournamentMatch team1Logo={thunder} team1Name={'Thunder'} team2Logo={secret} team2Name={'Secret'} />
-                                            <TournamentMatch team1Logo={tundra} team1Name={'Tundra'} team2Logo={aster} team2Name={'Aster'} />
+                                            <TournamentMatch team1Logo={thunder} team1Name={'Thunder'} team1Score={0} team2Score={2} team2Logo={secret} team2Name={'Secret'} />
+                                            <TournamentMatch team1Logo={tundra} team1Name={'Tundra'} team1Score={2} team2Score={0} team2Logo={aster} team2Name={'Aster'} />
                                         </div>
                                         <div className={styles.columnAnother}>
                                             <p className={styles.columnText}>Финал верхней сетки</p>
-                                            <TournamentMatch team1Name={'TBD'} team2Name={'TBD'} />
+                                            <TournamentMatch team1Name={'Secret'} team1Logo={secret} team2Logo={tundra} team2Name={'Tundra'} />
                                         </div>
                                     </div>
                                     <div className={styles.tournamentTable}>
@@ -1068,17 +1068,17 @@ const Tournament = () => {
                                         </div>
                                         <div className={styles.columnAnother}>
                                             <p className={styles.columnText}>Раунд 3</p>
-                                            <TournamentMatch team1Name={'TBD'} team2Name={'TBD'} />
-                                            <TournamentMatch team1Name={'TBD'} team2Name={'TBD'} />
+                                            <TournamentMatch team1Name={'beastcoast'} team1Logo={beastcoast} team1Score={1} team2Score={2} team2Logo={psg} team2Name={'PSG.LGD'} />
+                                            <TournamentMatch team1Name={'OG'} team1Score={0} team2Score={2} team1Logo={og} team2Logo={liquid} team2Name={'Liquid'} />
                                         </div>
                                         <div className={styles.columnAnother}>
                                             <p className={styles.columnText}>Раунд 4</p>
-                                            <TournamentMatch team1Name={'TBD'} team2Name={'TBD'} />
-                                            <TournamentMatch team1Name={'TBD'} team2Name={'TBD'} />
+                                            <TournamentMatch team1Name={'Aster'} team1Logo={aster} team1Score={2} team2Score={0} team2Logo={psg} team2Name={'PSG.LGD'} />
+                                            <TournamentMatch team1Name={'Thunder'} team1Logo={thunder} team1Score={1} team2Score={2} team2Logo={liquid} team2Name={'Liquid'} />
                                         </div>
                                         <div className={styles.columnAnother}>
                                             <p className={styles.columnText}>Полуфинал нижней сетки</p>
-                                            <TournamentMatch team1Name={'TBD'} team2Name={'TBD'} />
+                                            <TournamentMatch team1Name={'Aster'} team1Logo={aster} team2Logo={liquid} team2Name={'Liquid'} />
                                         </div>
                                         <div className={styles.columnAnother}>
                                             <p className={styles.columnText}>Финал нижней сетки</p>
