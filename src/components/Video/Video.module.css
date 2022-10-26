@@ -1,7 +1,8 @@
 .video {
     width: 270px;
     height: 160px;
-    background-image: url("../../assets/images/16.jpg");
+    background-image: url("../../assets/images/international.jpg");
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
