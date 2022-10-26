@@ -299,12 +299,12 @@ const MainContent = () => {
             </div>
             <div className={styles.sidebar}>
                 <div className={styles.inputWrap}>
-                    <input type='text' placeholder='Search for articles here' className={styles.input}/>
+                    <input type='text' placeholder='Поиск статей' className={styles.input}/>
                     <div className={styles.blueRound}>
                         <img src={search} alt="Search icon" className={styles.search}/>
                     </div>
                 </div>
-                <h2 className={styles.Heading}>Social Pixel</h2>
+                <h2 className={styles.Heading}>Социальные сети</h2>
                 <div className={styles.separatorDown}/>
                 <div className={styles.socialWrapper}>
                     <div className={styles.social1}>
