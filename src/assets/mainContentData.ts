@@ -182,39 +182,39 @@ export const geekyPostData = [{
 },]
 
 export const videoData = [{
-    text: 'Jazzstar announced that the GTE5 for PC is delayed',
-    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+    src: 'https://www.youtube.com/embed/mldhUyQ1rNs',
+    title: '[RU] Thunder Awaken vs Team Liquid – Game 3 - The International 2022 - Main Event Day 4',
 },{
-    text: 'New expansion pack coming to "Rise of Depredators"',
-    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+    src: 'https://www.youtube.com/embed/jQY8-ZOphvE',
+    title: '[RU] Thunder Awaken vs Team Liquid – Game 2 - The International 2022 - Main Event Day 4',
 },{
-    text: 'Galaxy Adventure RX is a boring remake of a classic',
-    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+    src: 'https://www.youtube.com/embed/DnR7KkjBEsg',
+    title: '[RU] Team Aster vs PSG.LGD – Game 2 - The International 2022 - Main Event Day 4',
 },{
-    text: 'We reviewed the new Magimons game',
-    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+    src: 'https://www.youtube.com/embed/qQzz2YLi0LI',
+    title: '[RU] OG vs Team Liquid – Game 2 - The International 2022 - Main Event Day 4',
 },{
-    text: 'The Clash of Dragons is breaking record sales in...',
-    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+    src: 'https://www.youtube.com/embed/AG_U8RO2A7w',
+    title: '[RU] beastcoast vs PSG.LGD – Game 3 - The International 2022 - Main Event Day 4',
 },{
-    text: 'Jazzstar announced that the GTE5 for PC is delayed',
-    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+    src: 'https://www.youtube.com/embed/9duEMCkf8Kw',
+    title: '[RU] Tundra Esports vs Team Aster – Game 2 - The International 2022 - Main Event Day 3',
 },{
-    text: 'Jazzstar announced that the GTE5 for PC is delayed',
-    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+    src: 'https://www.youtube.com/embed/PGpfC9QL4cw',
+    title: '[RU] Thunder Awaken vs Team Secret – Game 2 - The International 2022 - Main Event Day 3',
 },{
-    text: 'New expansion pack coming to "Rise of Depredators"',
-    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+    src: 'https://www.youtube.com/embed/qQzz2YLi0LI',
+    title: '[RU] OG vs Team Liquid – Game 2 - The International 2022 - Main Event Day 4',
 },{
-    text: 'Galaxy Adventure RX is a boring remake of a classic',
-    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+    src: 'https://www.youtube.com/embed/AG_U8RO2A7w',
+    title: '[RU] beastcoast vs PSG.LGD – Game 3 - The International 2022 - Main Event Day 4',
 },{
-    text: 'We reviewed the new Magimons game',
-    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+    src: 'https://www.youtube.com/embed/AG_U8RO2A7w',
+    title: '[RU] beastcoast vs PSG.LGD – Game 3 - The International 2022 - Main Event Day 4',
 },{
-    text: 'The Clash of Dragons is breaking record sales in...',
-    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+    src: 'https://www.youtube.com/embed/AG_U8RO2A7w',
+    title: '[RU] beastcoast vs PSG.LGD – Game 3 - The International 2022 - Main Event Day 4',
 },{
-    text: 'Jazzstar announced that the GTE5 for PC is delayed',
-    textSmall: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+    src: 'https://www.youtube.com/embed/AG_U8RO2A7w',
+    title: '[RU] beastcoast vs PSG.LGD – Game 3 - The International 2022 - Main Event Day 4',
 },]

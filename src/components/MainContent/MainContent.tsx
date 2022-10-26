@@ -36,7 +36,7 @@ const MainContent = () => {
     const slider = useRef<HTMLDivElement>(null);
     const dispatch = useAppDispatch();
     const {posts} = useAppSelector(state => state.posts);
-    
+
     useEffect(() => {
         setIsLoading(true);
         dispatch(fetchPosts());
@@ -49,7 +49,7 @@ const MainContent = () => {
         position += 280
         if (position > 350) position = 0
         slider?.current?.childNodes.forEach((element) => {
-            (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`)
+            (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`);
         })
     }
 
@@ -59,7 +59,7 @@ const MainContent = () => {
         position -= 280
         if (position < -1299) position = 0
         slider?.current?.childNodes.forEach((element) => {
-            (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`)
+            (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`);
         })
     }
 
@@ -170,7 +170,7 @@ const MainContent = () => {
                 <div className={styles.latestVideos}>
                     <div className={styles.videosHeading}>
                         <div>
-                            <h2 className={styles.Heading}>Последние трансляции метчей</h2>
+                            <h2 className={styles.Heading}>Последние трансляции матчей</h2>
                             <div className={styles.separatorVid}/>
                         </div>
                         <div>
@@ -185,8 +185,8 @@ const MainContent = () => {
                     <div className={styles.videoContainer} ref={slider}>
                         {
                             videoData.map((video, index) => (<Video
-                                text={video.text}
-                                textSmall={video.textSmall}
+                                src={video.src}
+                                title={video.title}
                                 key={`${index}+5`}
                             />))
                         }

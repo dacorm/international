@@ -9,6 +9,14 @@
     transition: .3s ease;
     overflow: hidden;
     cursor: pointer;
+    border: 0;
+}
+
+.iframeVideo {
+    width: 270px;
+    height: 160px;
+    border: 0;
+    transition: .3s ease;
 }
 
 .video:hover .text {
