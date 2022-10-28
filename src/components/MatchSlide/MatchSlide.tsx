@@ -27,7 +27,7 @@ const MatchSlide = () => {
     let position = 0;
 
     const prevHandler = () => {
-        position += 275
+        position += 245
         if (position > 300) position = 0
         slider?.current?.childNodes.forEach((element) => {
             (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`)
@@ -35,7 +35,7 @@ const MatchSlide = () => {
     }
 
     const nextHandler = () => {
-        position -= 275
+        position -= 245
         if (position < -5199) position = 0
         slider?.current?.childNodes.forEach((element) => {
             (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`)
