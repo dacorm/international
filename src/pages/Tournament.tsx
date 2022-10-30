@@ -405,10 +405,12 @@ const Tournament = () => {
                                     <p className={styles.text}>1</p>
                                 </div>
                                 <div className={styles.column}>
-                                    <p className={styles.text}>TBD</p>
+                                    <p className={styles.text}>
+                                        <img src={tundra} alt="Tundra" className={styles.teamImage}/> Tundra Esports
+                                    </p>
                                 </div>
                                 <div className={styles.column}>
-                                    <p className={styles.text}>---</p>
+                                    <p className={styles.text}>$ 8 489 505</p>
                                 </div>
                             </div>
                             <div className={styles.tableRow}>
@@ -416,10 +418,12 @@ const Tournament = () => {
                                     <p className={styles.text}>2</p>
                                 </div>
                                 <div className={styles.column}>
-                                    <p className={styles.text}>TBD</p>
+                                    <p className={styles.text}>
+                                        <img src={secret} alt="Secret" className={styles.teamImage}/> Team Secret
+                                    </p>
                                 </div>
                                 <div className={styles.column}>
-                                    <p className={styles.text}>---</p>
+                                    <p className={styles.text}>$ 2 452 563</p>
                                 </div>
                             </div>
                             <div className={styles.tableRow}>
@@ -427,10 +431,12 @@ const Tournament = () => {
                                     <p className={styles.text}>3</p>
                                 </div>
                                 <div className={styles.column}>
-                                    <p className={styles.text}>TBD</p>
+                                    <p className={styles.text}>
+                                        <img src={liquid} alt="Liquid" className={styles.teamImage}/> Team Liquid
+                                    </p>
                                 </div>
                                 <div className={styles.column}>
-                                    <p className={styles.text}>---</p>
+                                    <p className={styles.text}>$ 1 697 946</p>
                                 </div>
                             </div>
                             <div className={styles.tableRow}>
@@ -546,7 +552,7 @@ const Tournament = () => {
                                 </div>
                                 <div className={styles.columnFinal}>
                                     <p className={styles.columnText}>Гранд-финал</p>
-                                    <TournamentMatch team1Name={'Tundra Esports'} team1Logo={tundra} team2Name={'TBD'}/>
+                                    <TournamentMatch team1Name={'Tundra Esports'} team1Logo={tundra} team1Score={3} team2Score={0} team2Name={'Team Secret'} team2Logo={secret}/>
                                 </div>
                             </div>
                         </div>
