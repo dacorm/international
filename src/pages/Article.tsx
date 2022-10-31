@@ -19,10 +19,18 @@ import {convertDate} from "../helpers/convertDate";
 import {convertTextIntoPreview} from "../helpers/convertTextIntoPreview";
 import {getRandomNumber} from "../helpers/getRandomNumber";
 import {selectIsAuth, selectName} from "../redux/slices/auth";
+import {translit} from "../helpers/translateText";
+import drop from "../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg";
 
 const helmetData = new HelmetData({});
 
-const Article = () => {
+interface ArticleProps {
+    isOpen?: boolean
+}
+
+const matchedSymbols = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+const Article: React.FC<ArticleProps> = ({ isOpen }) => {
     const [comments, setComments] = useState([{
         name: 'Denis',
         text: 'Отличная новость, актуальная'
@@ -31,19 +39,43 @@ const Article = () => {
     const [title, setTitle] = useState('');
     const [preview, setPreview] = useState('');
     const [number, setNumber] = useState(0);
+    const [isOpened, setIsOpened] = useState(isOpen || false);
     const {id} = useParams();
     const dispatch = useAppDispatch();
     const { posts } = useAppSelector(state => state.posts);
     const isAuth = useAppSelector(selectIsAuth);
     const user = useAppSelector(selectName);
     const navigate = useNavigate();
+    const [memoizedId, setMemoizedId] = useState('');
 
     const isUserAdmin = isAuth && (user.fullName === 'admin')
 
-    const onClickRemove = () => {
+    useEffect(() => {
+        let bool = true;
         if (id) {
+            for (let i = 0; i < id.length; i++) {
+                if (id.startsWith(matchedSymbols[i])) {
+                    bool = false;
+                    break;
+                }
+            }
+        }
+        setIsOpened(bool);
+    }, [id])
+
+    useEffect(() => {
+      if (!isOpened) {
+          if (id) {
+              setMemoizedId(id);
+          }
+      }
+      setIsOpened(true);
+    }, [isOpened])
+
+    const onClickRemove = () => {
+        if (memoizedId) {
             if (window.confirm('Вы действительно хотите удалить статью?')) {
-                dispatch(fetchRemovePost(id));
+                dispatch(fetchRemovePost(memoizedId));
                 navigate('/');
             }
         }
@@ -54,16 +86,28 @@ const Article = () => {
         setNumber(getRandomNumber(0, 20));
     }, [])
 
+    useEffect(() => {
+        if (posts && title) {
+            navigate(`/article/${translit(title)}`)
+        }
+    }, [posts, title])
+
     const fetchArticleData = async (id: string | undefined) => {
-        const { data } = await axios.get(`/posts/${id}`)
-        setText(data.text);
-        setTitle(data.title);
-        setPreview(data.imageUrl)
+        try {
+                const { data } = await axios.get(`/posts/${id}`)
+                setText(data.text);
+                setTitle(data.title);
+                setPreview(data.imageUrl);
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     useEffect(() => {
-       fetchArticleData(id);
-    }, [id])
+       if (memoizedId) {
+           fetchArticleData(memoizedId);
+       }
+    }, [memoizedId])
 
     const checkImageValidity = useCallback((preview: string | undefined) => {
         if (preview?.includes('https://dota2.press/')) return
@@ -105,10 +149,16 @@ const Article = () => {
             <div className={styles.articleMainText}>
                 <h2 className={styles.textTitle}>{title ?? 'Загрузка...'}</h2>
                 {isUserAdmin && <div className={styles.buttons}>
-                    <Link to={`/admin/${id}`} className={styles.adminButton}>Редактировать</Link>
+                    <Link to={`/admin/${memoizedId}`} className={styles.adminButton}>Редактировать</Link>
                     <button className={styles.adminButton} onClick={onClickRemove}>Удалить</button>
                 </div>}
                 <ReactMarkdown children={text}  />
+                <Link to={'/'} className={styles.button} type='submit'>
+                    <p className={styles.buttonText}>На главную</p>
+                    <div className={styles.dropWrapper}>
+                        <img src={drop} alt={drop} className={styles.drop}/>
+                    </div>
+                </Link>
             </div>
             <div className={styles.tags}>
                 <Tag text={'News'}/>

@@ -47,6 +47,14 @@ function App() {
                     path="article/:id"
                     element={
                         <Suspense fallback={<FallbackLoader />}>
+                            <ArticlePage />
+                        </Suspense>
+                    }
+                />
+                <Route
+                    path="article/:title"
+                    element={
+                        <Suspense fallback={<FallbackLoader />}>
                             <ArticlePage/>
                         </Suspense>
                     }
@@ -117,6 +125,14 @@ function App() {
                 />
                 <Route
                     path="match/:id"
+                    element={
+                        <Suspense fallback={<FallbackLoader />}>
+                            <MatchOverviewPage/>
+                        </Suspense>
+                    }
+                />
+                <Route
+                    path="match/:title"
                     element={
                         <Suspense fallback={<FallbackLoader />}>
                             <MatchOverviewPage/>

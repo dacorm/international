@@ -6,21 +6,32 @@ import TextSlide from "../components/TextSlide/TextSlide";
 import Footer from "../components/Footer/Footer";
 import team1 from '../assets/images/teams/01.png';
 import team2 from '../assets/images/teams/02.png';
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import {MatchInfoType} from "../@types/serverType";
 import {unixTimeStampConverterMatch} from "../helpers/unixConverters";
 import {withErrorBoundary} from "react-error-boundary";
 import Layout from "../components/Layout/Layout";
+import FallbackLoader from "../components/FallbackLoader/FallbackLoader";
+import {translit} from "../helpers/translateText";
 
 
 const MatchInfo = () => {
     const {id} = useParams();
     const [info, setInfo] = useState<MatchInfoType>();
+    const [isLoading, setIsLoading] = useState(false);
+    const [title, setTitle] = useState('');
+    const navigate = useNavigate();
 
     const fetchData = async () => {
-        const {data} = await axios.get(`https://api.opendota.com/api/matches/${id}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`)
-        setInfo(data);
+        try {
+                setIsLoading(true);
+                const {data} = await axios.get(`https://api.opendota.com/api/matches/${id}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`)
+                setInfo(data);
+                setIsLoading(false);
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     useEffect(() => {
@@ -28,8 +39,20 @@ const MatchInfo = () => {
     }, [])
 
     useEffect(() => {
-        fetchData();
+       if (title) {
+           navigate(`/match/${title}`);
+       }
+    }, [title])
+
+    useEffect(() => {
+       if (info) {
+           setTitle(translit(`${info.dire_team.name} против ${info.radiant_team.name}`));
+       }
     }, [info])
+
+    if (isLoading) {
+        return <FallbackLoader />
+    }
 
     return (
         <Layout seoDescription={`Информация о матче ${info?.dire_team.name} против ${info?.radiant_team.name}`}

@@ -138,7 +138,7 @@ const Admin = () => {
                         <button className={styles.buttonRemove} onClick={onClickRemoveImage}>
                             Удалить
                         </button>
-                        <img className={styles.image} src={`https://mern-blog-dacorm.herokuapp.com/${imageUrl}`} alt="Uploaded" />
+                        <img className={styles.image} src={`https://dota2.press/${imageUrl}`} alt="Uploaded" />
                     </>
                 )}
                 <input type="text" className={styles.titleInput} value={title} onChange={handleTitleChange} placeholder='Заголовок статьи...' />
