@@ -151,7 +151,7 @@ const Admin = () => {
                 <SimpleMDE className={styles.editor} value={text} onChange={onChange} options={options} />
                 {!isEditing && <>
                     <p>Этот контент - {isArticle ? 'Статья' : 'Новость'}</p>
-                    <button onClick={togglePostState}>Изменить тип</button>
+                    <button onClick={togglePostState} className={styles.submitButton}>Изменить тип</button>
                 </>}
                 <button onClick={onSubmit} disabled={isLoading} className={`${styles.submitButton} ${isLoading ? styles.submitButtonDisabled : ''}`}>
                     Опубликовать статью
