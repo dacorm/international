@@ -68,7 +68,7 @@ const Footer = () => {
                     <div className={styles.logo}>
                         <img src={logo} alt="Logo" className={styles.logoImg}/>
                         <div className={styles.text}>
-                            <h2 className={styles.logoText}>International<span className={styles.logoSpan}>2022</span></h2>
+                            <h2 className={styles.logoText}>Dota<span className={styles.logoSpan}>2</span></h2>
                             <p className={styles.logoSub}>Последние новости</p>
                         </div>
                     </div>

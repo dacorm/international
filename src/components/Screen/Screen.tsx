@@ -62,7 +62,7 @@ const Screen = () => {
                             <h1 className={styles.heading}><Link to={`/article/${item._id}`} className={styles.heading}>{item.title}</Link></h1>
                         </div>
                         <button className={styles.button}>
-                            <Link to={'/tournament'} className={styles.buttonText}>Турнирная таблица</Link>
+                            <Link to={'/tournament'} className={styles.buttonText}>International</Link>
                             <div className={styles.dropWrapper}>
                                 <img src={drop} alt={drop} className={styles.drop} />
                             </div>

@@ -45,7 +45,7 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
                 <Link to='/' className={styles.logo}>
                     <img src={logo} alt="Logo" className={styles.logoImg}/>
                     <div className={styles.text}>
-                        <h2 className={styles.logoText}>International<span className={styles.span}>2022</span></h2>
+                        <h2 className={styles.logoText}>Dota<span className={styles.span}>2</span></h2>
                         <p className={styles.logoSub}>Последние новости</p>
                     </div>
                 </Link>
@@ -78,7 +78,7 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
                         className={styles.popupFeatures}
                     />}
                     <li className={styles.menuItem}>
-                        <Link to='/tournament' className={styles.menuText}>Турнирная таблица</Link>
+                        <Link to='/tournament' className={styles.menuText}>TI2022</Link>
                     </li>
                 </ul>
                 <div className={styles.after}></div>

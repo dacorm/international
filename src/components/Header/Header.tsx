@@ -112,7 +112,7 @@ const Header = () => {
                     }
                     <Link to='/calendar' className={styles.adminPanelNav}>Матчи</Link>
                     <Link to='/players' className={styles.adminPanelNav}>Топ игроков</Link>
-                    <Link to='/tournament' className={styles.adminPanelNav}>Турнирная таблица</Link>
+                    <Link to='/tournament' className={styles.adminPanelNav}>TI2022</Link>
                     {isUserAdmin && <Link to='/admin' className={styles.adminPanelNav}>Админка</Link>}
                     {
                         isAuth ? (
