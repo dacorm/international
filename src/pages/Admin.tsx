@@ -36,6 +36,7 @@ const Admin = () => {
     const inputFileRef = useRef(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [isArticle, setIsArticle] = useState(false);
     const { id } = useParams();
 
     const isEditing = Boolean(id);
@@ -45,6 +46,10 @@ const Admin = () => {
     const onChange = useCallback((value: React.SetStateAction<string>) => {
         setText(value);
     }, []);
+
+    const togglePostState = () => {
+        setIsArticle((prevState)  => !prevState);
+    }
 
     const fetchArticle = async () => {
         const { data } = await axios.get(`/posts/${id}`)
@@ -81,7 +86,8 @@ const Admin = () => {
                 title,
                 tags: '',
                 imageUrl,
-                text
+                text,
+                isArticle
             }
             const { data } = isEditing ? await axios.patch(`/posts/${id}`, fields) : await axios.post('/posts', fields);
             setTitle('');
@@ -143,6 +149,10 @@ const Admin = () => {
                 )}
                 <input type="text" className={styles.titleInput} value={title} onChange={handleTitleChange} placeholder='Заголовок статьи...' />
                 <SimpleMDE className={styles.editor} value={text} onChange={onChange} options={options} />
+                {!isEditing && <>
+                    <p>Этот контент - {isArticle ? 'Статья' : 'Новость'}</p>
+                    <button onClick={togglePostState}>Изменить тип</button>
+                </>}
                 <button onClick={onSubmit} disabled={isLoading} className={`${styles.submitButton} ${isLoading ? styles.submitButtonDisabled : ''}`}>
                     Опубликовать статью
                 </button>
