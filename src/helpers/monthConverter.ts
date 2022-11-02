@@ -31,10 +31,10 @@ export const monthConverter = (month: number) => {
             return 'Октябрь';
             break;
         case 10:
-            return 'Декабрь';
+            return 'Ноябрь';
             break;
         case 11:
-            return 'Январь';
+            return 'Декабрь';
             break;
         default:
             console.warn('enter number')
