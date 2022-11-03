@@ -164,6 +164,12 @@
     gap: 15px;
 }
 
+@media screen and (max-width: 374px) {
+    .teamsTable {
+        width: 300px;
+    }
+}
+
 .teamMember {
     display: flex;
     align-items: center;
@@ -198,6 +204,15 @@
 
 .memberSpan {
     font-weight: 700;
+}
+
+.picksBans {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .iframe {

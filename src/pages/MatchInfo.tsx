@@ -14,6 +14,8 @@ import {withErrorBoundary} from "react-error-boundary";
 import Layout from "../components/Layout/Layout";
 import FallbackLoader from "../components/FallbackLoader/FallbackLoader";
 import {translit} from "../helpers/translateText";
+import {nameConverter} from "../helpers/nameConverter";
+import Champion from "../components/Champion/Champion";
 
 
 const MatchInfo = () => {
@@ -32,19 +34,6 @@ const MatchInfo = () => {
 
     const filterBans = () => {
         return info?.picks_bans.filter((item) => !item.is_pick);
-    }
-
-    const nameConverter = (name: string) => {
-        if (name === 'Lifestealer') {
-            return 'life_stealer'
-        } else if (name === 'Anti-Mage') {
-            return 'antimage'
-        } else if (name === 'Doom') {
-            return 'doom_bringer'
-        } else if (name === 'Shadow Fiend') {
-            return 'nevermore'
-        }
-        return name.toLowerCase().split(' ').join('_')
     }
 
     const fetchHeroes = async () => {
@@ -170,24 +159,15 @@ const MatchInfo = () => {
                 <div className={styles.sectionHeading}>
                     <h2 className={styles.listHeading}>Пики чемпионов</h2>
                     <div className={styles.separator}/>
-                    <ul>
-                    {intersect(filterPicks()).map((item, index) => (<li  key={index+3}>
-                        <img
-                            src={`https://api.opendota.com/apps/dota2/images/dota_react/heroes/icons/${nameConverter(item)}.png?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`}
-                            alt="hero icon"
-                        />
-                        <p>{index+1}. {item}</p>
-                    </li>))}
+                    <ul className={styles.picksBans}>
+                    {intersect(filterPicks()).map((item, index) => (<Champion key={index+3} item={item} index={index} />))}
                     </ul>
                 </div>
                 <div className={styles.sectionHeading}>
                     <h2 className={styles.listHeading}>Баны чемпионов</h2>
                     <div className={styles.separator}/>
-                    <ul>
-                    {intersect(filterBans()).map((item, index) => (<li key={index+4}>
-                        <img src={`https://api.opendota.com/apps/dota2/images/dota_react/heroes/icons/${nameConverter(item)}.png?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`} alt="hero icon"/>
-                        <p>{index+1}. {item}</p>
-                    </li>))}
+                    <ul className={styles.picksBans}>
+                    {intersect(filterBans()).map((item, index) => (<Champion key={index+4} item={item} index={index} />))}
                     </ul>
                 </div>
                 <div className={styles.replay}>
