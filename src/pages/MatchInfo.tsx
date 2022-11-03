@@ -14,7 +14,6 @@ import {withErrorBoundary} from "react-error-boundary";
 import Layout from "../components/Layout/Layout";
 import FallbackLoader from "../components/FallbackLoader/FallbackLoader";
 import {translit} from "../helpers/translateText";
-import {nameConverter} from "../helpers/nameConverter";
 import Champion from "../components/Champion/Champion";
 
 
@@ -64,7 +63,10 @@ const MatchInfo = () => {
                 if (intersectArr.length <= 10) {
                     picksArr.forEach((pick) => {
                         if (heroes[i].id === pick.hero_id) {
-                            intersectArr.push(heroes[i].localized_name);
+                                intersectArr.push({
+                                    hero: heroes[i].localized_name,
+                                    team: pick.team,
+                                });
                         }
                     })
                 }
@@ -160,14 +162,21 @@ const MatchInfo = () => {
                     <h2 className={styles.listHeading}>Пики чемпионов</h2>
                     <div className={styles.separator}/>
                     <ul className={styles.picksBans}>
-                    {intersect(filterPicks()).map((item, index) => (<Champion key={index+3} item={item} index={index} />))}
+                    {intersect(filterPicks()).map((item, index) => (<Champion
+                        key={index+3}
+                        item={item.hero}
+                        index={index}
+                        teamId={item.team}
+                        radiantTeam={info?.radiant_team.name}
+                        direTeam={info?.dire_team.name}
+                    />))}
                     </ul>
                 </div>
                 <div className={styles.sectionHeading}>
                     <h2 className={styles.listHeading}>Баны чемпионов</h2>
                     <div className={styles.separator}/>
                     <ul className={styles.picksBans}>
-                    {intersect(filterBans()).map((item, index) => (<Champion key={index+4} item={item} index={index} />))}
+                    {intersect(filterBans()).map((item, index) => (<Champion key={index+4} item={item.hero} index={index} />))}
                     </ul>
                 </div>
                 <div className={styles.replay}>

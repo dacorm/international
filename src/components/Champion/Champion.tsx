@@ -4,10 +4,14 @@ import {nameConverter} from "../../helpers/nameConverter";
 
 interface ChampionProps {
     item: string;
-    index: number
+    index: number;
+    teamId?: number;
+    direTeam?: string;
+    radiantTeam?: string;
 }
 
-const Champion: React.FC<ChampionProps> = ({ item, index }) => {
+const Champion: React.FC<ChampionProps> = ({ item, index, teamId, direTeam, radiantTeam }) => {
+
     return (
         <li className={styles.wrapper}>
             <img
@@ -17,6 +21,7 @@ const Champion: React.FC<ChampionProps> = ({ item, index }) => {
             />
             <p className={styles.text}>{index+1}.</p>
             <p className={styles.text}>{item}</p>
+            {teamId !== undefined && <p className={styles.teamName}>{teamId ===  0 ? direTeam : radiantTeam}</p>}
         </li>
     );
 };
