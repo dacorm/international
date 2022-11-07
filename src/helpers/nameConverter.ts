@@ -21,6 +21,8 @@ export const nameConverter = (name: string) => {
         return 'abyssal_underlord'
     } else if (name === 'Timbersaw') {
         return 'shredder'
+    } else if (name === 'Vengeful Spirit') {
+        return 'vengefulspirit'
     }
     return name.toLowerCase().split(' ').join('_')
 }

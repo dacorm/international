@@ -15,6 +15,7 @@ import Layout from "../components/Layout/Layout";
 import FallbackLoader from "../components/FallbackLoader/FallbackLoader";
 import {translit} from "../helpers/translateText";
 import Champion from "../components/Champion/Champion";
+import Graph from "../components/Graph/Graph";
 
 
 const MatchInfo = () => {
@@ -37,10 +38,20 @@ const MatchInfo = () => {
 
     const fetchHeroes = async () => {
         try {
-            const { data } = await axios.get('https://api.opendota.com/api/heroes?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96');
+            const {data} = await axios.get('https://api.opendota.com/api/heroes?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96');
             setHeroes(data);
         } catch (e) {
             console.log(e);
+        }
+    }
+
+    const winnerTeam = () => {
+        if (info) {
+            if (info?.radiant_score > info?.dire_score) {
+                return info?.dire_team.name;
+            } else {
+                return info.radiant_team.name;
+            }
         }
     }
 
@@ -48,6 +59,7 @@ const MatchInfo = () => {
         try {
             setIsLoading(true);
             const {data} = await axios.get(`https://api.opendota.com/api/matches/${memoizedId || id}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`);
+            console.log(data);
             setInfo(data);
             setIsLoading(false);
         } catch (e) {
@@ -63,10 +75,11 @@ const MatchInfo = () => {
                 if (intersectArr.length <= 10) {
                     picksArr.forEach((pick) => {
                         if (heroes[i].id === pick.hero_id) {
-                                intersectArr.push({
-                                    hero: heroes[i].localized_name,
-                                    team: pick.team,
-                                });
+                            intersectArr.push({
+                                hero: heroes[i].localized_name,
+                                id: heroes[i].id,
+                                team: pick.team,
+                            });
                         }
                     })
                 }
@@ -140,10 +153,11 @@ const MatchInfo = () => {
                             <div className={styles.tableHeadingTeams}>
                                 <h2 className={styles.tableHeadingText}>{info?.radiant_team.name ?? 'Загрузка...'} состав</h2>
                             </div>
-                            {info?.players.slice(0, 5).map((item, index) => (<li key={index} className={styles.teamMember}>
-                                <p className={styles.memberText}><span
-                                    className={styles.memberSpan}>{item?.personaname}</span></p>
-                            </li>))}
+                            {info?.players.slice(0, 5).map((item, index) => (
+                                <li key={index} className={styles.teamMember}>
+                                    <p className={styles.memberText}><span
+                                        className={styles.memberSpan}>{item?.personaname}</span></p>
+                                </li>))}
                         </>
                     </ul>
                     <ul className={styles.teamsTable}>
@@ -151,10 +165,11 @@ const MatchInfo = () => {
                             <div className={styles.tableHeadingTeams}>
                                 <h2 className={styles.tableHeadingText}>{info?.dire_team.name ?? 'Загрузка...'} состав</h2>
                             </div>
-                            {info?.players.slice(5, 10).map((item, index) => (<li key={index + 1} className={styles.teamMember}>
-                                <p className={styles.memberText}><span
-                                    className={styles.memberSpan}>{item?.personaname}</span></p>
-                            </li>))}
+                            {info?.players.slice(5, 10).map((item, index) => (
+                                <li key={index + 1} className={styles.teamMember}>
+                                    <p className={styles.memberText}><span
+                                        className={styles.memberSpan}>{item?.personaname}</span></p>
+                                </li>))}
                         </>
                     </ul>
                 </div>
@@ -162,23 +177,38 @@ const MatchInfo = () => {
                     <h2 className={styles.listHeading}>Пики чемпионов</h2>
                     <div className={styles.separator}/>
                     <ul className={styles.picksBans}>
-                    {intersect(filterPicks()).map((item, index) => (<Champion
-                        key={index+3}
-                        item={item.hero}
-                        index={index}
-                        teamId={item.team}
-                        radiantTeam={info?.radiant_team.name}
-                        direTeam={info?.dire_team.name}
-                    />))}
+                        {intersect(filterPicks()).map((item, index) => (<Champion
+                            key={index + 3}
+                            item={item.hero}
+                            index={index}
+                            teamId={item.team}
+                            radiantTeam={info?.radiant_team.name}
+                            direTeam={info?.dire_team.name}
+                        />))}
                     </ul>
                 </div>
                 <div className={styles.sectionHeading}>
                     <h2 className={styles.listHeading}>Баны чемпионов</h2>
                     <div className={styles.separator}/>
                     <ul className={styles.picksBans}>
-                    {intersect(filterBans()).map((item, index) => (<Champion key={index+4} item={item.hero} index={index} />))}
+                        {intersect(filterBans()).map((item, index) => (
+                            <Champion key={index + 4} item={item.hero} index={index}/>))}
                     </ul>
                 </div>
+                {info?.radiant_gold_adv && (<>
+                    <div className={styles.sectionHeading}>
+                        <h2 className={styles.listHeading}>Преимущество команды {winnerTeam()} по золоту</h2>
+                        <div className={styles.separator}/>
+                    </div>
+                    <Graph data={info.radiant_gold_adv} isGold={true} />
+                </>)}
+                {info?.radiant_xp_adv && (<>
+                    <div className={styles.sectionHeading}>
+                        <h2 className={styles.listHeading}>Преимущество команды {winnerTeam()} по опыту</h2>
+                        <div className={styles.separator}/>
+                    </div>
+                    <Graph data={info.radiant_xp_adv} isGold={false} />
+                </>)}
                 <div className={styles.replay}>
                     <h2 className={styles.listHeading}>Посмотреть матчи</h2>
                     <div className={styles.separator}/>

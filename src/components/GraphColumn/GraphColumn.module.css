@@ -1,0 +1,17 @@
+.column {
+    display: flex;
+    width: 45px;
+    height: 5px;
+    background: #363636;
+    position: relative;
+}
+
+.number {
+    position: absolute;
+    left: 0;
+    bottom: -30px;
+    font-weight: 700;
+    color: #777;
+    font-size: 10px;
+    font-family: 'Exo', sans-serif;
+}
