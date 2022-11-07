@@ -213,7 +213,7 @@ const MatchInfo = () => {
                     <h2 className={styles.listHeading}>Посмотреть матчи</h2>
                     <div className={styles.separator}/>
                     <iframe
-                        src="https://player.twitch.tv/?channel=pgl_dota2&parent=international11.com&parent=localhost&muted=true"
+                        src="https://player.twitch.tv/?channel=pgl_dota2&parent=dota2.su&parent=localhost&muted=true"
                         allowFullScreen
                         className={styles.iframe}
                     />
