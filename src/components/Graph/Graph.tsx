@@ -12,8 +12,8 @@ const Graph: React.FC<GraphProps> = ({data, isGold = false}) => {
     return (
         <div className={styles.graph}>
             {
-                data && data.map((item, index) => (
-                    <GraphColumn height={item} index={index} key={+item + index} isGold={isGold}/>
+                data && data.slice(0, 27).map((item, index) => (
+                    <GraphColumn height={item} index={index} key={item+index*2} isGold={isGold}/>
                 ))
             }
         </div>

@@ -23,6 +23,10 @@ export const nameConverter = (name: string) => {
         return 'shredder'
     } else if (name === 'Vengeful Spirit') {
         return 'vengefulspirit'
+    } else if (name === 'Queen of Pain') {
+        return 'queenofpain'
+    } else if (name === 'Outworld Destroyer') {
+        return 'obsidian_destroyer'
     }
     return name.toLowerCase().split(' ').join('_')
 }
