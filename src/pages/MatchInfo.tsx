@@ -129,14 +129,14 @@ const MatchInfo = () => {
                             <p className={styles.teamName}>{info?.radiant_team.name ?? 'Загрузка...'}</p>
                             <p className={styles.teamCountry}>{info?.radiant_team.tag ?? 'Загрузка...'}</p>
                         </div>
-                        <img src={team1} alt="Team1" className={styles.teamLogo}/>
+                        <img src={info?.radiant_team.logo_url} alt="Team1" className={styles.teamLogo}/>
                     </div>
                     <div className={styles.score}>
                         <p className={styles.scoreCount}>{info?.dire_score ?? 'Загрузка...'} - {info?.radiant_score ?? 'Загрузка...'}</p>
                         <p className={styles.stage}>{info?.league.tier ?? 'Загрузка...'}</p>
                     </div>
                     <div className={styles.team}>
-                        <img src={team2} alt="Team2" className={styles.teamLogo}/>
+                        <img src={info?.dire_team.logo_url} alt="Team2" className={styles.teamLogo}/>
                         <div className={styles.teamText}>
                             <p className={styles.teamName}>{info?.dire_team.name ?? 'Загрузка...'}</p>
                             <p className={styles.teamCountry}>{info?.dire_team.tag ?? 'Загрузка...'}</p>
