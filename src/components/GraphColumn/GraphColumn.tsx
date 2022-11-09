@@ -5,9 +5,10 @@ interface GraphColumnProps {
     height: number;
     index: number;
     isGold: boolean;
+    isStart?: boolean;
 }
 
-const GraphColumn: React.FC<GraphColumnProps> = ({height, index, isGold = false}) => {
+const GraphColumn: React.FC<GraphColumnProps> = ({height, index, isGold = false, isStart= false}) => {
     const [isVisible, setIsVisible] = useState(false);
 
     const handleMouseEnter = () => {
@@ -19,23 +20,30 @@ const GraphColumn: React.FC<GraphColumnProps> = ({height, index, isGold = false}
     }
 
     const heightConverter = (height: number) => {
-        let newHeight = height / 10;
-        if (newHeight < 0) {
-            newHeight = Math.abs(newHeight) / 5;
+        if (height > 235) {
+            return 240
         }
-        if (newHeight > 350) {
-            newHeight = 340
-        }
-        return newHeight
+        return height
+    }
+
+    if (isStart) {
+        return (<div style={{
+            height: `${heightConverter(height)}px`,
+        }} className={styles.columnStart} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            {height ? <p className={styles.number}>{index}</p> : null}
+            {isVisible && (<div className={styles.labelBottom}>
+                <p className={styles.text}>Преимущество команды тьмы по {isGold ? 'золоту' : 'опыту'} - {Math.abs(height)}</p>
+            </div>)}
+        </div>)
     }
 
     return (
         <div style={{
             height: `${heightConverter(height)}px`,
         }} className={styles.column} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <p className={styles.number}>{index}</p>
+            {height ? <p className={styles.number}>{index}</p> : null}
             {isVisible && (<div className={styles.label}>
-                <p className={styles.text}>Преимущество команды по {isGold ? 'золоту' : 'опыту'} - {Math.abs(height)}</p>
+                <p className={styles.text}>Преимущество команды света по {isGold ? 'золоту' : 'опыту'} - {Math.abs(height)}</p>
             </div>)}
         </div>
     );

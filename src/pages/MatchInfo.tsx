@@ -4,8 +4,6 @@ import Header from "../components/Header/Header";
 import WhiteHeading from "../components/WhiteHeading/WhiteHeading";
 import TextSlide from "../components/TextSlide/TextSlide";
 import Footer from "../components/Footer/Footer";
-import team1 from '../assets/images/teams/01.png';
-import team2 from '../assets/images/teams/02.png';
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import {Heroes, MatchInfoType} from "../@types/serverType";
@@ -197,14 +195,14 @@ const MatchInfo = () => {
                 </div>
                 {info?.radiant_gold_adv && (<>
                     <div className={styles.sectionHeading}>
-                        <h2 className={styles.listHeading}>Преимущество команды {winnerTeam()} по золоту</h2>
+                        <h2 className={styles.listHeading}>Статистика игры по золоту</h2>
                         <div className={styles.separator}/>
                     </div>
                     <Graph data={info.radiant_gold_adv} isGold={true} />
                 </>)}
                 {info?.radiant_xp_adv && (<>
                     <div className={styles.sectionHeading}>
-                        <h2 className={styles.listHeading}>Преимущество команды {winnerTeam()} по опыту</h2>
+                        <h2 className={styles.listHeading}>Статистика игры по опыту</h2>
                         <div className={styles.separator}/>
                     </div>
                     <Graph data={info.radiant_xp_adv} isGold={false} />

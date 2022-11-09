@@ -27,6 +27,12 @@ export const nameConverter = (name: string) => {
         return 'queenofpain'
     } else if (name === 'Outworld Destroyer') {
         return 'obsidian_destroyer'
+    } else if (name === 'Clockwerk') {
+        return 'rattletrap'
+    } else if (name === 'Zeus') {
+        return 'zuus'
+    } else if (name === 'Treant Protector') {
+        return 'treant'
     }
     return name.toLowerCase().split(' ').join('_')
 }

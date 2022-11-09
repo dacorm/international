@@ -96,8 +96,9 @@
     margin: 7px 0 0 0;
     font-weight: 700;
     color: #777;
-    font-size: 7px;
+    font-size: 17px;
     font-family: 'Exo', sans-serif;
+    text-align: center;
 }
 
 .teamLogo {
@@ -126,7 +127,7 @@
     margin: 15px 0 0 0;
     font-weight: 700;
     color: #363636;
-    font-size: 8px;
+    font-size: 18px;
     font-family: 'Exo', sans-serif;
 }
 
@@ -192,6 +193,7 @@
 }
 
 .sectionHeading {
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-self: flex-start;
