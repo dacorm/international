@@ -20,10 +20,11 @@ const GraphColumn: React.FC<GraphColumnProps> = ({height, index, isGold = false,
     }
 
     const heightConverter = (height: number) => {
-        if (height > 235) {
+        let newHeight = height / 20;
+        if (newHeight > 235) {
             return 240
         }
-        return height
+        return newHeight
     }
 
     if (isStart) {
