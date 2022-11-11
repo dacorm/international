@@ -33,6 +33,8 @@ export const nameConverter = (name: string) => {
         return 'zuus'
     } else if (name === 'Treant Protector') {
         return 'treant'
+    } else if (name === 'Io') {
+        return 'wisp'
     }
     return name.toLowerCase().split(' ').join('_')
 }

@@ -86,6 +86,142 @@ interface Player {
 
 }
 
+export interface PlayerFull {
+    match_id: number;
+    player_slot: number;
+    ability_targets: any;
+    ability_upgrades_arr: number[];
+    ability_uses: any;
+    account_id: number;
+    actions: any;
+    additional_units: any;
+    assists: number;
+    backpack_0: number;
+    backpack_1: number;
+    backpack_2: number;
+    backpack_3: any;
+    buyback_log: any;
+    camps_stacked: any;
+    connection_log: any;
+    creeps_stacked: any;
+    damage: any;
+    damage_inflictor: any;
+    damage_inflictor_received: any;
+    damage_taken: any;
+    damage_targets: any;
+    deaths: number;
+    denies: number;
+    dn_t: any;
+    firstblood_claimed: any;
+    gold: number;
+    gold_per_min: number;
+    gold_reasons: any;
+    gold_spent: number;
+    gold_t: any;
+    hero_damage: number;
+    hero_healing: number;
+    hero_hits: any;
+    hero_id: number;
+    item_0: number;
+    item_1: number;
+    item_2: number;
+    item_3: number;
+    item_4: number;
+    item_5: number;
+    item_neutral: number;
+    item_uses: any;
+    kill_streaks: any;
+    killed: any;
+    killed_by: any;
+    kills: number;
+    kills_log: any;
+    lane_pos: any;
+    last_hits: number;
+    leaver_status: number;
+    level: number;
+    lh_t: any;
+    life_state: any;
+    max_hero_hit: any;
+    multi_kills: any;
+    net_worth: number;
+    obs: any;
+    obs_left_log: any;
+    obs_log: any;
+    obs_placed: any;
+    party_id: number;
+    party_size: number;
+    performance_others: any;
+    permanent_buffs: PermanentBuff[];
+    pings: any;
+    pred_vict: any;
+    purchase: any;
+    purchase_log: any;
+    randomed: any;
+    repicked: any;
+    roshans_killed: any;
+    rune_pickups: any;
+    runes: any;
+    runes_log: any;
+    sen: any;
+    sen_left_log: any;
+    sen_log: any;
+    sen_placed: any;
+    stuns: any;
+    teamfight_participation: any;
+    times: any;
+    tower_damage: number;
+    towers_killed: any;
+    xp_per_min: number;
+    xp_reasons: any;
+    xp_t: any;
+    personaname: string;
+    name: string;
+    last_login: any;
+    radiant_win: boolean;
+    start_time: number;
+    duration: number;
+    cluster: number;
+    lobby_type: number;
+    game_mode: number;
+    is_contributor: boolean;
+    patch: number;
+    region: number;
+    isRadiant: boolean;
+    win: number;
+    lose: number;
+    total_gold: number;
+    total_xp: number;
+    kills_per_min: number;
+    kda: number;
+    abandons: number;
+    rank_tier: number;
+    is_subscriber: boolean;
+    cosmetics: any[];
+    benchmarks: Benchmarks;
+}
+
+export interface Benchmarks {
+    gold_per_min: { [key: string]: number };
+    xp_per_min: { [key: string]: number };
+    kills_per_min: { [key: string]: number };
+    last_hits_per_min: { [key: string]: number };
+    hero_damage_per_min: { [key: string]: number };
+    hero_healing_per_min: { [key: string]: number };
+    tower_damage: { [key: string]: number };
+    stuns_per_min: { [key: string]: number };
+    lhten: Lhten;
+}
+
+export interface Lhten {
+}
+
+export interface PermanentBuff {
+    permanent_buff: number;
+    stack_count: number;
+    grant_time: number;
+}
+
+
 interface AllWordCounts {
 
 }

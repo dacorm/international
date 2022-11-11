@@ -1,0 +1,39 @@
+.table {
+    border-bottom: 1px solid #ebebeb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 15px;
+}
+
+.tableItemFirst {
+    width: 200px;
+}
+
+.tableItemSecond {
+    width: 50px;
+}
+
+.tableItemThird {
+    width: 100px;
+}
+
+.tableItemFourth {
+    width: 30px;
+    text-align: center;
+}
+
+.tableItemFifth {
+    width: 50px;
+    text-align: center;
+}
+
+.tableItemSixth {
+    width: 200px;
+}
+
+.hero {
+    margin-right: 8px;
+}

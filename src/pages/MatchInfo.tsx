@@ -6,7 +6,7 @@ import TextSlide from "../components/TextSlide/TextSlide";
 import Footer from "../components/Footer/Footer";
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
-import {Heroes, MatchInfoType} from "../@types/serverType";
+import {Heroes, MatchInfoType, PlayerFull} from "../@types/serverType";
 import {unixTimeStampConverterMatch} from "../helpers/unixConverters";
 import {withErrorBoundary} from "react-error-boundary";
 import Layout from "../components/Layout/Layout";
@@ -14,6 +14,7 @@ import FallbackLoader from "../components/FallbackLoader/FallbackLoader";
 import {translit} from "../helpers/translateText";
 import Champion from "../components/Champion/Champion";
 import Graph from "../components/Graph/Graph";
+import MatchTable from "../components/MatchTable/MatchTable";
 
 
 const MatchInfo = () => {
@@ -172,7 +173,7 @@ const MatchInfo = () => {
                     </ul>
                 </div>
                 <div className={styles.sectionHeading}>
-                    <h2 className={styles.listHeading}>Пики чемпионов</h2>
+                    <h2 className={styles.listHeading}>Пики героев</h2>
                     <div className={styles.separator}/>
                     <ul className={styles.picksBans}>
                         {intersect(filterPicks()).map((item, index) => (<Champion
@@ -186,13 +187,18 @@ const MatchInfo = () => {
                     </ul>
                 </div>
                 <div className={styles.sectionHeading}>
-                    <h2 className={styles.listHeading}>Баны чемпионов</h2>
+                    <h2 className={styles.listHeading}>Баны героев</h2>
                     <div className={styles.separator}/>
                     <ul className={styles.picksBans}>
                         {intersect(filterBans()).map((item, index) => (
                             <Champion key={index + 4} item={item.hero} index={index}/>))}
                     </ul>
                 </div>
+                <div className={styles.sectionHeading}>
+                    <h2 className={styles.listHeading}>Статистика матча</h2>
+                    <div className={styles.separator}/>
+                </div>
+                {/*{info && heroes && <MatchTable data={info.players as unknown as PlayerFull[]} heroes={heroes} />}*/}
                 {info?.radiant_gold_adv && (<>
                     <div className={styles.sectionHeading}>
                         <h2 className={styles.listHeading}>Статистика игры по золоту</h2>
