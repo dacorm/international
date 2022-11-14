@@ -75,8 +75,7 @@ const MatchTableItem: React.FC<MatchTableItemProps> = (
         })
         let newArray: Item[] = [];
         intersect.forEach((inter) => {
-            // @ts-ignore
-            newArray.push(items[inter as keyof Item]);
+            newArray.push((items[inter as keyof Item] as unknown as Item));
         })
         return newArray;
     }
