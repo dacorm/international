@@ -25,9 +25,10 @@ const MatchTable: React.FC<MatchTableProps> = ({ data, heroes }) => {
                             playerKills={data[0].kills}
                             playerKDA={data[0].kda}
                             playerLvl={data[0].level}
-                            playerName={data[0].name}
+                            playerName={data[0].personaname}
                             heroId={data[0].hero_id}
                             heroes={heroes}
+                            purchase={data[0].purchase}
             />
         </div>
     );

@@ -3,6 +3,12 @@ import styles from './MatchTableItem.module.css';
 import {Heroes} from "../../@types/serverType";
 import {nameConverter} from "../../helpers/nameConverter";
 import Loader from "../Loader/Loader";
+import axios from "axios";
+import {log} from "util";
+
+type PlainObj = {
+    [key: string]: number;
+}
 
 interface MatchTableItemProps {
     playerName: string;
@@ -13,11 +19,38 @@ interface MatchTableItemProps {
     goldPerMin: number;
     heroId: number;
     heroes: Heroes[];
+    purchase: PlainObj
 }
 
+interface Item {
+    hint: string[];
+    id: number;
+    img: string;
+    dname: string;
+    qual: string;
+    cost: number;
+    notes: string;
+    attrib: any[];
+    mc: boolean;
+    cd: number;
+    lore: string;
+    components: null;
+    created: boolean;
+    charges: boolean;
+}
+
+
 const MatchTableItem: React.FC<MatchTableItemProps> = (
-    { playerDeaths, playerKills, playerLvl, playerName, goldPerMin, playerKDA, heroId, heroes }) => {
+    {
+        playerDeaths,
+        playerKills,
+        playerLvl,
+        playerName, goldPerMin, playerKDA, heroId, heroes, purchase
+    }) => {
     const [hero, setHero] = useState<Heroes>();
+    const [buy, setBuy] = useState<string[]>();
+    const [items, setItems] = useState<Item>();
+    const [foundedItems, setFoundedItems] = useState<Item[]>([]);
 
     const filterHeroes = (heroes: Heroes[], heroId: number) => {
         heroes.filter((item) => {
@@ -27,17 +60,42 @@ const MatchTableItem: React.FC<MatchTableItemProps> = (
         })
     }
 
+    const fetchItems = async () => {
+        const { data } = await axios.get('https://api.opendota.com/api/constants/items?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96');
+        setItems(data);
+    }
+
+    const findItem = (items: Item, item: string[]) => {
+        const keys = Object.keys(items);
+        let intersect: string[] = [];
+        item.forEach((i) => {
+            if (keys.includes(i)) {
+                intersect.push(i);
+            }
+        })
+        let newArray: Item[] = [];
+        intersect.forEach((inter) => {
+            // @ts-ignore
+            newArray.push(items[inter as keyof Item]);
+        })
+        return newArray;
+    }
+
     useEffect(() => {
-       filterHeroes(heroes, heroId) ;
+        filterHeroes(heroes, heroId);
+        setBuy(Object.keys(purchase).slice(13, 17));
+        fetchItems();
     }, [])
 
     useEffect(() => {
-        console.log(heroId);
-        console.log(hero);
-    }, [hero])
+       if (items && buy) {
+           setFoundedItems(findItem(items, buy))
+       }
+        console.log(`https://api.opendota.com/${foundedItems[0]?.img}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`)
+    }, [items])
 
     if (!hero) {
-        return <Loader />
+        return <Loader/>
     }
 
     return (
@@ -54,7 +112,16 @@ const MatchTableItem: React.FC<MatchTableItemProps> = (
             <li className={styles.tableItemThird}>{playerKills} / {playerDeaths} / 3</li>
             <li className={styles.tableItemFourth}>{playerKDA}</li>
             <li className={styles.tableItemFifth}>{goldPerMin}</li>
-            <li className={styles.tableItemSixth}>item 1 item 2 item 3</li>
+            {
+                foundedItems && foundedItems.map((item) => (
+                    <li className={styles.tableItemSixth} key={item.id}>
+                        <img src={`https://api.opendota.com${item.img}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`}
+                             className={styles.itemImage}
+                             alt="Item Icon"/>
+                        <p className={styles.itemName}>{item.dname}</p>
+                    </li>
+                ))
+            }
         </ul>
     );
 };

@@ -198,7 +198,7 @@ const MatchInfo = () => {
                     <h2 className={styles.listHeading}>Статистика матча</h2>
                     <div className={styles.separator}/>
                 </div>
-                {/*{info && heroes && <MatchTable data={info.players as unknown as PlayerFull[]} heroes={heroes} />}*/}
+                {info && heroes && <MatchTable data={info.players as unknown as PlayerFull[]} heroes={heroes} />}
                 {info?.radiant_gold_adv && (<>
                     <div className={styles.sectionHeading}>
                         <h2 className={styles.listHeading}>Статистика игры по золоту</h2>

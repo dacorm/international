@@ -1,39 +1,74 @@
 .table {
+    font-family: 'Exo', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
     border-bottom: 1px solid #ebebeb;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     list-style-type: none;
     margin: 0;
     padding: 15px;
 }
 
 .tableItemFirst {
+    margin-right: 35px;
     width: 200px;
 }
 
 .tableItemSecond {
+    margin-right: 35px;
     width: 50px;
 }
 
 .tableItemThird {
+    margin-right: 35px;
     width: 100px;
 }
 
 .tableItemFourth {
+    margin-right: 35px;
     width: 30px;
     text-align: center;
 }
 
 .tableItemFifth {
+    margin-right: 35px;
     width: 50px;
     text-align: center;
 }
 
 .tableItemSixth {
-    width: 200px;
+    position: relative;
+    width: 50px;
+    cursor: pointer;
 }
 
 .hero {
     margin-right: 8px;
+}
+
+.itemName {
+    font-size: 9px;
+    font-family: 'Exo', sans-serif;
+    color: #777777;
+    font-weight: 700;
+    text-align: center;
+    background: rgba(0, 0, 0, .75);
+    width: 50px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    display: none;
+    transition: .3s;
+}
+
+.itemImage {
+    width: 50px;
+    height: 40px;
+}
+
+.tableItemSixth:hover .itemName {
+    display: inline;
 }
