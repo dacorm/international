@@ -29,14 +29,16 @@ const Graph: React.FC<GraphProps> = ({data, isGold = false}) => {
     return (
         <>
             <div className={styles.graph}>
+                <p className={styles.columnText}>Сторона света</p>
                 {positiveNums.map((num, index) => (
-                    <GraphColumn height={num} index={index} key={num+index*3} isGold={isGold} isStart={false} />
+                    <GraphColumn height={num} index={index} key={index*10} isGold={isGold} isStart={false} />
                 ))}
             </div>
             <hr className={styles.line}/>
             <div className={styles.graphBot}>
+                <p className={styles.columnTextBot}>Сторона тьмы</p>
                 {negativeNums.map((num, index) => (
-                    <GraphColumn height={num} index={index} key={num+index*2} isGold={isGold} isStart={true} />
+                    <GraphColumn height={num} index={index} key={index*8} isGold={isGold} isStart={true} />
                 ))}
             </div>
         </>

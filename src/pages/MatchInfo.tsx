@@ -127,6 +127,7 @@ const MatchInfo = () => {
                         <div className={styles.teamText}>
                             <p className={styles.teamName}>{info?.radiant_team.name ?? 'Загрузка...'}</p>
                             <p className={styles.teamCountry}>{info?.radiant_team.tag ?? 'Загрузка...'}</p>
+                            <p className={styles.teamCountry}>Сторона света</p>
                         </div>
                         <img src={info?.radiant_team.logo_url} alt="Team1" className={styles.teamLogo}/>
                     </div>
@@ -139,6 +140,7 @@ const MatchInfo = () => {
                         <div className={styles.teamText}>
                             <p className={styles.teamName}>{info?.dire_team.name ?? 'Загрузка...'}</p>
                             <p className={styles.teamCountry}>{info?.dire_team.tag ?? 'Загрузка...'}</p>
+                            <p className={styles.teamCountry}>Сторона тьмы</p>
                         </div>
                     </div>
                 </div>
@@ -152,6 +154,9 @@ const MatchInfo = () => {
                             <div className={styles.tableHeadingTeams}>
                                 <h2 className={styles.tableHeadingText}>{info?.radiant_team.name ?? 'Загрузка...'} состав</h2>
                             </div>
+                            <div className={styles.border}>
+                                <p className={styles.tableSubheading}>Команда света</p>
+                            </div>
                             {info?.players.slice(0, 5).map((item, index) => (
                                 <li key={index} className={styles.teamMember}>
                                     <p className={styles.memberText}><span
@@ -163,6 +168,9 @@ const MatchInfo = () => {
                         <>
                             <div className={styles.tableHeadingTeams}>
                                 <h2 className={styles.tableHeadingText}>{info?.dire_team.name ?? 'Загрузка...'} состав</h2>
+                            </div>
+                            <div className={styles.border}>
+                                <p className={styles.tableSubheading}>Команда тьмы</p>
                             </div>
                             {info?.players.slice(5, 10).map((item, index) => (
                                 <li key={index + 1} className={styles.teamMember}>
@@ -195,10 +203,15 @@ const MatchInfo = () => {
                     </ul>
                 </div>
                 <div className={styles.sectionHeading}>
-                    <h2 className={styles.listHeading}>Статистика матча</h2>
+                    <h2 className={styles.listHeading}>Команда света {info?.radiant_team.name}</h2>
                     <div className={styles.separator}/>
                 </div>
-                {info && heroes && <MatchTable data={info.players as unknown as PlayerFull[]} heroes={heroes} />}
+                {info && heroes && <MatchTable data={info.players.slice(0, 5) as unknown as PlayerFull[]} heroes={heroes} />}
+                <div className={styles.sectionHeading}>
+                    <h2 className={styles.listHeading}>Команда тьмы {info?.dire_team.name}</h2>
+                    <div className={styles.separator}/>
+                </div>
+                {info && heroes && <MatchTable data={info.players.slice(5, 10) as unknown as PlayerFull[]} heroes={heroes} />}
                 {info?.radiant_gold_adv && (<>
                     <div className={styles.sectionHeading}>
                         <h2 className={styles.listHeading}>Статистика игры по золоту</h2>

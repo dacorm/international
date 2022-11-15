@@ -3,7 +3,7 @@
     align-self: flex-end;
     width: 35px;
     margin-left: 15px;
-    background: #363636;
+    background: #005200;
     position: relative;
     transition: .3s;
     cursor: pointer;
@@ -18,7 +18,7 @@
     align-self: flex-start;
     width: 35px;
     margin-left: 15px;
-    background: #363636;
+    background: #bd0000;
     position: relative;
     transition: .3s;
     cursor: pointer;

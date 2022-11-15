@@ -86,6 +86,7 @@
     color: #363636;
     font-size: 12px;
     font-family: 'Exo', sans-serif;
+    text-align: center;
 }
 
 .teamText {
@@ -205,6 +206,20 @@
 }
 
 .memberSpan {
+    font-weight: 700;
+}
+
+.border {
+    width: 100%;
+    border-bottom: 1px solid #ebebeb;
+    border-top: 1px solid #ebebeb;
+}
+
+.tableSubheading {
+    font-size: 10px;
+    color: #363636;
+    text-align: center;
+    text-transform: uppercase;
     font-weight: 700;
 }
 

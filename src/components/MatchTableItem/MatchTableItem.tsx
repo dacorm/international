@@ -90,7 +90,6 @@ const MatchTableItem: React.FC<MatchTableItemProps> = (
        if (items && buy) {
            setFoundedItems(findItem(items, buy))
        }
-        console.log(`https://api.opendota.com/${foundedItems[0]?.img}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`)
     }, [items])
 
     if (!hero) {

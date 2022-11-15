@@ -20,16 +20,20 @@ const MatchTable: React.FC<MatchTableProps> = ({ data, heroes }) => {
                 <li className={styles.headingItemFifth}>Золото в минуту</li>
                 <li className={styles.headingItemSixth}>Предметы</li>
             </ul>
-            <MatchTableItem playerDeaths={data[0].deaths}
-                            goldPerMin={data[0].gold_per_min}
-                            playerKills={data[0].kills}
-                            playerKDA={data[0].kda}
-                            playerLvl={data[0].level}
-                            playerName={data[0].personaname}
-                            heroId={data[0].hero_id}
-                            heroes={heroes}
-                            purchase={data[0].purchase}
-            />
+            {
+                data && data.map((item) => (<MatchTableItem playerDeaths={item.deaths}
+                                                            goldPerMin={item.gold_per_min}
+                                                            playerKills={item.kills}
+                                                            playerKDA={item.kda}
+                                                            playerLvl={item.level}
+                                                            playerName={item.personaname}
+                                                            heroId={item.hero_id}
+                                                            heroes={heroes}
+                                                            purchase={item.purchase}
+                                                            key={item.hero_id}
+                />))
+            }
+
         </div>
     );
 };
