@@ -120,13 +120,13 @@ const Header = () => {
                                 onClickLogout();
                                 openPopup();
                             }}>
-                                <p className={styles.buttonText}>Logout</p>
+                                <p className={styles.buttonText}>Выйти</p>
                                 <div className={styles.dropCont}>
                                     <img src={drop} alt="DropDown" className={styles.dropButton}/>
                                 </div>
                             </button>
                         ) : (<Link to='/login' className={styles.logout}>
-                            <p className={styles.buttonText}>Login</p>
+                            <p className={styles.buttonText}>Войти</p>
                             <div className={styles.dropCont}>
                                 <img src={drop} alt="DropDown" className={styles.dropButton}/>
                             </div>
