@@ -18,13 +18,13 @@ import MatchTable from "../components/MatchTable/MatchTable";
 
 
 const MatchInfo = () => {
-    const {id} = useParams();
+    const { id } = useParams();
     const [info, setInfo] = useState<MatchInfoType>();
     const [isLoading, setIsLoading] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [memoizedId, setMemoizedId] = useState('');
     const [heroes, setHeroes] = useState<Heroes[]>();
-    const [title, setTitle] = useState('');
+    const [articleTitle, setArticleTitle] = useState('');
     const navigate = useNavigate();
 
     const filterPicks = () => {
@@ -54,10 +54,14 @@ const MatchInfo = () => {
         }
     }
 
-    const fetchData = async () => {
+    const fetchData = async (id: string | undefined) => {
+        let fetchId = id;
+        if (id?.includes('-')) {
+            fetchId = id.slice(0, 10);
+        }
         try {
             setIsLoading(true);
-            const {data} = await axios.get(`https://api.opendota.com/api/matches/${memoizedId || id}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`);
+            const {data} = await axios.get(`https://api.opendota.com/api/matches/${memoizedId || fetchId}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`);
             console.log(data);
             setInfo(data);
             setIsLoading(false);
@@ -92,20 +96,19 @@ const MatchInfo = () => {
             setMemoizedId(id);
             setIsOpen(true);
         }
-        fetchData();
+        fetchData(id);
         fetchHeroes();
     }, [])
 
-
     useEffect(() => {
-        if (title) {
-            navigate(`/match/${title}`);
+        if (articleTitle) {
+            navigate(`/match/${id}-${articleTitle}`);
         }
-    }, [title])
+    }, [articleTitle])
 
     useEffect(() => {
         if (info) {
-            setTitle(translit(`${info.dire_team.name} против ${info.radiant_team.name}`));
+            setArticleTitle(translit(`${info.dire_team.name} против ${info.radiant_team.name}`));
         }
     }, [info])
 
