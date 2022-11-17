@@ -88,13 +88,17 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
 
     useEffect(() => {
         if (posts && title) {
-            navigate(`/article/${translit(title)}`)
+            navigate(`/article/${id}-${translit(title)}`)
         }
     }, [posts, title])
 
     const fetchArticleData = async (id: string | undefined) => {
+        let fetchId = id;
+        if (id?.includes('-')) {
+            fetchId = id.slice(0, 24);
+        }
         try {
-                const { data } = await axios.get(`/posts/${id}`)
+                const { data } = await axios.get(`/posts/${fetchId}`)
                 setText(data.text);
                 setTitle(data.title);
                 setPreview(data.imageUrl);
