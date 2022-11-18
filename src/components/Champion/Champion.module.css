@@ -3,8 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
     border: 1px solid #ebebeb;
     margin-bottom: 15px;
 }
@@ -24,10 +24,20 @@
     text-align: center;
 }
 
-.teamName {
+.teamNameDire {
     margin: 0;
     font-weight: 700;
     color: black;
     font-size: 10px;
     text-align: center;
+    background: #bd0000;
+}
+
+.teamNameRad {
+    margin: 0;
+    font-weight: 700;
+    color: black;
+    font-size: 10px;
+    text-align: center;
+    background: #005200;
 }

@@ -9,14 +9,17 @@ import Footer from "../Footer/Footer";
 const helmetData = new HelmetData({});
 
 interface LayoutProps {
-    children: React.ReactNode
-    seoDescription: string
-    title: string
-    seoTitle: string
+    children: React.ReactNode;
+    seoDescription: string;
+    title: string;
+    seoTitle: string;
+    isRedirected?: boolean;
+    href?: string;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children,
-                                           seoDescription, title, seoTitle, ...props }): JSX.Element => {
+                                           seoDescription, title,
+                                           seoTitle, isRedirected = false, href, ...props }): JSX.Element => {
     return (
         <div>
             <Helmet helmetData={helmetData}>
@@ -25,6 +28,7 @@ const Layout: React.FC<LayoutProps> = ({ children,
                     content={seoDescription}
                 />
                 <title>{seoTitle}</title>
+                {isRedirected && <link rel='canonical' href={href} />}
             </Helmet>
             <Header/>
             <WhiteHeading/>

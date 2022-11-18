@@ -18,7 +18,7 @@ import MatchTable from "../components/MatchTable/MatchTable";
 
 
 const MatchInfo = () => {
-    const { id } = useParams();
+    const {id} = useParams();
     const [info, setInfo] = useState<MatchInfoType>();
     const [isLoading, setIsLoading] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
@@ -75,7 +75,7 @@ const MatchInfo = () => {
         let intersectArr: any[] = [];
         if (heroes && picksArr) {
             for (let i = 0; i < heroes.length; i++) {
-                if (intersectArr.length <= 10) {
+                if (intersectArr.length <= 14) {
                     picksArr.forEach((pick) => {
                         if (heroes[i].id === pick.hero_id) {
                             intersectArr.push({
@@ -119,7 +119,10 @@ const MatchInfo = () => {
     return (
         <Layout seoDescription={`Информация о матче ${info?.dire_team.name} против ${info?.radiant_team.name}`}
                 seoTitle={`Информация о матче ${info?.dire_team.name} против ${info?.radiant_team.name}`}
-                title={`Информация о матче ${info?.dire_team.name} против ${info?.radiant_team.name}`}>
+                title={`Информация о матче ${info?.dire_team.name} против ${info?.radiant_team.name}`}
+                isRedirected={true}
+                href={`https://dota2.su/match/${id}-${articleTitle}`}
+        >
             <div className={styles.content}>
                 <div className={styles.info}>
                     <p className={styles.league}>{info?.league.name ?? 'Загрузка...'}</p>
@@ -136,7 +139,6 @@ const MatchInfo = () => {
                     </div>
                     <div className={styles.score}>
                         <p className={styles.scoreCount}>{info?.dire_score ?? 'Загрузка...'} - {info?.radiant_score ?? 'Загрузка...'}</p>
-                        <p className={styles.stage}>{info?.league.tier ?? 'Загрузка...'}</p>
                     </div>
                     <div className={styles.team}>
                         <img src={info?.dire_team.logo_url} alt="Team2" className={styles.teamLogo}/>
@@ -202,32 +204,41 @@ const MatchInfo = () => {
                     <div className={styles.separator}/>
                     <ul className={styles.picksBans}>
                         {intersect(filterBans()).map((item, index) => (
-                            <Champion key={index + 4} item={item.hero} index={index}/>))}
+                            <Champion
+                                key={index + 4}
+                                item={item.hero}
+                                index={index}
+                                teamId={item.team}
+                                radiantTeam={info?.radiant_team.name}
+                                direTeam={info?.dire_team.name}
+                            />))}
                     </ul>
                 </div>
                 <div className={styles.sectionHeading}>
                     <h2 className={styles.listHeading}>Команда света {info?.radiant_team.name}</h2>
                     <div className={styles.separator}/>
                 </div>
-                {info && heroes && <MatchTable data={info.players.slice(0, 5) as unknown as PlayerFull[]} heroes={heroes} />}
+                {info && heroes &&
+                <MatchTable data={info.players.slice(0, 5) as unknown as PlayerFull[]} heroes={heroes}/>}
                 <div className={styles.sectionHeading}>
                     <h2 className={styles.listHeading}>Команда тьмы {info?.dire_team.name}</h2>
                     <div className={styles.separator}/>
                 </div>
-                {info && heroes && <MatchTable data={info.players.slice(5, 10) as unknown as PlayerFull[]} heroes={heroes} />}
+                {info && heroes &&
+                <MatchTable data={info.players.slice(5, 10) as unknown as PlayerFull[]} heroes={heroes}/>}
                 {info?.radiant_gold_adv && (<>
                     <div className={styles.sectionHeading}>
                         <h2 className={styles.listHeading}>Статистика игры по золоту</h2>
                         <div className={styles.separator}/>
                     </div>
-                    <Graph data={info.radiant_gold_adv} isGold={true} />
+                    <Graph data={info.radiant_gold_adv} isGold={true}/>
                 </>)}
                 {info?.radiant_xp_adv && (<>
                     <div className={styles.sectionHeading}>
                         <h2 className={styles.listHeading}>Статистика игры по опыту</h2>
                         <div className={styles.separator}/>
                     </div>
-                    <Graph data={info.radiant_xp_adv} isGold={false} />
+                    <Graph data={info.radiant_xp_adv} isGold={false}/>
                 </>)}
                 <div className={styles.replay}>
                     <h2 className={styles.listHeading}>Посмотреть матчи</h2>

@@ -21,7 +21,7 @@ const Champion: React.FC<ChampionProps> = ({ item, index, teamId, direTeam, radi
             />
             <p className={styles.text}>{index+1}.</p>
             <p className={styles.text}>{item}</p>
-            {teamId !== undefined && <p className={styles.teamName}>{teamId ===  0 ? direTeam : radiantTeam}</p>}
+            {teamId !== undefined && <p className={teamId === 0 ? styles.teamNameDire : styles.teamNameRad}>{teamId ===  0 ? direTeam : radiantTeam}</p>}
         </li>
     );
 };
