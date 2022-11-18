@@ -28,12 +28,12 @@ const MatchInfo = () => {
     const [articleTitle, setArticleTitle] = useState('');
     const navigate = useNavigate();
 
-    const filterPicks = () => {
-        return info?.picks_bans.filter((item) => item.is_pick);
+    const filterPicks = (info: MatchInfoType) => {
+        return info.picks_bans.filter((item) => item.is_pick);
     }
 
-    const filterBans = () => {
-        return info?.picks_bans.filter((item) => !item.is_pick);
+    const filterBans = (info: MatchInfoType) => {
+        return info.picks_bans.filter((item) => !item.is_pick);
     }
 
     const fetchHeroes = async () => {
@@ -71,27 +71,6 @@ const MatchInfo = () => {
         }
     }
 
-    const intersect = (arr: any[] | undefined) => {
-        let picksArr = arr;
-        let intersectArr: any[] = [];
-        if (heroes && picksArr) {
-            for (let i = 0; i < heroes.length; i++) {
-                if (intersectArr.length <= 14) {
-                    picksArr.forEach((pick) => {
-                        if (heroes[i].id === pick.hero_id) {
-                            intersectArr.push({
-                                hero: heroes[i].localized_name,
-                                id: heroes[i].id,
-                                team: pick.team,
-                            });
-                        }
-                    })
-                }
-            }
-        }
-        return intersectArr;
-    }
-
     useEffect(() => {
         if (!isOpen && id) {
             setMemoizedId(id);
@@ -99,6 +78,7 @@ const MatchInfo = () => {
         }
         fetchData(id);
         fetchHeroes();
+
     }, [])
 
     useEffect(() => {
@@ -192,13 +172,14 @@ const MatchInfo = () => {
                     <h2 className={styles.listHeading}>Пики героев</h2>
                     <div className={styles.separator}/>
                     <ul className={styles.picksBans}>
-                        {intersect(filterPicks()).map((item, index) => (<Champion
+                        {heroes && info && filterPicks(info).map((item, index) => (<Champion
                             key={index + 3}
-                            item={item.hero}
                             index={index}
                             teamId={item.team}
                             radiantTeam={info?.radiant_team.name}
                             direTeam={info?.dire_team.name}
+                            id={item.hero_id}
+                            heroes={heroes}
                         />))}
                     </ul>
                 </div>
@@ -206,14 +187,15 @@ const MatchInfo = () => {
                     <h2 className={styles.listHeading}>Баны героев</h2>
                     <div className={styles.separator}/>
                     <ul className={styles.picksBans}>
-                        {intersect(filterBans()).map((item, index) => (
+                        {heroes && info && filterBans(info).map((item, index) => (
                             <Champion
                                 key={index + 4}
-                                item={item.hero}
                                 index={index}
                                 teamId={item.team}
                                 radiantTeam={info?.radiant_team.name}
                                 direTeam={info?.dire_team.name}
+                                id={item.hero_id}
+                                heroes={heroes}
                             />))}
                     </ul>
                 </div>
