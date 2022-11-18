@@ -140,7 +140,7 @@ const MatchInfo = () => {
                         <img src={info?.radiant_team.logo_url} alt="Team1" className={styles.teamLogo}/>
                     </div>
                     <div className={styles.score}>
-                        <p className={styles.scoreCount}>{info?.dire_score ?? 'Загрузка...'} - {info?.radiant_score ?? 'Загрузка...'}</p>
+                        <p className={styles.scoreCount}>{info?.radiant_score ?? 'Загрузка...'} - {info?.dire_score ?? 'Загрузка...'}</p>
                     </div>
                     <div className={styles.team}>
                         <img src={info?.dire_team.logo_url} alt="Team2" className={styles.teamLogo}/>
