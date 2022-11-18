@@ -79,6 +79,11 @@
     align-items: center;
 }
 
+.winner {
+    width: 16px;
+    height: 16px;
+}
+
 .teamName {
     margin: 0;
     text-transform: uppercase;
@@ -91,6 +96,7 @@
 
 .teamText {
     margin: 0 20px;
+    text-align: center;
 }
 
 .teamCountry {

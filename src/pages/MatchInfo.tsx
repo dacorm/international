@@ -15,6 +15,7 @@ import {translit} from "../helpers/translateText";
 import Champion from "../components/Champion/Champion";
 import Graph from "../components/Graph/Graph";
 import MatchTable from "../components/MatchTable/MatchTable";
+import cup from "../assets/images/cup-svgrepo-com.svg";
 
 
 const MatchInfo = () => {
@@ -61,7 +62,7 @@ const MatchInfo = () => {
         }
         try {
             setIsLoading(true);
-            const {data} = await axios.get(`https://api.opendota.com/api/matches/${memoizedId || fetchId}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`);
+            const {data} = await axios.get(`https://api.opendota.com/api/matches/${fetchId}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`);
             console.log(data);
             setInfo(data);
             setIsLoading(false);
@@ -131,6 +132,7 @@ const MatchInfo = () => {
                 <div className={styles.match}>
                     <div className={styles.team}>
                         <div className={styles.teamText}>
+                            {info?.radiant_win && <img src={cup} alt="winner icon" className={styles.winner}/>}
                             <p className={styles.teamName}>{info?.radiant_team.name ?? 'Загрузка...'}</p>
                             <p className={styles.teamCountry}>{info?.radiant_team.tag ?? 'Загрузка...'}</p>
                             <p className={styles.teamCountry}>Сторона света</p>
@@ -143,6 +145,7 @@ const MatchInfo = () => {
                     <div className={styles.team}>
                         <img src={info?.dire_team.logo_url} alt="Team2" className={styles.teamLogo}/>
                         <div className={styles.teamText}>
+                            {!info?.radiant_win && <img src={cup} alt="winner icon" className={styles.winner}/>}
                             <p className={styles.teamName}>{info?.dire_team.name ?? 'Загрузка...'}</p>
                             <p className={styles.teamCountry}>{info?.dire_team.tag ?? 'Загрузка...'}</p>
                             <p className={styles.teamCountry}>Сторона тьмы</p>
