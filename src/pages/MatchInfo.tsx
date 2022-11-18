@@ -82,7 +82,7 @@ const MatchInfo = () => {
     }, [])
 
     useEffect(() => {
-        if (articleTitle) {
+        if (articleTitle && !id?.includes('-')) {
             navigate(`/match/${id}-${articleTitle}`);
         }
     }, [articleTitle])
@@ -102,7 +102,7 @@ const MatchInfo = () => {
                 seoTitle={`Информация о матче ${info?.dire_team.name} против ${info?.radiant_team.name}`}
                 title={`Информация о матче ${info?.dire_team.name} против ${info?.radiant_team.name}`}
                 isRedirected={true}
-                href={`https://dota2.su/match/${id}-${articleTitle}`}
+                href={`https://dota2.su/match/${id}`}
         >
             <div className={styles.content}>
                 <div className={styles.info}>
