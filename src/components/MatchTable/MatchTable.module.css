@@ -4,6 +4,12 @@
     border: 1px solid #ebebeb;
 }
 
+@media screen and (max-width: 767px) {
+    .table {
+        overflow: auto;
+    }
+}
+
 .listHeading {
     font-size: 14px;
     text-transform: uppercase;
@@ -30,6 +36,13 @@
     font-family: 'Exo', sans-serif;
     font-size: 12px;
     font-weight: 700;
+}
+
+@media screen and (max-width: 767px) {
+    .heading {
+        width: 768px;
+        overflow: auto;
+    }
 }
 
 .headingItemFirst {

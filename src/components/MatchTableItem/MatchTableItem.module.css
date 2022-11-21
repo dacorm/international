@@ -10,6 +10,13 @@
     padding: 15px;
 }
 
+@media screen and (max-width: 767px) {
+    .table {
+        width: 768px;
+        overflow: auto;
+    }
+}
+
 .tableItemFirst {
     margin-right: 35px;
     width: 200px;
