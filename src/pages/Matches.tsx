@@ -25,25 +25,12 @@ import Layout from "../components/Layout/Layout";
 
 const Matches = () => {
     const [loading, setLoading] = useState(false);
-    const [teamLogo, setTeamLogo] = useState([logo1, logo2, logo3, logo4]);
-    const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
     const slider = useRef<HTMLDivElement>(null);
     const navigate = useNavigate();
     const [items, setItems] = useState<ProMatchJSON[]>([]);
     const [filteredItems, setFilteredItems] = useState<ProMatchJSON[]>([]);
     const [position, setPosition] = useState(0);
     const {id} = useParams();
-
-    useEffect(() => {
-        let arr = [];
-
-        if (items) {
-            for (let i = 0; i < items.length; i++) {
-                arr.push(randomNumber(0, 4))
-            }
-            setRandomNumbers(arr)
-        }
-    }, [items])
 
     useEffect(() => {
         navigate(`/calendar/${new Date().getDate()}`)
@@ -120,8 +107,7 @@ const Matches = () => {
                     {
                         filteredItems.length > 0 ? filteredItems.map((item, index) => (
                             <SingleMatch
-                                logo={teamLogo[randomNumbers[index]]}
-                                logo2={teamLogo[randomNumbers[index + 1]]}
+                                matchId={item.match_id}
                                 key={item.match_id}
                                 leagueName={item.league_name}
                                 playTime={unixTimeStampConverterToTime(item.start_time)}

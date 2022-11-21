@@ -1,60 +1,80 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "./SingleMatch.module.css";
 import cup from '../../assets/images/cup-svgrepo-com.svg';
-import {imagesData} from "../Match/Match";
 import logo2 from "../../assets/images/02.png";
+import {MatchInfoType} from "../../@types/serverType";
+import axios from "axios";
+import {Link} from "react-router-dom";
 
 
 type SingleMatchProps = {
-    leagueName: string
-    playTime: string
-    direName: string
-    direScore: number
-    radiantName: string
-    radiantScore: number
-    logo: string
-    logo2: string
+    leagueName: string;
+    playTime: string;
+    direName: string;
+    direScore: number;
+    radiantName: string;
+    radiantScore: number;
+    matchId: number;
 }
 
-const SingleMatch: React.FC<SingleMatchProps> = ({ leagueName, logo, logo2, playTime, direName, direScore, radiantName, radiantScore }) => {
-
-    const direTeamImageConverter = () => {
-        let image = logo;
-        imagesData.forEach((item) => {
-            if (item.name === direName) {
-                image = item.image;
-            }
-        })
-        return image
-    }
-
-    const radiantTeamImageConverter = () => {
-        let image = logo2;
-        imagesData.forEach((item) => {
-            if (item.name === radiantName) {
-                image = item.image;
-            }
-        })
-        return image
-    }
-
+const SingleMatch: React.FC<SingleMatchProps> = ({ leagueName,
+                                                     playTime, direName, direScore, radiantName, radiantScore, matchId }) => {
+    const [data, setData] = useState<MatchInfoType | null>();
+    const [isLoading, setIsLoading] = useState(false);
+    const [logo, setLogo] = useState(logo2);
+    const [logoRad, setLogoRad] = useState(logo2);
     const isWinner = Boolean(radiantScore > direScore)
 
+    const fetchData = async (matchId: number) => {
+        try {
+            setIsLoading(true);
+            const {data} = await axios.get(`https://api.opendota.com/api/matches/${matchId}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`);
+            setData(data);
+            setIsLoading(false);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    useEffect(() => {
+        const logoUrlConverterDire = (url: string | null | undefined) => {
+            if (url) return setLogo(url);
+            return
+        }
+
+        const logoUrlConverterRad = (url: string | null | undefined) => {
+            if (url) return setLogoRad(url);
+            return
+        }
+
+        if (data?.radiant_team) {
+            logoUrlConverterRad(data.radiant_team.logo_url)
+        }
+
+        if (data?.dire_team) {
+            logoUrlConverterDire(data.dire_team.logo_url)
+        }
+    }, [data])
+
+    useEffect(() => {
+       fetchData(matchId);
+    }, [])
+
     return (
-        <div className={styles.singleMatch}>
+        <Link to={`/match/${matchId}`} className={styles.singleMatch}>
             <h2 className={styles.listHeading}>{leagueName}</h2>
             <div className={styles.separator}/>
             <div className={styles.matchWrapper}>
                 <p className={styles.time}>Матч окончен: {playTime}</p>
                 <div className={styles.teams}>
                     <div className={styles.team}>
-                        <img src={direTeamImageConverter()} alt="Team1Logo" className={styles.logo}/>
+                        <img src={logo} alt="Team1Logo" className={styles.logo}/>
                         <p className={styles.teamName}>{direName}</p>
                         <p className={styles.score}>{direScore}</p>
                         {!isWinner && (<img src={cup} alt="winner icon" className={styles.winner}/>)}
                     </div>
                     <div className={styles.team}>
-                        <img src={radiantTeamImageConverter()} alt="Team2Logo" className={styles.logo}/>
+                        <img src={logoRad} alt="Team2Logo" className={styles.logo}/>
                         <p className={styles.teamName}>{radiantName}</p>
                         <p className={styles.score}>{radiantScore}</p>
                         {isWinner && (<img src={cup} alt="winner icon" className={styles.winner}/>)}
@@ -62,7 +82,7 @@ const SingleMatch: React.FC<SingleMatchProps> = ({ leagueName, logo, logo2, play
                     </div>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 

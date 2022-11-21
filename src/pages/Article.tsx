@@ -87,7 +87,7 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
     }, [])
 
     useEffect(() => {
-        if (posts && title) {
+        if (posts && title && !id?.includes('-')) {
             navigate(`/article/${id}-${translit(title)}`)
         }
     }, [posts, title])
@@ -134,6 +134,7 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
                     content={`Последние новости по dota 2 - ${title} - на сайте international11.com`}
                 />
                 <title> {title} - последние новости на нашем сайте international11.com</title>
+                <link rel='canonical' href={`https://dota2.su/article/${id}`} />
             </Helmet>
             <Header/>
             <WhiteHeading/>
