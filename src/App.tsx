@@ -17,6 +17,7 @@ const MatchOverviewPage = React.lazy(() => import('./pages/MatchInfo'));
 const PlayersPage = React.lazy(() => import('./pages/Players'));
 const NewsPage = React.lazy(() => import('./pages/News'));
 const PlayerPage = React.lazy(() => import('./pages/PlayerOverview'));
+const LivePage = React.lazy(() => import('./pages/Live'));
 
 
 
@@ -160,6 +161,14 @@ function App() {
                     element={
                         <Suspense fallback={<FallbackLoader />}>
                             <NewsPage/>
+                        </Suspense>
+                    }
+                />
+                <Route
+                    path="live"
+                    element={
+                        <Suspense fallback={<FallbackLoader />}>
+                            <LivePage />
                         </Suspense>
                     }
                 />

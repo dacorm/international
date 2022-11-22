@@ -1,0 +1,17 @@
+.content {
+    height: 1000px;
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.table {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+}

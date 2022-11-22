@@ -120,7 +120,7 @@ const Matches = () => {
                         </div>)
                     }
                 </div>}
-                <a href='https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1' target='_blank' className={styles.banner} />
+                <a href='https://promote.betcity.ru/freebet500app/' target='_blank' className={styles.banner} />
             </div>
         </Layout>
     );
