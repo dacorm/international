@@ -1,0 +1,23 @@
+.item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.firstWrap {
+    display: flex;
+    align-items: center;
+}
+
+.wrapSecond {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dotaIcon {
+    width: 30px;
+    height: 30px;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Live.module.css';
 import Layout from "../components/Layout/Layout";
+import LiveTableItem from "../components/LiveTableItem/LiveTableItem";
 
 const Live = () => {
     return (
@@ -11,6 +12,7 @@ const Live = () => {
                 Matches
                 <ul className={styles.table}>
                     <li className={styles.tableHeading}>22.11.2022</li>
+                    <LiveTableItem />
                 </ul>
             </div>
         </Layout>
