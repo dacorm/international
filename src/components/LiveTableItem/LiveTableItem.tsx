@@ -22,9 +22,7 @@ const LiveTableItem = () => {
                     <p>3.30</p>
                 </div>
             </div>
-            <div>
-                <p>BTS LEAGUE</p>
-            </div>
+            <p className={styles.league}>BTS LEAGUE</p>
         </li>
     );
 };

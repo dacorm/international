@@ -9,6 +9,7 @@
 .firstWrap {
     display: flex;
     align-items: center;
+    gap: 8px;
 }
 
 .wrapSecond {
@@ -20,4 +21,9 @@
 .dotaIcon {
     width: 30px;
     height: 30px;
+}
+
+.league {
+    width: 100px;
+    text-align: center;
 }
