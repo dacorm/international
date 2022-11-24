@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Match.module.css';
 import logo1 from '../../assets/images/01.png';
 import logo2 from '../../assets/images/02.png';
@@ -23,6 +23,8 @@ import rng from '../../assets/images/intTeams/rng.webp';
 import talon from '../../assets/images/intTeams/talon.webp';
 import secret from '../../assets/images/intTeams/secret.webp';
 import liquid from '../../assets/images/intTeams/liquid.webp';
+import axios from "axios";
+import {MatchInfoType} from "../../@types/serverType";
 
 
 export const imagesData = [{
@@ -98,6 +100,42 @@ type MatchProps = {
 }
 
 const Match: React.FC<MatchProps> = ({ radiantName, direName, radiantScore, direScore, league, date, id }) => {
+    const [data, setData] = useState<MatchInfoType | null>();
+    const [logoDire, setLogoDire] = useState(logo1);
+    const [logoRad, setLogoRad] = useState(logo2);
+
+    const fetchData = async (matchId: number) => {
+        try {
+            const {data} = await axios.get(`https://api.opendota.com/api/matches/${matchId}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`);
+            setData(data);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    useEffect(() => {
+       fetchData(id);
+    }, [])
+
+    useEffect(() => {
+        const logoUrlConverterDire = (url: string | null | undefined) => {
+            if (url) return setLogoDire(url);
+            return
+        }
+
+        const logoUrlConverterRad = (url: string | null | undefined) => {
+            if (url) return setLogoRad(url);
+            return
+        }
+
+        if (data?.radiant_team) {
+            logoUrlConverterRad(data.radiant_team.logo_url)
+        }
+
+        if (data?.dire_team) {
+            logoUrlConverterDire(data.dire_team.logo_url)
+        }
+    }, [data])
 
     const direTeamImageConverter = () => {
         let image = logo1;
@@ -133,12 +171,12 @@ const Match: React.FC<MatchProps> = ({ radiantName, direName, radiantScore, dire
         <Link to={`/match/${id}`} className={styles.match}>
             <div className={styles.teams}>
                 <div className={styles.team}>
-                    <img src={direTeamImageConverter()} alt="Team1Logo" className={styles.logo}/>
+                    <img src={logoDire} alt="Team1Logo" className={styles.logo}/>
                     <p className={styles.teamName}>{direName}</p>
                     <p className={styles.score}>{direScore}</p>
                 </div>
                 <div className={styles.team}>
-                    <img src={radiantTeamImageConverter()} alt="Team2Logo" className={styles.logo}/>
+                    <img src={logoRad} alt="Team2Logo" className={styles.logo}/>
                     <p className={styles.teamName}>{radiantName}</p>
                     <p className={styles.score}>{radiantScore}</p>
                 </div>
