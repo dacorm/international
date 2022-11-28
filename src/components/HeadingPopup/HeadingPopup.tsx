@@ -155,7 +155,7 @@ const HeadingPopup: React.FC<popupProps> = ({ className, lazy, isOpen }) => {
             </div>
             {
                 isLoading ? <Preloader /> : (<div className={styles.featuredMatch}>
-                    <h2 className={styles.listHeading}>Featured Match</h2>
+                    <h2 className={styles.listHeading}>Ближайший матч</h2>
                     <div className={styles.separator}/>
                     <div className={styles.matchinfo}>
                         <p className={styles.league}>{items.map((item) => item.league_name)}</p>
@@ -179,7 +179,7 @@ const HeadingPopup: React.FC<popupProps> = ({ className, lazy, isOpen }) => {
                 </div>)
             }
             <div className={styles.articles}>
-                <h2 className={styles.listHeading}>Featured Articles</h2>
+                <h2 className={styles.listHeading}>Последние статьи</h2>
                 <div className={styles.separator}/>
                 <ul className={styles.articlesUl}>
                     {
