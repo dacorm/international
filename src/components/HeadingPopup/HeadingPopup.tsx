@@ -5,6 +5,13 @@ import team2 from '../../assets/images/02.png';
 import post from '../../assets/images/36.jpg';
 import cn from 'classnames';
 import Post from "../Post/Post";
+import {useAppDispatch, useAppSelector} from "../../assets/hooks";
+import {convertDate} from "../../helpers/convertDate";
+import {useGetLastMatch} from "../../hooks/useGetLastMatch";
+import Preloader from "../Preloader/Preloader";
+import {unixTimeStampConverterToTime} from "../../helpers/unixConverters";
+import axios from "axios";
+import {MatchInfoType} from "../../@types/serverType";
 
 type popupProps = {
     className: string
@@ -12,35 +19,14 @@ type popupProps = {
     isOpen: boolean
 }
 
-const postsData = [{
-    title: 'gwen parker is leading her team to the semifinals',
-    author: 'Dexter',
-    date: 'Dec, 15th',
-    id: 30
-},{
-    title: 'Pro Soccer League Kicked Off Today!!',
-    author: 'Faye V.',
-    date: 'Dec, 15th',
-    id: 31
-},{
-    title: 'Last night the wolves beat the rhinos 12-10',
-    author: 'Dexter',
-    date: 'Dec, 15th',
-    id: 32
-},{
-    title: 'gwen parker is leading her team to the semifinals',
-    author: 'Dexter',
-    date: 'Dec, 15th',
-    id: 33
-},{
-    title: 'gwen parker is leading her team to the semifinals',
-    author: 'Dexter',
-    date: 'Dec, 15th',
-    id: 34
-},]
-
 const HeadingPopup: React.FC<popupProps> = ({ className, lazy, isOpen }) => {
     const [isMounted, setIsMounted] = useState(false);
+    const [logoRad, setLogoRad] = useState(team1);
+    const [logoDire, setLogoDire] = useState(team2);
+    const [data, setData] = useState<MatchInfoType | null>();
+    const dispatch = useAppDispatch();
+    const {posts} = useAppSelector(state => state.posts);
+    const { items, isLoading } = useGetLastMatch();
 
 
     useEffect(() => {
@@ -48,6 +34,41 @@ const HeadingPopup: React.FC<popupProps> = ({ className, lazy, isOpen }) => {
             setIsMounted(true);
         }
     }, [isOpen])
+
+    useEffect(() => {
+        const fetchLogo = async (matchId: number) => {
+            try {
+                const {data} = await axios.get(`https://api.opendota.com/api/matches/${matchId}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`);
+                setData(data);
+            } catch (e) {
+                console.log(e);
+            }
+        }
+
+        if (items.length > 0) {
+            fetchLogo(items[0].match_id);
+        }
+    }, [items])
+
+    useEffect(() => {
+        const logoUrlConverterDire = (url: string | null | undefined) => {
+            if (url) return setLogoDire(url);
+            return
+        }
+
+        const logoUrlConverterRad = (url: string | null | undefined) => {
+            if (url) return setLogoRad(url);
+            return
+        }
+
+        if (data?.radiant_team) {
+            logoUrlConverterRad(data.radiant_team.logo_url)
+        }
+
+        if (data?.dire_team) {
+            logoUrlConverterDire(data.dire_team.logo_url)
+        }
+    }, [data])
 
     if (lazy && !isMounted) {
         return null
@@ -132,42 +153,44 @@ const HeadingPopup: React.FC<popupProps> = ({ className, lazy, isOpen }) => {
                     </ul>
                 </div>
             </div>
-            <div className={styles.featuredMatch}>
-                <h2 className={styles.listHeading}>Featured Match</h2>
-                <div className={styles.separator}/>
-                <div className={styles.matchinfo}>
-                    <p className={styles.league}>xenowatch league finals</p>
-                    <p className={styles.date}>August 28th</p>
-                </div>
-                <div className={styles.match}>
-                    <div className={styles.team}>
-                        <img src={team1} alt="Team One" className={styles.teamLogo}/>
-                        <div className={styles.teamInf}>
-                            <p className={styles.teamName}>The Lone Wolves</p>
-                            <p className={styles.teamCountry}>United States</p>
+            {
+                isLoading ? <Preloader /> : (<div className={styles.featuredMatch}>
+                    <h2 className={styles.listHeading}>Featured Match</h2>
+                    <div className={styles.separator}/>
+                    <div className={styles.matchinfo}>
+                        <p className={styles.league}>{items.map((item) => item.league_name)}</p>
+                        <p className={styles.date}>{items.map((item) => unixTimeStampConverterToTime(item.start_time))}</p>
+                    </div>
+                    <div className={styles.match}>
+                        <div className={styles.team}>
+                            <img src={logoDire} alt="Team One" className={styles.teamLogo}/>
+                            <div className={styles.teamInf}>
+                                <p className={styles.teamName}>{items.map((item) => item.dire_name)}</p>
+                            </div>
+                        </div>
+                        <p className={styles.vs}>VS</p>
+                        <div className={styles.team}>
+                            <img src={logoRad} alt="Team Two" className={styles.teamLogo}/>
+                            <div className={styles.teamInf}>
+                                <p className={styles.teamName}>{items.map((item) => item.radiant_name)}</p>
+                            </div>
                         </div>
                     </div>
-                    <p className={styles.vs}>VS</p>
-                    <div className={styles.team}>
-                        <img src={team2} alt="Team Two" className={styles.teamLogo}/>
-                        <div className={styles.teamInf}>
-                            <p className={styles.teamName}>The Racing Rhinos</p>
-                            <p className={styles.teamCountry}>South Africa</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </div>)
+            }
             <div className={styles.articles}>
                 <h2 className={styles.listHeading}>Featured Articles</h2>
                 <div className={styles.separator}/>
                 <ul className={styles.articlesUl}>
                     {
-                        postsData.map((post, index) => ( <Post
+                        posts?.items?.slice(0, posts?.items?.length).reverse().slice(0, 4).map((post) => (<Post
                             title={post.title}
-                            author={post.author}
-                            date={post.date}
-                            key={post.id}
-                            id={String(post.id)}
+                            author={'Admin'}
+                            date={convertDate(post.createdAt.toString())}
+                            key={post._id}
+                            id={post._id}
+                            image={post.imageUrl}
+                            className={styles.postText}
                         />))
                     }
                 </ul>

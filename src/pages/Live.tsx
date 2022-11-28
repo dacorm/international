@@ -4,16 +4,19 @@ import Layout from "../components/Layout/Layout";
 import LiveTableItem from "../components/LiveTableItem/LiveTableItem";
 import axios from "axios";
 
+const
+    headers = {
+        'Content-Encoding': 'gzip',
+        'PRTN': 'Rpdj5sD7N2kKzzvwKTPSdapl2mMyAIuM',
+    }
+
 const Live = () => {
     const [matches, setMatches] = useState();
 
     const fetchMatches = async () => {
         try {
-            const data = await axios.get('http://prt.betcity.ru/api/v2/events', {
-                headers: {
-                    PRTN: 'aTSSx0NEY8INJk9J69PQk1nE',
-                    'Accept-Encoding': 'gzip'
-                }
+            const data = await axios.get('http://prt.betcity.ru/api/v2/events?rev=1', {
+                headers: headers,
             });
             console.log(data);
         } catch (e) {

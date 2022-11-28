@@ -15,22 +15,6 @@ import {useAppDispatch, useAppSelector} from "../../assets/hooks";
 import {fetchPosts} from "../../redux/slices/posts";
 import {convertDate} from "../../helpers/convertDate";
 
-const postsData = [{
-    title: 'gwen parker is leading her team to the semifinals',
-    author: 'Dexter',
-    date: 'Dec, 15th',
-    id: 35,
-}, {
-    title: 'Pro Soccer League Kicked Off Today!!',
-    author: 'Faye V.',
-    date: 'Dec, 15th',
-    id: 36
-}, {
-    title: 'Last night the wolves beat the rhinos 12-10',
-    author: 'Dexter',
-    date: 'Dec, 15th',
-    id: 37
-},]
 
 const Footer = () => {
     const slider = useRef<HTMLDivElement>(null);

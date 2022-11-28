@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {MouseEventHandler, useEffect, useRef, useState} from 'react';
 import styles from './WhiteHeading.module.css';
 import logo from '../../assets/images/logo.jpg';
 import drop from '../../assets/images/drop2.svg';
@@ -13,34 +13,42 @@ type HeadingProps = {
     className?: string
 }
 
+type PopupClick = MouseEvent & {
+    path: Node[];
+};
+
 const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
     const [open, setOpen] = useState(false);
-    const [visible, setVisible] = useState(false);
+    const navRef = useRef<HTMLDivElement>(null);
 
-    const togglePopup = () => {
+    const togglePopup = (e: MouseEvent) => {
         if (!open) {
             setOpen(true);
             document.body.style.overflow = "hidden"
         } else {
             setOpen(false);
             document.body.style.overflow = "auto"
-
         }
+        console.log(e.target);
     }
 
-    const toggleSecondPopup = () => {
-        if (!visible) {
-            setVisible(true);
-            document.body.style.overflow = "hidden"
-        } else {
-            setVisible(false);
-            document.body.style.overflow = "auto"
-        }
-    }
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            const _event = event as PopupClick;
+
+            if (navRef.current && !_event.path.includes(navRef.current)) {
+                setOpen(false);
+            }
+        };
+
+        document.body.addEventListener('click', handleClickOutside);
+
+        return () => document.body.removeEventListener('click', handleClickOutside);
+    }, []);
 
     return (
         <>
-            <nav className={cn(styles.whiteNav, className)}>
+            <nav className={cn(styles.whiteNav, className)} ref={navRef}>
                 <div className={styles.before}></div>
                 <Link to='/' className={styles.logo}>
                     <img src={logo} alt="Logo" className={styles.logoImg}/>
@@ -53,7 +61,9 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
                     <li className={styles.menuItem}>
                         <Link to='/players' className={styles.menuText}>Топ игроков</Link>
                     </li>
-                    <li className={styles.menuItem} onClick={togglePopup} >
+                    <li className={styles.menuItem} onClick={(e) => {
+                        togglePopup(e as unknown as MouseEvent);
+                    }}>
                         <p className={styles.menuText}>eSports</p>
                         <img src={drop} alt="dropDownIcon" className={styles.drop}/>
                     </li>
@@ -68,15 +78,10 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
                     <li className={styles.menuItem}>
                         <Link to='/calendar' className={styles.menuText}>Матчи</Link>
                     </li>
-                    <li className={styles.menuItem} onClick={toggleSecondPopup}>
+                    <li className={styles.menuItem}>
                         <p className={styles.menuText}>Features</p>
                         <img src={drop} alt="dropDownIcon" className={styles.drop}/>
                     </li>
-                    {visible && <FeaturesPopup
-                        lazy={true}
-                        isOpen={visible}
-                        className={styles.popupFeatures}
-                    />}
                     <li className={styles.menuItem}>
                         <Link to='/tournament' className={styles.menuText}>TI2022</Link>
                     </li>

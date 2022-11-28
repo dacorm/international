@@ -137,26 +137,6 @@ const Match: React.FC<MatchProps> = ({ radiantName, direName, radiantScore, dire
         }
     }, [data])
 
-    const direTeamImageConverter = () => {
-        let image = logo1;
-        imagesData.forEach((item) => {
-            if (item.name === direName) {
-                image = item.image;
-            }
-        })
-        return image
-    }
-
-    const radiantTeamImageConverter = () => {
-        let image = logo2;
-        imagesData.forEach((item) => {
-            if (item.name === radiantName) {
-                image = item.image;
-            }
-        })
-        return image
-    }
-
     const leagueFormatter = (league: string) => {
         const leagueArr = league.split(' ');
         let formattedArr
