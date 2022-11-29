@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import styles from './FreebetPopup.module.css';
-import close from '../../assets/images/close_FILL0_wght400_GRAD0_opsz48.svg';
-import banner from '../../assets/images/300x350---5.gif';
+import styles from './ArticlePopup.module.css';
+import banner from "../../assets/images/Frame 6.png";
+import close from "../../assets/images/close_FILL0_wght400_GRAD0_opsz48.svg";
 
-type FreebetPopupProps = {
+interface ArticlePopupProps {
     onClose: () => void;
     lazy: boolean;
     isOpen: boolean;
 }
 
-const FreebetPopup: React.FC<FreebetPopupProps> = ({ onClose, lazy, isOpen }) => {
+const ArticlePopup: React.FC<ArticlePopupProps> = ({ onClose, lazy, isOpen }) => {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
@@ -34,4 +34,4 @@ const FreebetPopup: React.FC<FreebetPopupProps> = ({ onClose, lazy, isOpen }) =>
     );
 };
 
-export default FreebetPopup;
+export default ArticlePopup;

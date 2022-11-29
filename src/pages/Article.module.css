@@ -128,6 +128,29 @@
     margin: 0 0 20px 0;
 }
 
+.banner {
+    width: 1200px;
+    height: 60px;
+    margin: 0 auto 20px auto;
+    background-image: url("../assets/images/Frame 5.png");
+}
+
+@media screen and (max-width: 1279px) {
+    .banner {
+        background-image: url("../assets/images/Frame 6.png");
+        height: 300px;
+        width: 680px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .banner {
+        background-image: url("../assets/images/300x350---6.gif");
+        height: 350px;
+        width: 300px;
+    }
+}
+
 .Heading {
     font-size: 18px;
     font-family: 'Exo', sans-serif;

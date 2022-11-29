@@ -21,6 +21,7 @@ import {getRandomNumber} from "../helpers/getRandomNumber";
 import {selectIsAuth, selectName} from "../redux/slices/auth";
 import {translit} from "../helpers/translateText";
 import drop from "../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg";
+import ArticlePopup from "../components/ArticlePopup/ArticlePopup";
 
 const helmetData = new HelmetData({});
 
@@ -38,6 +39,7 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
     const [text, setText] = useState('');
     const [title, setTitle] = useState('');
     const [preview, setPreview] = useState('');
+    const [isVisible, setIsVisible] = useState(false);
     const [number, setNumber] = useState(0);
     const [isOpened, setIsOpened] = useState(isOpen || false);
     const {id} = useParams();
@@ -49,6 +51,16 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
     const [memoizedId, setMemoizedId] = useState('');
 
     const isUserAdmin = isAuth && (user.fullName === 'admin')
+
+    const onClose = () => {
+        setIsVisible(false);
+    }
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsVisible(true)
+        }, 15000)
+    }, [])
 
     useEffect(() => {
         let bool = true;
@@ -151,6 +163,11 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
                     {title ? title : 'Загрузка...'}
                 </h1>
             </div>
+            {isVisible && <ArticlePopup
+                lazy={true}
+                isOpen={isVisible}
+                onClose={onClose}
+            />}
             <div className={styles.articleMainText}>
                 <h2 className={styles.textTitle}>{title ?? 'Загрузка...'}</h2>
                 {isUserAdmin && <div className={styles.buttons}>
@@ -202,6 +219,7 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
                     />))
                 }
             </div>
+            <a href='https://promote.betcity.ru/freebet500app/' target='_blank' className={styles.banner} />
             <Footer/>
         </div>
     );
