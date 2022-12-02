@@ -6,7 +6,7 @@ import MainContent from "../components/MainContent/MainContent";
 import Footer from "../components/Footer/Footer";
 import MatchSlide from "../components/MatchSlide/MatchSlide";
 import {Helmet, HelmetData} from 'react-helmet-async';
-import FreebetPopup from "../components/FreebetPopup/FreebetPopup";
+import ArticlePopup from "../components/ArticlePopup/ArticlePopup";
 
 const helmetData = new HelmetData({});
 
@@ -33,7 +33,7 @@ const Home = () => {
                 />
                 <title>Турнир по Dota2 International 2022 - Интернешнл 2022 по Дота 2</title>
             </Helmet>
-            {isOpen && <FreebetPopup
+            {isOpen && <ArticlePopup
                 lazy={true}
                 isOpen={isOpen}
                 onClose={onClose}
