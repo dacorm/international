@@ -99,6 +99,7 @@
     outline: none;
     margin-left: 9px;
     height: 20px;
+    background-color: transparent;
 }
 
 @media screen and (max-width: 767px) {

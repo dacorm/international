@@ -15,7 +15,7 @@
 
 .articleDate {
     font-size: 11px;
-    color: #777;
+    color: var(--font-low);
     margin-right: 5px;
 }
 
@@ -28,7 +28,7 @@
 
 .articleAuthor {
     font-size: 11px;
-    color: #777;
+    color: var(--font-low);
     margin-right: 5px;
 }
 
@@ -80,7 +80,7 @@
     font-size: 30px;
     line-height: 1.1333333333em;
     font-family: 'Exo', sans-serif;
-    color: #363636;
+    color: var(--main);
     text-transform: uppercase;
     margin: 8px 0;
     max-width: 570px;
@@ -107,7 +107,7 @@
 
 .textPreview {
     margin: 8px 0;
-    color: #777;
+    color: var(--font-secondary);
     font-size: 13px;
 }
 

@@ -25,26 +25,26 @@ const Home = () => {
     }, [])
 
     return (
-        <div>
-            <Helmet helmetData={helmetData}>
-                <meta
-                    name="description"
-                    content="Информация о турнире The International 2022 по Dota 2. Расписание матчей, состав команд, статистика"
-                />
-                <title>Турнир по Dota2 International 2022 - Интернешнл 2022 по Дота 2</title>
-            </Helmet>
-            {isOpen && <ArticlePopup
-                lazy={true}
-                isOpen={isOpen}
-                onClose={onClose}
-            />}
-            <Header />
-            <Screen />
-            <TextSlide />
-            <MatchSlide />
-            <MainContent />
-            <Footer />
-        </div>
+        <>
+                <Helmet helmetData={helmetData}>
+                    <meta
+                        name="description"
+                        content="Информация о турнире The International 2022 по Dota 2. Расписание матчей, состав команд, статистика"
+                    />
+                    <title>Турнир по Dota2 International 2022 - Интернешнл 2022 по Дота 2</title>
+                </Helmet>
+                {isOpen && <ArticlePopup
+                    lazy={true}
+                    isOpen={isOpen}
+                    onClose={onClose}
+                />}
+                <Header/>
+                <Screen/>
+                <TextSlide/>
+                <MatchSlide/>
+                <MainContent/>
+                <Footer/>
+        </>
     );
 };
 

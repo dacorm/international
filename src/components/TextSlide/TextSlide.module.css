@@ -13,7 +13,7 @@
     display: grid;
     grid-template-columns: 25% 50% 25%;
     overflow: hidden;
-    background-color: var(--main);
+    background-color: #252627;
 }
 
 .left {

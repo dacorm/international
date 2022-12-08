@@ -12,6 +12,10 @@ body {
   padding: 0;
 }
 
+.app {
+  position: relative;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -19,5 +23,7 @@ code {
 
 :root {
   --primary: #1c95f3;
-  --main: #252627;
+  --main: #f5f5f5;
+  --font-secondary: #afc6c6;
+  --font-low: #c0c0c0;
 }

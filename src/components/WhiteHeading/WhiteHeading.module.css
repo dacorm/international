@@ -6,6 +6,8 @@
     height: 92px;
     box-sizing: border-box;
     overflow: hidden;
+    position: relative;
+    background-color: #ffffff;
 }
 
 @media screen and (max-width: 1332px) {
@@ -43,7 +45,7 @@
 .logoText {
     margin: 0;
     text-transform: uppercase;
-    color: var(--main);
+    color: #252627;
     font-size: 22px;
     font-weight: 700;
 }
@@ -100,7 +102,7 @@
 .menuText {
     font-size: 13px;
     font-weight: 700;
-    color: var(--main);
+    color: #252627;
     font-family: 'Exo', sans-serif;
     margin: 0;
     padding: 0;

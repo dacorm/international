@@ -1,12 +1,12 @@
 .articleAuthor {
     font-size: 11px;
-    color: #777;
+    color: var(--font-low);
     margin-right: 5px;
 }
 
 .articleDate {
     font-size: 11px;
-    color: #777;
+    color: var(--font-low);
     margin-right: 5px;
 }
 
@@ -101,6 +101,6 @@
 
 .textPreview {
     font-size: 14px;
-    color: #777;
+    color: var(--font-secondary);
     margin: 0;
 }
