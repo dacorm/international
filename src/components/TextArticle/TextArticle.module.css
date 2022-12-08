@@ -1,12 +1,12 @@
 .articleAuthor {
     font-size: 11px;
-    color: #777;
+    color: var(--font-low);
     margin-right: 5px;
 }
 
 .articleDate {
     font-size: 11px;
-    color: #777;
+    color: var(--font-low);
     margin-right: 5px;
 }
 
@@ -33,7 +33,7 @@
 
 .title {
     font-size: 17px;
-    color: #363636;
+    color: var(--font-secondary);
     font-family: 'Exo', sans-serif;
     text-transform: uppercase;
     margin: 0 0 5px 0;

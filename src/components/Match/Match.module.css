@@ -55,7 +55,7 @@
 .teamName {
     font-size: 11px;
     font-family: 'Exo', sans-serif;
-    color: #363636;
+    color: var(--font-secondary);
     text-transform: uppercase;
     font-weight: 700;
     width: 80px;
@@ -66,7 +66,7 @@
 .score {
     font-size: 11px;
     font-family: 'Exo', sans-serif;
-    color: #363636;
+    color: var(--font-secondary);
     text-transform: uppercase;
     font-weight: 700;
     margin: 0;
@@ -76,7 +76,7 @@
 .league {
     font-size: 11px;
     font-family: 'Exo', sans-serif;
-    color: #363636;
+    color: var(--font-secondary);
     text-transform: uppercase;
     font-weight: 700;
     margin: 0;

@@ -162,6 +162,7 @@
 }
 
 .Heading {
+    color: var(--main);
     font-size: 18px;
     font-family: 'Exo', sans-serif;
     text-transform: uppercase;
@@ -501,6 +502,7 @@
 }
 
 .question {
+    color: var(--font-secondary);
     font-size: 18px;
     text-transform: uppercase;
     font-family: 'Exo', sans-serif;

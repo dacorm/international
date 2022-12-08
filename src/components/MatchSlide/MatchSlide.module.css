@@ -31,7 +31,7 @@
     font-family: 'Exo', sans-serif;
     font-weight: 700;
     font-size: 11px;
-    color: #363636;
+    color: var(--font-secondary);
 }
 
 .sliderTrack {
@@ -92,9 +92,6 @@
 }
 
 @media screen and (min-width: 1500px) {
-    .slider {
-        width: 1650px;
-    }
 
     .sliderTrack {
         width: 1500px;
