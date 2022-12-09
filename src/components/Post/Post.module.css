@@ -10,7 +10,7 @@
     padding-bottom: 15px;
     cursor: pointer;
     text-decoration: none;
-    color: black
+    color: var(--font-secondary);
 }
 
 .textWrap {
@@ -29,13 +29,13 @@
 
 .articleAuthor {
     font-size: 11px;
-    color: #777;
+    color: var(--font-low);
     margin-right: 5px;
 }
 
 .articleDate {
     font-size: 11px;
-    color: #777;
+    color: var(--font-low);
     margin-right: 5px;
 }
 

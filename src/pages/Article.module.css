@@ -57,6 +57,7 @@
     justify-content: center;
     max-width: 870px;
     align-self: center;
+    color: var(--font-secondary);
 }
 
 @media screen and (max-width: 767px) {
@@ -74,7 +75,7 @@
 .textTitle {
     font-size: 18px;
     font-family: 'Exo', sans-serif;
-    color: #363636;
+    color: var(--main);
     padding: 0 150px;
     margin: 40px 0 0 0;
 }
@@ -95,7 +96,7 @@
     margin: 30px 0 30px 0;
     padding: 0 150px;
     font-size: 14px;
-    color: #777777;
+    color: var(--font-low);
 }
 
 @media screen and (max-width: 767px) {
@@ -156,6 +157,7 @@
     font-family: 'Exo', sans-serif;
     text-transform: uppercase;
     margin: 35px 0 8px 0;
+    color: var(--main);
 }
 
 .related {

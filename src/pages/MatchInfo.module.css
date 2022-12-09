@@ -53,7 +53,7 @@
     margin: 0;
     text-transform: uppercase;
     font-weight: 700;
-    color: #363636;
+    color: var(--font-secondary);
     font-size: 14px;
     font-family: 'Exo', sans-serif;
 }
@@ -61,7 +61,7 @@
 .date {
     margin: 0;
     font-weight: 700;
-    color: #777;
+    color: var(--font-low);
     font-size: 10px;
     font-family: 'Exo', sans-serif;
 }
@@ -79,6 +79,10 @@
     align-items: center;
 }
 
+.tableHeadingText {
+    color: var(--main);
+}
+
 .winner {
     width: 16px;
     height: 16px;
@@ -88,7 +92,7 @@
     margin: 0;
     text-transform: uppercase;
     font-weight: 700;
-    color: #363636;
+    color: var(--font-secondary);
     font-size: 12px;
     font-family: 'Exo', sans-serif;
     text-align: center;
@@ -102,7 +106,7 @@
 .teamCountry {
     margin: 7px 0 0 0;
     font-weight: 700;
-    color: #777;
+    color: var(--font-low);
     font-size: 17px;
     font-family: 'Exo', sans-serif;
     text-align: center;
@@ -117,7 +121,7 @@
     margin: 0;
     text-transform: uppercase;
     font-weight: 700;
-    color: #363636;
+    color: var(--font-secondary);
     font-size: 32px;
     font-family: 'Exo', sans-serif;
 }
@@ -133,7 +137,7 @@
 .stage {
     margin: 15px 0 0 0;
     font-weight: 700;
-    color: #363636;
+    color: var(--font-secondary);
     font-size: 18px;
     font-family: 'Exo', sans-serif;
 }
@@ -143,7 +147,7 @@
     text-transform: uppercase;
     font-family: 'Exo', sans-serif;
     margin: 0 0 10px 0;
-    color: #363636;
+    color: var(--font-secondary);
 }
 
 .replay {
@@ -189,7 +193,7 @@
 .memberText {
     font-size: 16px;
     margin: 0;
-    color: #363636;
+    color: var(--font-secondary);
 }
 
 .roasters {
@@ -223,7 +227,7 @@
 
 .tableSubheading {
     font-size: 10px;
-    color: #363636;
+    color: var(--font-secondary);
     text-align: center;
     text-transform: uppercase;
     font-weight: 700;

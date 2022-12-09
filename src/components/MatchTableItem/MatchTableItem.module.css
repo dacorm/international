@@ -2,6 +2,7 @@
     font-family: 'Exo', sans-serif;
     font-weight: 700;
     font-size: 14px;
+    border-radius: 8px;
     border-bottom: 1px solid #ebebeb;
     display: flex;
     align-items: center;

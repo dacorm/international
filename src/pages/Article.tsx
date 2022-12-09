@@ -174,7 +174,7 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
                     <Link to={`/admin/${memoizedId}`} className={styles.adminButton}>Редактировать</Link>
                     <button className={styles.adminButton} onClick={onClickRemove}>Удалить</button>
                 </div>}
-                <ReactMarkdown children={text}  />
+                <ReactMarkdown children={text} />
                 <Link to={'/'} className={styles.button} type='submit'>
                     <p className={styles.buttonText}>На главную</p>
                     <div className={styles.dropWrapper}>

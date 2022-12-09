@@ -21,7 +21,7 @@
 
 .name {
     font-size: 12px;
-    color: #363636;
+    color: var(--font-secondary);
     font-family: 'Exo',sans-serif;
     margin: 0 0 4px 0;
     text-transform: uppercase;
@@ -35,7 +35,7 @@
 
 .commentaryText {
     margin: 4px 0 0 0;
-    color: #777;
+    color: var(--font-low);
     font-size: 11px;
 }
 

@@ -80,6 +80,7 @@
 }
 
 .text {
+    color: var(--main);
     font-family: 'Exo', sans-serif;
     font-size: 10px;
     font-weight: 700;
@@ -138,7 +139,7 @@
     font-family: 'Exo', sans-serif;
     text-transform: uppercase;
     font-weight: 700;
-    color: #363636;
+    color: var(--font-secondary);
     text-decoration: none;
     display: flex;
     min-width: 70px;

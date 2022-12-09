@@ -45,7 +45,7 @@
     left: 0;
     bottom: -30px;
     font-weight: 700;
-    color: #777;
+    color: var(--font-low);
     font-size: 10px;
     font-family: 'Exo', sans-serif;
 }
