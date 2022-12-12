@@ -34,23 +34,28 @@ const Login = () => {
     });
 
     const onSubmit: SubmitHandler<FieldValues> = async (values) => {
-        setIsLoading(true);
-        const data = await dispatch(fetchAuth({
-            email: values.email,
-            password: values.password
-        }));
+        try {
+            setIsLoading(true);
+            const data = await dispatch(fetchAuth({
+                email: values.email,
+                password: values.password
+            }));
 
-        if (!data.payload) {
-            return alert('Не удалось авторизоваться')
-        }
+            if (!data.payload) {
+                setIsLoading(false);
+                return alert('Не удалось авторизоваться')
+            }
 
-        // @ts-ignore
-        if ('token' in data.payload) {
             // @ts-ignore
-            window.localStorage.setItem('token', data.payload.token);
+            if ('token' in data.payload) {
+                // @ts-ignore
+                window.localStorage.setItem('token', data.payload.token);
+            }
+            setIsLoading(false);
+        } catch (e) {
+            console.log(e);
+            setIsLoading(false);
         }
-        setIsLoading(false);
-
     }
 
     useEffect(() => {

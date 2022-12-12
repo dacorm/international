@@ -29,7 +29,6 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
             setOpen(false);
             document.body.style.overflow = "auto"
         }
-        console.log(e.target);
     }
 
     useEffect(() => {
@@ -38,6 +37,7 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
 
             if (navRef.current && !_event.path.includes(navRef.current)) {
                 setOpen(false);
+                document.body.style.overflow = "auto"
             }
         };
 

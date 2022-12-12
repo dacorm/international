@@ -110,6 +110,7 @@
 
 .Heading {
     font-size: 18px;
+    color: var(--main);
     font-family: 'Exo', sans-serif;
     text-transform: uppercase;
     margin: 35px 0 8px 0;
