@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import styles from './MatchTableItem.module.css';
 import {Heroes} from "../../@types/serverType";
 import {nameConverter} from "../../helpers/nameConverter";
@@ -40,7 +40,7 @@ interface Item {
 }
 
 
-const MatchTableItem: React.FC<MatchTableItemProps> = (
+const MatchTableItem: React.FC<MatchTableItemProps> = memo((
     {
         playerDeaths,
         playerKills,
@@ -123,6 +123,6 @@ const MatchTableItem: React.FC<MatchTableItemProps> = (
             }
         </ul>
     );
-};
+});
 
 export default MatchTableItem;

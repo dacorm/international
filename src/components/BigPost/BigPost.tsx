@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import styles from './BigPost.module.css';
 import cn from 'classnames'
 import {Link} from "react-router-dom";
@@ -15,7 +15,7 @@ type BigPostProps = {
     image?: string
 }
 
-const BigPost: React.FC<BigPostProps> = ({ title, color = 'yellow', author, textPreview, labelText, date, id, image }) => {
+const BigPost: React.FC<BigPostProps> = memo(({ title, color = 'yellow', author, textPreview, labelText, date, id, image }) => {
     const { ref, inView } = useInView({
         threshold: 0.3,
     });
@@ -60,6 +60,6 @@ const BigPost: React.FC<BigPostProps> = ({ title, color = 'yellow', author, text
             <p className={styles.textPreview}>{textPreview}</p>
         </Link>
     );
-};
+});
 
 export default BigPost;

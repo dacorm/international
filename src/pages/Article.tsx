@@ -52,9 +52,9 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
 
     const isUserAdmin = isAuth && (user.fullName === 'admin')
 
-    const onClose = () => {
+    const onClose = useCallback(() => {
         setIsVisible(false);
-    }
+    }, [])
 
     useEffect(() => {
         setTimeout(() => {

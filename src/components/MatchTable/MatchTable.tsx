@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import styles from './MatchTable.module.css';
 import {Heroes, PlayerFull} from "../../@types/serverType";
 import MatchTableItem from "../MatchTableItem/MatchTableItem";
@@ -8,7 +8,7 @@ interface MatchTableProps {
     heroes: Heroes[];
 }
 
-const MatchTable: React.FC<MatchTableProps> = ({ data, heroes }) => {
+const MatchTable: React.FC<MatchTableProps> = memo(({ data, heroes }) => {
 
     return (
         <div className={styles.table}>
@@ -36,6 +36,6 @@ const MatchTable: React.FC<MatchTableProps> = ({ data, heroes }) => {
 
         </div>
     );
-};
+});
 
 export default MatchTable;

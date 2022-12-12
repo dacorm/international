@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {memo, useCallback, useEffect, useRef, useState} from 'react';
 import Article from "../Article/Article";
 import styles from './MainContent.module.css';
 import LittleArticle from "../LittleArticle/LittleArticle";
@@ -30,7 +30,7 @@ import {convertTextIntoPreview} from "../../helpers/convertTextIntoPreview";
 import {convertDate} from "../../helpers/convertDate";
 
 
-const MainContent = () => {
+const MainContent = memo(() => {
     const [isOpen, setIsOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const slider = useRef<HTMLDivElement>(null);
@@ -382,6 +382,6 @@ const MainContent = () => {
             </div>
         </div>
     );
-};
+});
 
 export default MainContent;

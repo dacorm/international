@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import styles from './Match.module.css';
 import logo1 from '../../assets/images/01.png';
 import logo2 from '../../assets/images/02.png';
@@ -99,7 +99,7 @@ type MatchProps = {
     id: number
 }
 
-const Match: React.FC<MatchProps> = ({ radiantName, direName, radiantScore, direScore, league, date, id }) => {
+const Match: React.FC<MatchProps> = memo(({ radiantName, direName, radiantScore, direScore, league, date, id }) => {
     const [data, setData] = useState<MatchInfoType | null>();
     const [logoDire, setLogoDire] = useState(logo1);
     const [logoRad, setLogoRad] = useState(logo2);
@@ -167,6 +167,6 @@ const Match: React.FC<MatchProps> = ({ radiantName, direName, radiantScore, dire
             </div>
         </Link>
     );
-};
+});
 
 export default Match;

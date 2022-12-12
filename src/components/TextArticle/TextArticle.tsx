@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import styles from './TextArticle.module.css';
 import cn from "classnames";
 import {Link} from "react-router-dom";
@@ -11,7 +11,7 @@ type TextArticleProps = {
     id: string
 }
 
-const TextArticle: React.FC<TextArticleProps> = ({ color, name, title, date, id }) => {
+const TextArticle: React.FC<TextArticleProps> = memo(({ color, name, title, date, id }) => {
     return (
         <Link to={`/article/${id}`} className={styles.article}>
             <h3 className={styles.title}>{title}</h3>
@@ -27,6 +27,6 @@ const TextArticle: React.FC<TextArticleProps> = ({ color, name, title, date, id 
             </div>
         </Link>
     );
-};
+});
 
 export default TextArticle;

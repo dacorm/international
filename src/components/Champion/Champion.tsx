@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import styles from './Champion.module.css';
 import {nameConverter} from "../../helpers/nameConverter";
 import axios from "axios";
@@ -13,7 +13,7 @@ interface ChampionProps {
     heroes: Heroes[]
 }
 
-const Champion: React.FC<ChampionProps> = ({
+const Champion: React.FC<ChampionProps> = memo(({
                                                index,
                                                teamId, direTeam, radiantTeam, id, heroes
                                            }) => {
@@ -37,6 +37,6 @@ const Champion: React.FC<ChampionProps> = ({
             <p className={teamId === 0 ? styles.teamNameDire : styles.teamNameRad}>{teamId === 0 ? direTeam : radiantTeam}</p>}
         </li>
     );
-};
+});
 
 export default Champion;

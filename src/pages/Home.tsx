@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import Header from "../components/Header/Header";
 import Screen from "../components/Screen/Screen";
 import TextSlide from "../components/TextSlide/TextSlide";
@@ -14,9 +14,9 @@ const helmetData = new HelmetData({});
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const onClose = () => {
+    const onClose = useCallback(() => {
         setIsOpen(false);
-    }
+    }, [])
 
     useEffect(() => {
         setTimeout(() => {

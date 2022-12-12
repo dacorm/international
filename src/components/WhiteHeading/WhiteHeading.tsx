@@ -1,4 +1,4 @@
-import React, {MouseEventHandler, useEffect, useRef, useState} from 'react';
+import React, {memo, MouseEventHandler, useCallback, useEffect, useRef, useState} from 'react';
 import styles from './WhiteHeading.module.css';
 import logo from '../../assets/images/logo.jpg';
 import drop from '../../assets/images/drop2.svg';
@@ -17,11 +17,11 @@ type PopupClick = MouseEvent & {
     path: Node[];
 };
 
-const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
+const WhiteHeading: React.FC<HeadingProps> = memo(({className}) => {
     const [open, setOpen] = useState(false);
     const navRef = useRef<HTMLDivElement>(null);
 
-    const togglePopup = (e: MouseEvent) => {
+    const togglePopup = useCallback((e: MouseEvent) => {
         if (!open) {
             setOpen(true);
             document.body.style.overflow = "hidden"
@@ -29,7 +29,7 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
             setOpen(false);
             document.body.style.overflow = "auto"
         }
-    }
+    }, [open])
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -90,6 +90,6 @@ const WhiteHeading: React.FC<HeadingProps> = ({className}) => {
             </nav>
         </>
     );
-};
+});
 
 export default WhiteHeading;

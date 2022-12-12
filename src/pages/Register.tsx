@@ -44,6 +44,7 @@ const Login = () => {
         }));
 
         if (!data.payload) {
+            setIsLoading(false)
             return alert('Не удалось авторизоваться')
         }
 
@@ -67,9 +68,9 @@ const Login = () => {
                     <div className={styles.loginBtnReg}>Register</div>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.formCont}>
-                    <h2 className={styles.Heading}>Register now</h2>
+                    <h2 className={styles.Heading}>Регистрация</h2>
                     <div className={styles.separatorDownReg}/>
-                    <label className={styles.label}>Full Name</label>
+                    <label className={styles.label}>Польное имя</label>
                     <input
                         type="text" className={styles.input} placeholder={'Enter your name'}
                         {...register('fullName', {
@@ -81,7 +82,7 @@ const Login = () => {
                         })}
                     />
                     <div style={{height: '40px'}}>{errors?.fullName && <p className={styles.formError}>{String(errors?.fullName?.message) || 'Error'}</p>}</div>
-                    <label className={styles.label}>Email adress</label>
+                    <label className={styles.label}>E-mail адрес</label>
                     <input
                         type="email" className={styles.input} placeholder={'Enter your email adress'}
                         {...register('email', {
@@ -93,7 +94,7 @@ const Login = () => {
                         })}
                     />
                     <div style={{height: '40px'}}>{errors?.email && <p className={styles.formError}>{String(errors?.email?.message) || 'Error'}</p>}</div>
-                    <label className={styles.label}>Password</label>
+                    <label className={styles.label}>Пароль</label>
                     <input
                         type="password" className={styles.input} placeholder={'Enter your password'}
                         {...register('password', {

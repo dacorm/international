@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import styles from './Graph.module.css';
 import GraphColumn from "../GraphColumn/GraphColumn";
 
@@ -7,7 +7,7 @@ interface GraphProps {
     isGold: boolean;
 }
 
-const Graph: React.FC<GraphProps> = ({data, isGold = false}) => {
+const Graph: React.FC<GraphProps> = memo(({data, isGold = false}) => {
     const [positiveNums, setPositiveNums] = useState<number[]>([]);
     const [negativeNums, setNegativeNums] = useState<number[]>([]);
 
@@ -43,6 +43,6 @@ const Graph: React.FC<GraphProps> = ({data, isGold = false}) => {
             </div>
         </>
     );
-};
+});
 
 export default Graph;

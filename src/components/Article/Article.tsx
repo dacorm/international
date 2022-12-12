@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import styles from './Article.module.css';
 import cn from 'classnames';
 import backImg from '../../assets/images/16.jpg'
@@ -12,7 +12,7 @@ type ArticleProps = {
     title: string
 }
 
-const Article: React.FC<ArticleProps> = ({ className, image= backImg, id, title }) => {
+const Article: React.FC<ArticleProps> = memo(({ className, image= backImg, id, title }) => {
     const { ref, inView } = useInView({
         threshold: 0.3,
     });
@@ -40,6 +40,6 @@ const Article: React.FC<ArticleProps> = ({ className, image= backImg, id, title 
             </div>
         </Link>
     );
-};
+});
 
 export default Article;

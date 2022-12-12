@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import styles from './BigArticle.module.css';
 import cn from "classnames";
 import {Link} from "react-router-dom";
@@ -17,7 +17,7 @@ type BigArticleProps = {
 }
 
 const BigArticle: React.FC<BigArticleProps> =
-    ({ title,
+    memo(({ title,
          labelText,
          author,
          textPreview,
@@ -76,6 +76,6 @@ const BigArticle: React.FC<BigArticleProps> =
             </p>
         </Link>
     );
-};
+});
 
 export default BigArticle;

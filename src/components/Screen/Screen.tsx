@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import styles from './Screen.module.css';
 import drop from '../../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg';
 import dota from '../../assets/images/banner.webp';
@@ -9,7 +9,7 @@ import {fetchPosts} from "../../redux/slices/posts";
 import {Post} from "../../@types/serverType";
 import Loader from "../Loader/Loader";
 
-const Screen = () => {
+const Screen = memo(() => {
     const [activeIndex, setActiveIndex] = useState(1);
     const [slideActive, setSlideActive] = useState(1);
     const [data, setData] = useState<Post[]>([]);
@@ -86,6 +86,6 @@ const Screen = () => {
             </div>
         </div>
     );
-};
+});
 
 export default Screen;

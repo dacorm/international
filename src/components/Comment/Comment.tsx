@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import styles from './Comment.module.css';
 import cn from 'classnames';
 
@@ -9,7 +9,7 @@ type CommentProps = {
     color?: string
 }
 
-const Comment: React.FC<CommentProps> = ({ name, title, comment, color = 'yellow' }) => {
+const Comment: React.FC<CommentProps> = memo(({ name, title, comment, color = 'yellow' }) => {
     return (
         <div className={styles.comment}>
             <div className={styles.avatar}/>
@@ -24,6 +24,6 @@ const Comment: React.FC<CommentProps> = ({ name, title, comment, color = 'yellow
             </div>
         </div>
     );
-};
+});
 
 export default Comment;

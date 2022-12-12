@@ -69,13 +69,13 @@ const Login = () => {
         <Layout seoDescription='Войти в аккаунт' seoTitle='Вход в аккаунт' title='Вход в аккаунт'>
             <div className={styles.login}>
                 <div className={styles.loginAndRegister}>
-                    <div className={styles.loginBtn}>Login</div>
-                    <Link to='/register' className={styles.registerBtn}>Register</Link>
+                    <div className={styles.loginBtn}>Войти</div>
+                    <Link to='/register' className={styles.registerBtn}>Зарегистрироваться</Link>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.formCont}>
-                    <h2 className={styles.Heading}>Login to your account</h2>
+                    <h2 className={styles.Heading}>Вход</h2>
                     <div className={styles.separatorDown}/>
-                    <label className={styles.label}>Email adress</label>
+                    <label className={styles.label}>E-mail адрес</label>
                     <input
                         type="email" className={styles.input} placeholder={'Enter your email adress'}
                         {...register('email', {
@@ -87,7 +87,7 @@ const Login = () => {
                         })}
                     />
                     <div style={{height: '40px'}}>{errors?.email && <p className={styles.formError}>{String(errors?.email?.message) || 'Error'}</p>}</div>
-                    <label className={styles.label}>Password</label>
+                    <label className={styles.label}>Пароль</label>
                     <input
                         type="password" className={styles.input} placeholder={'Enter your password'}
                         {...register('password', {

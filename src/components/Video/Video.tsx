@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {memo, useState} from 'react';
 import styles from './Video.module.css';
 import play from '../../assets/images/play-svgrepo-com.svg';
 
@@ -7,7 +7,7 @@ type VideoProps = {
     title: string
 }
 
-const Video: React.FC<VideoProps> = ({src, title}) => {
+const Video: React.FC<VideoProps> = memo(({src, title}) => {
     const [visible, setVisible] = useState(false);
 
 
@@ -33,6 +33,6 @@ const Video: React.FC<VideoProps> = ({src, title}) => {
                 </>}
         </div>
     );
-};
+});
 
 export default Video;

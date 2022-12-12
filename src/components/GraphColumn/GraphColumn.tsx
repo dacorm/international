@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {memo, useState} from 'react';
 import styles from './GraphColumn.module.css';
 
 interface GraphColumnProps {
@@ -8,7 +8,7 @@ interface GraphColumnProps {
     isStart?: boolean;
 }
 
-const GraphColumn: React.FC<GraphColumnProps> = ({height, index, isGold = false, isStart= false}) => {
+const GraphColumn: React.FC<GraphColumnProps> = memo(({height, index, isGold = false, isStart= false}) => {
     const [isVisible, setIsVisible] = useState(false);
 
     const handleMouseEnter = () => {
@@ -48,6 +48,6 @@ const GraphColumn: React.FC<GraphColumnProps> = ({height, index, isGold = false,
             </div>)}
         </div>
     );
-};
+});
 
 export default GraphColumn;

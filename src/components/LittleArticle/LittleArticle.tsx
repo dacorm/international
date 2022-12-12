@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import styles from './LittleArticle.module.css';
 import cn from "classnames";
 import {Link} from "react-router-dom";
@@ -12,7 +12,7 @@ type LittleArticleProps = {
     image?: string
 }
 
-const LittleArticle: React.FC<LittleArticleProps> = ({ labelText, color = 'blue', titleText, id, image }) => {
+const LittleArticle: React.FC<LittleArticleProps> = memo(({ labelText, color = 'blue', titleText, id, image }) => {
     const { ref, inView } = useInView({
         threshold: 0.3,
     });
@@ -44,6 +44,6 @@ const LittleArticle: React.FC<LittleArticleProps> = ({ labelText, color = 'blue'
             <h2 className={styles.title}>{titleText}</h2>
         </Link>
     );
-};
+});
 
 export default LittleArticle;

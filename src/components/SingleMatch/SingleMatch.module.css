@@ -3,7 +3,7 @@
     text-transform: uppercase;
     font-family: 'Exo', sans-serif;
     margin: 0 0 10px 0;
-    color: var(--font-secondary);
+    color: var(--main);
 }
 
 @media screen and (max-width: 767px) {
@@ -26,6 +26,7 @@
 }
 
 .matchWrapper {
+    background-color: var(--main);
     width: 300px;
     height: 150px;
     border-radius: 10px;
@@ -74,7 +75,7 @@
 .teamName {
     font-size: 11px;
     font-family: 'Exo', sans-serif;
-    color: var(--font-secondary);
+    color: #363636;
     text-transform: uppercase;
     font-weight: 700;
     width: 80px;
@@ -84,7 +85,7 @@
 .score {
     font-size: 11px;
     font-family: 'Exo', sans-serif;
-    color: var(--font-secondary);
+    color: #363636;
     text-transform: uppercase;
     font-weight: 700;
     margin: 0;
@@ -93,7 +94,7 @@
 .time {
     font-size: 14px;
     font-family: 'Exo', sans-serif;
-    color: var(--font-secondary);
+    color: #363636;
     text-transform: uppercase;
     font-weight: 700;
     margin-left: 10px;

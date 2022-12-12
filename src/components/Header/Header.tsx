@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {memo, useEffect, useRef, useState} from 'react';
 import styles from './Header.module.css';
 import FR from '../../assets/images/flag-fr.png';
 import ES from '../../assets/images/flag-es.png';
@@ -30,7 +30,7 @@ const langs = [{
     name: 'Japaneese'
 }]
 
-const Header = () => {
+const Header = memo(() => {
     const isAuth = useAppSelector(selectIsAuth);
     const user = useAppSelector(selectName);
     const dispatch = useAppDispatch();
@@ -198,6 +198,6 @@ const Header = () => {
             </div>
         </header>
     );
-};
+});
 
 export default Header;

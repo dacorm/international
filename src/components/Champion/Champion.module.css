@@ -27,7 +27,7 @@
 .teamNameDire {
     margin: 0;
     font-weight: 700;
-    color: black;
+    color: var(--font-low);
     font-size: 10px;
     text-align: center;
     background: #bd0000;
@@ -37,7 +37,7 @@
 .teamNameRad {
     margin: 0;
     font-weight: 700;
-    color: black;
+    color: var(--font-low);
     font-size: 10px;
     text-align: center;
     background: #005200;

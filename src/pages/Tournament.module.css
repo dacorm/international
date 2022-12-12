@@ -35,7 +35,7 @@
     text-transform: uppercase;
     font-family: 'Exo', sans-serif;
     margin: 0 0 10px 0;
-    color: #363636;
+    color: var(--font-secondary);
 }
 
 .listHeadingTeams {
@@ -44,7 +44,7 @@
     text-transform: uppercase;
     font-family: 'Exo', sans-serif;
     margin: 0 0 10px 0;
-    color: #363636;
+    color: var(--font-secondary);
 }
 
 .separator {
@@ -84,12 +84,12 @@
     text-transform: uppercase;
     font-family: 'Exo', sans-serif;
     margin: 0 0 10px 0;
-    color: #363636;
+    color: var(--font-secondary);
     font-weight: 700;
 }
 
 .span {
-    color: gray;
+    color: var(--font-low);
 }
 
 .results {
@@ -99,6 +99,7 @@
 }
 
 .textBlock {
+    color: var(--font-secondary);
     padding-top: 40px;
 }
 
@@ -222,7 +223,7 @@
     font-size: 11px;
     font-family: 'Exo', sans-serif;
     text-transform: uppercase;
-    color: #363636;
+    color: var(--font-secondary);
     font-weight: 700;
     margin: 0;
 }
@@ -231,7 +232,7 @@
     font-size: 11px;
     font-family: 'Exo', sans-serif;
     text-transform: uppercase;
-    color: #363636;
+    color: var(--font-secondary);
     font-weight: 700;
     margin: 0;
     width: 100px;
@@ -241,7 +242,7 @@
     font-size: 11px;
     font-family: 'Exo', sans-serif;
     text-transform: uppercase;
-    color: #363636;
+    color: var(--font-secondary);
     font-weight: 700;
     margin: 0;
 }
@@ -250,7 +251,7 @@
     font-size: 11px;
     font-family: 'Exo', sans-serif;
     text-transform: uppercase;
-    color: #363636;
+    color: var(--font-secondary);
     font-weight: 700;
     margin: 0;
     width: 140px;
@@ -318,7 +319,7 @@
     font-size: 16px;
     font-family: 'Exo', sans-serif;
     font-weight: 700;
-    color: #363636;
+    color: var(--font-secondary);
     margin: 0 0 0 7px;
 }
 
@@ -333,7 +334,7 @@
 .memberText {
     font-size: 16px;
     margin: 0;
-    color: #363636;
+    color: var(--font-secondary);
 }
 
 .memberSpan {
@@ -351,7 +352,7 @@
     font-size: 16px;
     font-family: 'Exo', sans-serif;
     font-weight: 700;
-    color: #363636;
+    color: var(--font-secondary);
     margin: 10px 0 0 0;
 }
 
@@ -362,7 +363,7 @@
     border: 1px solid var(--primary);
     cursor: pointer;
     transition: opacity .3s;
-    color: #363636;
+    color: var(--font-secondary);
     font-family: 'Exo', sans-serif;
     text-transform: uppercase;
     font-weight: 700;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import styles from './Commentary.module.css';
 
 type CommentaryProps = {
@@ -6,7 +6,7 @@ type CommentaryProps = {
     text: string
 }
 
-const Commentary: React.FC<CommentaryProps> = ({ name, text }) => {
+const Commentary: React.FC<CommentaryProps> = memo(({ name, text }) => {
     return (
         <div className={styles.comment}>
             <div className={styles.avatar}/>
@@ -16,6 +16,6 @@ const Commentary: React.FC<CommentaryProps> = ({ name, text }) => {
             </div>
         </div>
     );
-};
+});
 
 export default Commentary;

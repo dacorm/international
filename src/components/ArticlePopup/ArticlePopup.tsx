@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import styles from './ArticlePopup.module.css';
 import banner from "../../assets/images/Frame 6.png";
 import close from "../../assets/images/close_FILL0_wght400_GRAD0_opsz48.svg";
@@ -9,7 +9,7 @@ interface ArticlePopupProps {
     isOpen: boolean;
 }
 
-const ArticlePopup: React.FC<ArticlePopupProps> = ({ onClose, lazy, isOpen }) => {
+const ArticlePopup: React.FC<ArticlePopupProps> = memo(({ onClose, lazy, isOpen }) => {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
@@ -32,6 +32,6 @@ const ArticlePopup: React.FC<ArticlePopupProps> = ({ onClose, lazy, isOpen }) =>
             </div>
         </div>
     );
-};
+});
 
 export default ArticlePopup;

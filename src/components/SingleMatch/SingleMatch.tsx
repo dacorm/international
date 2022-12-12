@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import styles from "./SingleMatch.module.css";
 import cup from '../../assets/images/cup-svgrepo-com.svg';
 import logo2 from "../../assets/images/02.png";
@@ -17,7 +17,7 @@ type SingleMatchProps = {
     matchId: number;
 }
 
-const SingleMatch: React.FC<SingleMatchProps> = ({ leagueName,
+const SingleMatch: React.FC<SingleMatchProps> = memo(({ leagueName,
                                                      playTime, direName, direScore, radiantName, radiantScore, matchId }) => {
     const [data, setData] = useState<MatchInfoType | null>();
     const [isLoading, setIsLoading] = useState(false);
@@ -84,6 +84,6 @@ const SingleMatch: React.FC<SingleMatchProps> = ({ leagueName,
             </div>
         </Link>
     );
-};
+});
 
 export default React.memo(SingleMatch);

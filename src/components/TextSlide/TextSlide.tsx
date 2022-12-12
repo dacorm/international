@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import styles from './TextSlide.module.css';
 import {useAppSelector} from "../../assets/hooks";
 import {Link} from "react-router-dom";
 
-const TextSlide = () => {
+const TextSlide = memo(() => {
     const { posts } = useAppSelector(state => state.posts);
     const [text, setText] = useState<string | undefined>('');
 
@@ -23,6 +23,6 @@ const TextSlide = () => {
             <div className={styles.right}/>
         </div>
     );
-};
+});
 
 export default TextSlide;

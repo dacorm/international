@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import styles from "./Post.module.css";
 import post from "../../assets/images/36.jpg";
 import cn from 'classnames';
@@ -14,7 +14,7 @@ type PostProps = {
     image?: string
 }
 
-const Post: React.FC<PostProps> = ({ title, author, date, color = 'purple', className, id, image }) => {
+const Post: React.FC<PostProps> = memo(({ title, author, date, color = 'purple', className, id, image }) => {
 
     const checkImageValidity = (image: string | undefined) => {
         if (image) {
@@ -39,6 +39,6 @@ const Post: React.FC<PostProps> = ({ title, author, date, color = 'purple', clas
             </div>
         </Link>
     );
-};
+});
 
 export default Post;
