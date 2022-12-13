@@ -11,9 +11,9 @@
     padding: 15px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1023px) {
     .table {
-        width: 768px;
+        width: 1024px;
         overflow: auto;
     }
 }

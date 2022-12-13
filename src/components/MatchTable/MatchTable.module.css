@@ -5,7 +5,7 @@
     background-color: #c9c9c9;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1023px) {
     .table {
         overflow: auto;
     }

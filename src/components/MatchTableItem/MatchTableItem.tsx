@@ -83,7 +83,7 @@ const MatchTableItem: React.FC<MatchTableItemProps> = memo((
     useEffect(() => {
         filterHeroes(heroes, heroId);
         const items = Object.keys(purchase);
-        setBuy(items.slice(items.length - 5, items.length - 1));
+        setBuy(items.slice(items.length - 7, items.length - 1));
         fetchItems();
     }, [])
 
