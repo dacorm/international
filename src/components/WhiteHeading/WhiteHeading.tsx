@@ -79,8 +79,7 @@ const WhiteHeading: React.FC<HeadingProps> = memo(({className}) => {
                         <Link to='/calendar' className={styles.menuText}>Матчи</Link>
                     </li>
                     <li className={styles.menuItem}>
-                        <p className={styles.menuText}>Features</p>
-                        <img src={drop} alt="dropDownIcon" className={styles.drop}/>
+                        <Link to='/heroes' className={styles.menuText}>Герои</Link>
                     </li>
                     <li className={styles.menuItem}>
                         <Link to='/tournament' className={styles.menuText}>TI2022</Link>
