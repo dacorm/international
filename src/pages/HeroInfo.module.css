@@ -1,0 +1,67 @@
+.content {
+    width: 850px;
+    padding-top: 50px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.heroBanner {
+    width: 85%;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 56px;
+    box-shadow: rgb(0 0 0 / 25%) 0 0 125px inset;
+    margin-bottom: 35px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.bannerLeft {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.image {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: rgb(0 0 0 / 30%) 0px 12px 32px;
+    display: block;
+    flex-shrink: 0;
+    height: 128px;
+    object-fit: cover;
+    width: 180px;
+}
+
+.heroName {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 40px;
+    color: var(--main);
+    margin: 0;
+}
+
+.heroRoles {
+    color: var(--font-secondary);
+    margin: 0;
+}
+
+.span {
+    color: var(--font-low);
+    opacity: .8;
+    margin-right: 5px;
+}
+
+.span:last-of-type {
+    margin-right: 0;
+}
+
+.heroBackground {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}

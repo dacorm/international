@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import styles from './Heroes.module.css';
 import Layout from "../components/Layout/Layout";
 import {withErrorBoundary} from "react-error-boundary";
@@ -6,30 +6,13 @@ import Header from "../components/Header/Header";
 import WhiteHeading from "../components/WhiteHeading/WhiteHeading";
 import TextSlide from "../components/TextSlide/TextSlide";
 import Footer from "../components/Footer/Footer";
-import { Heroes as HeroesType } from "../@types/serverType";
 import Champion from "../components/Champion/Champion";
-import axios from "axios";
-import {getWithExpiry, setWithExpiry} from "../helpers/localStorage";
+import {Link} from "react-router-dom";
+import {useGetHeroes} from "../hooks/useGetHeroes";
+import Preloader from "../components/Preloader/Preloader";
 
 const Heroes = () => {
-    const [heroes, setHeroes] = useState<HeroesType[]>();
-
-    useEffect(() => {
-       const fetchHeroes = async () => {
-           try {
-               const { data } = await axios.get('https://api.opendota.com/api/heroes?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96');
-               setWithExpiry<HeroesType[]>('heroes', data, 5000000);
-               setHeroes(data);
-           } catch (e) {
-               console.log(e);
-           }
-       }
-
-       setHeroes(getWithExpiry('heroes'));
-       if (!heroes) {
-           fetchHeroes();
-       }
-    }, [])
+    const heroes = useGetHeroes();
 
     return (
         <Layout seoDescription='Герои Dota2' seoTitle='Герои Dota2' title='Герои Dota2'>
@@ -39,12 +22,14 @@ const Heroes = () => {
                     <div className={styles.separator}/>
                 </div>
                 <div className={styles.heroesContainer}>
-                    {heroes && heroes.map((item, index) => (<Champion
-                        index={index}
-                        key={item.id}
-                        id={item.id}
-                        heroes={heroes}
-                    />))}
+                    {heroes ? heroes.map((item, index) => (
+                        <Link to={`/heroes/${item.id}`} key={item.id} >
+                        <Champion
+                            index={index}
+                            id={item.id}
+                            heroes={heroes}
+                        />
+                    </Link>)) : <Preloader />}
                 </div>
             </div>
         </Layout>
