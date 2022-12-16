@@ -11,6 +11,7 @@ import {useParams} from "react-router-dom";
 import {nameConverter} from "../helpers/nameConverter";
 import {Heroes} from "../@types/serverType";
 import FallbackLoader from "../components/FallbackLoader/FallbackLoader";
+import {HeroStats} from "../components/HeroStats/HeroStats";
 
 
 const HeroInfo = memo(() => {
@@ -41,7 +42,7 @@ const HeroInfo = memo(() => {
     }
 
     return (
-        <Layout seoDescription='Герои Dota2' seoTitle='Герои Dota2' title={`${hero.localized_name}`}>
+        <Layout seoDescription={`Dota 2 - ${hero.localized_name}`} seoTitle={`Dota 2 - ${hero.localized_name}`} title={`${hero.localized_name}`}>
             <div className={styles.content}>
                 {hero && <div className={styles.heroBanner}>
                     <div
@@ -69,6 +70,7 @@ const HeroInfo = memo(() => {
                         </div>
                     </div>
                 </div>}
+                {hero && <HeroStats id={hero.id} />}
             </div>
         </Layout>
     );

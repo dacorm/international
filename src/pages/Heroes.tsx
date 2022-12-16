@@ -23,7 +23,7 @@ const Heroes = () => {
                 </div>
                 <div className={styles.heroesContainer}>
                     {heroes ? heroes.map((item, index) => (
-                        <Link to={`/heroes/${item.id}`} key={item.id} >
+                        <Link to={`/heroes/${item.id}`} key={item.id} className={styles.champs}>
                         <Champion
                             index={index}
                             id={item.id}

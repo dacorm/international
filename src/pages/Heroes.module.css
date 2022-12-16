@@ -34,3 +34,7 @@
     width: 100%;
     flex-wrap: wrap;
 }
+
+.champs {
+    text-decoration: none;
+}

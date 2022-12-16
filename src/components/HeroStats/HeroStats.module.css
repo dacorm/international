@@ -1,0 +1,39 @@
+.tableContainer {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.table {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.tableItem {
+    background-color: #363636;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    height: 35px;
+    box-sizing: border-box;
+    width: 270px;
+    color: var(--font-secondary);
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.tableItem:nth-of-type(2n) {
+    background-color: rgb(52, 52, 53, 0.65);
+}
+
+.tableText {
+    max-width: 230px;
+}
