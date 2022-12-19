@@ -36,7 +36,7 @@ const Article: React.FC<ArticleProps> = memo(({ className, image= backImg, id, t
         }}>
             <div className={styles.wrapper}>
                 <div className={styles.label}>Dota2</div>
-                <h2 className={styles.title}>{title}</h2>
+                <p className={styles.title}>{title}</p>
             </div>
         </Link>
     );

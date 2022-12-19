@@ -63,7 +63,6 @@ const MatchInfo = () => {
         try {
             setIsLoading(true);
             const {data} = await axios.get(`https://api.opendota.com/api/matches/${fetchId}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`);
-            console.log(data);
             setInfo(data);
             setIsLoading(false);
         } catch (e) {
@@ -98,9 +97,12 @@ const MatchInfo = () => {
     }
 
     return (
-        <Layout seoDescription={`Информация о матче ${info?.dire_team.name} против ${info?.radiant_team.name}`}
-                seoTitle={`Информация о матче ${info?.dire_team.name} против ${info?.radiant_team.name}`}
-                title={`Информация о матче ${info?.dire_team.name} против ${info?.radiant_team.name}`}
+        <Layout seoDescription={`Подробности, результаты и статистика матча между командами 
+        ${info?.dire_team.name} vs ${info?.radiant_team.name}
+         ${unixTimeStampConverterMatch(info?.start_time)?.slice(4, 10)} в рамках турнира - dota2.su`}
+                seoTitle={`Результаты и статистика матча ${info?.dire_team.name} vs ${info?.radiant_team.name} - 
+                ${unixTimeStampConverterMatch(info?.start_time)?.slice(4, 10)} - ${info?.league.name} по Dota 2`}
+                title={`Статистика матча ${info?.dire_team.name} vs ${info?.radiant_team.name}`}
                 isRedirected={true}
                 href={`https://dota2.su/match/${id}`}
         >
@@ -204,13 +206,13 @@ const MatchInfo = () => {
                     <div className={styles.separator}/>
                 </div>
                 {info && heroes &&
-                <MatchTable data={info.players.slice(0, 5) as unknown as PlayerFull[]} heroes={heroes}/>}
+                    <MatchTable data={info.players.slice(0, 5) as unknown as PlayerFull[]} heroes={heroes}/>}
                 <div className={styles.sectionHeading}>
                     <h2 className={styles.listHeading}>Команда тьмы {info?.dire_team.name}</h2>
                     <div className={styles.separator}/>
                 </div>
                 {info && heroes &&
-                <MatchTable data={info.players.slice(5, 10) as unknown as PlayerFull[]} heroes={heroes}/>}
+                    <MatchTable data={info.players.slice(5, 10) as unknown as PlayerFull[]} heroes={heroes}/>}
                 {info?.radiant_gold_adv && (<>
                     <div className={styles.sectionHeading}>
                         <h2 className={styles.listHeading}>Статистика игры по золоту</h2>

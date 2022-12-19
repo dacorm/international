@@ -14,7 +14,7 @@ type TextArticleProps = {
 const TextArticle: React.FC<TextArticleProps> = memo(({ color, name, title, date, id }) => {
     return (
         <Link to={`/article/${id}`} className={styles.article}>
-            <h3 className={styles.title}>{title}</h3>
+            <p className={styles.title}>{title}</p>
             <div className={styles.authorDate}>
                 <p className={styles.articleAuthor}>By <span className={cn(styles.span, {
                     [styles.spanYellow]: color === 'yellow',

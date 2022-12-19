@@ -41,7 +41,7 @@ const LittleArticle: React.FC<LittleArticleProps> = memo(({ labelText, color = '
                 [styles.labelBlue]: color === 'blue',
                 [styles.labelRed]: color === 'red',
             })}>{labelText}</div>
-            <h2 className={styles.title}>{titleText}</h2>
+            <p className={styles.title}>{titleText}</p>
         </Link>
     );
 });

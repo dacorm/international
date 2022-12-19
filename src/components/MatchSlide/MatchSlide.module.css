@@ -49,6 +49,8 @@
 }
 
 .dropLeft {
+    background-color: #1c95f3;
+    border-radius: 50%;
     width: 15px;
     height: 15px;
     margin-left: 3px;
@@ -58,6 +60,8 @@
 }
 
 .dropRight {
+    background-color: #1c95f3;
+    border-radius: 50%;
     width: 15px;
     height: 15px;
     margin-left: 3px;
@@ -69,6 +73,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: rgba(0, 0, 0, .35);
+    padding-bottom: 15px;
 }
 
 @media screen and (max-width: 1279px) {

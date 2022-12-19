@@ -5,7 +5,7 @@ const FooterBottom = () => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.textWrap}>
-                <a href={'https://international11.com/'} className={styles.articleAuthor}><span className={styles.span}>International</span> 2022</a>
+                <a href={'https://international11.com/'} className={styles.articleAuthor}><span className={styles.span}>Dota</span> 2</a>
                 <div className={styles.articleSep}/>
                 <p className={styles.articleDate}>All Rights Reserved {new Date().getFullYear()}</p>
             </div>

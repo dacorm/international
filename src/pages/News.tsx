@@ -35,17 +35,20 @@ const News = () => {
     }, [])
 
     useEffect(() => {
-       if (posts.items) {
-           setNumber(getRandomNumber(0, posts.items.length))
-       }
+        if (posts.items) {
+            setNumber(getRandomNumber(0, posts.items.length))
+        }
     }, [posts])
 
     if (isLoading) {
-        return <FallbackLoader />
+        return <FallbackLoader/>
     }
 
     return (
-        <Layout seoTitle='Все новости Dota2' seoDescription='Новости Dota2' title='Новости Dota2'>
+        <Layout
+            seoTitle='Все самые свежие новости по Dota2 (Дота 2) на сайте dota2.su'
+            seoDescription='Все самые актульные новости о Дота2 (DOTA2) на сайте dota2.su'
+            title='Актуальные новости DOTA 2'>
             <div className={styles.content}>
                 <div className={styles.posts}>
                     {posts!.items!.slice(0, posts?.items?.length).reverse().map((item) => (
@@ -58,7 +61,7 @@ const News = () => {
                             date={convertDate(item.createdAt.toString())}
                             key={item._id}
                             id={item._id}
-                            image={item.imageUrl} />
+                            image={item.imageUrl}/>
                     ))}
                 </div>
                 <div className={styles.related}>
@@ -92,6 +95,6 @@ export default withErrorBoundary(News, {
             </h1>
         </div>
         <TextSlide/>
-        <Footer />
+        <Footer/>
     </>)
 });

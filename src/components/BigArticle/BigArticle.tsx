@@ -52,7 +52,7 @@ const BigArticle: React.FC<BigArticleProps> =
                     [styles.labelRed]: color === 'red',
                 })}>{labelText}</div>
             </div>
-            <h2 className={styles.title}>{title}</h2>
+            <p className={styles.title}>{title}</p>
             <div className={styles.wrapper}>
                 <div className={styles.avatar}/>
                 <p className={styles.articleAuthor}>By <span className={cn(styles.span, {

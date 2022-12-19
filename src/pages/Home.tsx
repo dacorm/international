@@ -29,9 +29,9 @@ const Home = () => {
                 <Helmet helmetData={helmetData}>
                     <meta
                         name="description"
-                        content="Информация о турнире The International 2022 по Dota 2. Расписание матчей, состав команд, статистика"
+                        content="Все новости, статистика матчей, подробности обновлений и турниров на сайте DOTA2.SU"
                     />
-                    <title>Турнир по Dota2 International 2022 - Интернешнл 2022 по Дота 2</title>
+                    <title>Dota 2 — многопользовательская командная компьютерная игра в жанре MOBA </title>
                 </Helmet>
                 {isOpen && <ArticlePopup
                     lazy={true}
