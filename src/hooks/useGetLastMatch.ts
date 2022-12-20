@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {DotaMatchJSON, MatchInfoType} from "../@types/serverType";
+import {DotaMatchJSON} from "../@types/serverType";
 import axios from "axios";
 
 export const useGetLastMatch = () => {

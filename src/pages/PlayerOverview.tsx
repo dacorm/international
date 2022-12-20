@@ -65,7 +65,7 @@ const PlayerOverview: React.FC = () => {
                             </div>
                             <div>
                                 <p className={styles.label}>Steam профиль</p>
-                                <a href={info?.profile.profileurl} target='_blank' className={styles.button}>Профиль</a>
+                                <a href={info?.profile.profileurl} target='_blank' className={styles.button} rel="noreferrer">Профиль</a>
                             </div>
                             <div>
                                 <p className={styles.label}>Соревновательный ранг</p>

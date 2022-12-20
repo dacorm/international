@@ -235,7 +235,7 @@ const Tournament = () => {
                             }
                             <button className={styles.button}>
                                 <a href={'https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1'}
-                                   target='_blank' className={styles.buttonText}>Сделать ставку</a>
+                                   target='_blank' className={styles.buttonText} rel="noreferrer">Сделать ставку</a>
                                 <div className={styles.dropWrapper}>
                                     <img src={drop} alt={drop} className={styles.drop}/>
                                 </div>
@@ -557,7 +557,7 @@ const Tournament = () => {
                             </div>
                         </div>
                         <a href='https://promote.betcity.ru/freebet500app/'
-                           target='_blank' className={styles.banner}/>
+                           target='_blank' className={styles.banner} rel="noreferrer"/>
                     </div>
                 </div>
             </div>

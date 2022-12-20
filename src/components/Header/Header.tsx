@@ -132,7 +132,7 @@ const Header = memo(() => {
                             </div>
                         </Link>)
                     }
-                    <a href='https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1' target='_blank' className={styles.banner} />
+                    <a href='https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1' target='_blank' className={styles.banner} rel="noreferrer" />
                 </div>
             </div>}
             <div className={styles.left}>
@@ -160,7 +160,7 @@ const Header = memo(() => {
                 </div>}
                 {open && <div className={styles.walletPopup}>
                     <img src={banner} alt='Бетсити баннер' className={styles.popupImage}/>
-                    <a href='https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1' className={styles.popupButton} target='_blank'>Получить</a>
+                    <a href='https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1' className={styles.popupButton} target='_blank' rel="noreferrer">Получить</a>
                 </div>}
             </div>
             <div className={styles.right}>

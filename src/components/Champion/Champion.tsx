@@ -1,7 +1,6 @@
-import React, {memo, useEffect, useState} from 'react';
+import React, {memo} from 'react';
 import styles from './Champion.module.css';
 import {nameConverter} from "../../helpers/nameConverter";
-import axios from "axios";
 import {Heroes} from "../../@types/serverType";
 
 interface ChampionProps {

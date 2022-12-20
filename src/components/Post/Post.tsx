@@ -26,7 +26,7 @@ const Post: React.FC<PostProps> = memo(({ title, author, date, color = 'purple',
 
     return (
         <Link to={`/article/${id}`} className={styles.article}>
-            <img src={checkImageValidity(image)} alt="Article Image" className={styles.articleImg}/>
+            <img src={checkImageValidity(image)} alt="Article Cover" className={styles.articleImg}/>
             <div className={styles.articleTextWrap}>
                 <p className={cn(styles.articleTitle, className)}>{title}</p>
                 <div className={styles.textWrap}>

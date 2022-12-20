@@ -120,7 +120,7 @@ const Matches = () => {
                         </div>)
                     }
                 </div>}
-                <a href='https://promote.betcity.ru/freebet500app/' target='_blank' className={styles.banner} />
+                <a href='https://promote.betcity.ru/freebet500app/' target='_blank' className={styles.banner} rel="noreferrer" />
             </div>
         </Layout>
     );

@@ -4,40 +4,28 @@ export const monthDaysConverter = (month: number) => {
     switch (month) {
         case 0:
             return days.slice(0, 31);
-            break;
         case 1:
             return days.slice(0, 30);
-            break;
         case 2:
             return days.slice(0, 31);
-            break;
         case 3:
             return days.slice(0, 30);
-            break;
         case 4:
             return days.slice(0, 31);
-            break;
         case 5:
             return days.slice(0, 30);
-            break;
         case 6:
             return days.slice(0, 31);
-            break;
         case 7:
             return days.slice(0, 31);
-            break;
         case 8:
             return days.slice(0, 30);
-            break;
         case 9:
             return days.slice(0, 31);
-            break;
         case 10:
             return days.slice(0, 31);
-            break;
         case 11:
             return days.slice(0, 30);
-            break;
         default:
             console.warn('enter number')
     }

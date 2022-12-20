@@ -25,7 +25,7 @@ const ArticlePopup: React.FC<ArticlePopupProps> = memo(({ onClose, lazy, isOpen 
     return (
         <div className={styles.overlay}>
             <div className={styles.popup}>
-                <a href='https://betcity.ru/ru/line/cybersport' target='_blank'>
+                <a href='https://betcity.ru/ru/line/cybersport' target='_blank' rel="noreferrer">
                     <img src={banner} alt="Баннер бетсити" className={styles.popupImage}/>
                 </a>
                 <img src={close} alt="Иконка закрытия" className={styles.close} onClick={onClose} />

@@ -1,13 +1,10 @@
-import React, {memo, MouseEventHandler, useCallback, useEffect, useRef, useState} from 'react';
+import React, {memo, useCallback, useEffect, useRef, useState} from 'react';
 import styles from './WhiteHeading.module.css';
 import logo from '../../assets/images/logo.jpg';
 import drop from '../../assets/images/drop2.svg';
-import search from '../../assets/images/search_FILL0_wght400_GRAD0_opsz48.svg';
-import inv from '../../assets/images/inventory_2_FILL0_wght400_GRAD0_opsz48.svg';
 import cn from 'classnames';
 import HeadingPopup from "../HeadingPopup/HeadingPopup";
-import FeaturesPopup from "../FeturesPopup/FeaturesPopup";
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 type HeadingProps = {
     className?: string

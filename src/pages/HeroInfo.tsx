@@ -1,4 +1,4 @@
-import React, {memo, useEffect, useMemo, useState} from 'react';
+import React, {memo, useMemo, useState} from 'react';
 import Layout from "../components/Layout/Layout";
 import {withErrorBoundary} from "react-error-boundary";
 import Header from "../components/Header/Header";
