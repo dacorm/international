@@ -1,3 +1,22 @@
+export interface Cell {
+    isTitle: boolean;
+    caption: string;
+    factorId?: number;
+    eventId?: number;
+    eventKindId?: number;
+    value?: number;
+    paramText: string;
+    param?: number;
+    captionAlign: string;
+    flexParam?: boolean;
+    blocked?: boolean;
+    paramHigh?: number;
+    paramLow?: number;
+}
+export interface Row {
+    isTitle: boolean;
+    cells: Cell[];
+}
 export interface DotaMatchJSON {
     match_id: any;
     duration: number;
@@ -14,7 +33,6 @@ export interface DotaMatchJSON {
     dire_score: number;
     radiant_win: boolean;
 }
-
 export interface ProMatchJSON {
     match_id: any;
     duration: number;
@@ -81,9 +99,30 @@ export interface DireTeam {
     logo_url: string;
 }
 
+export interface Lhten {
+}
+
+export interface Benchmarks {
+    gold_per_min: { [key: string]: number };
+    xp_per_min: { [key: string]: number };
+    kills_per_min: { [key: string]: number };
+    last_hits_per_min: { [key: string]: number };
+    hero_damage_per_min: { [key: string]: number };
+    hero_healing_per_min: { [key: string]: number };
+    tower_damage: { [key: string]: number };
+    stuns_per_min: { [key: string]: number };
+    lhten: Lhten;
+}
+
 interface Player {
     personaname: string;
 
+}
+
+export interface PermanentBuff {
+    permanent_buff: number;
+    stack_count: number;
+    grant_time: number;
 }
 
 export interface PlayerFull {
@@ -200,28 +239,6 @@ export interface PlayerFull {
     benchmarks: Benchmarks;
 }
 
-export interface Benchmarks {
-    gold_per_min: { [key: string]: number };
-    xp_per_min: { [key: string]: number };
-    kills_per_min: { [key: string]: number };
-    last_hits_per_min: { [key: string]: number };
-    hero_damage_per_min: { [key: string]: number };
-    hero_healing_per_min: { [key: string]: number };
-    tower_damage: { [key: string]: number };
-    stuns_per_min: { [key: string]: number };
-    lhten: Lhten;
-}
-
-export interface Lhten {
-}
-
-export interface PermanentBuff {
-    permanent_buff: number;
-    stack_count: number;
-    grant_time: number;
-}
-
-
 interface AllWordCounts {
 
 }
@@ -329,27 +346,6 @@ export interface Subscore {
     comment: string;
 }
 
-export interface Cell {
-    isTitle: boolean;
-    caption: string;
-    factorId?: number;
-    eventId?: number;
-    eventKindId?: number;
-    value?: number;
-    paramText: string;
-    param?: number;
-    captionAlign: string;
-    flexParam?: boolean;
-    blocked?: boolean;
-    paramHigh?: number;
-    paramLow?: number;
-}
-
-export interface Row {
-    isTitle: boolean;
-    cells: Cell[];
-}
-
 export interface Market {
     marketId: string;
     ident: string;
@@ -357,6 +353,11 @@ export interface Market {
     caption: string;
     commonHeaders: any[];
     rows: Row[];
+}
+
+type scores = {
+    c1: number;
+    c2: number;
 }
 
 export interface Event {
@@ -398,11 +399,6 @@ export interface Event {
     statisticsType: string;
     competitionsGroupId: string;
     competitionsGroupCaption: string;
-}
-
-type scores = {
-    c1: number;
-    c2: number;
 }
 
 export interface TopEvents {

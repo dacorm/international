@@ -1,8 +1,8 @@
-import React, {memo} from 'react';
-import styles from './BigArticle.module.css';
-import cn from "classnames";
-import {Link} from "react-router-dom";
+import React, { memo } from 'react';
+import cn from 'classnames';
+import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
+import styles from './BigArticle.module.css';
 
 type BigArticleProps = {
     title: string
@@ -16,60 +16,75 @@ type BigArticleProps = {
     image?: string
 }
 
-const BigArticle: React.FC<BigArticleProps> =
-    memo(({ title,
-         labelText,
-         author,
-         textPreview,
-         commentsCount
-         , date, color = 'blue', id, image }) => {
+const BigArticle: React.FC<BigArticleProps> = memo(({
+    title,
+    labelText,
+    author,
+    textPreview,
+    commentsCount,
+    date, color = 'blue', id, image,
+}: BigArticleProps) => {
     const { ref, inView } = useInView({
         threshold: 0.3,
     });
 
     const checkImageValidity = (image: string | undefined) => {
         if (image) {
-            return `url(https://dota2.press/${image})`
-        } else {
-            return ``
+            return `url(https://dota2.press/${image})`;
         }
-    }
+        return '';
+    };
 
     return (
         <Link to={`/article/${id}`} className={styles.article} ref={ref}>
-            <div className={styles.articleImage}
-                 style={{
-                     backgroundImage: `${inView ? checkImageValidity(image) : ''}`,
-                     backgroundSize: 'cover',
-                     backgroundRepeat: 'no-repeat',
-                     backgroundPosition: 'center'
-                 }}
+            <div
+                className={styles.articleImage}
+                style={{
+                    backgroundImage: `${inView ? checkImageValidity(image) : ''}`,
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                }}
             >
                 <div className={cn(styles.label, {
                     [styles.labelYellow]: color === 'yellow',
                     [styles.labelPurple]: color === 'purple',
                     [styles.labelBlue]: color === 'blue',
                     [styles.labelRed]: color === 'red',
-                })}>{labelText}</div>
+                })}
+                >
+                    {labelText}
+                </div>
             </div>
             <p className={styles.title}>{title}</p>
             <div className={styles.wrapper}>
-                <div className={styles.avatar}/>
-                <p className={styles.articleAuthor}>By <span className={cn(styles.span, {
-                    [styles.spanYellow]: color === 'yellow',
-                    [styles.spanPurple]: color === 'purple',
-                    [styles.spanBlue]: color === 'blue',
-                    [styles.spanRed]: color === 'red',
-                })}>{author}</span></p>
-                <div className={styles.articleSep}/>
+                <div className={styles.avatar} />
+                <p className={styles.articleAuthor}>
+                    By
+                    <span className={cn(styles.span, {
+                        [styles.spanYellow]: color === 'yellow',
+                        [styles.spanPurple]: color === 'purple',
+                        [styles.spanBlue]: color === 'blue',
+                        [styles.spanRed]: color === 'red',
+                    })}
+                    >
+                        {author}
+                    </span>
+                </p>
+                <div className={styles.articleSep} />
                 <p className={styles.articleDate}>{date}</p>
-                <div className={styles.articleSep}/>
+                <div className={styles.articleSep} />
                 <span className={cn(styles.span, {
                     [styles.spanYellow]: color === 'yellow',
                     [styles.spanPurple]: color === 'purple',
                     [styles.spanBlue]: color === 'blue',
                     [styles.spanRed]: color === 'red',
-                })}>{commentsCount} просмотров</span>
+                })}
+                >
+                    {commentsCount}
+                    {' '}
+                    просмотров
+                </span>
             </div>
             <p className={styles.textPreview}>
                 {textPreview}

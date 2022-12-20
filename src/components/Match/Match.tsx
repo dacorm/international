@@ -1,8 +1,9 @@
-import React, {memo, useEffect, useState} from 'react';
+import React, { memo, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import styles from './Match.module.css';
 import logo1 from '../../assets/images/01.png';
 import logo2 from '../../assets/images/02.png';
-import {Link} from "react-router-dom";
 import psg from '../../assets/images/intTeams/psg.webp';
 import og from '../../assets/images/intTeams/og.jpg';
 import spirit from '../../assets/images/intTeams/spirit.jpg';
@@ -23,71 +24,69 @@ import rng from '../../assets/images/intTeams/rng.webp';
 import talon from '../../assets/images/intTeams/talon.webp';
 import secret from '../../assets/images/intTeams/secret.webp';
 import liquid from '../../assets/images/intTeams/liquid.webp';
-import axios from "axios";
-import {MatchInfoType} from "../../@types/serverType";
-
+import { MatchInfoType } from '../../@types/serverType';
 
 export const imagesData = [{
     name: 'PSG.LGD',
-    image: psg
-},{
+    image: psg,
+}, {
     name: 'OG',
-    image: og
-},{
+    image: og,
+}, {
     name: 'Team Spirit',
-    image: spirit
-},{
+    image: spirit,
+}, {
     name: 'beastcoast',
-    image: beastcoast
-},{
+    image: beastcoast,
+}, {
     name: 'Team Aster',
-    image: aster
-},{
+    image: aster,
+}, {
     name: 'Thunder Awaken',
-    image: thunder
-},{
+    image: thunder,
+}, {
     name: 'BOOM Esports',
-    image: boom
-},{
+    image: boom,
+}, {
     name: 'TSM FTX',
-    image: tsm
-},{
+    image: tsm,
+}, {
     name: 'Tundra Esports',
-    image: tundra
-},{
+    image: tundra,
+}, {
     name: 'Gladiators',
-    image: gladiators
-},{
+    image: gladiators,
+}, {
     name: 'Evil Geniuses',
-    image: eg
-},{
+    image: eg,
+}, {
     name: 'Fnatic',
-    image: fnatic
-},{
+    image: fnatic,
+}, {
     name: 'Soniqs',
-    image: soniqs
-},{
+    image: soniqs,
+}, {
     name: 'Hokori',
-    image: hokori
-},{
+    image: hokori,
+}, {
     name: 'Entity',
-    image: entity
-},{
+    image: entity,
+}, {
     name: 'BetBoom Team',
-    image: betboom
-},{
+    image: betboom,
+}, {
     name: 'Royal Never Give Up',
-    image: rng
-},{
+    image: rng,
+}, {
     name: 'Talon Esports',
-    image: talon
-},{
+    image: talon,
+}, {
     name: 'Team Secret',
-    image: secret
-},{
+    image: secret,
+}, {
     name: 'Team Liquid',
-    image: liquid
-},]
+    image: liquid,
+}];
 
 type MatchProps = {
     radiantName: string
@@ -99,64 +98,64 @@ type MatchProps = {
     id: number
 }
 
-const Match: React.FC<MatchProps> = memo(({ radiantName, direName, radiantScore, direScore, league, date, id }) => {
+const Match: React.FC<MatchProps> = memo(({
+    radiantName, direName, radiantScore, direScore, league, date, id,
+}: MatchProps) => {
     const [data, setData] = useState<MatchInfoType | null>();
     const [logoDire, setLogoDire] = useState(logo1);
     const [logoRad, setLogoRad] = useState(logo2);
 
     const fetchData = async (matchId: number) => {
         try {
-            const {data} = await axios.get(`https://api.opendota.com/api/matches/${matchId}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`);
+            const { data } = await axios.get(`https://api.opendota.com/api/matches/${matchId}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`);
             setData(data);
         } catch (e) {
             console.log(e);
         }
-    }
+    };
 
     useEffect(() => {
-       fetchData(id);
-    }, [])
+        fetchData(id);
+    }, []);
 
     useEffect(() => {
         const logoUrlConverterDire = (url: string | null | undefined) => {
             if (url) return setLogoDire(url);
-            return
-        }
+        };
 
         const logoUrlConverterRad = (url: string | null | undefined) => {
             if (url) return setLogoRad(url);
-            return
-        }
+        };
 
         if (data?.radiant_team) {
-            logoUrlConverterRad(data.radiant_team.logo_url)
+            logoUrlConverterRad(data.radiant_team.logo_url);
         }
 
         if (data?.dire_team) {
-            logoUrlConverterDire(data.dire_team.logo_url)
+            logoUrlConverterDire(data.dire_team.logo_url);
         }
-    }, [data])
+    }, [data]);
 
     const leagueFormatter = (league: string) => {
         const leagueArr = league.split(' ');
-        let formattedArr
+        let formattedArr;
         if (leagueArr.length > 3) {
-            formattedArr = leagueArr.slice(0, 2)
-            return formattedArr.join(' ')
+            formattedArr = leagueArr.slice(0, 2);
+            return formattedArr.join(' ');
         }
-        return leagueArr.join(' ')
-    }
+        return leagueArr.join(' ');
+    };
 
     return (
         <Link to={`/match/${id}`} className={styles.match}>
             <div className={styles.teams}>
                 <div className={styles.team}>
-                    <img src={logoDire} alt="Team1Logo" className={styles.logo}/>
+                    <img src={logoDire} alt="Team1Logo" className={styles.logo} />
                     <p className={styles.teamName}>{direName}</p>
                     <p className={styles.score}>{direScore}</p>
                 </div>
                 <div className={styles.team}>
-                    <img src={logoRad} alt="Team2Logo" className={styles.logo}/>
+                    <img src={logoRad} alt="Team2Logo" className={styles.logo} />
                     <p className={styles.teamName}>{radiantName}</p>
                     <p className={styles.score}>{radiantScore}</p>
                 </div>

@@ -1,7 +1,7 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
 import styles from './Champion.module.css';
-import {nameConverter} from "../../helpers/nameConverter";
-import {Heroes} from "../../@types/serverType";
+import { nameConverter } from '../../helpers/nameConverter';
+import { Heroes } from '../../@types/serverType';
 
 interface ChampionProps {
     index: number;
@@ -13,15 +13,13 @@ interface ChampionProps {
 }
 
 const Champion: React.FC<ChampionProps> = memo(({
-                                               index,
-                                               teamId, direTeam, radiantTeam, id, heroes
-                                           }) => {
-
+    index,
+    teamId, direTeam, radiantTeam, id, heroes,
+}: ChampionProps) => {
     const intersect = (heroId: number, heroes: Heroes[]) => {
         const heroInfoName: Heroes[] = heroes.filter((hero) => hero.id === heroId);
         return heroInfoName;
-    }
-
+    };
 
     return (
         <li className={styles.wrapper}>
@@ -30,10 +28,13 @@ const Champion: React.FC<ChampionProps> = memo(({
                 alt="hero icon"
                 className={styles.image}
             />
-            <p className={styles.text}>{index + 1}.</p>
+            <p className={styles.text}>
+                {index + 1}
+                .
+            </p>
             <p className={styles.text}>{intersect(id, heroes)[0].localized_name}</p>
-            {teamId !== undefined &&
-            <p className={teamId === 0 ? styles.teamNameDire : styles.teamNameRad}>{teamId === 0 ? direTeam : radiantTeam}</p>}
+            {teamId !== undefined
+            && <p className={teamId === 0 ? styles.teamNameDire : styles.teamNameRad}>{teamId === 0 ? direTeam : radiantTeam}</p>}
         </li>
     );
 });

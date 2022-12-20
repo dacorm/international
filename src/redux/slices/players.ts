@@ -1,6 +1,6 @@
-import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
-import {PlayerI} from "../../@types/serverType";
+import { PlayerI } from '../../@types/serverType';
 
 type playersState = {
     players: {
@@ -10,17 +10,16 @@ type playersState = {
 }
 
 export const fetchPlayers = createAsyncThunk<PlayerI[], number>('players/fetchPlayers', async (id: number) => {
-    const { data } = await axios.get(`https://api.opendota.com/api/players/${id}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`);
+    const { data } = await axios
+        .get(`https://api.opendota.com/api/players/${id}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`);
     return data;
 });
-
-
 
 const initialState: playersState = {
     players: {
         items: [],
         status: 'loading',
-    }
+    },
 };
 
 const playersSlice = createSlice({
@@ -38,7 +37,7 @@ const playersSlice = createSlice({
         [fetchPlayers.rejected.toString()]: (state) => {
             state.players.items = [];
             state.players.status = 'error';
-        }
+        },
     },
 });
 

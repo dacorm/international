@@ -1,17 +1,19 @@
-import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
-import {useAppSelector} from "../assets/hooks";
-import {selectIsAuth, selectName} from "../redux/slices/auth";
-import {useNavigate, useParams} from "react-router-dom";
+import React, {
+    useCallback, useEffect, useMemo, useRef, useState,
+} from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import SimpleMDE from 'react-simplemde-editor';
+import { withErrorBoundary } from 'react-error-boundary';
+import { useAppSelector } from '../assets/hooks';
+import { selectIsAuth, selectName } from '../redux/slices/auth';
 import styles from './Admin.module.css';
-import Header from "../components/Header/Header";
-import WhiteHeading from "../components/WhiteHeading/WhiteHeading";
-import Footer from "../components/Footer/Footer";
+import Header from '../components/Header/Header';
+import WhiteHeading from '../components/WhiteHeading/WhiteHeading';
+import Footer from '../components/Footer/Footer';
 import 'easymde/dist/easymde.min.css';
-import axios from "../axios";
-import InfoPopup from "../components/InfoPopup/InfoPopup";
-import {withErrorBoundary} from "react-error-boundary";
-import TextSlide from "../components/TextSlide/TextSlide";
+import axios from '../axios';
+import InfoPopup from '../components/InfoPopup/InfoPopup';
+import TextSlide from '../components/TextSlide/TextSlide';
 
 type Options = {
     spellChecker: boolean;
@@ -41,28 +43,28 @@ const Admin = () => {
 
     const isEditing = Boolean(id);
 
-    const isUserAdmin = isAuth && (user.fullName === 'admin')
+    const isUserAdmin = isAuth && (user.fullName === 'admin');
 
     const onChange = useCallback((value: React.SetStateAction<string>) => {
         setText(value);
     }, []);
 
     const togglePostState = () => {
-        setIsArticle((prevState)  => !prevState);
-    }
+        setIsArticle((prevState) => !prevState);
+    };
 
     const fetchArticle = async () => {
-        const { data } = await axios.get(`/posts/${id}`)
+        const { data } = await axios.get(`/posts/${id}`);
         setText(data.text);
         setTitle(data.title);
-        setImageUrl(data.imageUrl)
-    }
+        setImageUrl(data.imageUrl);
+    };
 
     useEffect(() => {
-      if (id) {
-          fetchArticle();
-      }
-    }, [])
+        if (id) {
+            fetchArticle();
+        }
+    }, []);
 
     const handleChangeFile = async (evt: React.ChangeEvent<HTMLInputElement>) => {
         try {
@@ -74,7 +76,7 @@ const Admin = () => {
             setImageUrl(data.url);
         } catch (err) {
             console.warn(err);
-            alert('Не удалось загрузить файл')
+            alert('Не удалось загрузить файл');
         }
     };
 
@@ -87,8 +89,8 @@ const Admin = () => {
                 tags: '',
                 imageUrl,
                 text,
-                isArticle
-            }
+                isArticle,
+            };
             const { data } = isEditing ? await axios.patch(`/posts/${id}`, fields) : await axios.post('/posts', fields);
             setTitle('');
             setText('');
@@ -102,17 +104,17 @@ const Admin = () => {
 
     const onClickRemoveImage = () => {
         setImageUrl('');
-    }
+    };
 
     const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.target.value)
-    }
+        setTitle(e.target.value);
+    };
 
     useEffect(() => {
         if (!isUserAdmin) {
-            navigate('/')
+            navigate('/');
         }
-    }, [isUserAdmin])
+    }, [isUserAdmin]);
 
     const options: Options = useMemo(
         () => ({
@@ -132,47 +134,65 @@ const Admin = () => {
 
     return (
         <>
-            <Header/>
-            <WhiteHeading/>
+            <Header />
+            <WhiteHeading />
             <div className={styles.editorContainer}>
                 <div className={styles.inputWrapper}>
-                    <input type="file" ref={inputFileRef} name='input__file' id='input__file' onChange={handleChangeFile} className={styles.inputFile}/>
+                    <input
+                        type="file"
+                        ref={inputFileRef}
+                        name="input__file"
+                        id="input__file"
+                        onChange={handleChangeFile}
+                        className={styles.inputFile}
+                    />
                     <label htmlFor="input__file" className={styles.inputFileLabel}>Выберите превью</label>
                 </div>
                 {imageUrl && (
                     <>
-                        <button className={styles.buttonRemove} onClick={onClickRemoveImage}>
+                        <button type="button" className={styles.buttonRemove} onClick={onClickRemoveImage}>
                             Удалить
                         </button>
                         <img className={styles.image} src={`https://dota2.press/${imageUrl}`} alt="Uploaded" />
                     </>
                 )}
-                <input type="text" className={styles.titleInput} value={title} onChange={handleTitleChange} placeholder='Заголовок статьи...' />
+                <input type="text" className={styles.titleInput} value={title} onChange={handleTitleChange} placeholder="Заголовок статьи..." />
                 <SimpleMDE className={styles.editor} value={text} onChange={onChange} options={options} />
-                {!isEditing && <>
-                    <p>Этот контент - {isArticle ? 'Статья' : 'Новость'}</p>
-                    <button onClick={togglePostState} className={styles.submitButton}>Изменить тип</button>
-                </>}
-                <button onClick={onSubmit} disabled={isLoading} className={`${styles.submitButton} ${isLoading ? styles.submitButtonDisabled : ''}`}>
+                {!isEditing && (
+                    <>
+                        <p>
+                            Этот контент -
+                            {isArticle ? 'Статья' : 'Новость'}
+                        </p>
+                        <button type="button" onClick={togglePostState} className={styles.submitButton}>Изменить тип</button>
+                    </>
+                )}
+                <button
+                    type="submit"
+                    onClick={onSubmit}
+                    disabled={isLoading}
+                    className={`${styles.submitButton} ${isLoading ? styles.submitButtonDisabled : ''}`}
+                >
                     Опубликовать статью
                 </button>
             </div>
-            <Footer/>
+            <Footer />
             <InfoPopup isLoading={isLoading} error={error} setError={setError} />
         </>
     );
 };
 
 export default withErrorBoundary(Admin, {
-    fallback: (<>
-        <Header/>
-        <WhiteHeading/>
-        <div className={styles.articleHeading}>
-            <h1 className={styles.title}>
-                Что-то пошло не так
-            </h1>
-        </div>
-        <TextSlide/>
-        <Footer />
-    </>)
+    fallback: (
+        <>
+            <Header />
+            <WhiteHeading />
+            <div className={styles.articleHeading}>
+                <h1 className={styles.title}>
+                    Что-то пошло не так
+                </h1>
+            </div>
+            <TextSlide />
+            <Footer />
+        </>),
 });

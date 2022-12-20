@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import styles from './FeaturesPopup.module.css'
-import BigPost from "../BigPost/BigPost";
+import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
+import styles from './FeaturesPopup.module.css';
+import BigPost from '../BigPost/BigPost';
 
 const postsData = [{
     title: 'New "Rizen" game is gonna be released in summer 2019',
@@ -11,7 +11,7 @@ const postsData = [{
     labelText: 'Gaming News',
     color: 'yellow',
     id: 13,
-},{
+}, {
     title: 'The new mecha cyber games is breaking barriers',
     author: 'Vellatrix',
     date: 'December, 15th',
@@ -19,7 +19,7 @@ const postsData = [{
     labelText: 'Gaming Reviews',
     color: 'blue',
     id: 14,
-},{
+}, {
     title: 'Pro soccer 2017 league kicked off today',
     author: 'Faye V.',
     date: 'December, 15th',
@@ -27,7 +27,7 @@ const postsData = [{
     labelText: 'eSports',
     color: 'red',
     id: 15,
-},{
+}, {
     title: 'Jessica time to star in new Charlotte series',
     author: 'Vellatrix',
     date: 'December, 15th',
@@ -35,7 +35,7 @@ const postsData = [{
     labelText: 'Geeky news',
     color: 'yellow',
     id: 16,
-},]
+}];
 
 type FeaturesPopupProps = {
     className: string
@@ -46,12 +46,11 @@ type FeaturesPopupProps = {
 const FeaturesPopup: React.FC<FeaturesPopupProps> = ({ className, lazy, isOpen }) => {
     const [isMounted, setIsMounted] = useState(false);
 
-
     useEffect(() => {
         if (isOpen) {
             setIsMounted(true);
         }
-    }, [isOpen])
+    }, [isOpen]);
 
     if (lazy && !isMounted) {
         return null;
@@ -63,7 +62,7 @@ const FeaturesPopup: React.FC<FeaturesPopupProps> = ({ className, lazy, isOpen }
                 <div className={styles.firstList}>
                     <ul className={styles.list}>
                         <h2 className={styles.listHeading}>Pixel Main Features</h2>
-                        <div className={styles.separator}/>
+                        <div className={styles.separator} />
                         <li className={styles.listItem}>
                             eSports Home
                         </li>
@@ -136,7 +135,7 @@ const FeaturesPopup: React.FC<FeaturesPopupProps> = ({ className, lazy, isOpen }
                 <div className={styles.secondList}>
                     <ul className={styles.list}>
                         <h2 className={styles.listHeading}>Account & Company</h2>
-                        <div className={styles.separator}/>
+                        <div className={styles.separator} />
                         <li className={styles.listItem}>
                             eSports Home
                         </li>
@@ -163,7 +162,7 @@ const FeaturesPopup: React.FC<FeaturesPopupProps> = ({ className, lazy, isOpen }
                 <div className={styles.thirdList}>
                     <ul className={styles.list}>
                         <h2 className={styles.listHeading}>Pixel Foums</h2>
-                        <div className={styles.separatorPurple}/>
+                        <div className={styles.separatorPurple} />
                         <li className={styles.listItem}>
                             eSports Home
                         </li>
@@ -213,16 +212,18 @@ const FeaturesPopup: React.FC<FeaturesPopupProps> = ({ className, lazy, isOpen }
             </div>
             <div className={styles.down}>
                 {
-                    postsData.map((post, index) => ( <BigPost
-                        title={post.title}
-                        author={post.author}
-                        date={post.date}
-                        textPreview={post.textPreview}
-                        labelText={post.labelText}
-                        color={post.color}
-                        key={post.id}
-                        id={post.id.toString()}
-                    />))
+                    postsData.map((post, index) => (
+                        <BigPost
+                            title={post.title}
+                            author={post.author}
+                            date={post.date}
+                            textPreview={post.textPreview}
+                            labelText={post.labelText}
+                            color={post.color}
+                            key={post.id}
+                            id={post.id.toString()}
+                        />
+                    ))
                 }
             </div>
         </div>

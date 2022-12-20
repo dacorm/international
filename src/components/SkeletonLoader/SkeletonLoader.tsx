@@ -1,5 +1,5 @@
-import React from "react"
-import ContentLoader from "react-content-loader";
+import React from 'react';
+import ContentLoader from 'react-content-loader';
 import styles from './SkeletonLoader.module.css';
 
 const SkeletonLoader = (props: JSX.IntrinsicAttributes) => (
@@ -12,8 +12,8 @@ const SkeletonLoader = (props: JSX.IntrinsicAttributes) => (
         foregroundColor="#ecebeb"
         {...props}
     >
-        <rect x="-23" y="-20" rx="3" ry="3" width="810" height="570"/>
+        <rect x="-23" y="-20" rx="3" ry="3" width="810" height="570" />
     </ContentLoader>
-)
+);
 
-export default SkeletonLoader
+export default SkeletonLoader;

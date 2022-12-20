@@ -45,11 +45,20 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
-        'max-len': ['error', { ignoreComments: true, code: 120 }],
+        'max-len': ['error', { ignoreComments: true, code: 200 }],
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
         'no-param-reassign': 'off',
         'no-undef': 'off',
+        'jsx-a11y/anchor-has-content': 'warn',
+        'no-plusplus': 'warn',
+        'consistent-return': 'warn',
+        'no-return-assign': 'warn',
+        'array-callback-return': 'warn',
+        'jsx-a11y/no-noninteractive-element-interactions': 'off',
+    },
+    globals: {
+        __IS_DEV__: true,
     },
     overrides: [
         {

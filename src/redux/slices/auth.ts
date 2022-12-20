@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import axios from "../../axios";
+import axios from '../../axios';
 
 export type dataType = {
     fullName?: string,
@@ -15,17 +15,17 @@ type AuthState = {
 export const fetchAuth = createAsyncThunk<dataType, dataType>('auth/fetchAuth', async (params) => {
     const { data } = await axios.post('/auth/login', params);
     return data;
-})
+});
 
 export const fetchAuthMe = createAsyncThunk<dataType, undefined>('auth/fetchAuthMe', async (params) => {
     const { data } = await axios.get('/auth/me');
     return data;
-})
+});
 
 export const fetchRegister = createAsyncThunk<dataType, dataType>('auth/fetchRegister', async (params) => {
     const { data } = await axios.post('/auth/register', params);
     return data;
-})
+});
 
 const initialState: AuthState = {
     data: null,
@@ -38,12 +38,12 @@ const authSlice = createSlice({
     reducers: {
         logout: (state) => {
             state.data = null;
-        }
+        },
     },
     extraReducers: {
         [fetchAuth.pending.toString()]: (state) => {
             state.status = 'loading';
-            state.data = null
+            state.data = null;
         },
         [fetchAuth.fulfilled.toString()]: (state, action: PayloadAction<dataType>) => {
             state.status = 'loaded';
@@ -55,7 +55,7 @@ const authSlice = createSlice({
         },
         [fetchAuthMe.pending.toString()]: (state) => {
             state.status = 'loading';
-            state.data = null
+            state.data = null;
         },
         [fetchAuthMe.fulfilled.toString()]: (state, action: PayloadAction<dataType>) => {
             state.status = 'loaded';
@@ -67,7 +67,7 @@ const authSlice = createSlice({
         },
         [fetchRegister.pending.toString()]: (state) => {
             state.status = 'loading';
-            state.data = null
+            state.data = null;
         },
         [fetchRegister.fulfilled.toString()]: (state, action: PayloadAction<dataType>) => {
             state.status = 'loaded';
@@ -78,9 +78,7 @@ const authSlice = createSlice({
             state.data = null;
         },
 
-
-
-    }
+    },
 });
 
 export const selectIsAuth = (state: any) => Boolean(state.auth.data);

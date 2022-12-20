@@ -1,42 +1,42 @@
 export const nameConverter = (name: string) => {
     if (name === 'Lifestealer') {
-        return 'life_stealer'
-    } else if (name === 'Anti-Mage') {
-        return 'antimage'
-    } else if (name === 'Doom') {
-        return 'doom_bringer'
-    } else if (name === 'Shadow Fiend') {
-        return 'nevermore'
-    } else if (name === 'Windranger') {
-        return 'windrunner'
-    } else if (name === 'Necrophos') {
-        return 'necrolyte'
-    } else if (name === 'Wraith King') {
-        return 'skeleton_king'
-    } else if (name === `Nature's Prophet`) {
-        return 'furion'
-    } else if (name === 'Centaur Warrunner') {
-        return 'centaur'
-    } else if (name === 'Underlord') {
-        return 'abyssal_underlord'
-    } else if (name === 'Timbersaw') {
-        return 'shredder'
-    } else if (name === 'Vengeful Spirit') {
-        return 'vengefulspirit'
-    } else if (name === 'Queen of Pain') {
-        return 'queenofpain'
-    } else if (name === 'Outworld Destroyer') {
-        return 'obsidian_destroyer'
-    } else if (name === 'Clockwerk') {
-        return 'rattletrap'
-    } else if (name === 'Zeus') {
-        return 'zuus'
-    } else if (name === 'Treant Protector') {
-        return 'treant'
-    } else if (name === 'Io') {
-        return 'wisp'
-    } else if (name === 'Magnus') {
-        return 'magnataur'
+        return 'life_stealer';
+    } if (name === 'Anti-Mage') {
+        return 'antimage';
+    } if (name === 'Doom') {
+        return 'doom_bringer';
+    } if (name === 'Shadow Fiend') {
+        return 'nevermore';
+    } if (name === 'Windranger') {
+        return 'windrunner';
+    } if (name === 'Necrophos') {
+        return 'necrolyte';
+    } if (name === 'Wraith King') {
+        return 'skeleton_king';
+    } if (name === 'Nature\'s Prophet') {
+        return 'furion';
+    } if (name === 'Centaur Warrunner') {
+        return 'centaur';
+    } if (name === 'Underlord') {
+        return 'abyssal_underlord';
+    } if (name === 'Timbersaw') {
+        return 'shredder';
+    } if (name === 'Vengeful Spirit') {
+        return 'vengefulspirit';
+    } if (name === 'Queen of Pain') {
+        return 'queenofpain';
+    } if (name === 'Outworld Destroyer') {
+        return 'obsidian_destroyer';
+    } if (name === 'Clockwerk') {
+        return 'rattletrap';
+    } if (name === 'Zeus') {
+        return 'zuus';
+    } if (name === 'Treant Protector') {
+        return 'treant';
+    } if (name === 'Io') {
+        return 'wisp';
+    } if (name === 'Magnus') {
+        return 'magnataur';
     }
-    return name.toLowerCase().split(' ').join('_')
-}
+    return name.toLowerCase().split(' ').join('_');
+};

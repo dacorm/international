@@ -1,37 +1,39 @@
-import React, {memo, useEffect, useMemo, useState} from 'react';
+import React, {
+    memo, useEffect, useMemo, useState,
+} from 'react';
+import axios from 'axios';
 import styles from './HeroStats.module.css';
-import axios from "axios";
-import {HeroStats as HeroStatsType} from "../../@types/serverType";
-import Loader from "../Loader/Loader";
+import { HeroStats as HeroStatsType } from '../../@types/serverType';
+import Loader from '../Loader/Loader';
 
 interface HeroStatsProps {
     id: number;
 }
 
-export const HeroStats: React.FC<HeroStatsProps> = memo(({ id }) => {
+export const HeroStats: React.FC<HeroStatsProps> = memo(({ id }: HeroStatsProps) => {
     const [heroStats, setHeroStats] = useState<HeroStatsType[]>();
 
     const fetchStats = async () => {
-        const { data } = await axios.get('https://api.opendota.com/api/heroStats?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96')
+        const { data } = await axios.get('https://api.opendota.com/api/heroStats?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96');
         setHeroStats(data);
-    }
+    };
 
     useEffect(() => {
         fetchStats();
-    }, [])
+    }, []);
 
     const filteredHeroStat = useMemo(() => {
         let hero;
-       if (heroStats) {
-          hero = heroStats.filter((item) => item.id === id)
-       }
-       if (hero) {
-           return hero[0];
-       }
-    }, [id, heroStats])
+        if (heroStats) {
+            hero = heroStats.filter((item) => item.id === id);
+        }
+        if (hero) {
+            return hero[0];
+        }
+    }, [id, heroStats]);
 
     if (!filteredHeroStat) {
-        return <Loader />
+        return <Loader />;
     }
 
     return (
@@ -39,7 +41,13 @@ export const HeroStats: React.FC<HeroStatsProps> = memo(({ id }) => {
             <ul className={styles.table}>
                 <li className={styles.tableItem}>
                     <p className={styles.tableText}>Base Attack:</p>
-                    <p className={styles.tableText}>{filteredHeroStat && filteredHeroStat.base_attack_min} - {filteredHeroStat && filteredHeroStat.base_attack_max}</p>
+                    <p className={styles.tableText}>
+                        {filteredHeroStat && filteredHeroStat.base_attack_min}
+                        {' '}
+                        -
+                        {' '}
+                        {filteredHeroStat && filteredHeroStat.base_attack_max}
+                    </p>
                 </li>
                 <li className={styles.tableItem}>
                     <p className={styles.tableText}>Attack Range:</p>

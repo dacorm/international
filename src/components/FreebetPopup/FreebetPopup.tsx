@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './FreebetPopup.module.css';
 import close from '../../assets/images/close_FILL0_wght400_GRAD0_opsz48.svg';
 import banner from '../../assets/images/300x350---5.gif';
@@ -16,7 +16,7 @@ const FreebetPopup: React.FC<FreebetPopupProps> = ({ onClose, lazy, isOpen }) =>
         if (isOpen) {
             setIsMounted(true);
         }
-    }, [isOpen])
+    }, [isOpen]);
 
     if (lazy && !isMounted) {
         return null;
@@ -25,8 +25,8 @@ const FreebetPopup: React.FC<FreebetPopupProps> = ({ onClose, lazy, isOpen }) =>
     return (
         <div className={styles.overlay}>
             <div className={styles.popup}>
-                <a href='https://promote.betcity.ru/freebet500app/' target='_blank' rel="noreferrer">
-                    <img src={banner} alt="Баннер бетсити" className={styles.popupImage}/>
+                <a href="https://promote.betcity.ru/freebet500app/" target="_blank" rel="noreferrer">
+                    <img src={banner} alt="Баннер бетсити" className={styles.popupImage} />
                 </a>
                 <img src={close} alt="Иконка закрытия" className={styles.close} onClick={onClose} />
             </div>

@@ -5,12 +5,10 @@ type TagProps = {
     text: string
 }
 
-const Tag: React.FC<TagProps> = ({ text }) => {
-    return (
-        <div className={styles.tag}>
-            <p className={styles.tagText}>{text}</p>
-        </div>
-    );
-};
+const Tag: React.FC<TagProps> = ({ text }) => (
+    <div className={styles.tag}>
+        <p className={styles.tagText}>{text}</p>
+    </div>
+);
 
 export default Tag;

@@ -1,4 +1,7 @@
-import React, {memo, useEffect, useRef, useState} from 'react';
+import React, {
+    memo, useEffect, useRef, useState,
+} from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import FR from '../../assets/images/flag-fr.png';
 import ES from '../../assets/images/flag-es.png';
@@ -8,9 +11,8 @@ import drop from '../../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg
 import wish from '../../assets/images/favorite_FILL0_wght400_GRAD0_opsz48.svg';
 import compare from '../../assets/images/sell_FILL0_wght400_GRAD0_opsz48.svg';
 import banner from '../../assets/images/300x350---6.gif';
-import {Link} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../../assets/hooks";
-import {logout, selectIsAuth, selectName} from "../../redux/slices/auth";
+import { useAppDispatch, useAppSelector } from '../../assets/hooks';
+import { logout, selectIsAuth, selectName } from '../../redux/slices/auth';
 
 type PopupClick = MouseEvent & {
     path: Node[];
@@ -18,17 +20,17 @@ type PopupClick = MouseEvent & {
 
 const langs = [{
     image: US,
-    name: 'English'
+    name: 'English',
 }, {
     image: ES,
-    name: 'Spanish'
+    name: 'Spanish',
 }, {
     image: FR,
-    name: 'France'
+    name: 'France',
 }, {
     image: JP,
-    name: 'Japaneese'
-}]
+    name: 'Japaneese',
+}];
 
 const Header = memo(() => {
     const isAuth = useAppSelector(selectIsAuth);
@@ -40,19 +42,18 @@ const Header = memo(() => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [lang, setLang] = useState({
         name: 'English',
-        image: US
-    })
+        image: US,
+    });
     const popupRef = useRef<HTMLDivElement>(null);
 
-    const isUserAdmin = isAuth && (user.fullName === 'admin')
-
+    const isUserAdmin = isAuth && (user.fullName === 'admin');
 
     const onClickLogout = () => {
         if (window.confirm('Вы действительно хотите выйти?')) {
             dispatch(logout());
             window.localStorage.removeItem('token');
         }
-    }
+    };
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -70,130 +71,164 @@ const Header = memo(() => {
 
     const handleLangClick = () => {
         setVisible(!visible);
-    }
+    };
 
     const handleWalletClick = () => {
         setOpen(!open);
         if (!stopAnimation) setStopAnimation(true);
-    }
+    };
 
     const openPopup = () => {
         setIsPopupOpen(!isPopupOpen);
-        document.body.style.overflow = "hidden"
-    }
+        document.body.style.overflow = 'hidden';
+    };
 
     const closePopup = () => {
         setIsPopupOpen(false);
-        document.body.style.overflow = "auto"
-    }
+        document.body.style.overflow = 'auto';
+    };
 
     useEffect(() => {
         if (!isPopupOpen) {
-            document.body.style.overflow = "auto"
+            document.body.style.overflow = 'auto';
         }
-    }, [isPopupOpen])
+    }, [isPopupOpen]);
 
     return (
         <header className={styles.header} ref={popupRef}>
-            {isPopupOpen && <div className={styles.overlay} onClick={closePopup}/>}
+            {isPopupOpen && <div className={styles.overlay} onClick={closePopup} />}
             <div className={styles.hamburgerLines} onClick={openPopup}>
-                <span className={`${styles.line} ${styles.line1} ${isPopupOpen ? styles.line1Opened : null}`}/>
-                <span className={`${styles.line} ${styles.line2} ${isPopupOpen ? styles.line2Opened : null}`}/>
-                <span className={`${styles.line} ${styles.line3} ${isPopupOpen ? styles.line3Opened : null}`}/>
+                <span className={`${styles.line} ${styles.line1} ${isPopupOpen ? styles.line1Opened : null}`} />
+                <span className={`${styles.line} ${styles.line2} ${isPopupOpen ? styles.line2Opened : null}`} />
+                <span className={`${styles.line} ${styles.line3} ${isPopupOpen ? styles.line3Opened : null}`} />
             </div>
-            {isPopupOpen && <div className={styles.burgerPopup}>
-                <div className={styles.rightInPopup}>
-                    {
-                        isAuth && (<Link to='/profile' className={styles.account} onClick={() => openPopup}>
-                            <div className={styles.avatar}/>
-                            <p className={styles.username}>{user.fullName}</p>
-                            <img src={drop} alt="DropDown" className={styles.drop}/>
-                        </Link>)
-                    }
-                    <Link to='/calendar' className={styles.adminPanelNav}>Матчи</Link>
-                    <Link to='/players' className={styles.adminPanelNav}>Топ игроков</Link>
-                    <Link to='/tournament' className={styles.adminPanelNav}>TI2022</Link>
-                    {isUserAdmin && <Link to='/admin' className={styles.adminPanelNav}>Админка</Link>}
-                    {
-                        isAuth ? (
-                            <button className={styles.logout} onClick={() => {
-                                onClickLogout();
-                                openPopup();
-                            }}>
-                                <p className={styles.buttonText}>Выйти</p>
-                                <div className={styles.dropCont}>
-                                    <img src={drop} alt="DropDown" className={styles.dropButton}/>
-                                </div>
-                            </button>
-                        ) : (<Link to='/login' className={styles.logout}>
-                            <p className={styles.buttonText}>Войти</p>
-                            <div className={styles.dropCont}>
-                                <img src={drop} alt="DropDown" className={styles.dropButton}/>
-                            </div>
-                        </Link>)
-                    }
-                    <a href='https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1' target='_blank' className={styles.banner} rel="noreferrer" />
+            {isPopupOpen && (
+                <div className={styles.burgerPopup}>
+                    <div className={styles.rightInPopup}>
+                        {
+                            isAuth && (
+                                <Link to="/profile" className={styles.account} onClick={() => openPopup}>
+                                    <div className={styles.avatar} />
+                                    <p className={styles.username}>{user.fullName}</p>
+                                    <img src={drop} alt="DropDown" className={styles.drop} />
+                                </Link>
+                            )
+                        }
+                        <Link to="/calendar" className={styles.adminPanelNav}>Матчи</Link>
+                        <Link to="/players" className={styles.adminPanelNav}>Топ игроков</Link>
+                        <Link to="/tournament" className={styles.adminPanelNav}>TI2022</Link>
+                        {isUserAdmin && <Link to="/admin" className={styles.adminPanelNav}>Админка</Link>}
+                        {
+                            isAuth ? (
+                                <button
+                                    type="button"
+                                    className={styles.logout}
+                                    onClick={() => {
+                                        onClickLogout();
+                                        openPopup();
+                                    }}
+                                >
+                                    <p className={styles.buttonText}>Выйти</p>
+                                    <div className={styles.dropCont}>
+                                        <img src={drop} alt="DropDown" className={styles.dropButton} />
+                                    </div>
+                                </button>
+                            ) : (
+                                <Link to="/login" className={styles.logout}>
+                                    <p className={styles.buttonText}>Войти</p>
+                                    <div className={styles.dropCont}>
+                                        <img src={drop} alt="DropDown" className={styles.dropButton} />
+                                    </div>
+                                </Link>
+                            )
+                        }
+                        <a
+                            href="https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1"
+                            target="_blank"
+                            className={styles.banner}
+                            rel="noreferrer"
+                        />
+                    </div>
                 </div>
-            </div>}
+            )}
             <div className={styles.left}>
                 <div className={styles.lang} onClick={handleLangClick}>
-                    <img src={lang.image} alt="US Flag" className={styles.image}/>
+                    <img src={lang.image} alt="US Flag" className={styles.image} />
                     <p className={styles.language}>{lang.name}</p>
-                    <img src={drop} alt="DropDown" className={`${styles.drop} ${visible ? styles.dropLeft : ''}`}/>
+                    <img src={drop} alt="DropDown" className={`${styles.drop} ${visible ? styles.dropLeft : ''}`} />
                 </div>
                 <div className={stopAnimation ? styles.currencyModified : styles.currency} onClick={handleWalletClick} />
-                {visible && <div className={styles.langPopup} onClick={() => setVisible(false)}>
-                    {
-                        langs.map(lang => (
-                            <div className={styles.popupItem} onClick={() => {
-                                setLang({
-                                    name: lang.name,
-                                    image: lang.image
-                                })
-                                setVisible(false);
-                            }} key={lang.name}>
-                                <img src={lang.image} alt="US Flag" className={styles.popupimg}/>
-                                <p className={styles.popuplang}>{lang.name}</p>
-                            </div>
-                        ))
-                    }
-                </div>}
-                {open && <div className={styles.walletPopup}>
-                    <img src={banner} alt='Бетсити баннер' className={styles.popupImage}/>
-                    <a href='https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1' className={styles.popupButton} target='_blank' rel="noreferrer">Получить</a>
-                </div>}
+                {visible && (
+                    <div className={styles.langPopup} onClick={() => setVisible(false)}>
+                        {
+                            langs.map((lang) => (
+                                <div
+                                    className={styles.popupItem}
+                                    onClick={() => {
+                                        setLang({
+                                            name: lang.name,
+                                            image: lang.image,
+                                        });
+                                        setVisible(false);
+                                    }}
+                                    key={lang.name}
+                                >
+                                    <img src={lang.image} alt="US Flag" className={styles.popupimg} />
+                                    <p className={styles.popuplang}>{lang.name}</p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                )}
+                {open && (
+                    <div className={styles.walletPopup}>
+                        <img src={banner} alt="Бетсити баннер" className={styles.popupImage} />
+                        <a
+                            href="https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1"
+                            className={styles.popupButton}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            Получить
+                        </a>
+                    </div>
+                )}
             </div>
             <div className={styles.right}>
-                {isUserAdmin && <Link to='/admin' className={styles.adminPanelNav}>Админка</Link>}
+                {isUserAdmin && <Link to="/admin" className={styles.adminPanelNav}>Админка</Link>}
                 {
-                    isAuth && (<Link to='/profile' className={styles.account}>
-                        <div className={styles.avatar}/>
-                        <p className={styles.username}>{user.fullName}</p>
-                        <img src={drop} alt="DropDown" className={styles.drop}/>
-                    </Link>)
+                    isAuth && (
+                        <Link to="/profile" className={styles.account}>
+                            <div className={styles.avatar} />
+                            <p className={styles.username}>{user.fullName}</p>
+                            <img src={drop} alt="DropDown" className={styles.drop} />
+                        </Link>
+                    )
                 }
                 <div className={styles.wish}>
-                    <img src={wish} alt="wishlist" className={styles.wishsvg}/>
+                    <img src={wish} alt="wishlist" className={styles.wishsvg} />
                     <p className={styles.wishText}>Wishlist (5)</p>
                 </div>
                 <div className={styles.compare}>
-                    <img src={compare} alt="compare" className={styles.comparesvg}/>
+                    <img src={compare} alt="compare" className={styles.comparesvg} />
                     <p className={styles.compareText}>Compare (2)</p>
                 </div>
                 {
                     isAuth ? (
-                        <button className={styles.logout} onClick={onClickLogout}>
+                        <button type="button" className={styles.logout} onClick={onClickLogout}>
                             <p className={styles.buttonText}>Выйти</p>
                             <div className={styles.dropCont}>
-                                <img src={drop} alt="DropDown" className={styles.dropButton}/>
+                                <img src={drop} alt="DropDown" className={styles.dropButton} />
                             </div>
                         </button>
-                    ) : (<Link to='/login' className={styles.logout}>
-                        <p className={styles.buttonText}>Войти</p>
-                        <div className={styles.dropCont}>
-                            <img src={drop} alt="DropDown" className={styles.dropButton}/>
-                        </div>
-                    </Link>)
+                    ) : (
+                        <Link to="/login" className={styles.logout}>
+                            <p className={styles.buttonText}>Войти</p>
+                            <div className={styles.dropCont}>
+                                <img src={drop} alt="DropDown" className={styles.dropButton} />
+                            </div>
+                        </Link>
+                    )
                 }
             </div>
         </header>

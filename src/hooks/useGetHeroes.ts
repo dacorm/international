@@ -1,7 +1,7 @@
-import {useEffect, useState} from "react";
-import {Heroes as HeroesType} from "../@types/serverType";
-import axios from "axios";
-import {getWithExpiry, setWithExpiry} from "../helpers/localStorage";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Heroes as HeroesType } from '../@types/serverType';
+import { getWithExpiry, setWithExpiry } from '../helpers/localStorage';
 
 export function useGetHeroes() {
     const [heroes, setHeroes] = useState<HeroesType[]>();
@@ -15,13 +15,13 @@ export function useGetHeroes() {
             } catch (e) {
                 console.log(e);
             }
-        }
+        };
 
         setHeroes(getWithExpiry('heroes'));
         if (!heroes) {
             fetchHeroes();
         }
-    }, [])
+    }, []);
 
     return heroes;
 }

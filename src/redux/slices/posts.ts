@@ -1,6 +1,6 @@
-import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
-import axios from "../../axios";
-import {Post} from "../../@types/serverType";
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import axios from '../../axios';
+import { Post } from '../../@types/serverType';
 
 type PostsState = {
     posts: {
@@ -14,14 +14,16 @@ export const fetchPosts = createAsyncThunk<Post[], undefined>('posts/fetchPosts'
     return data;
 });
 
-export const fetchRemovePost = createAsyncThunk<Post[], string>('posts/fetchRemovePosts', async (id) => axios.delete(`/posts/${id}`));
-
+export const fetchRemovePost = createAsyncThunk<Post[], string>(
+    'posts/fetchRemovePosts',
+    async (id) => axios.delete(`/posts/${id}`),
+);
 
 const initialState: PostsState = {
-        posts: {
-            items: [],
-            status: 'loading',
-        }
+    posts: {
+        items: [],
+        status: 'loading',
+    },
 };
 
 const postsSlice = createSlice({
@@ -41,7 +43,7 @@ const postsSlice = createSlice({
             state.posts.status = 'error';
         },
         [fetchRemovePost.pending.toString()]: (state, action) => {
-            state.posts.items = state!.posts!.items!.filter(obj => obj._id !== action.meta.arg);
+            state.posts.items = state!.posts!.items!.filter((obj) => obj._id !== action.meta.arg);
         },
     },
 });
