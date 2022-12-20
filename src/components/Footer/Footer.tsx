@@ -30,7 +30,7 @@ const Footer = () => {
 
     const prevHandler = () => {
         position += 115
-        if (position > 350) position = 0
+        if (position > 231) position = 0
         slider?.current?.childNodes.forEach((element) => {
             (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`)
         })
@@ -38,7 +38,7 @@ const Footer = () => {
 
     const nextHandler = () => {
         position -= 115
-        if (position < -1299) position = 0
+        if (position < -1184) position = 0
         slider?.current?.childNodes.forEach((element) => {
             (element as HTMLImageElement).setAttribute('style', `transform: translateX(${position}px)`)
         })

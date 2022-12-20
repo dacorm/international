@@ -2,8 +2,7 @@ import React, {memo, useEffect, useMemo, useState} from 'react';
 import styles from './HeroStats.module.css';
 import axios from "axios";
 import {HeroStats as HeroStatsType} from "../../@types/serverType";
-import FallbackLoader from "../FallbackLoader/FallbackLoader";
-import heroes from "../../pages/Heroes";
+import Loader from "../Loader/Loader";
 
 interface HeroStatsProps {
     id: number;
@@ -32,7 +31,7 @@ export const HeroStats: React.FC<HeroStatsProps> = memo(({ id }) => {
     }, [id, heroStats])
 
     if (!filteredHeroStat) {
-        return <FallbackLoader />
+        return <Loader />
     }
 
     return (

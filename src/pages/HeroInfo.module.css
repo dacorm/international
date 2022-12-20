@@ -65,3 +65,19 @@
     left: 0;
     right: 0;
 }
+
+.showMoreButton {
+    width: 200px;
+    height: 50px;
+    color: var(--main);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: 14px;
+    background-color: transparent;
+    border: 1px solid black;
+    margin-bottom: 10px;
+}

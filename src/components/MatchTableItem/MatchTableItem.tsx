@@ -4,7 +4,6 @@ import {Heroes} from "../../@types/serverType";
 import {nameConverter} from "../../helpers/nameConverter";
 import Loader from "../Loader/Loader";
 import axios from "axios";
-import {log} from "util";
 
 type PlainObj = {
     [key: string]: number;
@@ -22,7 +21,7 @@ interface MatchTableItemProps {
     purchase: PlainObj
 }
 
-interface Item {
+export interface Item {
     hint: string[];
     id: number;
     img: string;
@@ -62,6 +61,7 @@ const MatchTableItem: React.FC<MatchTableItemProps> = memo((
 
     const fetchItems = async () => {
         const { data } = await axios.get('https://api.opendota.com/api/constants/items?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96');
+
         setItems(data);
     }
 

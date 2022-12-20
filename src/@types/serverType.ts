@@ -479,3 +479,78 @@ export interface HeroStats {
     null_pick: number;
     null_win: number;
 }
+
+export interface StartGameItems {
+    11: number;
+    14: number;
+    16: number;
+    18: number;
+    20: number;
+    34: number;
+    39: number;
+    42: number;
+    44: number;
+    75: number;
+    181: number;
+    218: number;
+    237: number;
+}
+
+export interface EarlyGameItems {
+    3: number;
+    5: number;
+    22: number;
+    56: number;
+    57: number;
+    61: number;
+    63: number;
+    69: number;
+    125: number;
+    569: number;
+}
+
+export interface MidGameItems {
+    24: number;
+    52: number;
+    54: number;
+    108: number;
+    116: number;
+    137: number;
+    139: number;
+    143: number;
+    145: number;
+    147: number;
+    154: number;
+    160: number;
+    162: number;
+    170: number;
+    174: number;
+    208: number;
+    210: number;
+    242: number;
+}
+
+export interface LateGameItems {
+    108: number;
+    112: number;
+    114: number;
+    116: number;
+    123: number;
+    133: number;
+    135: number;
+    139: number;
+    147: number;
+    156: number;
+    160: number;
+    208: number;
+    235: number;
+    249: number;
+    271: number;
+}
+
+export interface HeroPopularItems {
+    start_game_items: StartGameItems;
+    early_game_items: EarlyGameItems;
+    mid_game_items: MidGameItems;
+    late_game_items: LateGameItems;
+}

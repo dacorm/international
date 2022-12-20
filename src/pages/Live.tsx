@@ -6,8 +6,8 @@ import axios from "axios";
 
 const
     headers = {
-        'Content-Encoding': 'gzip',
-        'PRTN': 'Rpdj5sD7N2kKzzvwKTPSdapl2mMyAIuM',
+        "Content-Encoding": "gzip",
+        "PRTN": "Rpdj5sD7N2kKzzvwKTPSdapl2mMyAIuM",
     }
 
 const Live = () => {
