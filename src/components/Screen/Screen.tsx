@@ -58,7 +58,7 @@ const Screen = memo(() => {
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'center',
                         }}
-                        key={item._id}
+                        key={`${index + 4}`}
                     >
                         <div className={styles.label}><p className={styles.labelText}>Dota 2</p></div>
                         <div className={styles.title}>

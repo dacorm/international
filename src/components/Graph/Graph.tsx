@@ -31,14 +31,14 @@ const Graph: React.FC<GraphProps> = memo(({ data, isGold = false }: GraphProps) 
             <div className={styles.graph}>
                 <p className={styles.columnText}>Сторона света</p>
                 {positiveNums.map((num, index) => (
-                    <GraphColumn height={num} index={index} key={num * 10} isGold={isGold} isStart={false} />
+                    <GraphColumn height={num} index={index} key={`${index * 10}`} isGold={isGold} isStart={false} />
                 ))}
             </div>
             <hr className={styles.line} />
             <div className={styles.graphBot}>
                 <p className={styles.columnTextBot}>Сторона тьмы</p>
                 {negativeNums.map((num, index) => (
-                    <GraphColumn height={num} index={index} key={num + 8} isGold={isGold} isStart />
+                    <GraphColumn height={num} index={index} key={`${index * 8}`} isGold={isGold} isStart />
                 ))}
             </div>
         </>

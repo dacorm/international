@@ -71,22 +71,22 @@ const MainContent = memo(() => {
             <div className={styles.main}>
                 <div className={styles.grid}>
                     {
-                        posts?.items?.slice(0, posts?.items?.length).reverse().slice(9, 10).map((article) => (
+                        posts?.items?.slice(0, posts?.items?.length).reverse().slice(9, 10).map((article, index) => (
                             <Article
                                 className={styles.area}
                                 image={article.imageUrl}
                                 id={article._id}
                                 title={article.title}
-                                key={article._id}
+                                key={`${index + 5}`}
                             />
                         ))
                     }
                     {
-                        posts?.items?.slice(0, posts?.items?.length).reverse().slice(10, 13).map((article) => (
+                        posts?.items?.slice(0, posts?.items?.length).reverse().slice(10, 13).map((article, index) => (
                             <LittleArticle
                                 labelText="Dota2"
                                 titleText={article.title}
-                                key={article._id}
+                                key={`${index + 6}`}
                                 id={article._id}
                                 image={article.imageUrl}
                             />
@@ -96,7 +96,7 @@ const MainContent = memo(() => {
                 <div className={styles.articles}>
                     <div className={styles.bigArticles}>
                         {
-                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(5, 8).map((article) => (
+                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(5, 8).map((article, index) => (
                                 <BigArticle
                                     title={article.title}
                                     labelText="Dota2"
@@ -104,7 +104,7 @@ const MainContent = memo(() => {
                                     textPreview={convertTextIntoPreview(article.text)}
                                     commentsCount={article.viewsCount}
                                     date={convertDate(article.createdAt.toString())}
-                                    key={article._id}
+                                    key={`${index + 15}`}
                                     id={article._id}
                                     image={article.imageUrl}
                                 />
@@ -113,14 +113,14 @@ const MainContent = memo(() => {
                     </div>
                     <div className={styles.littleArticles}>
                         {
-                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(0, 5).map((post) => (
+                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(0, 5).map((post, index) => (
                                 <BigPost
                                     title={post.title}
                                     author="Admin"
                                     date={convertDate(post.createdAt.toString())}
                                     textPreview={convertTextIntoPreview(post.text)}
                                     labelText="Dota2"
-                                    key={post._id}
+                                    key={`${index + 18}`}
                                     id={post._id}
                                     image={post.imageUrl}
                                 />
@@ -133,13 +133,13 @@ const MainContent = memo(() => {
                         <h2 className={styles.Heading}>Обзоры игр</h2>
                         <div className={styles.separatorDown} />
                         {
-                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(15, 18).map((post) => (
+                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(15, 18).map((post, index) => (
                                 <TextArticle
                                     color="blue"
                                     name="Admin"
                                     title={post.title}
                                     date={convertDate(post.createdAt.toString())}
-                                    key={post._id}
+                                    key={`${index + 19}`}
                                     id={post._id}
                                 />
                             ))
@@ -149,13 +149,13 @@ const MainContent = memo(() => {
                         <h2 className={styles.Heading}>Новости Dota2</h2>
                         <div className={styles.separatorPurple} />
                         {
-                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(10, 13).map((post) => (
+                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(10, 13).map((post, index) => (
                                 <TextArticle
                                     color="blue"
                                     name="Admin"
                                     title={post.title}
                                     date={convertDate(post.createdAt.toString())}
-                                    key={post._id}
+                                    key={`${index + 21}`}
                                     id={post._id}
                                 />
                             ))
@@ -165,13 +165,13 @@ const MainContent = memo(() => {
                         <h2 className={styles.Heading}>Из мира киберспорта</h2>
                         <div className={styles.separatorYellow} />
                         {
-                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(18, 21).map((post) => (
+                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(18, 21).map((post, index) => (
                                 <TextArticle
                                     color="blue"
                                     name="Admin"
                                     title={post.title}
                                     date={convertDate(post.createdAt.toString())}
-                                    key={post._id}
+                                    key={`${index + 22}`}
                                     id={post._id}
                                 />
                             ))
@@ -195,11 +195,11 @@ const MainContent = memo(() => {
                     </div>
                     <div className={styles.videoContainer} ref={slider}>
                         {
-                            videoData.map((video) => (
+                            videoData.map((video, index) => (
                                 <Video
                                     src={video.src}
                                     title={video.title}
-                                    key={video.title + 3}
+                                    key={`${index + 24}`}
                                 />
                             ))
                         }
@@ -252,13 +252,13 @@ const MainContent = memo(() => {
                 <div className={styles.separatorDown} />
                 <div className={styles.popularPosts}>
                     {
-                        posts?.items?.slice(0, posts?.items?.length).sort((a, b) => b.viewsCount - a.viewsCount).slice(0, 4).map((post) => (
+                        posts?.items?.slice(0, posts?.items?.length).sort((a, b) => b.viewsCount - a.viewsCount).slice(0, 4).map((post, index) => (
                             <Post
                                 title={post.title}
                                 author="Admin"
                                 date={convertDate(post.createdAt.toString())}
-                                key={post._id}
-                                id={post._id}
+                                key={post._id + 26}
+                                id={`${index + 50}`}
                                 image={post.imageUrl}
                             />
                         ))
@@ -268,13 +268,13 @@ const MainContent = memo(() => {
                 <div className={styles.separatorPurple} />
                 <div className={styles.popularPosts}>
                     {
-                        posts?.items?.slice(0, posts?.items?.length).reverse().slice(0, 4).map((post) => (
+                        posts?.items?.slice(0, posts?.items?.length).reverse().slice(0, 4).map((post, index) => (
                             <Post
                                 title={post.title}
                                 author="Admin"
                                 date={convertDate(post.createdAt.toString())}
-                                key={post._id}
-                                id={post._id}
+                                key={post._id + 28}
+                                id={`${index + 51}`}
                                 image={post.imageUrl}
                             />
                         ))
@@ -289,7 +289,7 @@ const MainContent = memo(() => {
                                 name={comment.name}
                                 title={comment.title}
                                 comment={comment.comment}
-                                key={comment.title + 2}
+                                key={`${index + 29}`}
                                 color={comment.color}
                             />
                         ))

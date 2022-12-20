@@ -65,7 +65,7 @@ const MatchSlide = () => {
                                     radiantScore={item.radiant_score}
                                     direScore={item.dire_score}
                                     league={item.league_name}
-                                    key={item.match_id}
+                                    key={`${item.match_id + 65}`}
                                     date={unixTimeStampConverterToTime(item.start_time)}
                                 />
                             ))

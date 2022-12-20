@@ -63,8 +63,8 @@ const Footer = () => {
                         <img src={drop} alt="dropDownIcon" className={styles.dropLeft} onClick={prevHandler} />
                         <div className={styles.sliderTrack} ref={slider as LegacyRef<HTMLDivElement>}>
                             {
-                                items.map((item) => (
-                                    <img alt="Sponsor" src={item} className={styles.sliderItem} key={item} />))
+                                items.map((item, index) => (
+                                    <img alt="Sponsor" src={item} className={styles.sliderItem} key={`${index + 55}`} />))
                             }
                         </div>
                         <img src={drop} alt="dropDownIcon" className={styles.dropRight} onClick={nextHandler} />
@@ -145,12 +145,12 @@ const Footer = () => {
                         <h2 className={styles.listHeading}>Последние статьи</h2>
                         <div className={styles.separator} />
                         {
-                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(0, 4).map((post) => (
+                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(0, 4).map((post, index) => (
                                 <Post
                                     title={post.title}
                                     author="Admin"
                                     date={convertDate(post.createdAt.toString())}
-                                    key={post._id}
+                                    key={`${index + 57}`}
                                     id={post._id}
                                     image={post.imageUrl}
                                     className={styles.postText}
@@ -162,12 +162,12 @@ const Footer = () => {
                         <h2 className={styles.listHeading}>Рекомендованные статьи</h2>
                         <div className={styles.separator} />
                         {
-                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(4, 8).map((post) => (
+                            posts?.items?.slice(0, posts?.items?.length).reverse().slice(4, 8).map((post, index) => (
                                 <Post
                                     title={post.title}
                                     author="Admin"
                                     date={convertDate(post.createdAt.toString())}
-                                    key={post._id}
+                                    key={`${index + 58}`}
                                     id={post._id}
                                     image={post.imageUrl}
                                     className={styles.postText}
@@ -179,12 +179,12 @@ const Footer = () => {
                         <h2 className={styles.listHeading}>Популярные статьи</h2>
                         <div className={styles.separator} />
                         {
-                            posts?.items?.slice(0, posts?.items?.length).sort((a, b) => b.viewsCount - a.viewsCount).slice(0, 4).map((post) => (
+                            posts?.items?.slice(0, posts?.items?.length).sort((a, b) => b.viewsCount - a.viewsCount).slice(0, 4).map((post, index) => (
                                 <Post
                                     title={post.title}
                                     author="Admin"
                                     date={convertDate(post.createdAt.toString())}
-                                    key={post._id}
+                                    key={`${index + 59}`}
                                     id={post._id}
                                     image={post.imageUrl}
                                     className={styles.postText}

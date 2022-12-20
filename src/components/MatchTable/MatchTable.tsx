@@ -30,7 +30,7 @@ const MatchTable: React.FC<MatchTableProps> = memo(({ data, heroes }: MatchTable
                     heroId={item.hero_id}
                     heroes={heroes}
                     purchase={item.purchase}
-                    key={item.hero_id}
+                    key={`${item.hero_id + 75}`}
                 />
             ))
         }

@@ -150,8 +150,8 @@ const MatchInfo = () => {
                         <div className={styles.border}>
                             <p className={styles.tableSubheading}>Команда света</p>
                         </div>
-                        {info?.players.slice(0, 5).map((item) => (
-                            <li key={item.personaname + 3} className={styles.teamMember}>
+                        {info?.players.slice(0, 5).map((item, index) => (
+                            <li key={`${index + 3}`} className={styles.teamMember}>
                                 <p className={styles.memberText}>
                                     <span
                                         className={styles.memberSpan}
@@ -173,8 +173,8 @@ const MatchInfo = () => {
                         <div className={styles.border}>
                             <p className={styles.tableSubheading}>Команда тьмы</p>
                         </div>
-                        {info?.players.slice(5, 10).map((item) => (
-                            <li key={item.personaname} className={styles.teamMember}>
+                        {info?.players.slice(5, 10).map((item, index) => (
+                            <li key={`${index + 4}`} className={styles.teamMember}>
                                 <p className={styles.memberText}>
                                     <span
                                         className={styles.memberSpan}
@@ -192,7 +192,7 @@ const MatchInfo = () => {
                     <ul className={styles.picksBans}>
                         {heroes && info && filterPicks(info).map((item, index) => (
                             <Champion
-                                key={item.hero_id + 2}
+                                key={`${index + 2}`}
                                 index={index}
                                 teamId={item.team}
                                 radiantTeam={info?.radiant_team.name}
@@ -209,7 +209,7 @@ const MatchInfo = () => {
                     <ul className={styles.picksBans}>
                         {heroes && info && filterBans(info).map((item, index) => (
                             <Champion
-                                key={item.hero_id}
+                                key={`${index + 50}`}
                                 index={index}
                                 teamId={item.team}
                                 radiantTeam={info?.radiant_team.name}

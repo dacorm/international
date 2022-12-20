@@ -121,7 +121,7 @@ const MatchTableItem: React.FC<MatchTableItemProps> = memo((
             <li className={styles.tableItemFifth}>{goldPerMin}</li>
             {
                 foundedItems && foundedItems.map((item) => (
-                    <li className={styles.tableItemSixth} key={item.id}>
+                    <li className={styles.tableItemSixth} key={`${item.id + 62}`}>
                         <img
                             src={`https://api.opendota.com${item.img}?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96`}
                             className={styles.itemImage}

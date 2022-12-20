@@ -85,9 +85,9 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
     }, [isOpened]);
 
     const onClickRemove = () => {
-        if (memoizedId) {
+        if (id && id.includes('-')) {
             if (window.confirm('Вы действительно хотите удалить статью?')) {
-                dispatch(fetchRemovePost(memoizedId));
+                dispatch(fetchRemovePost(id.slice(0, 24)));
                 navigate('/');
             }
         }
@@ -180,7 +180,7 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
                 <h2 className={styles.textTitle}>{title ?? 'Загрузка...'}</h2>
                 {isUserAdmin && (
                     <div className={styles.buttons}>
-                        <Link to={`/admin/${memoizedId}`} className={styles.adminButton}>Редактировать</Link>
+                        <Link to={`/admin/${id?.slice(0, 24)}`} className={styles.adminButton}>Редактировать</Link>
                         <button type="button" className={styles.adminButton} onClick={onClickRemove}>Удалить</button>
                     </div>
                 )}
