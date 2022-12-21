@@ -1,4 +1,6 @@
-import React, { memo, useMemo, useState } from 'react';
+import React, {
+    memo, useEffect, useMemo, useState,
+} from 'react';
 import { withErrorBoundary } from 'react-error-boundary';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -14,12 +16,13 @@ import { Heroes, HeroPopularItems } from '../@types/serverType';
 import FallbackLoader from '../components/FallbackLoader/FallbackLoader';
 import { HeroStats } from '../components/HeroStats/HeroStats';
 import { Item } from '../components/MatchTableItem/MatchTableItem';
+import { HeroItems } from '../components/HeroItems/HeroItems';
 
 const HeroInfo = memo(() => {
     const heroes = useGetHeroes();
     const { id } = useParams();
     const [visible, setVisible] = useState(false);
-    const [items, setItems] = useState<Item>();
+    const [items, setItems] = useState<Item[]>();
     const [heroPopularItems, setHeroPopularItems] = useState<HeroPopularItems>();
 
     const hero = useMemo(() => {
@@ -49,6 +52,29 @@ const HeroInfo = memo(() => {
         const { data } = await axios.get('https://api.opendota.com/api/constants/items?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96');
         setItems(data);
     };
+
+    useEffect(() => {
+        fetchItems();
+        fetchHeroPopularItems();
+    }, []);
+
+    const filterStartGameItems = useMemo(() => {
+        const res: Item[] = [];
+        if (items && heroPopularItems) {
+            const startGamePopular = heroPopularItems.start_game_items;
+            const ids = Object.values(startGamePopular);
+            const uniqueIds = new Set(ids);
+            const itemsArray = Object.entries(items);
+            for (let i = 0; i < itemsArray.length; i++) {
+                uniqueIds.forEach((id) => {
+                    if (itemsArray[i][1].id === id) {
+                        res.push(itemsArray[i][1]);
+                    }
+                });
+            }
+        }
+        return res;
+    }, [items]);
 
     const checkImageValidity = (hero: Heroes) => {
         if (hero) {
@@ -102,6 +128,7 @@ const HeroInfo = memo(() => {
                     {visible ? 'Скрыть детальную статистику' : 'Показать детальную статистику'}
                 </button>
                 {hero && visible && <HeroStats id={hero.id} />}
+                <HeroItems items={filterStartGameItems} />
             </div>
         </Layout>
     );

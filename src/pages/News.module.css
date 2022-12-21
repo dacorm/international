@@ -53,7 +53,7 @@
     text-transform: uppercase;
     font-family: 'Exo', sans-serif;
     margin: 0 0 10px 0;
-    color: #363636;
+    color: var(--font-secondary);
 }
 
 .separator {

@@ -232,7 +232,7 @@ const Tournament = () => {
                                             {item.competitionCaption}
                                         </p>
                                     </li>
-                                )) : 'Матчей не найдено'
+                                )) : <p className={styles.textBlock}>Матчей не найдено</p>
                             }
                             <button type="button" className={styles.button}>
                                 <a
