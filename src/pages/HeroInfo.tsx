@@ -74,7 +74,61 @@ const HeroInfo = memo(() => {
             }
         }
         return res;
-    }, [items]);
+    }, [items, heroPopularItems]);
+
+    const filterEarlyGameItems = useMemo(() => {
+        const res: Item[] = [];
+        if (items && heroPopularItems) {
+            const earlyGameItems = heroPopularItems.early_game_items;
+            const ids = Object.values(earlyGameItems);
+            const uniqueIds = new Set(ids);
+            const itemsArray = Object.entries(items);
+            for (let i = 0; i < itemsArray.length; i++) {
+                uniqueIds.forEach((id) => {
+                    if (itemsArray[i][1].id === id) {
+                        res.push(itemsArray[i][1]);
+                    }
+                });
+            }
+        }
+        return res;
+    }, [items, heroPopularItems]);
+
+    const filterMidGameItems = useMemo(() => {
+        const res: Item[] = [];
+        if (items && heroPopularItems) {
+            const midGameItems = heroPopularItems.mid_game_items;
+            const ids = Object.values(midGameItems);
+            const uniqueIds = new Set(ids);
+            const itemsArray = Object.entries(items);
+            for (let i = 0; i < itemsArray.length; i++) {
+                uniqueIds.forEach((id) => {
+                    if (itemsArray[i][1].id === id) {
+                        res.push(itemsArray[i][1]);
+                    }
+                });
+            }
+        }
+        return res;
+    }, [items, heroPopularItems]);
+
+    const filterLateGameItems = useMemo(() => {
+        const res: Item[] = [];
+        if (items && heroPopularItems) {
+            const lateGameItems = heroPopularItems.late_game_items;
+            const ids = Object.values(lateGameItems);
+            const uniqueIds = new Set(ids);
+            const itemsArray = Object.entries(items);
+            for (let i = 0; i < itemsArray.length; i++) {
+                uniqueIds.forEach((id) => {
+                    if (itemsArray[i][1].id === id) {
+                        res.push(itemsArray[i][1]);
+                    }
+                });
+            }
+        }
+        return res;
+    }, [items, heroPopularItems]);
 
     const checkImageValidity = (hero: Heroes) => {
         if (hero) {
@@ -128,7 +182,12 @@ const HeroInfo = memo(() => {
                     {visible ? 'Скрыть детальную статистику' : 'Показать детальную статистику'}
                 </button>
                 {hero && visible && <HeroStats id={hero.id} />}
-                <HeroItems items={filterStartGameItems} />
+                <div className={styles.itemsContainer}>
+                    {items && <HeroItems items={filterStartGameItems} title="Стартовая закупка" />}
+                    {items && <HeroItems items={filterEarlyGameItems} title="Начальная игра" />}
+                    {items && <HeroItems items={filterMidGameItems} title="Средняя игра" />}
+                    {items && <HeroItems items={filterLateGameItems} title="Поздняя игра" />}
+                </div>
             </div>
         </Layout>
     );

@@ -4,12 +4,13 @@ import { Item } from '../MatchTableItem/MatchTableItem';
 
 interface HeroItemsProps {
     items: Item[];
+    title: string;
 }
 
-export const HeroItems: React.FC<HeroItemsProps> = memo(({ items }: HeroItemsProps) => (
+export const HeroItems: React.FC<HeroItemsProps> = memo(({ items, title }: HeroItemsProps) => (
     <div className={styles.heroItems}>
         <div className={styles.heading}>
-            <p className={styles.title}>Стартовая закупка</p>
+            <p className={styles.title}>{title}</p>
         </div>
         <div className={styles.itemsContainer}>
             {

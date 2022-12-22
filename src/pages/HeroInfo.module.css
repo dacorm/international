@@ -81,3 +81,9 @@
     border: 1px solid black;
     margin-bottom: 10px;
 }
+
+.itemsContainer {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
