@@ -24,6 +24,12 @@
     text-align: center;
 }
 
+@media  screen and (max-width: 500px) {
+    .title {
+        font-size: 25px;
+    }
+}
+
 .buttons {
     display: flex;
     align-items: center;

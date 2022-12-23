@@ -7,6 +7,13 @@
     flex-direction: column;
 }
 
+@media screen and (max-width: 849px) {
+    .content {
+        margin: 0 20px;
+        width: calc(100% - 40px);
+    }
+}
+
 .heroBanner {
     width: 100%;
     border-radius: 8px;
@@ -23,6 +30,23 @@
     gap: 10px;
     display: flex;
     align-items: center;
+}
+
+@media screen and (max-width: 595px) {
+    .heroBanner {
+        padding: 35px;
+    }
+
+    .bannerLeft {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .heroBanner {
+        padding: 20px;
+    }
 }
 
 .image {
@@ -46,6 +70,14 @@
 .heroRoles {
     color: var(--font-secondary);
     margin: 0;
+}
+
+@media screen and (max-width: 350px) {
+    .heroRoles {
+        width: 150px;
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 .span {
@@ -86,4 +118,12 @@
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
+}
+
+@media screen and (max-width: 849px) {
+    .itemsContainer {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
 }
