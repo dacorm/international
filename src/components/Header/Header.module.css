@@ -313,7 +313,7 @@
     text-decoration: none;
     align-self: center;
     margin-right: 8px;
-    color: white;
+    color: #363636;
     font-family: 'Exo', sans-serif;
     cursor: pointer;
 }
@@ -345,7 +345,7 @@
 
 .username {
     font-size: 11px;
-    color: white;
+    color: #363636;
     margin: 0 5px 0 0;
 }
 
