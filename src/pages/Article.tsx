@@ -1,8 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {
+    useCallback, useEffect, useLayoutEffect, useState,
+} from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { withErrorBoundary } from 'react-error-boundary';
 import { Helmet, HelmetData } from 'react-helmet-async';
 import ReactMarkdown from 'react-markdown';
+import { log } from 'util';
 import styles from './Article.module.css';
 import Header from '../components/Header/Header';
 import TextSlide from '../components/TextSlide/TextSlide';
@@ -22,12 +25,48 @@ import { selectIsAuth, selectName } from '../redux/slices/auth';
 import { translit } from '../helpers/translateText';
 import drop from '../assets/images/expand_more_FILL0_wght400_GRAD0_opsz48.svg';
 import ArticlePopup from '../components/ArticlePopup/ArticlePopup';
+import { unixTimeStampConverter } from '../helpers/unixConverters';
 
 const helmetData = new HelmetData({});
 
 interface ArticleProps {
     isOpen?: boolean
 }
+
+const getRss = (
+    title: string,
+    link: string,
+    description: string,
+    newsTitle: string,
+    newsDescription: string,
+    image: string,
+    author: string,
+    date: string,
+    text: string,
+) => `<?xml version="1.0" encoding="windows-1251"?>
+  <rss 
+    xmlns:yandex="http://news.yandex.ru" 
+    xmlns:media="http://search.yahoo.com/mrss/"
+    version="2.0">
+    <channel>
+      <title>${title}</title>
+      <link>http://example.com/</link>
+      <description>${description}/description>
+      <item>
+        <title>${title}</title>
+        <link>http://example.com/2023/03/25/yandex.html</link>
+        <description>${newsDescription}</description>
+        <author>${author}</author>
+        <category>Новости</category>
+          <media:thumbnail 
+            url="${image}"/> 
+        </media:group>        
+        <pubDate>${date}</pubDate>
+        <yandex:genre>news</yandex:genre>
+        <yandex:full-text>${text}</yandex:full-text>
+       </item>
+     </channel>
+  </rss>`;
 
 const matchedSymbols = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
@@ -39,6 +78,7 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
     const [text, setText] = useState('');
     const [title, setTitle] = useState('');
     const [preview, setPreview] = useState('');
+    const [date, setDate] = useState('');
     const [isVisible, setIsVisible] = useState(false);
     const [number, setNumber] = useState(0);
     const [isOpened, setIsOpened] = useState(isOpen || false);
@@ -114,6 +154,7 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
             setText(data.text);
             setTitle(data.title);
             setPreview(data.imageUrl);
+            setDate(convertDate(data.createdAt));
         } catch (e) {
             console.log(e);
         }
@@ -152,6 +193,17 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
                     - последние новости на нашем сайте international11.com
                 </title>
                 <link rel="canonical" href={`https://dota2.su/article/${id}`} />
+                {getRss(
+                    `${title} - последние новости на нашем сайте dota2.su`,
+                    `https://dota2.su/article/${id}`,
+                    `Последние новости по dota 2 - ${title} - на сайте dota2.su`,
+                    title,
+                    text.slice(0, 25),
+                    preview,
+                    'dota2.su',
+                    date,
+                    text.slice(0, 25),
+                )}
             </Helmet>
             <Header />
             <WhiteHeading />
