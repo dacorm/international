@@ -33,41 +33,6 @@ interface ArticleProps {
     isOpen?: boolean
 }
 
-const getRss = (
-    title: string,
-    link: string,
-    description: string,
-    newsTitle: string,
-    newsDescription: string,
-    image: string,
-    author: string,
-    date: string,
-    text: string,
-) => `<?xml version="1.0" encoding="windows-1251"?>
-  <rss 
-    xmlns:yandex="http://news.yandex.ru" 
-    xmlns:media="http://search.yahoo.com/mrss/"
-    version="2.0">
-    <channel>
-      <title>${title}</title>
-      <link>http://example.com/</link>
-      <description>${description}/description>
-      <item>
-        <title>${title}</title>
-        <link>http://example.com/2023/03/25/yandex.html</link>
-        <description>${newsDescription}</description>
-        <author>${author}</author>
-        <category>Новости</category>
-          <media:thumbnail 
-            url="${image}"/> 
-        </media:group>        
-        <pubDate>${date}</pubDate>
-        <yandex:genre>news</yandex:genre>
-        <yandex:full-text>${text}</yandex:full-text>
-       </item>
-     </channel>
-  </rss>`;
-
 const matchedSymbols = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 const Article: React.FC<ArticleProps> = ({ isOpen }) => {
@@ -193,17 +158,6 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
                     - последние новости на нашем сайте international11.com
                 </title>
                 <link rel="canonical" href={`https://dota2.su/article/${id}`} />
-                {getRss(
-                    `${title} - последние новости на нашем сайте dota2.su`,
-                    `https://dota2.su/article/${id}`,
-                    `Последние новости по dota 2 - ${title} - на сайте dota2.su`,
-                    title,
-                    text.slice(0, 25),
-                    preview,
-                    'dota2.su',
-                    date,
-                    text.slice(0, 25),
-                )}
             </Helmet>
             <Header />
             <WhiteHeading />
