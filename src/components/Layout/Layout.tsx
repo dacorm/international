@@ -15,12 +15,6 @@ interface LayoutProps {
     seoTitle: string;
     isRedirected?: boolean;
     href?: string;
-    withRss?: boolean;
-    newsTitle?: string;
-    newsDescription?: string;
-    image?: string;
-    date?: string;
-    text?: string;
 }
 
 const Layout: React.FC<LayoutProps> = ({
