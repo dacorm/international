@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from './assets/hooks';
 import FallbackLoader from './components/FallbackLoader/FallbackLoader';
 import Background from './components/Background/Background';
 import { Portal } from './components/Portal/Portal';
+import Rss from './pages/Rss';
 
 const ArticlePage = React.lazy(() => import('./pages/Article'));
 const LoginPage = React.lazy(() => import('./pages/Login'));
@@ -130,6 +131,10 @@ function App() {
                             <TournamentPage />
                         </Suspense>
                     )}
+                />
+                <Route
+                    path="rss"
+                    element={<Rss />}
                 />
                 <Route
                     path="match/:id"

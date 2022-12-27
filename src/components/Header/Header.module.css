@@ -313,9 +313,15 @@
     text-decoration: none;
     align-self: center;
     margin-right: 8px;
-    color: #363636;
+    color: white;
     font-family: 'Exo', sans-serif;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1025px) {
+    .adminPanelNav {
+        color: #363636;
+    }
 }
 
 .adminPanelNav:hover {
@@ -345,8 +351,14 @@
 
 .username {
     font-size: 11px;
-    color: #363636;
+    color: white;
     margin: 0 5px 0 0;
+}
+
+@media screen and (max-width: 1025px) {
+    .username {
+        color: #363636;
+    }
 }
 
 .wish {

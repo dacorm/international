@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet, HelmetData } from 'react-helmet-async';
+import { HelmetData } from 'react-helmet-async';
 import { withErrorBoundary } from 'react-error-boundary';
 import Header from '../components/Header/Header';
 import WhiteHeading from '../components/WhiteHeading/WhiteHeading';
 import styles from './News.module.css';
 import TextSlide from '../components/TextSlide/TextSlide';
-import MatchSlide from '../components/MatchSlide/MatchSlide';
 import Footer from '../components/Footer/Footer';
 import { useAppDispatch, useAppSelector } from '../assets/hooks';
 import BigArticle from '../components/BigArticle/BigArticle';
