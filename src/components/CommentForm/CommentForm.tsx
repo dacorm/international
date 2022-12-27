@@ -70,7 +70,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ comments, setComments }) => {
                 {errors?.commentText && <p className={styles.formError}>{String(errors?.commentText?.message) || 'Error'}</p>}
             </div>
             <button className={styles.button} type="submit">
-                <p className={styles.buttonText}>Post Your Comment</p>
+                <p className={styles.buttonText}>Опубликовать</p>
                 <div className={styles.dropWrapper}>
                     <img src={drop} alt={drop} className={styles.drop} />
                 </div>

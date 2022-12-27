@@ -80,7 +80,7 @@ const WhiteHeading: React.FC<HeadingProps> = memo(({ className }: HeadingProps) 
                     />
                 )}
                 <li className={styles.menuItem}>
-                    <Link to="/news" className={styles.menuText}>News</Link>
+                    <Link to="/news" className={styles.menuText}>Новости</Link>
                 </li>
                 <li className={styles.menuItem}>
                     <Link to="/calendar" className={styles.menuText}>Матчи</Link>
