@@ -142,7 +142,11 @@ const HeroInfo = memo(() => {
     }
 
     return (
-        <Layout seoDescription={`Dota 2 - ${hero.localized_name}`} seoTitle={`Dota 2 - ${hero.localized_name}`} title={`${hero.localized_name}`}>
+        <Layout
+            seoDescription={`Гайд и сборка на ${hero.localized_name} Dota2`}
+            seoTitle={`Гайд и сборка на ${hero.localized_name}`}
+            title={`Гайд и сборка на ${hero.localized_name}`}
+        >
             <div className={styles.content}>
                 {hero && (
                     <div className={styles.heroBanner}>
