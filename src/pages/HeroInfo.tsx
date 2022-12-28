@@ -62,12 +62,12 @@ const HeroInfo = memo(() => {
         const res: Item[] = [];
         if (items && heroPopularItems) {
             const startGamePopular = heroPopularItems.start_game_items;
-            const ids = Object.values(startGamePopular);
+            const ids = Object.keys(startGamePopular);
             const uniqueIds = new Set(ids);
             const itemsArray = Object.entries(items);
             for (let i = 0; i < itemsArray.length; i++) {
                 uniqueIds.forEach((id) => {
-                    if (itemsArray[i][1].id === id) {
+                    if (itemsArray[i][1].id === +id) {
                         res.push(itemsArray[i][1]);
                     }
                 });
@@ -80,12 +80,12 @@ const HeroInfo = memo(() => {
         const res: Item[] = [];
         if (items && heroPopularItems) {
             const earlyGameItems = heroPopularItems.early_game_items;
-            const ids = Object.values(earlyGameItems);
+            const ids = Object.keys(earlyGameItems);
             const uniqueIds = new Set(ids);
             const itemsArray = Object.entries(items);
             for (let i = 0; i < itemsArray.length; i++) {
                 uniqueIds.forEach((id) => {
-                    if (itemsArray[i][1].id === id) {
+                    if (itemsArray[i][1].id === +id) {
                         res.push(itemsArray[i][1]);
                     }
                 });
@@ -98,12 +98,12 @@ const HeroInfo = memo(() => {
         const res: Item[] = [];
         if (items && heroPopularItems) {
             const midGameItems = heroPopularItems.mid_game_items;
-            const ids = Object.values(midGameItems);
+            const ids = Object.keys(midGameItems);
             const uniqueIds = new Set(ids);
             const itemsArray = Object.entries(items);
             for (let i = 0; i < itemsArray.length; i++) {
                 uniqueIds.forEach((id) => {
-                    if (itemsArray[i][1].id === id) {
+                    if (itemsArray[i][1].id === +id) {
                         res.push(itemsArray[i][1]);
                     }
                 });
