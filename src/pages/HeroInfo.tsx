@@ -143,8 +143,9 @@ const HeroInfo = memo(() => {
 
     return (
         <Layout
-            seoDescription={`Гайд и сборка на ${hero.localized_name} Dota2`}
-            seoTitle={`Гайд и сборка на ${hero.localized_name}`}
+            /* eslint-disable-next-line max-len */
+            seoDescription={`Гайд на ${hero.localized_name}: стратегия игры и способности (абилки) ${hero.localized_name} в Dota 2. Свежий гайд на героя ${hero.localized_name} - актуальная сборка, контр-пики, связки с героями.`}
+            seoTitle={`Гайд и сборка ${hero.localized_name} Дота 2 - Как играть за героя ${hero.localized_name} - Dota 2`}
             title={`Гайд и сборка на ${hero.localized_name}`}
         >
             <div className={styles.content}>
