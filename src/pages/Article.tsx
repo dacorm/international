@@ -183,7 +183,6 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
                 />
             )}
             <div className={styles.articleMainText}>
-                <h2 className={styles.textTitle}>{title ?? 'Загрузка...'}</h2>
                 {isUserAdmin && (
                     <div className={styles.buttons}>
                         <Link to={`/admin/${id?.slice(0, 24)}`} className={styles.adminButton}>Редактировать</Link>
