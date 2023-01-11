@@ -28,7 +28,7 @@
     "eject": "react-scripts eject",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
-    "postbuild": "react-snap"
+    "sitemap": "./node_modules/.bin/babel-node config/sitemap.js"
   },
   "eslintConfig": {
     "extends": [
