@@ -189,7 +189,7 @@ const Article: React.FC<ArticleProps> = ({ isOpen }) => {
                         <button type="button" className={styles.adminButton} onClick={onClickRemove}>Удалить</button>
                     </div>
                 )}
-                <ReactMarkdown>{text}</ReactMarkdown>
+                <ReactMarkdown className={styles.mdn}>{text}</ReactMarkdown>
                 <Link to="/" className={styles.button} type="submit">
                     <p className={styles.buttonText}>На главную</p>
                     <div className={styles.dropWrapper}>

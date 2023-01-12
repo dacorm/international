@@ -36,7 +36,6 @@ const WhiteHeading: React.FC<HeadingProps> = memo(({ className }: HeadingProps) 
 
             if (navRef.current && !_event.path.includes(navRef.current)) {
                 setOpen(false);
-                document.body.style.overflow = 'auto';
             }
         };
 
@@ -44,6 +43,12 @@ const WhiteHeading: React.FC<HeadingProps> = memo(({ className }: HeadingProps) 
 
         return () => document.body.removeEventListener('click', handleClickOutside);
     }, []);
+
+    useEffect(() => {
+        if (!open) {
+            document.body.style.overflow = 'auto';
+        }
+    }, [open]);
 
     return (
         <nav className={cn(styles.whiteNav, className)} ref={navRef}>

@@ -79,7 +79,7 @@ const Header = memo(() => {
     };
 
     const openPopup = () => {
-        setIsPopupOpen(!isPopupOpen);
+        setIsPopupOpen((prev) => !prev);
         document.body.style.overflow = 'hidden';
     };
 
@@ -117,6 +117,8 @@ const Header = memo(() => {
                         <Link to="/calendar" className={styles.adminPanelNav}>Матчи</Link>
                         <Link to="/players" className={styles.adminPanelNav}>Топ игроков</Link>
                         <Link to="/tournament" className={styles.adminPanelNav}>TI2022</Link>
+                        <Link to="/heroes" className={styles.adminPanelNav}>Герои</Link>
+                        <Link to="/news" className={styles.adminPanelNav}>Новости</Link>
                         {isUserAdmin && <Link to="/admin" className={styles.adminPanelNav}>Админка</Link>}
                         {
                             isAuth ? (

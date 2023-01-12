@@ -103,7 +103,7 @@
     left: 0;
     z-index: 4;
     width: 300px;
-    height: 1000px;
+    height: 100vh;
     background-color: var(--main);
     gap: 15px;
 }
@@ -122,6 +122,7 @@
 .rightInPopup {
     display: flex;
     flex-direction: column;
+    margin-top: 15px;
     gap: 15px;
     align-items: center;
 }

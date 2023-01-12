@@ -189,6 +189,14 @@
     align-self: center;
 }
 
+.mdn {
+    background-color: var(--main);
+    padding: 10px;
+    color: #363636;
+    border-radius: 8px;
+    text-align: center;
+}
+
 .commentaries {
     display: flex;
     flex-direction: column;
