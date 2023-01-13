@@ -1,12 +1,18 @@
-.graph {
+.graphWrapper {
     width: 100%;
+    overflow-x: scroll;
+    height: 500px;
+}
+
+.graph {
+    width: 850px;
     height: 235px;
     display: flex;
     position: relative;
 }
 
 .graphBot {
-    width: 100%;
+    width: 850px;
     height: 235px;
     display: flex;
     align-items: flex-end;

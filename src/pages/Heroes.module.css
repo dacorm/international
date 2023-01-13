@@ -35,6 +35,20 @@
     flex-wrap: wrap;
 }
 
+@media screen and (max-width: 851px) {
+    .content {
+        width: 100%;
+    }
+
+    .heroesContainer {
+        justify-content: center;
+    }
+
+    .sectionHeading {
+        align-self: center;
+    }
+}
+
 .champs {
     text-decoration: none;
 }

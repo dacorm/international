@@ -79,6 +79,16 @@
     align-items: center;
 }
 
+@media screen and (max-width: 450px) {
+    .team {
+        flex-direction: column-reverse;
+    }
+
+    .team:last-of-type {
+        flex-direction: column;
+    }
+}
+
 .tableHeadingText {
     color: var(--main);
 }

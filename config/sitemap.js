@@ -1,48 +1,38 @@
-const sm = require('sitemap');
-const path = require('path');
-const fs = require('fs');
+const express = require('express');
+const { SitemapStream, streamToPromise } = require('sitemap');
+const { createGzip } = require('zlib');
+const { Readable } = require('stream');
 
-const OUTPUT_FILE = path.resolve(__dirname, '..', 'public', 'sitemap.xml');
+const app = express();
+let sitemap;
 
-// const postsUrls = getAllPostsForListing({ data })
-//     .map((post) => {
-//         const handle = [
-//             post.handle.substring(0, 4),
-//             post.handle.substring(5, 7),
-//             post.handle.substring(8, 10),
-//             post.handle.substring(11),
-//         ].join('/');
-//         return {
-//             url: `${config.PUBLIC_URL}/${handle}`,
-//             changefreq: 'weekly',
-//             priority: 0.8,
-//         };
-//     });
-//
-// const categoriesUrls = getAllCategoriesForListing({ data })
-//     .map((category) => ({
-//         url: `${config.PUBLIC_URL}/category/${category.handle}`,
-//         changefreq: 'weekly',
-//         priority: 0.8,
-//     }));
+app.get('/sitemap.xml', (req, res) => {
+    res.header('Content-Type', 'application/xml');
+    res.header('Content-Encoding', 'gzip');
 
-const sitemap = sm.createSitemap({
-    hostname: 'https://dota2.su/',
-    cacheTime: 600000,
-    urls: [
-        { url: '/', changefreq: 'weekly', priority: 1 },
-        { url: '/login', changefreq: 'weekly', priority: 0.5 },
-        { url: '/register', changefreq: 'weekly', priority: 0.5 },
-        { url: '/profile', changefreq: 'monthly', priority: 0.5 },
-        { url: '/calendar', changefreq: 'monthly', priority: 0.5 },
-        { url: '/tournament', changefreq: 'monthly', priority: 0.5 },
-        { url: '/players', changefreq: 'monthly', priority: 0.5 },
-        { url: '/news', changefreq: 'monthly', priority: 0.5 },
-        { url: '/live', changefreq: 'monthly', priority: 0.5 },
-        { url: '/heroes', changefreq: 'monthly', priority: 0.5 },
-    ],
+    if (sitemap) {
+        res.send(sitemap);
+        return;
+    }
+
+    try {
+        const smStream = new SitemapStream({ hostname: 'https://example.com/' });
+        const pipeline = smStream.pipe(createGzip());
+
+        smStream.write({ url: '/', changefreq: 'daily', priority: 0.3 });
+        smStream.write({ url: '/news', changefreq: 'monthly', priority: 0.7 });
+        smStream.write({ url: '/heroes' });
+        smStream.write({ url: '/players' });
+
+        streamToPromise(pipeline).then((sm) => sitemap = sm);
+        smStream.end();
+        pipeline.pipe(res).on('error', (e) => { throw e; });
+    } catch (e) {
+        console.error(e);
+        res.status(500).end();
+    }
 });
 
-fs.writeFileSync(OUTPUT_FILE, sitemap.toString());
-
-console.log(`Sitemap written at ${OUTPUT_FILE}`);
+app.listen(3000, () => {
+    console.log('listening');
+});

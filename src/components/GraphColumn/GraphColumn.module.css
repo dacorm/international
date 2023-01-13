@@ -28,17 +28,17 @@
     background: rgba(0, 0, 0, .5);
 }
 
-@media screen and (max-width: 1023px) {
-    .column {
-        width: 5px;
-        margin-left: 8px;
-    }
+/*@media screen and (max-width: 1023px) {*/
+/*    .column {*/
+/*        width: 5px;*/
+/*        margin-left: 8px;*/
+/*    }*/
 
-    .columnStart {
-        width: 5px;
-        margin-left: 8px;
-    }
-}
+/*    .columnStart {*/
+/*        width: 5px;*/
+/*        margin-left: 8px;*/
+/*    }*/
+/*}*/
 
 .number {
     position: absolute;

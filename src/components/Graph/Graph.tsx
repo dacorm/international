@@ -27,7 +27,7 @@ const Graph: React.FC<GraphProps> = memo(({ data, isGold = false }: GraphProps) 
     }, []);
 
     return (
-        <>
+        <div className={styles.graphWrapper}>
             <div className={styles.graph}>
                 <p className={styles.columnText}>Сторона света</p>
                 {positiveNums.map((num, index) => (
@@ -41,7 +41,7 @@ const Graph: React.FC<GraphProps> = memo(({ data, isGold = false }: GraphProps) 
                     <GraphColumn height={num} index={index} key={`${index * 8}`} isGold={isGold} isStart />
                 ))}
             </div>
-        </>
+        </div>
     );
 });
 
