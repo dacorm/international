@@ -102,57 +102,49 @@ const Header = memo(() => {
                 <span className={`${styles.line} ${styles.line2} ${isPopupOpen ? styles.line2Opened : null}`} />
                 <span className={`${styles.line} ${styles.line3} ${isPopupOpen ? styles.line3Opened : null}`} />
             </div>
-            {isPopupOpen && (
-                <div className={styles.burgerPopup}>
-                    <div className={styles.rightInPopup}>
-                        {
-                            isAuth && (
-                                <Link to="/profile" className={styles.account} onClick={() => openPopup}>
-                                    <div className={styles.avatar} />
-                                    <p className={styles.username}>{user.fullName}</p>
-                                    <img src={drop} alt="DropDown" className={styles.drop} />
-                                </Link>
-                            )
-                        }
-                        <Link to="/calendar" className={styles.adminPanelNav}>Матчи</Link>
-                        <Link to="/players" className={styles.adminPanelNav}>Топ игроков</Link>
-                        <Link to="/tournament" className={styles.adminPanelNav}>TI2022</Link>
-                        <Link to="/heroes" className={styles.adminPanelNav}>Герои</Link>
-                        <Link to="/news" className={styles.adminPanelNav}>Новости</Link>
-                        {isUserAdmin && <Link to="/admin" className={styles.adminPanelNav}>Админка</Link>}
-                        {
-                            isAuth ? (
-                                <button
-                                    type="button"
-                                    className={styles.logout}
-                                    onClick={() => {
-                                        onClickLogout();
-                                        openPopup();
-                                    }}
-                                >
-                                    <p className={styles.buttonText}>Выйти</p>
-                                    <div className={styles.dropCont}>
-                                        <img src={drop} alt="DropDown" className={styles.dropButton} />
-                                    </div>
-                                </button>
-                            ) : (
-                                <Link to="/login" className={styles.logout}>
-                                    <p className={styles.buttonText}>Войти</p>
-                                    <div className={styles.dropCont}>
-                                        <img src={drop} alt="DropDown" className={styles.dropButton} />
-                                    </div>
-                                </Link>
-                            )
-                        }
-                        <a
-                            href="https://betcity.ru/ru/line/bets?chmp%5B%5D=105176&chmp%5B%5D=175781&chmp%5B%5D=175830&popular=1"
-                            target="_blank"
-                            className={styles.banner}
-                            rel="noreferrer"
-                        />
-                    </div>
+            <div className={`${styles.burgerPopup} ${isPopupOpen ? styles.burgerPopupActive : ''}`}>
+                <div className={styles.rightInPopup}>
+                    {
+                        isAuth && (
+                            <Link to="/profile" className={styles.account} onClick={() => openPopup}>
+                                <div className={styles.avatar} />
+                                <p className={styles.username}>{user.fullName}</p>
+                                <img src={drop} alt="DropDown" className={styles.drop} />
+                            </Link>
+                        )
+                    }
+                    <Link to="/calendar" className={styles.adminPanelNav}>Матчи</Link>
+                    <Link to="/players" className={styles.adminPanelNav}>Топ игроков</Link>
+                    <Link to="/tournament" className={styles.adminPanelNav}>TI2022</Link>
+                    <Link to="/heroes" className={styles.adminPanelNav}>Герои</Link>
+                    <Link to="/news" className={styles.adminPanelNav}>Новости</Link>
+                    {isUserAdmin && <Link to="/admin" className={styles.adminPanelNav}>Админка</Link>}
+                    {
+                        isAuth ? (
+                            <button
+                                type="button"
+                                className={styles.logout}
+                                onClick={() => {
+                                    onClickLogout();
+                                    openPopup();
+                                }}
+                            >
+                                <p className={styles.buttonText}>Выйти</p>
+                                <div className={styles.dropCont}>
+                                    <img src={drop} alt="DropDown" className={styles.dropButton} />
+                                </div>
+                            </button>
+                        ) : (
+                            <Link to="/login" className={styles.logout}>
+                                <p className={styles.buttonText}>Войти</p>
+                                <div className={styles.dropCont}>
+                                    <img src={drop} alt="DropDown" className={styles.dropButton} />
+                                </div>
+                            </Link>
+                        )
+                    }
                 </div>
-            )}
+            </div>
             <div className={styles.left}>
                 <div className={styles.lang} onClick={handleLangClick}>
                     <img src={lang.image} alt="US Flag" className={styles.image} />
