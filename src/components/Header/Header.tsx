@@ -13,6 +13,7 @@ import compare from '../../assets/images/sell_FILL0_wght400_GRAD0_opsz48.svg';
 import banner from '../../assets/images/300x350---6.gif';
 import { useAppDispatch, useAppSelector } from '../../assets/hooks';
 import { logout, selectIsAuth, selectName } from '../../redux/slices/auth';
+import { unixTimeStampConverter } from '../../helpers/unixConverters';
 
 type PopupClick = MouseEvent & {
     path: Node[];
@@ -54,6 +55,8 @@ const Header = memo(() => {
             window.localStorage.removeItem('token');
         }
     };
+
+    console.log(new Date().getMonth());
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {

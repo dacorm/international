@@ -33,6 +33,16 @@ const Screen = memo(() => {
         return dota;
     };
 
+    const touchHandler = () => {
+        if (activeIndex >= 3) {
+            setActiveIndex(1);
+            setSlideActive(1);
+        } else {
+            setActiveIndex((prev) => prev + 1);
+            setSlideActive((prev) => prev + 1);
+        }
+    };
+
     // useEffect(() => {
     //     if (activeIndex > 3) {
     //         setActiveIndex(1)
@@ -59,6 +69,7 @@ const Screen = memo(() => {
                             backgroundPosition: 'center',
                         }}
                         key={`${index + 4}`}
+                        onTouchEnd={touchHandler}
                     >
                         <div className={styles.label}><p className={styles.labelText}>Dota 2</p></div>
                         <div className={styles.title}>

@@ -6,7 +6,6 @@
     "@reduxjs/toolkit": "1.8.5",
     "axios": "0.27.2",
     "classnames": "2.3.1",
-    "express": "^4.18.2",
     "lodash.debounce": "4.0.8",
     "react": "18.2.0",
     "react-content-loader": "6.2.0",
@@ -29,8 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
-    "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
-    "sitemap": "./node_modules/.bin/babel-node config/sitemap.js"
+    "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -69,6 +67,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.31.11",
+    "prettier": "^2.8.3",
     "react-snap": "^1.23.0",
     "sitemap": "^7.1.1",
     "typescript": "4.7.4"
