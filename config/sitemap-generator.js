@@ -1,10 +1,107 @@
 const { writeFileSync } = require('fs');
 const prettier = require('prettier');
+const axios = require('axios');
 
 const unixTimeStampConverter = (unix) => {
     const miliseconds = unix * 1000;
     return String(new Date(miliseconds).getDate());
 };
+
+const getPosts = async () => {
+    const { data } = await axios.get('https://dota2.press/posts');
+    return data;
+};
+
+const createPostTemplate = (lastmod, url) => `<url>
+            <loc>https://dota2.su/${url}</loc>
+            <lastmod>${lastmod}</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>`;
+
+function translit(word) {
+    const urlRegex = /\s/g;
+    let answer = '';
+    const converter = {
+        а: 'a',
+        б: 'b',
+        в: 'v',
+        г: 'g',
+        д: 'd',
+        е: 'e',
+        ё: 'e',
+        ж: 'zh',
+        з: 'z',
+        и: 'i',
+        й: 'y',
+        к: 'k',
+        л: 'l',
+        м: 'm',
+        н: 'n',
+        о: 'o',
+        п: 'p',
+        р: 'r',
+        с: 's',
+        т: 't',
+        у: 'u',
+        ф: 'f',
+        х: 'h',
+        ц: 'c',
+        ч: 'ch',
+        ш: 'sh',
+        щ: 'sch',
+        ь: '',
+        ы: 'y',
+        ъ: '',
+        э: 'e',
+        ю: 'yu',
+        я: 'ya',
+
+        А: 'A',
+        Б: 'B',
+        В: 'V',
+        Г: 'G',
+        Д: 'D',
+        Е: 'E',
+        Ё: 'E',
+        Ж: 'Zh',
+        З: 'Z',
+        И: 'I',
+        Й: 'Y',
+        К: 'K',
+        Л: 'L',
+        М: 'M',
+        Н: 'N',
+        О: 'O',
+        П: 'P',
+        Р: 'R',
+        С: 'S',
+        Т: 'T',
+        У: 'U',
+        Ф: 'F',
+        Х: 'H',
+        Ц: 'C',
+        Ч: 'Ch',
+        Ш: 'Sh',
+        Щ: 'Sch',
+        Ь: '',
+        Ы: 'Y',
+        Ъ: '',
+        Э: 'E',
+        Ю: 'Yu',
+        Я: 'Ya',
+    };
+
+    for (let i = 0; i < word.length; ++i) {
+        if (converter[word[i]] === undefined) {
+            answer += word[i];
+        } else {
+            answer += converter[word[i]];
+        }
+    }
+
+    return answer.toLowerCase().replace(urlRegex, '-');
+}
 
 async function generate() {
     const getDate = () => {
@@ -15,6 +112,13 @@ async function generate() {
     };
 
     const date = getDate();
+
+    const posts = await getPosts();
+    const templates = [];
+
+    const formatTemplates = posts.length
+        ? posts.forEach((post) => templates.push(createPostTemplate(post.updatedAt.slice(0, 10), `${post._id}-${translit(post.title)}`)))
+        : '';
 
     const sitemap = `
     <?xml version="1.0" encoding="UTF-8"?>
@@ -79,6 +183,7 @@ async function generate() {
             <changefreq>daily</changefreq>
             <priority>0.8</priority>
         </url>
+        ${templates.join(' ')}
     </urlset>
     `;
 
