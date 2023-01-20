@@ -106,9 +106,10 @@ function translit(word) {
 async function generate() {
     const getDate = () => {
         const day = unixTimeStampConverter(Date.now());
+        const formattedDay = Number(day) > 10 ? day : `0${day}`;
         const month = new Date().getMonth();
         const formattedMonth = Number(month) > 10 ? Number(month) + 1 : `0${Number(month) + 1}`;
-        return `2023-${formattedMonth}-${day}`;
+        return `2023-${formattedMonth}-${formattedDay}`;
     };
 
     const date = getDate();
