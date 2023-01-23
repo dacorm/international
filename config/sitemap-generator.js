@@ -19,6 +19,25 @@ const createPostTemplate = (lastmod, url) => `<url>
             <priority>1.0</priority>
         </url>`;
 
+const createItemTemplate = (title, url, text, image, date) => `<item>
+        <title>${title}</title>
+        <link>https://dota2.su/${url}</link>
+        <pdalink>https://dota2.su/${url}</pdalink>
+        <description>${text.slice(0, 30)}</description>
+        <author>admin</author>
+        <category>Киберспорт</category>
+        <enclosure 
+          url="https://dota2.press/${image}" 
+          type="image/jpeg"/>
+        <media:group>
+          <media:thumbnail 
+            url="https://dota2.press/${image}"/> 
+        </media:group>        
+        <pubDate>${date}</pubDate>
+        <yandex:genre>message</yandex:genre>
+        <yandex:full-text>${text}</yandex:full-text>
+       </item>`;
+
 function translit(word) {
     const urlRegex = /\s/g;
     let answer = '';
@@ -116,9 +135,14 @@ async function generate() {
 
     const posts = await getPosts();
     const templates = [];
+    const items = [];
 
     const formatTemplates = posts.length
         ? posts.forEach((post) => templates.push(createPostTemplate(post.updatedAt.slice(0, 10), `${post._id}-${translit(post.title)}`)))
+        : '';
+
+    const formatItems = posts.length
+        ? posts.forEach((post) => items.push(createItemTemplate(post.title, `${post._id}-${translit(post.title)}`, post.text, post.imageUrl, post.updatedAt.slice(0, 10))))
         : '';
 
     const sitemap = `
@@ -190,7 +214,21 @@ async function generate() {
 
     const formatted = prettier.format(sitemap, { semi: false, parser: 'html' });
 
+    const rss = `<?xml version="1.0" encoding="windows-1251"?>
+  <rss 
+    xmlns:yandex="http://news.yandex.ru" 
+    xmlns:media="http://search.yahoo.com/mrss/"
+    version="2.0">
+    <channel>
+      <title>dota2.su новости Dota2</title>
+      <link>https://dota2.su/</link>
+      <description>Новости из мира Dota2</description>
+      ${items}
+     </channel>
+  </rss>`;
+
     writeFileSync('build/sitemap.xml', formatted);
+    writeFileSync('build/rss.xml', rss);
 }
 
 generate();
