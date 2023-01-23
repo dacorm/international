@@ -220,9 +220,9 @@ async function generate() {
     xmlns:media="http://search.yahoo.com/mrss/"
     version="2.0">
     <channel>
-      <title>dota2.su новости Dota2</title>
+      <title>Все новости о dota2</title>
       <link>https://dota2.su/</link>
-      <description>Новости из мира Dota2</description>
+      <description>Новости, события, турниры по dota2</description>
       ${items}
      </channel>
   </rss>`;
