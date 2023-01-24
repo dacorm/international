@@ -13,7 +13,7 @@ const getPosts = async () => {
 };
 
 const createPostTemplate = (lastmod, url) => `<url>
-            <loc>https://dota2.su/${url}</loc>
+            <loc>https://dota2.su/article/${url}</loc>
             <lastmod>${lastmod}</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
@@ -21,8 +21,8 @@ const createPostTemplate = (lastmod, url) => `<url>
 
 const createItemTemplate = (title, url, text, image, date) => `<item>
         <title>${title}</title>
-        <link>https://dota2.su/${url}</link>
-        <pdalink>https://dota2.su/${url}</pdalink>
+        <link>https://dota2.su/article/${url}</link>
+        <pdalink>https://dota2.su/article/${url}</pdalink>
         <description>${text.slice(0, 30)}</description>
         <author>admin</author>
         <category>Киберспорт</category>
