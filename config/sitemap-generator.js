@@ -214,7 +214,7 @@ async function generate() {
 
     const formatted = prettier.format(sitemap, { semi: false, parser: 'html' });
 
-    const rss = `<?xml version="1.0" encoding="windows-1251"?>
+    const rss = `<?xml version="1.0" encoding="UTF-8"?>
   <rss 
     xmlns:yandex="http://news.yandex.ru" 
     xmlns:media="http://search.yahoo.com/mrss/"
