@@ -223,7 +223,7 @@ async function generate() {
       <title>Все новости о dota2</title>
       <link>https://dota2.su/</link>
       <description>Новости, события, турниры по dota2</description>
-      ${items}
+      ${items.join(' ')}
      </channel>
   </rss>`;
 
