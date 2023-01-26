@@ -83,16 +83,6 @@
     color: white;
 }
 
-@media screen and (max-width: 500px) {
-    .screen {
-        height: 550px;
-    }
-
-    .back {
-        justify-content: unset;
-    }
-}
-
 .button {
     width: 270px;
     height: 55px;
@@ -124,11 +114,6 @@
     .back {
         align-items: center;
         padding-left: 0;
-    }
-
-    .heading {
-        font-size: 25px;
-        max-width: 310px;
     }
 
     .subheading {
@@ -228,6 +213,21 @@
 @media screen and (max-width: 767px) {
     .close {
         right: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .screen {
+        height: 550px;
+    }
+
+    .heading {
+        font-size: 25px;
+        max-width: 310px;
+    }
+
+    .back {
+        justify-content: unset;
     }
 }
 
