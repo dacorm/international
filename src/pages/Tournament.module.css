@@ -107,8 +107,6 @@
     width: 850px;
     display: flex;
     flex-direction: column;
-    background: #f9f9f9;
-
 }
 
 .tableHeading {
@@ -358,6 +356,7 @@
 
 .loadButton {
     width: 100%;
+    margin-top: 10px;
     height: 35px;
     background: transparent;
     border: 1px solid var(--primary);
@@ -367,7 +366,6 @@
     font-family: 'Exo', sans-serif;
     text-transform: uppercase;
     font-weight: 700;
-    margin-top: 10px;
 }
 
 .loadButton:hover {
@@ -394,6 +392,7 @@
 .columnText {
     font-size: 12px;
     font-family: 'Exo', sans-serif;
+    color: var(--font-low);
     font-weight: 700;
     text-transform: uppercase;
 }
