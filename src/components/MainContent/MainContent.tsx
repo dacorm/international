@@ -258,7 +258,7 @@ const MainContent = memo(() => {
                                 author="Admin"
                                 date={convertDate(post.createdAt.toString())}
                                 key={post._id + 26}
-                                id={`${index + 50}`}
+                                id={post._id}
                                 image={post.imageUrl}
                             />
                         ))
@@ -274,7 +274,7 @@ const MainContent = memo(() => {
                                 author="Admin"
                                 date={convertDate(post.createdAt.toString())}
                                 key={post._id + 28}
-                                id={`${index + 51}`}
+                                id={post._id}
                                 image={post.imageUrl}
                             />
                         ))
