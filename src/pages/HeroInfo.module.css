@@ -120,6 +120,27 @@
     flex-wrap: wrap;
 }
 
+.listHeading {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: 'Exo', sans-serif;
+    margin: 0 0 10px 0;
+    color: var(--font-secondary);
+}
+
+.separator {
+    border-bottom: 3px solid #7442ce;
+    width: 80px;
+    margin: 0 0 20px 0;
+}
+
+.sectionHeading {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+
 @media screen and (max-width: 849px) {
     .itemsContainer {
         width: 100%;

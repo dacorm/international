@@ -193,6 +193,10 @@ const HeroInfo = memo(() => {
                     {items && <HeroItems items={filterMidGameItems} title="Средняя игра" />}
                     {items && <HeroItems items={filterLateGameItems} title="Поздняя игра" />}
                 </div>
+                <div className={styles.sectionHeading}>
+                    <h2 className={styles.listHeading}>Гайд на героя</h2>
+                    <div className={styles.separator} />
+                </div>
             </div>
         </Layout>
     );
