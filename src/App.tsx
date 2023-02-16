@@ -23,6 +23,7 @@ const PlayerPage = React.lazy(() => import('./pages/PlayerOverview'));
 const LivePage = React.lazy(() => import('./pages/Live'));
 const HeroesPage = React.lazy(() => import('./pages/Heroes'));
 const HeroPage = React.lazy(() => import('./pages/HeroInfo'));
+const GuidesAdminPage = React.lazy(() => import('./pages/GuidesAdmin'));
 
 const modal = document.getElementById('modal') as HTMLElement;
 
@@ -120,6 +121,14 @@ function App() {
                     element={(
                         <Suspense fallback={<FallbackLoader />}>
                             <AdminPanelPage />
+                        </Suspense>
+                    )}
+                />
+                <Route
+                    path="guides/:id"
+                    element={(
+                        <Suspense fallback={<FallbackLoader />}>
+                            <GuidesAdminPage />
                         </Suspense>
                     )}
                 />
