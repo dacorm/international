@@ -4,6 +4,7 @@ import React, {
 import { withErrorBoundary } from 'react-error-boundary';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import customAxios from '../axios';
 import Layout from '../components/Layout/Layout';
 import Header from '../components/Header/Header';
 import WhiteHeading from '../components/WhiteHeading/WhiteHeading';
@@ -59,9 +60,15 @@ const HeroInfo = memo(() => {
         setItems(data);
     };
 
+    const fetchGuide = async () => {
+        const { data } = await customAxios.get(`/guides/${id}`);
+        console.log(data);
+    };
+
     useEffect(() => {
         fetchItems();
         fetchHeroPopularItems();
+        fetchGuide();
     }, []);
 
     const filterStartGameItems = useMemo(() => {

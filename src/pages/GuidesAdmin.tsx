@@ -66,7 +66,7 @@ const GuidesAdmin = () => {
             const fields = {
                 title,
                 text,
-                heroId: id,
+                heroId: Number(id),
             };
             const { data } = await axios.post('/guides', fields);
             setTitle('');

@@ -197,6 +197,15 @@
     text-align: left;
 }
 
+.mdn img {
+    width: 100%;
+    max-width: 800px;
+    object-fit: cover;
+    display: flex;
+    align-self: center;
+    margin: 0 auto;
+}
+
 .commentaries {
     display: flex;
     flex-direction: column;
