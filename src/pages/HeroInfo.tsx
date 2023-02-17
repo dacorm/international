@@ -4,6 +4,7 @@ import React, {
 import { withErrorBoundary } from 'react-error-boundary';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import ReactMarkdown from 'react-markdown';
 import customAxios from '../axios';
 import Layout from '../components/Layout/Layout';
 import Header from '../components/Header/Header';
@@ -26,6 +27,7 @@ const HeroInfo = memo(() => {
     const { id } = useParams();
     const [visible, setVisible] = useState(false);
     const [items, setItems] = useState<Item[]>();
+    const [text, setText] = useState();
     const [heroPopularItems, setHeroPopularItems] = useState<HeroPopularItems>();
     const isAuth = useAppSelector(selectIsAuth);
     const user = useAppSelector(selectName);
@@ -62,7 +64,7 @@ const HeroInfo = memo(() => {
 
     const fetchGuide = async () => {
         const { data } = await customAxios.get(`/guides/${id}`);
-        console.log(data);
+        setText(data.text);
     };
 
     useEffect(() => {
@@ -209,7 +211,8 @@ const HeroInfo = memo(() => {
                 <div className={styles.sectionHeading}>
                     <h2 className={styles.listHeading}>Гайд на героя</h2>
                     <div className={styles.separator} />
-                    {isAuth && isUserAdmin && <Link to={`/guides/${id}`} className={styles.guideButton}>Создать гайд на героя</Link>}
+                    {isAuth && isUserAdmin && !text && <Link to={`/guides/${id}`} className={styles.guideButton}>Создать гайд на героя</Link>}
+                    {text ? <ReactMarkdown className={styles.mdn}>{text}</ReactMarkdown> : null}
                 </div>
             </div>
         </Layout>
