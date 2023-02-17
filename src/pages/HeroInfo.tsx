@@ -2,7 +2,7 @@ import React, {
     memo, useEffect, useMemo, useState,
 } from 'react';
 import { withErrorBoundary } from 'react-error-boundary';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Layout from '../components/Layout/Layout';
 import Header from '../components/Header/Header';
@@ -17,6 +17,8 @@ import FallbackLoader from '../components/FallbackLoader/FallbackLoader';
 import { HeroStats } from '../components/HeroStats/HeroStats';
 import { Item } from '../components/MatchTableItem/MatchTableItem';
 import { HeroItems } from '../components/HeroItems/HeroItems';
+import { useAppSelector } from '../assets/hooks';
+import { selectIsAuth, selectName } from '../redux/slices/auth';
 
 const HeroInfo = memo(() => {
     const heroes = useGetHeroes();
@@ -24,6 +26,10 @@ const HeroInfo = memo(() => {
     const [visible, setVisible] = useState(false);
     const [items, setItems] = useState<Item[]>();
     const [heroPopularItems, setHeroPopularItems] = useState<HeroPopularItems>();
+    const isAuth = useAppSelector(selectIsAuth);
+    const user = useAppSelector(selectName);
+
+    const isUserAdmin = isAuth && (user.fullName === 'admin');
 
     const hero = useMemo(() => {
         if (heroes) {
@@ -196,6 +202,7 @@ const HeroInfo = memo(() => {
                 <div className={styles.sectionHeading}>
                     <h2 className={styles.listHeading}>Гайд на героя</h2>
                     <div className={styles.separator} />
+                    {isAuth && isUserAdmin && <Link to={`/guides/${id}`} className={styles.guideButton}>Создать гайд на героя</Link>}
                 </div>
             </div>
         </Layout>

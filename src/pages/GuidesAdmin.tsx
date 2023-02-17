@@ -48,7 +48,7 @@ const GuidesAdmin = () => {
     }, []);
 
     const fetchArticle = async () => {
-        const { data } = await axios.get(`/posts/${id}`);
+        const { data } = await axios.get(`/guides/${id}`);
         setText(data.text);
         setTitle(data.title);
     };
@@ -59,29 +59,16 @@ const GuidesAdmin = () => {
         }
     }, []);
 
-    const handleChangeFile = async (evt: React.ChangeEvent<HTMLInputElement>) => {
-        try {
-            if (!evt.target.files) return;
-            const formData = new FormData();
-            const file = evt.target.files[0];
-            formData.append('image', file);
-            const { data } = await axios.post('/upload', formData);
-        } catch (err) {
-            console.warn(err);
-            alert('Не удалось загрузить файл');
-        }
-    };
-
     const onSubmit = async () => {
         try {
             setIsLoading(true);
 
             const fields = {
                 title,
-                tags: '',
                 text,
+                heroId: id,
             };
-            const { data } = await axios.post('/posts', fields);
+            const { data } = await axios.post('/guides', fields);
             setTitle('');
             setText('');
             setIsLoading(false);
@@ -95,7 +82,7 @@ const GuidesAdmin = () => {
     };
 
     useEffect(() => {
-        if (!isUserAdmin || !isHeroIdExist) {
+        if (!isUserAdmin) {
             navigate('/');
         }
     }, [isUserAdmin]);
@@ -121,17 +108,6 @@ const GuidesAdmin = () => {
             <Header />
             <WhiteHeading />
             <div className={styles.editorContainer}>
-                <div className={styles.inputWrapper}>
-                    <input
-                        type="file"
-                        ref={inputFileRef}
-                        name="input__file"
-                        id="input__file"
-                        onChange={handleChangeFile}
-                        className={styles.inputFile}
-                    />
-                    <label htmlFor="input__file" className={styles.inputFileLabel}>Выберите превью</label>
-                </div>
                 <input type="text" className={styles.titleInput} value={title} onChange={handleTitleChange} placeholder="Заголовок статьи..." />
                 <SimpleMDE className={styles.editor} value={text} onChange={onChange} options={options} />
                 <button

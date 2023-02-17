@@ -141,6 +141,17 @@
     align-self: flex-start;
 }
 
+.guideButton {
+    border: 1px solid red;
+    padding: 20px;
+    color: var(--main);
+    text-decoration: none;
+}
+
+.guideButton:hover {
+    opacity: .6;
+}
+
 @media screen and (max-width: 849px) {
     .itemsContainer {
         width: 100%;
