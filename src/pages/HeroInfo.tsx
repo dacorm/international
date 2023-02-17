@@ -212,6 +212,8 @@ const HeroInfo = memo(() => {
                     <h2 className={styles.listHeading}>Гайд на героя</h2>
                     <div className={styles.separator} />
                     {isAuth && isUserAdmin && !text && <Link to={`/guides/${id}`} className={styles.guideButton}>Создать гайд на героя</Link>}
+                </div>
+                <div className={styles.articleMainText}>
                     {text ? <ReactMarkdown className={styles.mdn}>{text}</ReactMarkdown> : null}
                 </div>
             </div>

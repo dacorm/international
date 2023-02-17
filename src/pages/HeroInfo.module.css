@@ -152,6 +152,48 @@
     opacity: .6;
 }
 
+.articleMainText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 870px;
+    align-self: center;
+    color: var(--font-secondary);
+    margin-bottom: 25px;
+}
+
+@media screen and (max-width: 767px) {
+    .articleMainText {
+        max-width: 350px;
+    }
+}
+
+@media screen and (max-width: 374px) {
+    .articleMainText {
+        max-width: 310px;
+    }
+}
+
+.mdn {
+    width: 100%;
+    background-color: var(--main);
+    padding: 10px;
+    color: #363636;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.mdn img {
+    width: 100%;
+    max-width: 800px;
+    object-fit: cover;
+    display: flex;
+    align-self: center;
+    margin: 0 auto;
+}
+
 @media screen and (max-width: 849px) {
     .itemsContainer {
         width: 100%;
