@@ -56,8 +56,6 @@ const Header = memo(() => {
         }
     };
 
-    console.log(new Date().getMonth());
-
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             const _event = event as PopupClick;
