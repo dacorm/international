@@ -38,8 +38,7 @@ const GuidesAdmin = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
     const { id } = useParams();
-
-    const isHeroIdExist = Boolean(id);
+    const [isEdit, setIsEdit] = useState(false);
 
     const isUserAdmin = isAuth && (user.fullName === 'admin');
 
@@ -51,6 +50,9 @@ const GuidesAdmin = () => {
         const { data } = await axios.get(`/guides/${id}`);
         setText(data.text);
         setTitle(data.title);
+        if (data.text.length) {
+            setIsEdit(true);
+        }
     };
 
     useEffect(() => {
@@ -68,7 +70,7 @@ const GuidesAdmin = () => {
                 text,
                 heroId: Number(id),
             };
-            const { data } = await axios.post('/guides', fields);
+            const { data } = isEdit ? await axios.patch(`/guides/${id}`, fields) : await axios.post('/guides', fields);
             setTitle('');
             setText('');
             setIsLoading(false);

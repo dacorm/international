@@ -27,7 +27,7 @@ const HeroInfo = memo(() => {
     const { id } = useParams();
     const [visible, setVisible] = useState(false);
     const [items, setItems] = useState<Item[]>();
-    const [text, setText] = useState();
+    const [text, setText] = useState<string>('');
     const [heroPopularItems, setHeroPopularItems] = useState<HeroPopularItems>();
     const isAuth = useAppSelector(selectIsAuth);
     const user = useAppSelector(selectName);
@@ -58,13 +58,21 @@ const HeroInfo = memo(() => {
     };
 
     const fetchItems = async () => {
-        const { data } = await axios.get('https://api.opendota.com/api/constants/items?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96');
-        setItems(data);
+        try {
+            const { data } = await axios.get('https://api.opendota.com/api/constants/items?api_key=de6dcb55-631f-474f-9c19-f98d5d016e96');
+            setItems(data);
+        } catch (e) {
+            console.warn(e);
+        }
     };
 
     const fetchGuide = async () => {
-        const { data } = await customAxios.get(`/guides/${id}`);
-        setText(data.text);
+        try {
+            const { data } = await customAxios.get(`/guides/${id}`);
+            setText(data.text);
+        } catch (e) {
+            console.warn(e);
+        }
     };
 
     useEffect(() => {
@@ -145,6 +153,15 @@ const HeroInfo = memo(() => {
         return res;
     }, [items, heroPopularItems]);
 
+    const handleDeleteArticle = async () => {
+        try {
+            const { data } = await customAxios.delete(`guides/${id}`);
+            setText('');
+        } catch (e) {
+            console.warn(e);
+        }
+    };
+
     const checkImageValidity = (hero: Heroes) => {
         if (hero) {
             return `url(https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${nameConverter(hero.localized_name)}.png?)`;
@@ -211,6 +228,12 @@ const HeroInfo = memo(() => {
                 <div className={styles.sectionHeading}>
                     <h2 className={styles.listHeading}>Гайд на героя</h2>
                     <div className={styles.separator} />
+                    {isAuth && isUserAdmin && text && (
+                        <div className={styles.buttonsContainer}>
+                            <Link to={`/guides/${id}`} className={styles.guideButton}>Редактировать гайд на героя</Link>
+                            <button type="button" onClick={handleDeleteArticle} className={styles.guideButton}>Удалить гайд на героя</button>
+                        </div>
+                    )}
                     {isAuth && isUserAdmin && !text && <Link to={`/guides/${id}`} className={styles.guideButton}>Создать гайд на героя</Link>}
                 </div>
                 <div className={styles.articleMainText}>

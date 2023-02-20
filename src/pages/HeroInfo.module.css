@@ -141,11 +141,19 @@
     align-self: flex-start;
 }
 
+.buttonsContainer {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
 .guideButton {
     border: 1px solid red;
     padding: 20px;
     color: var(--main);
     text-decoration: none;
+    background: transparent;
+    cursor: pointer;
 }
 
 .guideButton:hover {
