@@ -118,7 +118,7 @@ const GuidesAdmin = () => {
                     disabled={isLoading}
                     className={`${styles.submitButton} ${isLoading ? styles.submitButtonDisabled : ''}`}
                 >
-                    Опубликовать статью
+                    Опубликовать гайд
                 </button>
             </div>
             <Footer />
